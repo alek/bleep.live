@@ -2,6 +2,8 @@
 	Main controller - list modules, receive midi events, dispatch broadcast channel
 */
 
+import { modules } from './modulelib.js'
+
 var stateUpdateEnabled = true
 var clockCount = 0
 
@@ -77,6 +79,16 @@ $( document ).ready(function() {
 		$(".status-text").text("running")
 	});
 
-	//bc.postMessage(JSON.stringify({'control': 'set-module', 'name': 'BrandGraph2'}))
+	// list available modules
+	for (var moduleName in modules) {
+		$("#module-list").append('<li class="module-select">' + moduleName + '</li>')
+	}
+
+	// module switch handler
+	$(".module-select").click(function() {
+		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
+		bc.postMessage(JSON.stringify({'control': 'set-module', 'name': $(this).text()}))		
+		$(".active-module-name").text($(this).text())
+	});
 
 })

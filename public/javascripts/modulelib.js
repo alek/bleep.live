@@ -67,7 +67,8 @@ import BrandGraph2 from './modules/brandgraph2.js'
 
 var modules = {
 	BrandGraph,
-	BrandGraph2
+	BrandGraph2,
+	Deconstruction3
 }
 
 export { modules };

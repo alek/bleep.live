@@ -362,7 +362,16 @@ li {
 	margin-left: 5px;
 }
 
-.module-name {
+.active-module-name {
 	font-weight: 100;
 	font-size: 21px;	
+}
+
+#module-list li {
+	font-weight: 100;
+	font-size: 12px;
+}
+
+.module-select {
+	cursor: pointer;
 }
