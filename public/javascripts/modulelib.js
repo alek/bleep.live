@@ -65,10 +65,13 @@ import HighDensity from './modules/highdensity.js'
 import BrandGraph from './modules/brandgraph.js'
 import BrandGraph2 from './modules/brandgraph2.js'
 
+import PCB1 from './modules/piksel/pcb1.js'
+
 var modules = {
 	BrandGraph,
 	BrandGraph2,
-	Deconstruction3
+	Deconstruction3,
+	PCB1
 }
 
 export { modules };

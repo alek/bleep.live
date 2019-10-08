@@ -26,6 +26,8 @@ $( document ).ready(function() {
 	var bc = new BroadcastChannel('modular_manifestation')
 	bc.postMessage('master_token')	
 
+	$(".active-module-name").text(Object.keys(modules)[Object.keys(modules).length - 1])
+
 	// TODO: add socket disconnect logic
 
 	// websocket setup

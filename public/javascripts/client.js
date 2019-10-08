@@ -1,7 +1,7 @@
 import { modules } from './modulelib.js'
 
-// var moduleQueue = []
-var moduleQueue = [ new modules["BrandGraph"]() ]
+// pick the last module by default
+var moduleQueue = [ new modules[Object.keys(modules)[Object.keys(modules).length - 1]]() ]
 
 var stateUpdateEnabled = true
 var clockCount = 0
