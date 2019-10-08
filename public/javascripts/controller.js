@@ -30,7 +30,7 @@ $( document ).ready(function() {
 
 	// TODO: add socket disconnect logic
 
-	// websocket setup
+	// websocket setupMidiStateUpdate
 	var socket = io.connect('http://localhost:3000')
 	
 	socket.on('server', function (data) {
@@ -68,29 +68,41 @@ $( document ).ready(function() {
 	// stop / play button
 	$(".stop-button").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'stop-module'}))
-		$(this).css("background-color", "gray")
-		$(".start-button").css("background-color", "#fff")
+		$(this).css("background-color", "#f19d38")
+		$(".start-button").css("background-color", "gray")
 		$(".status-text").text("stopped")
 	});
 
 	// stop / play button
 	$(".start-button").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'start-module'}))
-		$(this).css("background-color", "gray")
-		$(".stop-button").css("background-color", "#fff")
+		$(this).css("background-color", "#f19d38")
+		$(".stop-button").css("background-color", "gray")
 		$(".status-text").text("running")
 	});
 
 	// list available modules
 	for (var moduleName in modules) {
-		$("#module-list").append('<li class="module-select">' + moduleName + '</li>')
+		$("#module-list").append('<li><span class="module-select">' + moduleName + '</span><span class="add-module">+</span></li>')
 	}
+
+	// append module to the active list
+	$(".add-module").click(function() {
+		bc.postMessage(JSON.stringify({'control': 'add-module', 'name': $(this).prev().text() }))		
+		$(".active-module-name").append(" + " + $(this).prev().text())
+	});
 
 	// module switch handler
 	$(".module-select").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
 		bc.postMessage(JSON.stringify({'control': 'set-module', 'name': $(this).text()}))		
 		$(".active-module-name").text($(this).text())
+	});
+
+	// flush handler
+	$(".reset-button").click(function() {
+		$(".active-module-name").empty()
+		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
 	});
 
 })

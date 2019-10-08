@@ -65,8 +65,8 @@ class Deconstruction3 extends Module {
 
 		this.gen()
 
-		window.setInterval(this.gen, 50)
-		window.setInterval(this.reaper, 50)
+		this.intervals.push(window.setInterval(this.gen, 50))
+		this.intervals.push(window.setInterval(this.reaper, 50))
 
 	}
 

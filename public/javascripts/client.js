@@ -111,7 +111,11 @@ $( document ).ready(function() {
 				} else if (data['control'] == 'set-module') {
 					moduleQueue = [ new modules[data['name']]() ]
 					initQueue()
+				} else if (data['control'] == 'add-module') {
+					moduleQueue.push(new modules[data['name']]())
+					initQueue()
 				}
+
 			}
 
 		}

@@ -10,6 +10,7 @@ class Module {
 		this.midiMappings = midiMappings
 		this.params = {}
 		this.wiring = {}
+		this.intervals = []
 		this.isActive = true
 		this.updateParamValues()
 	}
@@ -123,6 +124,11 @@ class Module {
 
 	// clear the canvas
 	clear() {
+		// disable any running interval times
+		for (var i=0; i<this.intervals.length; i++) {
+			clearInterval(this.intervals[i])
+		}
+		// empty canvas
 		$("#" + this.getDomID()).empty();
 	}
 
