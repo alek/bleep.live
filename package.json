@@ -1,0 +1,25 @@
+{
+  "name": "modular_manifestation",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.1",
+    "cookie-parser": "~1.3.5",
+    "debug": ">=2.6.9",
+    "ejs": ">=2.5.5",
+    "express": "~4.13.0",
+    "morgan": ">=1.9.1",
+    "serve-favicon": "~2.3.0",
+    "easymidi": "*",
+    "socket.io": "*",
+    "csv": "*",
+    "serialport": "*",
+    "kalmanjs": "*",
+    "request": "*",
+    "line-by-line": "*",
+    "csv-string": "*"
+  }
+}

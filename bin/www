@@ -1,0 +1,186 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('modular_manifestation:server');
+var http = require('http');
+
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const sPort = new SerialPort("/dev/tty.usbserial-DN04K3IC", { baudRate: 38400 })
+const parser = new Readline()
+sPort.pipe(parser)
+
+var easymidi = require('easymidi');
+var virtualmidi = false
+var usbSerial = true
+// var usbSerial = false
+
+var lastEvent = []
+var lastDispatched = []
+
+var midiMap = {
+  1: 10,
+  2: 74,
+  3: 71,
+  4: 76,
+  5: 77,
+  6: 93,
+  7: 73, 
+  8: 75,
+  9: 114,
+  10: 18,
+  11: 19
+}
+
+parser.on('data', function(data) {
+  var parts = data.trim().split(" ")
+  lastEvent = parts
+})
+
+// const parser = new Readline()
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+
+var KalmanFilter = require('kalmanjs')
+var filters = []
+for (var i=0; i<12; i++) {
+  filters[i] = new KalmanFilter();
+}
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+if(process.argv[2] == "--virtualmidi") {
+  console.log("Bleep.live starting in virtual midi mode - keyboard events will be mapped to MIDI CC events")
+  virtualmidi = true
+} else {
+  console.log("Bleep.live starting in external MIDI mode")
+}
+
+/**
+  * Setup midi forwarding websocket handler
+  */
+var io = require('socket.io')(server);
+
+io.on('connection', function(client) {
+    
+    client.emit('server', { hello: new Date() }); // init()
+
+    if(!virtualmidi) {
+
+      if (usbSerial) {
+
+        setInterval(function() { // poll the thing
+          for (var i=0; i<lastEvent.length; i++) {
+            if (lastEvent[i] > 0 && lastEvent[i] != lastDispatched[i]) {
+              // console.log("send: " + i + "\t" + lastEvent[i])
+               client.emit('control', { data: {
+                "channel": 0,
+                "controller": midiMap[i+1],
+                "value": Math.floor(filters[i].filter(parseInt(lastEvent[i]))),
+                // "value": parseInt(lastEvent[i]),
+                "_type": "cc"
+               } });            
+             }
+          }
+          lastDispatched = lastEvent
+        }, 50)
+
+      } else {
+        // var input = easymidi.Input(easymidi.getInputs()[0]);
+        var input = new easymidi.Input('Arturia BeatStep Pro Arturia BeatStepPro'); // to do: scan and use the first one or prompt
+
+        input.on('message', function (msg) {
+            console.log(JSON.stringify(msg))
+            console.log(msg)
+            client.emit('control', { data: msg });
+        });
+      }
+
+    } else {
+      // switch input to keyboard-based
+      client.emit('command', { input: "virtualmidi" }); // init()      
+    }
+
+});
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Piksel 2019</title>
+    <link rel='stylesheet' href='../public/stylesheets/piksel.css' />   
+    <script src="../public/javascripts/external/jquery-3.1.1.min.js"></script>
+    <script src="../public/javascripts/external/socket.io.js"></script>
+    <script src="../public/javascripts/external/perlin.js"></script>
+    <script src='../public/javascripts/lib/brandgraph.js' /></script>
+    <script src='../public/javascripts/lib/pantone.js' /></script>
+    <script src='../public/javascripts/lib/content.js' /></script>
+    <script src='../public/javascripts/lib/svg.js' /></script>
+    <script src='../public/javascripts/lib/canvas.js' /></script>
+    <script src='../public/javascripts/lib/midicontrol.js' /></script>
+    <script src='../public/javascripts/lib/utils.js' /></script>
+    <script src='../public/javascripts/lib/time.js' /></script>
+    <script src='../public/javascripts/lib/state.js' /></script>
+    <script type="module" src='http://localhost:3000/javascripts/modulelib.js' /></script>
+    <script type="module" src='http://localhost:3000/javascripts/controller.js' /></script>
+  </head>
+
+  <body>
+
+    <div class="controller-container">
+      <h6>Event queue</h6>
+      <div id="event-queue">
+      </div>
+    </div>
+
+    <div class="controller-container">
+      <h6>System control</h6>
+      <div class="start-button"></div>
+      <div class="stop-button"></div>
+      <div class="status-text"></div>
+    </div>
+
+    <div class="controller-container">
+      <h6>Active modules</h6>
+      <div class="module-name">BrandGraph</div>
+    </div>
+
+    <div class="footer">
+      <div id="active-params">&nbsp;</div>
+    </div>
+  </body>
+
+</html>

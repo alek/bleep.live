@@ -1,0 +1,20 @@
+{
+  "name": "bleep-elektron",
+  "version": "1.0.0",
+  "description": "Bleep / Piksel.org Edition: Electron Wrapper",
+  "main": "main.js",
+  "scripts": {
+    "piksel": "electron ."
+  },
+  "repository": "https://github.com/alek/bleep",
+  "keywords": [
+    "Electron",
+    "MIDI",
+    "SVG"
+  ],
+  "author": "alek",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^6.0.11"
+  }
+}
