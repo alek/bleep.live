@@ -58,6 +58,9 @@ $( document ).ready(function() {
 	var bc = new BroadcastChannel('modular_manifestation')
 
 	bc.onmessage = function (ev) { 
+		
+		// console.log(ev.timeStamp) // ev.timeStamp is the key to the recording facility
+
 		if (ev.data == 'master_token') {
 			// ignore
 		} else {

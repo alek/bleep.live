@@ -135,4 +135,18 @@ $( document ).ready(function() {
 		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))		
 	});
 
+	// randomizer
+
+	// var al = setInterval(function() {
+	// 	var eventEntry = {
+	// 		"data": {
+	// 			"_type": "cc",
+	// 			"controller": (Math.random() < 0.5) ? 74 : ((Math.random() < 0.5) ? 71 : 10),
+	// 			"value": Math.floor(Math.random()*65), 
+	// 			"knob": "cc_1"
+	// 		}
+	// 	}
+	// 	bc.postMessage(JSON.stringify({'midi': eventEntry }))		
+	// }, 50)
+
 })
