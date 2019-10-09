@@ -64,7 +64,7 @@ var updateEventBox = function(data) {
 //
 $( document ).ready(function() {
 
-	var bc = new BroadcastChannel('modular_manifestation')
+	var bc = new BroadcastChannel('piksel_control')
 	bc.postMessage('master_token')	
 
 	$(".active-module-name").text(Object.keys(modules)[Object.keys(modules).length - 1])
@@ -135,18 +135,14 @@ $( document ).ready(function() {
 		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))		
 	});
 
-	// randomizer
+	// init driver
 
-	// var al = setInterval(function() {
-	// 	var eventEntry = {
-	// 		"data": {
-	// 			"_type": "cc",
-	// 			"controller": (Math.random() < 0.5) ? 74 : ((Math.random() < 0.5) ? 71 : 10),
-	// 			"value": Math.floor(Math.random()*65), 
-	// 			"knob": "cc_1"
-	// 		}
-	// 	}
-	// 	bc.postMessage(JSON.stringify({'midi': eventEntry }))		
-	// }, 50)
+	var worker = new Worker('../public/javascripts/drivers/midi-driver.js');
+
+	worker.addEventListener('message', function(e) {
+	  // console.log('started: ' + e.data)
+	});
+
+	worker.postMessage('start');
 
 })

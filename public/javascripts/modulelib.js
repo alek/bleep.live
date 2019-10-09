@@ -66,6 +66,7 @@ import BrandGraph from './modules/brandgraph.js'
 import BrandGraph2 from './modules/brandgraph2.js'
 
 import PCB1 from './modules/piksel/pcb1.js'
+import Benchmark from './modules/piksel/benchmark.js'
 
 var modules = {
 	BrandGraph,
