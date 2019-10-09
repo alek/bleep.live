@@ -6,4 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('brandgraph', { });
 });
 
+router.get('/client', function(req, res, next) {
+  res.render('client', { });
+});
+
+router.get('/controller', function(req, res, next) {
+  res.render('controller', { });
+});
+
 module.exports = router;

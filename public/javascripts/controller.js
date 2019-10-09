@@ -45,7 +45,6 @@ var handleVirtualMidiEvent = function(keyCode, bc) {
 	}
 }
 
-
 var updateEventBox = function(data) {
 	var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
 	
