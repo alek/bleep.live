@@ -368,6 +368,25 @@ li {
 	left: 44px;
 }
 
+.refresh-button {
+	width: 0px;
+	height: 0px;
+	border-left: 15px solid transparent;
+  	border-right: 15px solid transparent;
+    border-top: 20px solid #8b30a6;
+
+	min-height: 5px;
+	/*background: #8b30a6;*/
+	border-radius: 10%;
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.button:hover {
+	opacity: 0.9;
+}
+
 .start-button {
 	background: #f19d38;
 	width: 30px;
@@ -387,10 +406,11 @@ li {
 }
 
 .status-text {
-	display: inline-block;
+	/*display: inline-block;*/
 	font-weight: 100;
 	line-height: 30px;
-	margin-left: 5px;
+	/*margin-left: 5px;*/
+	font-size: 12px;
 }
 
 .active-module-name {

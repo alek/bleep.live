@@ -12,10 +12,50 @@ var clockCount = 0
 //
 var setupVirtualMidiUpdateHandler = function(channel) {
 	$("body").keydown(function(e) {
-		if (isMaster) {
-			channel.postMessage(JSON.stringify({'virtualmidi': e.keyCode})) 	// + send to broadcast channel
-		}
+		handleVirtualMidiEvent(e.keyCode, channel)
 	});
+}
+
+var handleVirtualMidiEvent = function(keyCode, bc) {
+	var midi = MidiController.getInstance();
+	var valueMap = midi.getKeyboardMap();
+	if (keyCode in valueMap) {
+		var knob = valueMap[keyCode][0]
+		var direction = valueMap[keyCode][1]
+		if (midi.getValue(knob) == null) {
+			midi.setValue(knob, 1)
+		} else {
+			if (direction == "up") {
+				midi.setValue(knob, Math.min(midi.getValue(knob) + 1, 128))	
+			} else {
+				midi.setValue(knob, Math.max(midi.getValue(knob) - 1, 0))	
+			}
+		}
+
+		bc.postMessage(JSON.stringify({'midi': {
+			"data": {
+				"_type": "cc",
+				"controller": midi.getMidiChannel(knob),
+				"value": midi.getValue(knob, 0), 
+				"knob": knob
+			}
+		}}))		
+	}
+}
+
+
+var updateEventBox = function(data) {
+	var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
+	
+	if ($("#" + key).length) {
+		$("#" + key).html('<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>')
+	} else {
+		$('<div/>', {
+		    id: key,
+		    "class": 'event-entry',
+		    html: '<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>'
+		}).appendTo('#event-queue');
+	}	
 }
 
 //
@@ -30,31 +70,16 @@ $( document ).ready(function() {
 
 	// TODO: add socket disconnect logic
 
-	// websocket setupMidiStateUpdate
 	var socket = io.connect('http://localhost:3000')
 	
 	socket.on('server', function (data) {
 		socket.emit('client', { time: new Date() })
-		// setupMidiStateUpdate(socket, bc)
 	})
 
 	// control change handling
 	socket.on('control', function(data) {
 
-		var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
-		
-		if ($("#" + key).length) {
-			$("#" + key).html('<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>')
-		} else {
-			$('<div/>', {
-			    id: key,
-			    "class": 'event-entry',
-			    html: '<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>'
-			}).appendTo('#event-queue');
-		}
-
-		// $("#event-queue").append(data['data']['value'])
-		// $("#event-queue").append(JSON.stringify(data))
+		updateEventBox(data)
 		bc.postMessage(JSON.stringify({'midi': data}))		
 	});	
 
@@ -103,6 +128,10 @@ $( document ).ready(function() {
 	$(".reset-button").click(function() {
 		$(".active-module-name").empty()
 		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
+	});
+
+	$(".refresh-button").click(function() {
+		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))		
 	});
 
 })

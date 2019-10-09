@@ -22,15 +22,12 @@ var initQueue = function() {
 	for (var i=0; i<moduleQueue.length; i++) {
 		moduleQueue[i].render();
 	}
-
-	// activeModule.render();
 }
 
 var updateState = function() {
 	if (stateUpdateEnabled) {
 		var nextModule = Math.floor(Math.random()*moduleQueue.length)
 		moduleQueue[nextModule].update()
-		// activeModule = moduleQueue[nextModule]
 	}
 }
 
@@ -44,10 +41,6 @@ var handleMidiUpdate = function(data) {
 				moduleQueue[i].update(data["data"])
 			}		
 		}
-		// if (activeModule.isActive) {
-		// 	activeModule.update(data["data"])
-		// }
-		// activeModule.render()
 	} else if (data["data"]["_type"] == "clock") {	// clock triggers state update
 		if (clockCount++%5 == 0) { // clock divider
  			updateState();
@@ -55,28 +48,6 @@ var handleMidiUpdate = function(data) {
 	}	
 }
 
-var handleVirtualMidiEvent = function(keyCode) {
-	// console.log(keyCode)
-	var midi = MidiController.getInstance();
-	var valueMap = midi.getKeyboardMap();
-	if (keyCode in valueMap) {
-		var knob = valueMap[keyCode][0]
-		var direction = valueMap[keyCode][1]
-		if (midi.getValue(knob) == null) {
-			midi.setValue(knob, 1)
-		} else {
-			if (direction == "up") {
-				midi.setValue(knob, Math.min(midi.getValue(knob) + 1, 128))	
-			} else {
-				midi.setValue(knob, Math.max(midi.getValue(knob) - 1, 0))	
-			}
-		}
-		// activeModule.update({ controller: midi.getMidiChannel(knob), value: midi.getValue(knob, 0), knob: knob})
-		for (var i=0; i<moduleQueue.length; i++) {
-			moduleQueue[i].update({ controller: midi.getMidiChannel(knob), value: midi.getValue(knob, 0), knob: knob})
-		}
-	}
-}
 
 //
 // Client renderer is broadcast channel-driven
@@ -91,10 +62,10 @@ $( document ).ready(function() {
 			// ignore
 		} else {
 			var data = JSON.parse(ev.data)
+			// midi messages
 			if (data['midi'] != null) {
 				handleMidiUpdate(data['midi'])
-			} else if (data['virtualmidi'] != null) {
-				handleVirtualMidiEvent(data['virtualmidi'])
+			// control panel commands
 			} else if (data['control'] != null) {
 				if (data['control'] == 'start-module') {
 					for (var i=0; i<moduleQueue.length; i++) {
@@ -108,6 +79,8 @@ $( document ).ready(function() {
 					for (var i=0; i<moduleQueue.length; i++) {
 						moduleQueue[i].clear()
 					}
+				} else if (data['control'] == 'refresh-canvas') {
+					location.reload()
 				} else if (data['control'] == 'set-module') {
 					moduleQueue = [ new modules[data['name']]() ]
 					initQueue()
