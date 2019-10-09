@@ -31,15 +31,17 @@ var handleVirtualMidiEvent = function(keyCode, bc) {
 				midi.setValue(knob, Math.max(midi.getValue(knob) - 1, 0))	
 			}
 		}
-
-		bc.postMessage(JSON.stringify({'midi': {
+		var eventEntry = {
 			"data": {
 				"_type": "cc",
 				"controller": midi.getMidiChannel(knob),
 				"value": midi.getValue(knob, 0), 
 				"knob": knob
 			}
-		}}))		
+		}
+
+		bc.postMessage(JSON.stringify({'midi': eventEntry }))		
+		updateEventBox(eventEntry)
 	}
 }
 
