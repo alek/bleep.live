@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Piksel 2019</title>
+    <link rel='stylesheet' href='../stylesheets/piksel.css' />   
+    <script src="../javascripts/external/jquery-3.1.1.min.js"></script>
+    <script src="../javascripts/external/socket.io.js"></script>
+    <script src="../javascripts/external/perlin.js"></script>
+    <script src='../javascripts/lib/brandgraph.js' /></script>
+    <script src='../javascripts/lib/pantone.js' /></script>
+    <script src='../javascripts/lib/content.js' /></script>
+    <script src='../javascripts/lib/svg.js' /></script>
+    <script src='../javascripts/lib/canvas.js' /></script>
+    <script src='../javascripts/lib/midicontrol.js' /></script>
+    <script src='../javascripts/lib/utils.js' /></script>
+    <script src='../javascripts/lib/time.js' /></script>
+    <script src='../javascripts/lib/state.js' /></script>
+    <script type="module" src='../javascripts/modulelib.js' /></script>
+    <script type="module" src='../javascripts/controller.js' /></script>
+  </head>
+
+  <body>
+
+    <div class="controller-container">
+      <h6>Event queue</h6>
+      <div id="event-queue">
+      </div>
+    </div>
+
+    <div class="controller-container">
+      <h6>System control</h6>
+      <div class="button reset-button"></div>
+      <div class="button refresh-button"></div>
+      <div class="button start-button"></div>
+      <div class="button stop-button"></div>
+      <div class="status-text">running</div>
+    </div>
+
+    <div class="controller-container">
+      <h6>Active modules</h6>
+      <div class="active-module-name"></div>
+    </div>
+
+    <div class="controller-container">
+      <h6>Available modules</h6>
+      <ul id="module-list">
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div id="active-params">&nbsp;</div>
+    </div>
+  </body>
+
+</html>
