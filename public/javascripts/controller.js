@@ -134,6 +134,10 @@ $( document ).ready(function() {
 		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))		
 	});
 
+	$(".export-button").click(function() {
+		bc.postMessage(JSON.stringify({'control': 'export-canvas'}))		
+	});
+
 	// init driver
 
 	var midiDriver = new Worker('../public/javascripts/drivers/midi-driver.js')

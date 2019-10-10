@@ -1,4 +1,6 @@
 import { modules } from './modulelib.js'
+import { saveAs } from './external/FileSaver.js';
+
 
 // pick the last module by default
 var moduleQueue = [ new modules[Object.keys(modules)[Object.keys(modules).length - 1]]() ]
@@ -84,6 +86,10 @@ $( document ).ready(function() {
 					}
 				} else if (data['control'] == 'refresh-canvas') {
 					location.reload()
+				} else if (data['control'] == 'export-canvas') {
+					var blob = new Blob(['<svg width="' + xmax + '" height="' + ymax + '">' 
+										 + $("svg").html() + '</svg>'], {type: "text/plain;charset=utf-8"});
+					saveAs(blob, "bleep.svg");
 				} else if (data['control'] == 'set-module') {
 					moduleQueue = [ new modules[data['name']]() ]
 					initQueue()
