@@ -79,7 +79,6 @@ $( document ).ready(function() {
 
 	// control change handling
 	socket.on('control', function(data) {
-
 		updateEventBox(data)
 		bc.postMessage(JSON.stringify({'midi': data}))		
 	});	
@@ -137,12 +136,23 @@ $( document ).ready(function() {
 
 	// init driver
 
-	var worker = new Worker('../public/javascripts/drivers/midi-driver.js');
-
-	worker.addEventListener('message', function(e) {
+	var midiDriver = new Worker('../public/javascripts/drivers/midi-driver.js')
+	midiDriver.addEventListener('message', function(e) {
 	  // console.log('started: ' + e.data)
 	});
+	midiDriver.postMessage('start');
 
-	worker.postMessage('start');
+	var busDriver = new Worker('../public/javascripts/drivers/bus-driver.js')
+
+	var busCounter = 0
+	busDriver.addEventListener('message', function(ev) {
+		var entry = JSON.parse(ev.data)
+		for (var i=0; i<4; i++) {
+			$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
+		}
+		$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
+	});
+
+	busDriver.postMessage('start')
 
 })

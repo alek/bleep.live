@@ -49,7 +49,7 @@ body {
 /*	background: #fff;*/
 /*background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);*/
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 /*.container {
@@ -323,7 +323,7 @@ li {
 
 .controller-container {
 	margin: 30px;
-	width: 30%;
+	width: 50%;
 }
 
 .controller-container h6 {
@@ -332,10 +332,18 @@ li {
 
 #event-queue {
 	display: grid;
-	grid-template-columns: 100px 100px 100px auto;
+	grid-template-columns: 75px 75px 75px 75px;
+	grid-row-gap: 5px;
+	height: 60px;
 }
 
 .event-entry {
+	font-size: 12px;
+	font-weight: 100;
+}
+
+.event-entry h1 {
+	font-size: 21px;
 }
 
 .reset-button {
@@ -422,6 +430,7 @@ li {
 	font-weight: 100;
 	font-size: 12px;
 	margin: 0px;
+	width: 80%;
 }
 
 .module-select {
@@ -454,4 +463,50 @@ li:hover .add-module {
 	padding-left: 5px;
 	padding-right: 5px;
 	text-align: center;
+}
+
+#nav-panel {
+	display: grid;
+	grid-template-columns: 50% auto;
+}
+
+#bus-activity {
+	font-size: 12px;
+	width: 140%;
+}
+
+.event-container {
+	font-family: 'PT Mono', sans-serif;
+	line-height: 12px;
+	font-size: 8px;
+	background: #1e1e1d;
+	min-height: 12px;
+	max-height: 12px;
+	overflow: hidden;
+	border: 1px solid #000;
+	padding-left: 5px;
+	margin-left: -5px;
+}
+
+.record-button {
+	background: red;
+	margin-top: 15px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.record-button:hover {
+	background-color: rgba(235, 50, 35, 0.5)
+}
+
+.record-title {
+	font-size: 12px;
+	font-weight: 100;
+	color: gray;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-left: 2px;
 }
