@@ -67,12 +67,14 @@ import BrandGraph2 from './modules/brandgraph2.js'
 
 import PCB1 from './modules/piksel/pcb1.js'
 import Benchmark from './modules/piksel/benchmark.js'
+import KPunk1 from './modules/piksel/kpunk1.js'
 
 var modules = {
 	BrandGraph,
 	BrandGraph2,
 	Deconstruction3,
-	PCB1
+	PCB1,
+	KPunk1
 }
 
 export { modules };

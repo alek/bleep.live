@@ -12,6 +12,6 @@ self.addEventListener('message', function(e) {
 				}
 			}
 			bc.postMessage(JSON.stringify({'midi': eventEntry }))		
-		}, 100);
+		}, 10);
 	}
 });

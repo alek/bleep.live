@@ -138,13 +138,17 @@ $( document ).ready(function() {
 		bc.postMessage(JSON.stringify({'control': 'export-canvas'}))		
 	});
 
-	// init driver
+
+	// init midi driver
 
 	var midiDriver = new Worker('../public/javascripts/drivers/midi-driver.js')
 	midiDriver.addEventListener('message', function(e) {
 	  // console.log('started: ' + e.data)
 	});
 	midiDriver.postMessage('start');
+
+
+	// render bus queue
 
 	var busDriver = new Worker('../public/javascripts/drivers/bus-driver.js')
 
@@ -158,5 +162,22 @@ $( document ).ready(function() {
 	});
 
 	busDriver.postMessage('start')
+
+	// start bus recorder
+
+	$(".record-button").click(function() {
+		if (!$(this).data('active')) {
+			$(this).css("background-color", "gray")
+
+			var midiDriver = new Worker('../public/javascripts/drivers/bus-recorder.js')
+			// midiDriver.addEventListener('message', function(e) {
+		 //  		// console.log('started: ' + e.data)
+			// });
+			midiDriver.postMessage('start');
+		} else {
+			$(this).css("background-color", "red")
+		}
+	});
+
 
 })
