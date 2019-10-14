@@ -29,6 +29,7 @@ class KPunk1 extends Module {
 	}	
 
 	renderField(matrix, r)	{
+		var isInitialized = !!document.getElementById("0:0") // check if init states already existis in the DOM
 		var dim = matrix.size()
 		for (var i=0; i<dim[0]; i++) {
 			for (var j=0; j<dim[1]; j++) {
@@ -36,23 +37,14 @@ class KPunk1 extends Module {
 				var coord = getGridCoordinates([i, j], dim[0], dim[1], xmax, ymax) 
 				var radAlpha1 = -angle * Math.PI / 180
 				var radAlpha2 = (180-angle)%360 * Math.PI / 180
-				if (this.matrixCache == null) { // init				
+				if (this.matrixCache == null && !isInitialized) { // init				
 					drawLine([r/2*Math.cos(radAlpha1) + coord[0], r/2*Math.sin(radAlpha1) + coord[1]], 
 							 [r/2*Math.cos(radAlpha2) + coord[0], r/2*Math.sin(radAlpha2) + coord[1]],
-							  "#fff", "1px", this.getDomID(), i + ":" + j)
+							  "#fff", Math.floor(Math.random()*10) + "px", this.getDomID(), i + ":" + j)
 
-				} else if ((angle != this.matrixCache.get([i,j]))) {	// update angle if changed
+				} else if (this.matrixCache != null && angle != this.matrixCache.get([i,j])) {	// update angle if changed
 					var el = document.getElementById(i + ":" + j)
 					el.setAttribute("transform", "rotate(" + Math.random()*360 + "," + coord[0] + "," + coord[1] + ")")
-					// el.setAttribute("rotate", "(" + angle + ",0,0)")
-					// console.log(el)
-					//el["transform"]["baseVal"][0]["angle"] = angle
-					// hack
-					// el.remove()
-					// drawLine([r/2*Math.cos(radAlpha1) + coord[0], r/2*Math.sin(radAlpha1) + coord[1]], 
-					// 		 [r/2*Math.cos(radAlpha2) + coord[0], r/2*Math.sin(radAlpha2) + coord[1]],
-					// 		  "#fff", "1px", this.getDomID(), i + ":" + j)
-
 				}
 			}
 		}
@@ -73,12 +65,12 @@ class KPunk1 extends Module {
 	render() {	
 		var dim = this.matrix.size()
 
-		this.ballCoord[0] = this.ballCoord[0] + 2*Math.cos(-this.ballAngle * Math.PI / 180)
-		this.ballCoord[1] = this.ballCoord[1] + 2*Math.sin(-this.ballAngle * Math.PI / 180)
+		this.ballCoord[0] = this.ballCoord[0] + 10*Math.cos(-this.ballAngle * Math.PI / 180)
+		this.ballCoord[1] = this.ballCoord[1] + 10*Math.sin(-this.ballAngle * Math.PI / 180)
 
-		// if (Math.random() < 0.1) {
-		// 	this.ballAngle = Math.floor(Math.random()*360)
-		// }
+		if (Math.random() < 0.1) {
+			this.ballAngle = Math.floor(Math.random()*360)
+		}
 
 		if (this.edgeXHit(this.ballCoord)) {
 			this.ballAngle = (180-this.ballAngle)
@@ -92,7 +84,7 @@ class KPunk1 extends Module {
 			this.matrix.set([Math.floor(this.ballCoord[0]/(xmax/dim[0])),Math.floor(this.ballCoord[1]/(ymax/dim[1]))], Math.random()*360)
 		}
 
-		this.renderField(this.matrix, 20)
+		this.renderField(this.matrix, 30)
 		this.matrixCache = math.matrix(this.matrix)
 
 
