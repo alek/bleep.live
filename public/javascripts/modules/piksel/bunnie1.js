@@ -53,8 +53,8 @@ class GeneProduct {
 	}
 
 	getConnectionNodes() {
-		return [ { x: this.coord[0], y: this.coord[1] - this.height/2 },
-				 { x: this.coord[0], y: this.coord[1] + this.height/2 }
+		return [ { x: this.coord[0], y: this.coord[1] - this.height/2},
+				 { x: this.coord[0], y: this.coord[1] + this.height/2}
 			   ]
 	}
 
@@ -65,6 +65,7 @@ class ChemicalCompound {
 	constructor(domID) {
 		this.domID = domID
 		this.radius = 4
+		this.border = 2
 	}
 
 	setCoord(coord) {
@@ -78,7 +79,7 @@ class ChemicalCompound {
 			r: this.radius,
 			stroke: "#fff",
 			fill: "none",
-			style: "stroke-width:1"
+			style: "stroke-width:" + this.border
 		}, this.domID);	
 	}
 
@@ -94,8 +95,10 @@ class ChemicalCompound {
 	}
 
 	getConnectionNodes() {
-		return [ { x : this.coord[0] - this.radius/2, y : this.coord[1] },
-				 { x : this.coord[0] + this.radius/2, y : this.coord[1] }
+		return [ { x : this.coord[0], y : this.coord[1] - this.radius/2 - this.border },
+				 { x : this.coord[0] + this.radius/2 + this.border, y : this.coord[1] },
+				 { x : this.coord[0], y : this.coord[1]  + this.radius/2 + this.border},
+				 { x : this.coord[0] - this.radius/2 - this.border, y : this.coord[1] }
 		]
 	}
 }
@@ -124,13 +127,6 @@ class Bunnie1 extends Module {
 
 
 	rectOverlap(rectA, rectB) {
-		// if (rectA["left"][0] >= rectB["right"][0] || rectB["left"][0] > rectA["right"][0]) {
-		// 	return false
-		// }
-		// if (rectA["left"][1] < rectB["right"][1] || rectB["left"][1] < rectA["right"][1]) {
-		// 	return false
-		// }
-
 		if (rectA.left.x >= rectB.right.x || rectB.left.x >= rectA.right.x) {
 			return false
 		}
