@@ -1,8 +1,7 @@
 self.addEventListener('message', function(e) {
 	var bc = new BroadcastChannel('piksel_control')
 	if (e.data === 'start') {
-		self.postMessage('starting')
-		setInterval(function() {
+		intervalController = setInterval(function() {
 			var eventEntry = {
 				"data": {
 					"_type": "cc",
@@ -12,6 +11,9 @@ self.addEventListener('message', function(e) {
 				}
 			}
 			bc.postMessage(JSON.stringify({'midi': eventEntry }))		
-		}, 10);
+		}, 100);
+		self.postMessage('starting')
+	} else if (e.data == 'stop') {
+		clearInterval(intervalController)
 	}
 });

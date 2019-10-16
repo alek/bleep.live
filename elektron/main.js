@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const electron = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -9,12 +10,25 @@ let clientWindow
 
 function createWindow () {
 
+  var screenElectron = electron.screen;
+  var screen = screenElectron.getAllDisplays()[0]
+  
+  // var screenWidth = screen["bounds"].width
+  // var screenHeight = screen["bounds"].height
+
+  var screenWidth = screen["bounds"].width/2
+  var screenHeight = screen["bounds"].height/2
+
+
+  // console.log(screen)
+  console.log(screenWidth)
+
   // Create the controller browser window.
   controllerWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    x: 450,
-    y: 350,
+    width: screenWidth,
+    height: screenHeight*1.2,
+    x: 0,
+    y: 250,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -36,10 +50,10 @@ function createWindow () {
 
   // Create the controller browser window.
   clientWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    x: 1300,
-    y: 350,
+    width: screenWidth,
+    height: screenHeight*1.2,
+    x: screenWidth,
+    y: 250,
     // frame: false,
     transparent: true,
     webPreferences: {

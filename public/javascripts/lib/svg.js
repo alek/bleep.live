@@ -100,9 +100,12 @@ drawRectangle = function(coord, width, height, fill, domID) {
 		}, domID);	
 }
 
-drawLine = function(start, end, stroke, width, domID, id) {
+drawLine = function(start, end, stroke, width, domID, id, dashed) {
 	if (width == null) {
-		width = 1;
+		width = 1
+	}
+	if (dashed == null) {
+		dashed = false
 	}
 	line({
 		x1: start[0],
@@ -112,6 +115,7 @@ drawLine = function(start, end, stroke, width, domID, id) {
 		stroke: stroke,
 		"transform": "rotate(0 0 0)",
 		"stroke-width": width,
+		"stroke-dasharray": dashed ? "4 2" : "0",
 		id: (id == null) ? randomID(): id
 	}, domID);
 }

@@ -145,8 +145,17 @@ $( document ).ready(function() {
 	midiDriver.addEventListener('message', function(e) {
 	  // console.log('started: ' + e.data)
 	});
-	midiDriver.postMessage('start');
 
+	var driverRunning = false
+	$(".driver-control").click(function() {
+		if (!driverRunning) {
+ 			midiDriver.postMessage('start');
+ 			driverRunning = true
+		} else {
+			midiDriver.postMessage('stop');
+			driverRunning = false
+		}
+	})
 
 	// render bus queue
 

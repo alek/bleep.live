@@ -56,8 +56,9 @@ var getGridCoordinatesCenter = function(gridCoord, nrows, ncolumns, xmax, ymax) 
 }
 
 // get a random [x,y] coordinate pair
-var getRandomCoord = function(xmax, ymax) {
-	return [Math.floor(Math.random()*xmax), Math.floor(Math.random()*ymax)]
+var getRandomCoord = function(xmax, ymax, border) {
+	if (!border) { border = 0 }
+	return [border + Math.floor(Math.random()*(xmax-border*2)), border + Math.floor(Math.random()*(ymax-border*2))]
 }
 
 // get a random vector of [x,y] coordinates

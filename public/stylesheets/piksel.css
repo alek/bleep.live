@@ -452,6 +452,16 @@ li {
 	display: inline-block;
 }
 
+.driver-control {
+	width: 30px;
+	min-height: 30px;
+	background: #ea346b;
+	border-radius: 100%;
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
 li {
 	display: flex;
 }
