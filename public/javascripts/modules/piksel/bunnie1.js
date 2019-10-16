@@ -170,6 +170,20 @@ class Bunnie1 extends Module {
 		this.connectPoints(n1[bestMatch[0]], n2[bestMatch[1]], objA.getCenter(), objB.getCenter())
 	}
 
+	//
+	// get number of canvas objects that give object overlaps with
+	//
+	getOverlapCount(object) {
+		var overlapCount = 0
+		for (var i=0; i<this.objects.length; i++) {
+			if (this.rectOverlap(object.getBoundingBox(), this.objects[i].getBoundingBox())) {
+				overlapCount++
+			}
+		}
+		return overlapCount
+	}
+
+
 	connectPoints(p1, p2, c1, c2) {
 
 		var overlapCount = 0
@@ -195,7 +209,6 @@ class Bunnie1 extends Module {
 		}
 
 	}
-
 
 	connect(objA, objB, dashed) {
 		
@@ -223,6 +236,13 @@ class Bunnie1 extends Module {
 		for (var i=0; i<elements.length; i++) {
 			// elements[i].setCoord(getRandomCoord(xmax,ymax, 100))
 			elements[i].setCoord(getGridCoordinates(getRandomCoord(20,20,2), 20, 20, xmax, ymax))
+			for (var it=0; it<5; it++) {
+				if (this.getOverlapCount(elements[i]) == 0) {
+					break;
+				} else {
+					elements[i].setCoord(getGridCoordinates(getRandomCoord(20,20,2), 20, 20, xmax, ymax))
+				}
+			}
 			// elements[i].render()
 			this.objects.push(elements[i])
 		}
