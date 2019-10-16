@@ -65,10 +65,11 @@ class GeneProduct {
 
 
 class ChemicalCompound {
-	constructor(domID) {
+	constructor(domID, label) {
 		this.domID = domID
 		this.radius = 4
 		this.border = 2
+		this.label = label
 	}
 
 	setCoord(coord) {
@@ -85,6 +86,14 @@ class ChemicalCompound {
 			fill: "#000",
 			style: "stroke-width:" + this.border
 		}, this.domID);	
+		if (this.label) {
+			text( { 
+				x: this.coord[0] + 20,
+				y: this.coord[1] + 0,
+				"fill": "#fff",
+				"style": "font-size:12px;text-align:center;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:Helvetica;sans-serif;font-weight:100;letter-spacing:0px;"
+			}, this.label, this.domID); 
+		}
 	}
 
 	getCenter() {
@@ -141,7 +150,10 @@ class Bunnie1 extends Module {
 		return true
 	}
 
-	connectObjects(objA, objB) {
+	//
+	// find the optimal route between object's connection points
+	//
+	connectionPointRouting(objA, objB, dashed) {
 
 		var n1 = objA.getConnectionNodes()
 		var n2 = objB.getConnectionNodes()
@@ -167,7 +179,7 @@ class Bunnie1 extends Module {
 				}
 			}
 		}
-		this.connectPoints(n1[bestMatch[0]], n2[bestMatch[1]], objA.getCenter(), objB.getCenter())
+		this.connectPoints(n1[bestMatch[0]], n2[bestMatch[1]], objA.getCenter(), objB.getCenter(), dashed)
 	}
 
 	//
@@ -184,7 +196,7 @@ class Bunnie1 extends Module {
 	}
 
 
-	connectPoints(p1, p2, c1, c2) {
+	connectPoints(p1, p2, c1, c2, dashed) {
 
 		var overlapCount = 0
 		for (var i=0; i<this.objects.length; i++) {
@@ -204,15 +216,14 @@ class Bunnie1 extends Module {
 				anchor = [p2.x, p1.y]
 			}
 
-			drawLine([p1.x, p1.y], anchor, color, "1px", this.getDomID(), "")
-			drawLine(anchor, [p2.x, p2.y], color, "1px", this.getDomID(), "")
+			drawLine([p1.x, p1.y], anchor, color, "1px", this.getDomID(), "", dashed, false)
+			drawLine(anchor, [p2.x, p2.y], color, "1px", this.getDomID(), "", dashed, true)
 		}
 
 	}
 
-	connect(objA, objB, dashed) {
-		
-		// this.connectObjects(objA, objB)
+	// simple line routing
+	simpleRouting(objA, objB, dashed) {
 
 		var c1 = objA.getCenter()
 		var c2 = objB.getCenter()
@@ -220,14 +231,22 @@ class Bunnie1 extends Module {
 		var color = randomPantoneHex()
 
 		var anchor = [c1.x, c2.y]
-		if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
-			// nop
-		} else {
+		if (!(anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y)) {
 			anchor = [c2.x, c1.y]
 		}
 
-		drawLine([c1.x, c1.y], anchor, color, "1px", this.getDomID(), "")
-		drawLine(anchor, [c2.x, c2.y], color, "1px", this.getDomID(), "")
+		drawLine([c1.x, c1.y], anchor, color, "1px", this.getDomID(), "", dashed, false)
+		drawLine(anchor, [c2.x, c2.y], color, "1px", this.getDomID(), "", dashed, true)
+
+	}
+
+	connect(objA, objB, dashed) {
+		
+		// connection-point based routing
+		// this.connectionPointRouting(objA, objB,dashed)
+
+		// simple center-based routing
+		this.simpleRouting(objA, objB, dashed)
 
 	}
 
@@ -248,7 +267,7 @@ class Bunnie1 extends Module {
 		}
 		// draw connections
 		for (var i=0; i<elements.length-1; i++) {
-			this.connect(elements[i], elements[i+1])
+			this.connect(elements[i], elements[i+1], Math.random() < 0.5 ? true : false)
 		}
 		for (var i=0; i<elements.length; i++) {
 			elements[i].render()
@@ -258,17 +277,30 @@ class Bunnie1 extends Module {
 
 	render() {	
 
-		this.layout([new ChemicalCompound(this.getDomID()),
-		   			 new GeneProduct(14, "3.5.4.25", this.getDomID()),
-					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
-					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "3.5.4.12", this.getDomID()),
-					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "RIB2 ", this.getDomID()),
-					 new GeneProduct(14, "1.1.1.193", this.getDomID())
+		// this.layout([new ChemicalCompound(this.getDomID()),
+		//    			 new GeneProduct(14, "3.5.4.25", this.getDomID()),
+		// 			 new ChemicalCompound(this.getDomID(), "FAD"),
+		// 			 new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
+		// 			 new ChemicalCompound(this.getDomID()),
+		// 			 new GeneProduct(14, "3.5.4.12", this.getDomID()),
+		// 			 new ChemicalCompound(this.getDomID()),
+		// 			 new GeneProduct(14, "RIB2 ", this.getDomID()),
+		// 			 new GeneProduct(14, "1.1.1.193", this.getDomID())
 
-			])
+		// 	])
+
+		var objects = []
+		for (var i=0; i<40; i++) {
+			var rnd = Math.random()
+			if (rnd < 0.1) {
+				objects.push(new GeneProduct(14, "Purine metabolism", this.getDomID(), true))
+			} else if (rnd < 0.5) {
+				objects.push(new ChemicalCompound(this.getDomID()))
+			} else {
+				objects.push(new GeneProduct(14, "1.1.1.193", this.getDomID()))
+			}
+		}
+		this.layout(objects)
 
 	}
 
