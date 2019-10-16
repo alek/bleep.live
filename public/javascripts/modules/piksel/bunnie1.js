@@ -29,8 +29,8 @@ class GeneProduct {
 			width: this.width,
 			height: this.height,
 			stroke: "#fff",
-			fill: "none",
-			// fill: "#000",
+			// fill: "none",
+			fill: "#000",
 			rx: this.rounded ? "10" : "0",
 			style: "stroke-width:1"
 		}, this.domID);	
@@ -81,8 +81,8 @@ class ChemicalCompound {
 			cy: this.coord[1],
 			r: this.radius,
 			stroke: "#fff",
-			fill: "none",
-			// fill: "#000",
+			// fill: "none",
+			fill: "#000",
 			style: "stroke-width:" + this.border
 		}, this.domID);	
 	}
@@ -104,7 +104,6 @@ class ChemicalCompound {
 				 { x : this.coord[0], y : this.coord[1]  + this.radius/2 + this.border},
 				 { x : this.coord[0] - this.radius/2 - this.border, y : this.coord[1] }
 		]
-		// return [ { x: this.coord[0], y: this.coord[1]}]
 	}
 }
 
@@ -181,64 +180,43 @@ class Bunnie1 extends Module {
 			} 
 		}
 
-		//if (overlapCount == 0) {
+		if (overlapCount == 0) {
 			var color = randomPantoneHex()
 
 			var anchor = [p1.x, p2.y]
 			if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
-				// nop
+				// good - no change needed
 			} else {
 				anchor = [p2.x, p1.y]
 			}
 
 			drawLine([p1.x, p1.y], anchor, color, "1px", this.getDomID(), "")
 			drawLine(anchor, [p2.x, p2.y], color, "1px", this.getDomID(), "")
-		//}
+		}
 
 	}
 
 
 	connect(objA, objB, dashed) {
-
-		// this.connectPoints(n1[0], n2[1])
-		//this.connectPoints(getNearestNodes(n1, n2))
 		
-		this.connectObjects(objA, objB)
+		// this.connectObjects(objA, objB)
 
-		// var c1 = objA.getCenter()
-		// var c2 = objB.getCenter()
+		var c1 = objA.getCenter()
+		var c2 = objB.getCenter()
 
-		// var color = randomPantoneHex()
+		var color = randomPantoneHex()
 
-		// var anchor = [c1.x, c2.y]
-		// if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
-		// 	// nop
-		// } else {
-		// 	anchor = [c2.x, c1.y]
-		// }
+		var anchor = [c1.x, c2.y]
+		if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
+			// nop
+		} else {
+			anchor = [c2.x, c1.y]
+		}
 
-		// drawLine([c1.x, c1.y], anchor, color, "1px", this.getDomID(), "")
-		// drawLine(anchor, [c2.x, c2.y], color, "1px", this.getDomID(), "")
+		drawLine([c1.x, c1.y], anchor, color, "1px", this.getDomID(), "")
+		drawLine(anchor, [c2.x, c2.y], color, "1px", this.getDomID(), "")
 
-
-		// drawLine(n1[0], n2[1], "#fff", "1px", this.getDomID())
-		// var dashed = (Math.random() < 0.2) ? true : false
-
-
-		// console.log(rectOverlap({left: n1[0], rigth:  }))
-
-		// drawLine([n1[0].x, n1[0].y], [n1[0].x, n2[1].y], "#fff", "1px", this.getDomID(), "", dashed)
-		// drawLine([n1[0].x, n2[1].y], [n2[1].x, n2[1].y], "#fff", "1px", this.getDomID(), "", dashed)
 	}
-
-	// getFreeLayoutSlot(el) {
-	// 	var box = el.getBoundingBox()
-	// 	for (var i=0; i<10; i++) { // max 10 attempts
-	// 		var coord = getRandomCoord(xmax, ymax, 100)
-
-	// 	}
-	// }
-
 
 	layout(elements) {
 		// render elements
@@ -260,26 +238,14 @@ class Bunnie1 extends Module {
 
 	render() {	
 
-		// var gp = new GeneProduct(14, "3.5.4.25", this.getDomID())
-
-		// gp.setCoord([200,200])
-		// gp.render()
-
-		// var cc = new ChemicalCompound(this.getDomID())
-		// cc.setCoord([225,100])
-		// cc.render()
-
-		// this.connect(gp, cc)
-
-
 		this.layout([new ChemicalCompound(this.getDomID()),
 		   			 new GeneProduct(14, "3.5.4.25", this.getDomID()),
 					 new ChemicalCompound(this.getDomID()),
-					 // new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
-					 // new ChemicalCompound(this.getDomID()),
-					 // new GeneProduct(14, "3.5.4.12", this.getDomID()),
-					 // new ChemicalCompound(this.getDomID()),
-					 // new GeneProduct(14, "RIB2 ", this.getDomID()),
+					 new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
+					 new ChemicalCompound(this.getDomID()),
+					 new GeneProduct(14, "3.5.4.12", this.getDomID()),
+					 new ChemicalCompound(this.getDomID()),
+					 new GeneProduct(14, "RIB2 ", this.getDomID()),
 					 new GeneProduct(14, "1.1.1.193", this.getDomID())
 
 			])
