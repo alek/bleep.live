@@ -30,6 +30,7 @@ class GeneProduct {
 			height: this.height,
 			stroke: "#fff",
 			fill: "none",
+			// fill: "#000",
 			rx: this.rounded ? "10" : "0",
 			style: "stroke-width:1"
 		}, this.domID);	
@@ -42,7 +43,7 @@ class GeneProduct {
 	}
 
 	getCenter() {
-		return this.coord
+		return { x : this.coord[0], y: this.coord[1] }
 	}
 
 	getBoundingBox() {
@@ -54,7 +55,9 @@ class GeneProduct {
 
 	getConnectionNodes() {
 		return [ { x: this.coord[0], y: this.coord[1] - this.height/2},
-				 { x: this.coord[0], y: this.coord[1] + this.height/2}
+		 		 { x: this.coord[0] + this.width/2, y: this.coord[1]},
+				 { x: this.coord[0], y: this.coord[1] + this.height/2},
+				 { x: this.coord[0] - this.width/2, y: this.coord[1]}
 			   ]
 	}
 
@@ -79,12 +82,13 @@ class ChemicalCompound {
 			r: this.radius,
 			stroke: "#fff",
 			fill: "none",
+			// fill: "#000",
 			style: "stroke-width:" + this.border
 		}, this.domID);	
 	}
 
 	getCenter() {
-		return this.coord
+		return { x : this.coord[0], y: this.coord[1] }
 	}
 
 	getBoundingBox() {
@@ -100,6 +104,7 @@ class ChemicalCompound {
 				 { x : this.coord[0], y : this.coord[1]  + this.radius/2 + this.border},
 				 { x : this.coord[0] - this.radius/2 - this.border, y : this.coord[1] }
 		]
+		// return [ { x: this.coord[0], y: this.coord[1]}]
 	}
 }
 
@@ -147,18 +152,27 @@ class Bunnie1 extends Module {
 
 		for (var i=0; i<n1.length; i++) {
 			for (var j=0; j<n2.length; j++) {
-				var d = Math.sqrt(Math.pow(n2[j].x - n1[i].x,2) + Math.pow(n2[j].y - n1[i].y,2))
-				if (d < minD) {
+				
+				// minimize Eucledian distance
+				// var d = Math.sqrt(Math.pow(n2[j].x - n1[i].x,2) + Math.pow(n2[j].y - n1[i].y,2))
+
+				// minimize L1 distance
+				// var d = Math.abs(n2[j].x - n1[i].x) + Math.abs(n2[j].y - n1[i].y)
+
+				// angle-minimizing L1 distance
+				var d = Math.abs(n2[j].x - n1[i].x) + Math.abs(n2[j].y - n1[i].y) + Math.atan( Math.abs(n2[j].y - n1[i].y) / Math.abs(n2[j].x - n1[i].x) )
+
+				if (d <= minD) {
 					minD = d
 					bestMatch = [i,j]
 				}
 			}
 		}
-		this.connectPoints(n1[bestMatch[0]], n2[bestMatch[1]])
+		this.connectPoints(n1[bestMatch[0]], n2[bestMatch[1]], objA.getCenter(), objB.getCenter())
 	}
 
-	connectPoints(p1, p2) {
-		// var target = 
+	connectPoints(p1, p2, c1, c2) {
+
 		var overlapCount = 0
 		for (var i=0; i<this.objects.length; i++) {
 			if (this.rectOverlap({left: p1, right: { x: p1.x, y: p2.y}}, this.objects[i].getBoundingBox())
@@ -167,11 +181,19 @@ class Bunnie1 extends Module {
 			} 
 		}
 
-		if (overlapCount == 0) {
-			drawLine([p1.x, p1.y], [p1.x, p2.y], "#fff", "1px", this.getDomID(), "")
-			drawLine([p1.x, p2.y], [p2.x, p2.y], "#fff", "1px", this.getDomID(), "")
-			// drawLine([p1.x, p1.y], [p2.x, p2.y], "#fff", "1px", this.getDomID(), "")
-		}
+		//if (overlapCount == 0) {
+			var color = randomPantoneHex()
+
+			var anchor = [p1.x, p2.y]
+			if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
+				// nop
+			} else {
+				anchor = [p2.x, p1.y]
+			}
+
+			drawLine([p1.x, p1.y], anchor, color, "1px", this.getDomID(), "")
+			drawLine(anchor, [p2.x, p2.y], color, "1px", this.getDomID(), "")
+		//}
 
 	}
 
@@ -180,7 +202,24 @@ class Bunnie1 extends Module {
 
 		// this.connectPoints(n1[0], n2[1])
 		//this.connectPoints(getNearestNodes(n1, n2))
+		
 		this.connectObjects(objA, objB)
+
+		// var c1 = objA.getCenter()
+		// var c2 = objB.getCenter()
+
+		// var color = randomPantoneHex()
+
+		// var anchor = [c1.x, c2.y]
+		// if (anchor[0] == c1.x || anchor[0] == c2.x || anchor[1] == c1.y || anchor[1] == c2.y) {
+		// 	// nop
+		// } else {
+		// 	anchor = [c2.x, c1.y]
+		// }
+
+		// drawLine([c1.x, c1.y], anchor, color, "1px", this.getDomID(), "")
+		// drawLine(anchor, [c2.x, c2.y], color, "1px", this.getDomID(), "")
+
 
 		// drawLine(n1[0], n2[1], "#fff", "1px", this.getDomID())
 		// var dashed = (Math.random() < 0.2) ? true : false
@@ -206,12 +245,15 @@ class Bunnie1 extends Module {
 		for (var i=0; i<elements.length; i++) {
 			// elements[i].setCoord(getRandomCoord(xmax,ymax, 100))
 			elements[i].setCoord(getGridCoordinates(getRandomCoord(20,20,2), 20, 20, xmax, ymax))
-			elements[i].render()
+			// elements[i].render()
 			this.objects.push(elements[i])
 		}
 		// draw connections
 		for (var i=0; i<elements.length-1; i++) {
 			this.connect(elements[i], elements[i+1])
+		}
+		for (var i=0; i<elements.length; i++) {
+			elements[i].render()
 		}
 	}
 
@@ -233,11 +275,11 @@ class Bunnie1 extends Module {
 		this.layout([new ChemicalCompound(this.getDomID()),
 		   			 new GeneProduct(14, "3.5.4.25", this.getDomID()),
 					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
-					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "3.5.4.12", this.getDomID()),
-					 new ChemicalCompound(this.getDomID()),
-					 new GeneProduct(14, "RIB2 ", this.getDomID()),
+					 // new GeneProduct(14, "Purine metabolism", this.getDomID(), true),
+					 // new ChemicalCompound(this.getDomID()),
+					 // new GeneProduct(14, "3.5.4.12", this.getDomID()),
+					 // new ChemicalCompound(this.getDomID()),
+					 // new GeneProduct(14, "RIB2 ", this.getDomID()),
 					 new GeneProduct(14, "1.1.1.193", this.getDomID())
 
 			])
