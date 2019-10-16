@@ -151,9 +151,11 @@ $( document ).ready(function() {
 		if (!driverRunning) {
  			midiDriver.postMessage('start');
  			driverRunning = true
+ 			$(this).css("background-color", "blue")
 		} else {
 			midiDriver.postMessage('stop');
 			driverRunning = false
+			$(this).css("background-color", "#ea346b")
 		}
 	})
 
@@ -167,7 +169,9 @@ $( document ).ready(function() {
 		for (var i=0; i<4; i++) {
 			$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
 		}
-		$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
+		if (entry["midi"]) {
+			$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
+		}
 	});
 
 	busDriver.postMessage('start')

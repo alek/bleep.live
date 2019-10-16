@@ -70,6 +70,8 @@ var getRandomCoordinateVector = function(length, xmax, ymax) {
 	return result
 }
 
+
+
 // simple array sum
 var sum = function(array) {
 	return array.reduce(function(a, b) { return a + b; }, 0);

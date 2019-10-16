@@ -25,10 +25,10 @@ function createWindow () {
 
   // Create the controller browser window.
   controllerWindow = new BrowserWindow({
-    width: screenWidth,
-    height: screenHeight*1.2,
-    x: 0,
-    y: 250,
+    width: screenWidth*0.8,
+    height: screenHeight*1.0,
+    x: 200,
+    y: 350,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -50,10 +50,10 @@ function createWindow () {
 
   // Create the controller browser window.
   clientWindow = new BrowserWindow({
-    width: screenWidth,
-    height: screenHeight*1.2,
+    width: screenWidth*0.8,
+    height: screenHeight*1.0,
     x: screenWidth,
-    y: 250,
+    y: 350,
     // frame: false,
     transparent: true,
     webPreferences: {
