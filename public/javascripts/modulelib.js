@@ -74,13 +74,14 @@ import Chemical1 from './modules/piksel/chemical1.js'
 import Chemical2 from './modules/piksel/chemical2.js'
 import Chemical3 from './modules/piksel/chemical3.js'
 import Chemical4 from './modules/piksel/chemical4.js'
+import Chemical5 from './modules/piksel/chemical5.js'
 
 var modules = {
 	BrandGraph,
 	BrandGraph2,
 	Deconstruction3,
 	PCB1,
-	Chemical4
+	Chemical5
 }
 
 export { modules };
