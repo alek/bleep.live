@@ -1,3 +1,5 @@
+*This is a work-in-progress, to be officially released at the [2019 Piksel Festival](http://piksel.no)*
+
 # [bleep.live](https://bleep.live) [![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/alek/bleep/blob/master/LICENSE) 
 A MIDI-driven Vector Graphics Livecoding Framework
 
