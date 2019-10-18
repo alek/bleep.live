@@ -27,8 +27,8 @@ function createWindow () {
   controllerWindow = new BrowserWindow({
     width: screenWidth*0.8,
     height: screenHeight*1.0,
-    x: 200,
-    y: 350,
+    x: 100,
+    y: 300,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -53,7 +53,7 @@ function createWindow () {
     width: screenWidth*0.8,
     height: screenHeight*1.0,
     x: screenWidth,
-    y: 350,
+    y: 300,
     // frame: false,
     transparent: true,
     webPreferences: {

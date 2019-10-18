@@ -23,28 +23,9 @@ class Japan2 extends Module {
 				drawCircle(coord, 2, "#fff", this.getDomID())
 			}
 		}
-	}	
+	}
 
-	render() {	
-		// this.renderGrid(10,10)
-		//var width = 100+500*Math.random()
-		
-		var width = 100
-		var height = width
-
-		//drawRectangleOutline([xmax/2-width/2, ymax/2-height/2], width, height, "#fff", this.getDomID())
-		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
-
-		// random bounded spline
-		var coords = []
-		for (var i=0; i<4;i++) {
-			coords.push( [Math.floor(xmax/2-width/2 + Math.random()*width), Math.floor(ymax/2-height/2 + Math.random()*height)] )
-		}
-
-		//console.log("M " + coords[0][0] + " " + coords[0][1] + " C " + coords.slice(1).map(x => x.join(" ")).join(", ") + "")
+	radialPath(start, coordinates) {
 
 		var arcRadius = 40
 		path( {
@@ -68,6 +49,31 @@ class Japan2 extends Module {
 			// style: "fill:none;stroke:#fff;stroke-width:" + 2*Math.random()
 			style: "fill:none;stroke:#fff;stroke-width:" + 1
 		}, this.getDomID())
+
+	}	
+
+	render() {	
+		// this.renderGrid(10,10)
+		//var width = 100+500*Math.random()
+		
+		var width = 100
+		var height = width
+
+		drawRectangleOutline([xmax/2-width/2, ymax/2-height/2], width, height, "#fff", this.getDomID())
+		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
+		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
+		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
+		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
+
+		// random bounded spline
+		// var coords = []
+		// for (var i=0; i<4;i++) {
+		// 	coords.push( [Math.floor(xmax/2-width/2 + Math.random()*width), Math.floor(ymax/2-height/2 + Math.random()*height)] )
+		// }
+
+		//console.log("M " + coords[0][0] + " " + coords[0][1] + " C " + coords.slice(1).map(x => x.join(" ")).join(", ") + "")
+
+		this.radialPath([xmax/2 - width/2, ymax-2 - width/2], [])
 
 	}
 

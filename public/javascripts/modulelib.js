@@ -84,7 +84,7 @@ import Japan2 from './modules/piksel/japan2.js'
 var modules = {
 	Deconstruction3,
 	PCB1,
-	Chemical5
+	Japan2
 }
 
 export { modules };
