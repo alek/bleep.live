@@ -25,56 +25,47 @@ class Japan2 extends Module {
 		}
 	}
 
-	radialPath(start, coordinates) {
+	radialPath(coordinates, fill) {
+		if (!fill) {
+			fill = "none"
+		}
 
-		var arcRadius = 40
+		var pathEntries = ["M"].concat(coordinates[0])
+		var arcPrefix = "A"
+
+		for (var i=1; i<coordinates.length; i++) {
+			pathEntries = pathEntries.concat([arcPrefix])
+									 .concat(coordinates[i])
+			arcPrefix = "a"
+		}
+
 		path( {
-			d: ["M", xmax/2-arcRadius/2, ymax/2-200, // center of the canvas
-				"A", arcRadius, arcRadius, 	 // arc radius
-				1, 1, 1, 		 // x-axis-rotation large-arc-flag sweep-flag
-				xmax/2+arcRadius/2, ymax/2,		 // end arc
-				"a", arcRadius, arcRadius, 	 // arc radius
-				1, 1, 1, 		 // x-axis-rotation large-arc-flag sweep-flag
-				0, 100,		 // end arc
-				"a", arcRadius, arcRadius, 	 // arc radius
-				0, 0, 0, 		 // x-axis-rotation large-arc-flag sweep-flag
-				0, 100,		 // end arc
-				"a", arcRadius, arcRadius, 	 // arc radius
-				1, 1, 1, 		 // x-axis-rotation large-arc-flag sweep-flag
-				0, 100,		 // end arc
-				"a", arcRadius, arcRadius, 	 // arc radius
-				0, 0, 0, 		 // x-axis-rotation large-arc-flag sweep-flag
-				0, 100,		 // end arc				
-				].join(" "),
-			// style: "fill:none;stroke:#fff;stroke-width:" + 2*Math.random()
-			style: "fill:none;stroke:#fff;stroke-width:" + 1
+			d: pathEntries.join(" "),
+			style: "fill:" + fill + ";stroke:#fff;stroke-width:" + 1
 		}, this.getDomID())
 
 	}	
 
 	render() {	
-		// this.renderGrid(10,10)
-		//var width = 100+500*Math.random()
 		
 		var width = 100
 		var height = width
+		var arcRadius = 50
 
-		drawRectangleOutline([xmax/2-width/2, ymax/2-height/2], width, height, "#fff", this.getDomID())
-		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2-height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 - width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
-		// if(Math.random() > 0) { drawCircle([xmax/2 + width/4,ymax/2+height/4], width/5, "#fff", this.getDomID()) }
+		//drawRectangleOutline([xmax/2-width/2, ymax/2-height/2], width, height, "#fff", this.getDomID())
 
-		// random bounded spline
-		// var coords = []
-		// for (var i=0; i<4;i++) {
-		// 	coords.push( [Math.floor(xmax/2-width/2 + Math.random()*width), Math.floor(ymax/2-height/2 + Math.random()*height)] )
-		// }
+		this.radialPath([
+				[xmax/2-width/2, ymax/2-height/2], 
+				[30, 30, 0, 0, 1, xmax/2+width*0.25, ymax/2+height/2],
+				[10, 10, 1, 1, 0, -width/2, -height/2],
+				[10, 10, 1, 1, 1, -width/2, -height/2],
+				[10, 10, 1, 1, 1, +width/4, 0]
+				],
+			10, "#fff")
 
-		//console.log("M " + coords[0][0] + " " + coords[0][1] + " C " + coords.slice(1).map(x => x.join(" ")).join(", ") + "")
+		// var path = [xmax/2-width/2, ymax/2-height/2]
 
-		this.radialPath([xmax/2 - width/2, ymax-2 - width/2], [])
-
+		// this.radialPath(path, )
 	}
 
 	// state update as a result of a midi event
