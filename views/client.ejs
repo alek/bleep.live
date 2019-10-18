@@ -3,23 +3,39 @@
   <head>
     <meta charset="UTF-8">
     <title>Piksel 2019</title>
-    <link rel='stylesheet' href='../stylesheets/piksel.css' />   
-    <script src="../javascripts/external/jquery-3.1.1.min.js"></script>
-    <script src="../javascripts/external/socket.io.js"></script>
-    <script src="../javascripts/external/perlin.js"></script>
-    <script src='../javascripts/lib/pantone.js' /></script>
-    <script src='../javascripts/lib/content.js' /></script>
-    <script src='../javascripts/lib/svg.js' /></script>
-    <script src='../javascripts/lib/canvas.js' /></script>
-    <script src='../javascripts/lib/midicontrol.js' /></script>
-    <script src='../javascripts/lib/utils.js' /></script>
-    <script src='../javascripts/lib/time.js' /></script>
-    <script src='../javascripts/lib/state.js' /></script>
-    <script type="module" src='../javascripts/modulelib.js' /></script>
-    <script type="module" src='../javascripts/client.js' /></script>
+    <link rel='stylesheet' href='/stylesheets/piksel.css' />   
+    <script src="/javascripts/external/jquery-3.1.1.min.js"></script>
+    <script src="/javascripts/external/socket.io.js"></script>
+    <script src="/javascripts/external/perlin.js"></script>    
+    <script src="/javascripts/external/math.min.js"></script>
+    <script src='/javascripts/lib/pantone.js' /></script>
+    <script src='/javascripts/lib/content.js' /></script>
+    <script src='/javascripts/lib/svg.js' /></script>
+    <script src='/javascripts/lib/canvas.js' /></script>
+    <script src='/javascripts/lib/midicontrol.js' /></script>
+    <script src='/javascripts/lib/utils.js' /></script>
+    <script src='/javascripts/lib/time.js' /></script>
+    <script src='/javascripts/lib/state.js' /></script>
+    <script type="module" src='/javascripts/modulelib.js' /></script>
+    <script type="module" src='/javascripts/client.js' /></script>
   </head>
 
   <body>
+  
+    <!-- svg defs -->
+
+    <svg width="0px" height="0px">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+        </marker>
+      </defs>
+    </svg>
+
+<!--     <div class="footer">
+      <div id="active-params">&nbsp;</div>
+    </div>
+ -->
   </body>
 
 </html>
