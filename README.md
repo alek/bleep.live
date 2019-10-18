@@ -39,6 +39,8 @@ npm run piksel
 ```
 Which will simultaneously instantiate both controller and client screens, side-by-side.
 
+*Note: you still need to keep the main server process running when using the Elektron app.*
+
 ## Architecture
 
 TBD
