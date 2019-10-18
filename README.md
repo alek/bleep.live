@@ -1,3 +1,5 @@
+*This is a work-in-progress, to be officially released at the [2019 Piksel Festival](http://piksel.no)*
+
 # [bleep.live](https://bleep.live) [![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/alek/bleep/blob/master/LICENSE) 
 A MIDI-driven Vector Graphics Livecoding Framework
 
@@ -34,9 +36,12 @@ Alternatively, you can run Bleep environment using the built-in Elektron app:
 
 ```
 cd elektron
+npm install
 npm run piksel
 ```
 Which will simultaneously instantiate both controller and client screens, side-by-side.
+
+*Note: you still need to keep the main server process running when using the Elektron app.*
 
 ## Architecture
 
