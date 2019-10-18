@@ -36,8 +36,7 @@ Alternatively, you can run Bleep environment using the built-in Elektron app:
 cd elektron
 npm run piksel
 ```
-
-Now that you have Bleep up & running, let's get into the weeds of how to make it useful... 
+Which will simultaneously instantiate both controller and client screens, side-by-side.
 
 ## Architecture
 
