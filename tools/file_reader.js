@@ -31,12 +31,6 @@ io.on('connection', function(client) {
 	client.emit('server', { hello: new Date() }); // init()
 
 	// file parsing
-
-	// var lr = new LineByLineReader('/Data/dataset/supplyframe/samacsys/pricing/samacsys_activity_through_2019-09-16.tsv');
-	// var lr = new LineByLineReader('/Data/dataset/hackadayio/viz/projects.tsv');
-
-	// var lr = new LineByLineReader('/Data/dataset/supplyframe/hackadayio/projects_new.tsv');
-	// var lr = new LineByLineReader('/Data/git/bleep.hdi/data/wiki_sample.tsv');
 	var lr = new LineByLineReader('/Data/dataset/twitter/mydata/twitter_ads_2.tsv');
 
 	lr.on('error', function (err) {

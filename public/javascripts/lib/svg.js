@@ -100,6 +100,19 @@ drawRectangle = function(coord, width, height, fill, domID) {
 		}, domID);	
 }
 
+
+drawRectangleOutline = function(coord, width, height, stroke, domID) {
+		rect({
+			x: coord[0],
+			y: coord[1],
+			width: width,
+			height: height,
+			stroke: stroke,
+			fill: "none",
+			style: "stroke-width:1"
+		}, domID);	
+}
+
 drawLine = function(start, end, stroke, width, domID, id, dashed, arrow) {
 	if (width == null) {
 		width = 1

@@ -58,7 +58,6 @@ import HDI1 from './modules/hdi1.js'
 import HDI2 from './modules/hdi2.js'
 import HDI3 from './modules/hdi3.js'
 import Hackadayio from './modules/hackadayio.js'
-import Samacsys from './modules/samacsys.js'
 import Wikipedia from './modules/wikipedia.js'
 import Twitter from './modules/twitter.js'
 import HighDensity from './modules/highdensity.js'
@@ -67,21 +66,30 @@ import BrandGraph2 from './modules/brandgraph2.js'
 
 import PCB1 from './modules/piksel/pcb1.js'
 import Benchmark from './modules/piksel/benchmark.js'
+
 import KPunk1 from './modules/piksel/kpunk1.js'
 import KPunk2 from './modules/piksel/kpunk2.js'
+
 import Bunnie1 from './modules/piksel/bunnie1.js'
+import Bunnie2 from './modules/piksel/bunnie2.js'
+
 import Chemical1 from './modules/piksel/chemical1.js'
 import Chemical2 from './modules/piksel/chemical2.js'
 import Chemical3 from './modules/piksel/chemical3.js'
 import Chemical4 from './modules/piksel/chemical4.js'
 import Chemical5 from './modules/piksel/chemical5.js'
 
+import CodeWeb1 from './modules/piksel/codeweb1.js'
+
+import Japan1 from './modules/piksel/japan1.js'
+import Japan2 from './modules/piksel/japan2.js'
+
 var modules = {
 	BrandGraph,
 	BrandGraph2,
 	Deconstruction3,
 	PCB1,
-	Chemical5
+	Japan2
 }
 
 export { modules };

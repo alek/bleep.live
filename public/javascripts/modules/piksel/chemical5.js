@@ -57,6 +57,7 @@ class Chemical5 extends Module {
 							drawLine(coord, target, "#fff", 3 + "px", this.getDomID(), "", Math.random() < 0.3 ? true : false)
 							this.count++
 						}
+						this.circleCache[this.getCacheEntry(coord)] = coord
 						this.circleCache[this.getCacheEntry(target)] = target
 					}
 			} 
@@ -80,7 +81,7 @@ class Chemical5 extends Module {
 		// this.molecule([xmax*0.75, ymax/2], 25 + Math.random()*25, 12, Math.random()*180)
 
 		for (var key in this.circleCache) {
-			drawCircle(this.circleCache[key], 7, "#fff", this.getDomID())
+			drawCircle(this.circleCache[key], Math.random() < 0.5 ? 4 : 8, "#fff", this.getDomID())
 		}
 		
 		drawCircleOutline([xmax/2, ymax/2], Math.random()*ymax, "#fff", 80*Math.random(), this.getDomID())
