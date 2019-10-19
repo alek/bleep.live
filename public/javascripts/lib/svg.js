@@ -94,12 +94,23 @@ drawRectangle = function(coord, width, height, fill, domID) {
 			y: coord[1],
 			width: width,
 			height: height,
+			stroke: fill,
+			fill: fill,
+			style: "stroke-width:1;"
+		}, domID);	
+}
+
+drawSquare = function(coord, width, fill, domID) {
+		rect({
+			x: coord[0],
+			y: coord[1],
+			width: width,
+			height: width,
 			stroke: "#fff",
 			fill: fill,
 			style: "stroke-width:0;"
 		}, domID);	
 }
-
 
 drawRectangleOutline = function(coord, width, height, stroke, domID) {
 		rect({
