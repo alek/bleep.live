@@ -11,7 +11,7 @@ class Japan6 extends Module {
 		super({	// init params mapping
 			"spacing": ["cc_1", 10],
 			"maxH": ["cc_2", 20],
-			"yspacing": ["cc_3", 10],
+			"yspacing": ["cc_3", 5],
 			"angle": ["cc_4", 60]
 		})
 	}
@@ -33,23 +33,41 @@ class Japan6 extends Module {
 		}
 	}
 
+	normalDensity(x, mean, sigma) {
+		return (1/Math.sqrt(2*Math.PI*Math.pow(sigma,2))) * Math.pow(Math.E, - Math.pow(x-mean, 2)/ (2*Math.pow(sigma,2)))
+	}
+
 	render() {	
 
 		var pathCoordinates = []
 		var init = true
 		// var spacing = this.params["spacing"]
 		var spacing = 10
+		var yspacing = 10
 		// var maxH = 5
 
-		for (var offset = 0; offset < ymax*0.9; offset += (5 + this.params["yspacing"])) {
+		var timeOffset = Math.floor((Date.now()/100)%100)
+
+		for (var offset = 0; offset < ymax; offset += (5 + yspacing)) {
 			var queue = []
-			for (var i=0; i<xmax; i+=spacing) {
-				var maxH = xmax/Math.sqrt(Math.abs(i-xmax/2)) + offset%xmax
+			var scale = 0.1 + Math.random()
+			for (var i=0; i<xmax; i+=spacing*Math.random()) {
+				// var maxH = (offset/100 + xmax/Math.sqrt(Math.abs(i-xmax/2)))/10
+				// var maxH = this.normalDensity( (i-xmax/2)/xmax, 0, 0.15)*(80 + Math.random()*20)
+				var maxH = this.normalDensity( (1+scale)*(i-xmax/2)/xmax, 0, 0.15)*(80 + Math.random()*20)
+
+				// var maxH = 2
+				// if (i > xmax/3 && i < 2*xmax/3) {
+				// 	maxH = 10
+				// }
 				if (init) {
-					// queue.push([i, offset+ymax*0.2 + maxH])
-					queue.push([i, offset+ymax/2 + (maxH-2*maxH*Math.random())])
+					queue.push([i, offset+ymax*0.5 - maxH - timeOffset])
+					// queue.push([i, offset+ymax/2 + (maxH-2*maxH*Math.random())])
+					// queue.push([i, offset+ymax/2 + (maxH-2*maxH*Math.random())])
 				} else {
-					queue.push([i, pathCoordinates[Math.floor(i/spacing)][1] + Math.ceil(2 + 12*Math.random())])
+					queue.push([i, offset+ymax*0.5 - maxH - timeOffset])
+					//queue.push([i, offset+ymax/2 + (maxH-2*maxH*Math.random())])
+					//queue.push([i, pathCoordinates[Math.floor(i/spacing)][1] + Math.ceil(5 + 5*Math.random())])
 				}
 			}
 			pathCoordinates = queue
@@ -58,8 +76,10 @@ class Japan6 extends Module {
 				d: "M" + pathCoordinates.map(x => x.join(" ")).join(" L") + "",
 				"stroke-linejoin": "round",
 				"stroke-linecap": "round",
-				style: "fill:none;stroke:" + randomPantoneHex() + ";stroke-width:" + 1
-				//style: "fill:none;stroke:" + "rgba(255,0,255," + Math.random() + ")" + ";stroke-width:" + Math.ceil(1*Math.random())
+				// style: "fill:none;stroke:" + randomPantoneHex() + ";stroke-width:" + 1
+				// style: "fill:none;stroke:" + "rgba(255,0,255," + Math.random() + ")" + ";stroke-width:" + Math.ceil(1*Math.random())
+				//style: "fill:none;stroke:" + "rgba(255,255,255," + Math.random() + ")" + ";stroke-width:" + Math.ceil(1*Math.random())
+				style: "fill:" + randomPantoneHex() + " ;stroke:" + "#fff" + ";stroke-width:" + 0
 			}, this.getDomID())
 			init = false
 		}
