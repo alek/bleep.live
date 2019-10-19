@@ -96,7 +96,7 @@ drawRectangle = function(coord, width, height, fill, domID) {
 			height: height,
 			stroke: "#fff",
 			fill: fill,
-			style: "stroke-width:0"
+			style: "stroke-width:0;"
 		}, domID);	
 }
 
@@ -160,6 +160,26 @@ drawPath = function(coords, stroke, weight, domID) {
 		style: "fill:none;stroke:" + stroke + ";stroke-width:" + weight
 	}, domID)
 }
+
+radialPath = function(coordinates, fill, domID) {
+	if (!fill) {
+		fill = "none"
+	}
+
+	var pathEntries = ["M"].concat(coordinates[0])
+	var arcPrefix = "A"
+
+	for (var i=1; i<coordinates.length; i++) {
+		pathEntries = pathEntries.concat([arcPrefix])
+								 .concat(coordinates[i])
+		arcPrefix = "a"
+	}
+	path( {
+		d: pathEntries.join(" "),
+		style: "fill:" + fill + ";stroke:" + fill + ";stroke-width:" + 0
+	}, domID)
+}	
+
 // util methods
 
 function toRadians (angle) {

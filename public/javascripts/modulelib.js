@@ -78,13 +78,21 @@ import Chemical5 from './modules/piksel/chemical5.js'
 
 import CodeWeb1 from './modules/piksel/codeweb1.js'
 
+import Dotmatrix1 from './modules/piksel/dotmatrix1.js'
+import Dotmatrix2 from './modules/piksel/dotmatrix2.js'
+import Dotmatrix3 from './modules/piksel/dotmatrix3.js'
+
 import Japan1 from './modules/piksel/japan1.js'
 import Japan2 from './modules/piksel/japan2.js'
+import Japan3 from './modules/piksel/japan3.js'
+import Japan4 from './modules/piksel/japan4.js'
+import Japan5 from './modules/piksel/japan5.js'
+import Japan6 from './modules/piksel/japan6.js'
 
 var modules = {
 	Deconstruction3,
 	PCB1,
-	Japan2
+	Japan6
 }
 
 export { modules };

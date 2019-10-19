@@ -5,7 +5,7 @@
 
 import Module from '../../lib/module.js'
 
-class Japan2 extends Module {
+class Japan3 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -58,27 +58,27 @@ class Japan2 extends Module {
 
 		// static
 
-		// this.radialPath([
-		// 		[xmax/2-width/2, ymax/2-height/2], 
-		// 		[30, 30, 0, 0, 1, xmax/2+width*0.25, ymax/2+height/2],
-		// 		[10, 10, 1, 1, 0, -width/2, -height/2],
-		// 		[10, 10, 1, 1, 1, -width/2, -height/2],
-		// 		[10, 10, 1, 1, 1, +width/4, 0]
-		// 		],
-		// 	10, "#fff")
+		this.radialPath([
+				[xmax/2-width/2, ymax/2-height/2], 
+				[30, 30, 0, 0, 1, xmax/2+width*0.25, ymax/2+height/2],
+				[10, 10, 1, 1, 0, -width/2, -height/2],
+				[10, 10, 1, 1, 1, -width/2, -height/2],
+				[10, 10, 1, 1, 1, +width/4, 0]
+				],
+			"url(#grad1)")
 
-		var pathCoords = [[0, ymax*0.618], 
-						  [10,10, 0,0,0, 0, ymax*0.618]]
-
-		for (var i=0; i<20; i++) {
-			var flip = Math.random() < 0.5 ? 1 : 0
-			var rad = 50*Math.random()
-			pathCoords.push([rad, rad, flip, flip, flip, Math.random()*width, 0])
+		for (var i=0; i<150; i+=30) {
+			this.radialPath([
+					[xmax/2-width/2-i, ymax/2-height/2-i], 
+					[30, 30, 0, 0, 1, xmax/2+width*0.25, ymax/2+height/2],
+					[10, 10, 1, 1, 0, -width/2, -height/2],
+					[10, 10, 1, 1, 1, -width/2, -height/2],
+					[10, 10, 1, 1, 1, +width/4, 0]
+					],
+				"url(#grad1)")
 		}
 
-		this.radialPath(pathCoords, "url(#grad1)")
-		// this.radialPath(pathCoords, randomPantoneHex())
-
+		drawCircle([xmax/2, ymax/2+25], 20, "#73f893", this.getDomID())
 	}
 
 	// state update as a result of a midi event
@@ -90,4 +90,4 @@ class Japan2 extends Module {
 
 }
 
-export default Japan2;
+export default Japan3;
