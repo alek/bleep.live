@@ -92,11 +92,12 @@ import Japan6 from './modules/piksel/japan6.js'
 import TDR1 from './modules/piksel/tdr1.js'
 import TDR2 from './modules/piksel/tdr2.js'
 import TDR3 from './modules/piksel/tdr3.js'
+import TDR4 from './modules/piksel/tdr4.js'
 
 var modules = {
 	Deconstruction3,
 	PCB1,
-	TDR3
+	TDR4
 }
 
 export { modules };
