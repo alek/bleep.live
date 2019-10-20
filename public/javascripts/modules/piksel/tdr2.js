@@ -53,38 +53,48 @@ class TDR2 extends Module {
 			var y = Math.floor(Math.random()*dimY)*squareSize
 			var width = squareSize*dimX - x
 			var height = squareSize*dimY - y
+			var color = "#fff"
 			if (Math.random() < 0.5) {
-				drawRectangle([offset[0] + x, offset[1] + y], width, squareSize, "#fff", this.getDomID())			
+				drawRectangle([offset[0] + x, offset[1] + y], width, squareSize, color, this.getDomID())			
 			} else {
-				drawRectangle([offset[0] + x, offset[1] + y], squareSize, height, "#fff", this.getDomID())			
+				drawRectangle([offset[0] + x, offset[1] + y], squareSize, height, color, this.getDomID())			
 			}
 		}
 	}
 
+	renderBrackets(center, width, height, len, color, stroke) {
+
+		drawLine([center[0] - width/2, center[1] - height/2], [center[0] - width/2 + len, center[1] - height/2], color, stroke, this.getDomID())
+		drawLine([center[0] - width/2, center[1] - height/2], [center[0] - width/2, center[1] - height/2 + len], color, stroke, this.getDomID())
+
+		drawLine([center[0] + width/2, center[1] - height/2], [center[0] + width/2 - len, center[1] - height/2], color, stroke, this.getDomID())
+		drawLine([center[0] + width/2, center[1] - height/2], [center[0] + width/2, center[1] - height/2 + len], color, stroke, this.getDomID())
+
+		drawLine([center[0] + width/2, center[1] + height/2], [center[0] + width/2 - len, center[1] + height/2], color, stroke, this.getDomID())
+		drawLine([center[0] + width/2, center[1] + height/2], [center[0] + width/2, center[1] + height/2 - len], color, stroke, this.getDomID())
+
+		drawLine([center[0] - width/2, center[1] + height/2], [center[0] - width/2 + len, center[1] + height/2], color, stroke, this.getDomID())
+		drawLine([center[0] - width/2, center[1] + height/2], [center[0] - width/2, center[1] + height/2 - len], color, stroke, this.getDomID())
+
+	}
+
 
 	render() {	
-		// this.renderGrid(10,10)
+
 		var squareCount = 5
-		var squareSize = 50*Math.random()
-		// this.renderLetter(Math.floor(width*xmax/ymax),width)
+		var squareSize = 20*Math.random()
 
-		// V1
-
-		// this.renderChar([xmax*0.1,ymax/3],squareSize,squareCount, squareCount+1)
-		// this.renderChar([xmax*0.4,ymax/3],squareSize,squareCount, squareCount+1)
-		// this.renderChar([xmax*0.7,ymax/3],squareSize,squareCount, squareCount+1)
-
-
-		for (var i=200; i<xmax-200; i+= (squareCount*2)*squareSize) {
+		for (var i=xmax*0.2; i<xmax-xmax*0.2; i+= (squareCount*2)*squareSize) {
 			this.renderChar([i,ymax/2-squareCount*squareSize/2],squareSize,squareCount, squareCount+1)			
 		}
 
-		// V2
-		// for (var i=0; i<xmax; i+=(squareCount+1)*squareSize) {
-		// 	for (var j=0; j<ymax; j+= (squareCount+1)*squareSize) {
-		// 		this.renderChar([i, j],squareSize,squareCount, width+1)				
-		// 	}
-		// }
+		if (Math.random() < 0.5) {
+			this.renderBrackets([xmax/2,ymax/2], xmax*0.8, xmax*0.2, 30, "rgba(255,255,255," + Math.random() + ")", 1)
+		}
+		if (Math.random() < 0.5) {
+			var size = Math.random()
+			this.renderBrackets([xmax/2,ymax/2], size*xmax, size*ymax, 10, "rgba(255,255,255," + Math.random() + ")", 1)
+		}
 
 	}
 
