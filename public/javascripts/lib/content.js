@@ -1,3 +1,7 @@
+var randomTractatus = function() {
+	return tractatus[Math.floor(Math.random()*tractatus.length)]
+}
+
 var tractatus = [
 	"The world is everything that is the case.",
 	"The world is the totality of facts, not of things.",
