@@ -64,7 +64,11 @@ class TDR5 extends Module {
 
 	render() {	
 		// this.renderGrid(10,10)
-		this.arrow([400,400],200, "#fff", "#fff")
+		// this.arrow([400,400],200, "#fff", "#fff")
+		// this.arrow([200,200],100, "#fff", "#fff")
+		for (var i=0; i<20; i++) {
+			this.arrow([Math.random()*xmax,Math.random()*ymax],200*Math.random(), "#fff", "#fff")
+		}
 	}
 
 	// state update as a result of a midi event
