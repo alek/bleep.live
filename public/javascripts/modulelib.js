@@ -94,11 +94,12 @@ import TDR2 from './modules/piksel/tdr2.js'
 import TDR3 from './modules/piksel/tdr3.js'
 import TDR4 from './modules/piksel/tdr4.js'
 import TDR5 from './modules/piksel/tdr5.js'
+import TDR6 from './modules/piksel/tdr6.js'
 
 var modules = {
 	Deconstruction3,
 	PCB1,
-	TDR5
+	TDR6
 }
 
 export { modules };
