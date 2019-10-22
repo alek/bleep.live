@@ -25,7 +25,7 @@ class TDR6 extends Module {
 		}
 	}	
 
-	arrow(start, size, color) {
+	arrow(start, size, color, angle) {
 		var delta = size*0.2
 
 		var pathEntries = [
@@ -43,7 +43,7 @@ class TDR6 extends Module {
 
 		path( {
 			d: "M" + pathEntries.map(x => x.join(" ")).join(" L") + "",
-			"transform": "rotate(" + Math.floor(Math.random()*4)*90 + " " + (start[0] + size/2) + " " + (start[1] + size/2) + ")",
+			"transform": "rotate(" + angle + " " + (start[0] + size/2) + " " + (start[1] + size/2) + ")",
 			style: "fill:" + color + ";stroke:" + color + ";stroke-width:" + 1
 		}, this.getDomID())
 
@@ -61,14 +61,14 @@ class TDR6 extends Module {
 			// this.arrow([xmax/2,ymax/2],50, "#fff")
 		// }
 
-		var rows = 5
+		var rows = 6
 		var columns = xmax/ymax*rows
 		var dim = xmax/columns
 
 		for (var i=0; i<=columns; i++) {
 			for (var j=0; j<=rows; j++) {
 				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 
-				this.arrow(coord,dim/4*Math.floor(Math.random()*4), "#fff")
+				this.arrow(coord,dim/4*Math.floor(Math.random()*4), "#fff", Math.floor(Math.random()*4)*90)
 			}
 		}
 

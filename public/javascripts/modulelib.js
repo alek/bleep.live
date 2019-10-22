@@ -96,10 +96,14 @@ import TDR4 from './modules/piksel/tdr4.js'
 import TDR5 from './modules/piksel/tdr5.js'
 import TDR6 from './modules/piksel/tdr6.js'
 
+import CSS1 from './modules/piksel/css1.js'
+
+import Supercon1 from './modules/piksel/supercon1.js'
+
 var modules = {
 	Deconstruction3,
 	PCB1,
-	TDR6
+	Supercon1
 }
 
 export { modules };
