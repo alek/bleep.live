@@ -61,7 +61,7 @@ class TDR6 extends Module {
 			// this.arrow([xmax/2,ymax/2],50, "#fff")
 		// }
 
-		var rows = 6
+		var rows = Math.floor(this.params["grid_rows"]/5)
 		var columns = xmax/ymax*rows
 		var dim = xmax/columns
 

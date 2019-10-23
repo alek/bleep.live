@@ -115,9 +115,9 @@ class Chemical5 extends Module {
 				// if (Math.random() < 0.3) {
 					var idx = j%7
 					if (idx < 2) {
-						this.barcode(coords[i][j], width*0.8, 4)	
+						this.barcode(coords[i][j], width*0.9, 4)	
 					} else if (idx < 4) {
-						this.connectionmachine(coords[i][j], 8, 8, 2)
+						this.connectionmachine(coords[i][j], 24, 8, 2)
 					} else if (idx < 6) {
 						this.fauxtext(coords[i][j], width, 4, 4)
 					} else if (idx < 8) {

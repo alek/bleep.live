@@ -8,9 +8,9 @@ class Adafruit1 extends Module {
 
 	constructor() {
 		super({	// init params mapping
-			"p": ["cc_8", 20],
-			"grid_columns": ["cc_1", 40],
-			"grid_rows": ["cc_2", 40],
+			"grid_columns": ["cc_8", 24],
+			"grid_rows": ["cc_9", 14],
+			"p": ["cc_12", 20],			
 			"count": ["cc_11", 200]
 		})
 	}

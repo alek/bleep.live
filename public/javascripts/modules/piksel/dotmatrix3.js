@@ -112,8 +112,11 @@ class Dotmatrix3 extends Module {
 
 		//this.renderGrid(40,40)
 
-		var gridx = 60
-		var gridy = 60	
+		// var gridx = 60
+		// var gridy = 60	
+
+		var gridx = this.params["grid_columns"]
+		var gridy = this.params["grid_rows"]
 
 		var xgap = xmax/gridx
 		var ygap = ymax/gridy

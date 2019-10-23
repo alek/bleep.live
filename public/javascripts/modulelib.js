@@ -103,7 +103,23 @@ import Supercon1 from './modules/piksel/supercon1.js'
 var modules = {
 	Deconstruction3,
 	PCB1,
-	Supercon1
+	Adafruit1,
+	Bunnie2,
+	Japan4,
+	CodeWeb1,
+	International3,
+	TDR1,
+	TDR2,
+	TDR3,
+	TDR4,
+	TDR5,
+	TDR6,
+	Chemical1,
+	Chemical2,
+	Chemical3,
+	Chemical4,
+	Chemical5,
+	Japan6
 }
 
 export { modules };
