@@ -11,7 +11,7 @@ self.addEventListener('message', function(e) {
 				}
 			}
 			bc.postMessage(JSON.stringify({'midi': eventEntry }))		
-		}, 200);
+		}, 10);
 		self.postMessage('starting')
 	} else if (e.data == 'stop') {
 		clearInterval(intervalController)

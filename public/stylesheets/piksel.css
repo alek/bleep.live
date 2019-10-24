@@ -532,9 +532,19 @@ li:hover .add-module {
 	margin-left: 2px;
 }
 
-#speedometer {
+.speedometer-container {
+	margin-top: -20px;
+	margin-bottom: 10px;
+}
+
+.speedometer {
+	color: gray;
 	font-size: 8px;
 	letter-spacing: 0px;
 	display: inline-block;
 	text-transform: uppercase;
+}
+
+.hl {
+	color: #fff;
 }

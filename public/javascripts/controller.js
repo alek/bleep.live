@@ -71,6 +71,17 @@ $( document ).ready(function() {
 
 	$(".active-module-name").text(Object.keys(modules)[Object.keys(modules).length - 1])
 
+	// handle return messages
+	bc.onmessage = function (ev) { 
+		var data = JSON.parse(ev.data)
+		if (data['control'] == 'client-render') {
+			//console.log(data['time'])
+			$("#speedometer-render").html(' //  render: <span class="hl">' + (1000/data['time']).toFixed() + "</span>/sec")
+		}
+	}
+
+
+
 	// TODO: add socket disconnect logic
 
 	var socket = io.connect('http://localhost:3000')
@@ -211,7 +222,7 @@ $( document ).ready(function() {
 		}
 		var avg = 1000/(sum/updateTimes.length)
 		if (!isNaN(avg)) {
-			$("#speedometer").text(avg.toFixed(2) + '/sec')
+			$("#speedometer-send").html('send: <span class="hl">'  + avg.toFixed(2) + '</span>/sec ')
 		}
 
 	});

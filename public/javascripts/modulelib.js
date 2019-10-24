@@ -95,31 +95,20 @@ import TDR3 from './modules/piksel/tdr3.js'
 import TDR4 from './modules/piksel/tdr4.js'
 import TDR5 from './modules/piksel/tdr5.js'
 import TDR6 from './modules/piksel/tdr6.js'
+import TDR7 from './modules/piksel2/tdr7.js'
 
 import CSS1 from './modules/piksel/css1.js'
 
 import Supercon1 from './modules/piksel/supercon1.js'
 
+import CSSMix1 from './modules/piksel2/cssmix1.js'
+
 var modules = {
 	Deconstruction3,
 	PCB1,
 	Adafruit1,
-	Bunnie2,
-	Japan4,
-	CodeWeb1,
-	International3,
-	TDR1,
-	TDR2,
-	TDR3,
-	TDR4,
-	TDR5,
-	TDR6,
-	Chemical1,
-	Chemical2,
-	Chemical3,
-	Chemical4,
-	Chemical5,
-	Japan6
+	TDR7,
+	CSSMix1
 }
 
 export { modules };

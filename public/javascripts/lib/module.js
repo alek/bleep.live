@@ -130,6 +130,12 @@ class Module {
 		}
 		// empty canvas
 		$("#" + this.getDomID()).empty();
+		// empty some more?
+		$.each($("svg"), function() {
+			if ($(this).attr("id") != "svg-config") {
+				$(this).empty()
+			}
+		})
 	}
 
 	// append element

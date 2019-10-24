@@ -7,6 +7,7 @@ var moduleQueue = [ new modules[Object.keys(modules)[Object.keys(modules).length
 
 var stateUpdateEnabled = true
 var clockCount = 0
+var bc = new BroadcastChannel('piksel_control')
 
 var initQueue = function() {
 	// init moduleQueue
@@ -40,7 +41,11 @@ var handleMidiUpdate = function(data) {
 		data["data"]["knob"] = midi.getReverseMapping()[data["data"]["controller"]]	// add label for virtualmidi compatibility
 		for (var i=0; i<moduleQueue.length; i++) {
 			if (moduleQueue[i].isActive) {
+				var startTime = new Date()
 				moduleQueue[i].update(data["data"])
+				var elapsedTime = (new Date()-startTime)
+				// send elapsed time back to channel
+				bc.postMessage(JSON.stringify({'control': 'client-render', 'time': elapsedTime}))		
 			}		
 		}
 	} else if (data["data"]["_type"] == "clock") {	// clock triggers state update
@@ -56,8 +61,6 @@ var handleMidiUpdate = function(data) {
 //
 
 $( document ).ready(function() {
-
-	var bc = new BroadcastChannel('piksel_control')
 
 	bc.onmessage = function (ev) { 
 

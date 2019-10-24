@@ -9,6 +9,10 @@ var addSVG = function(tag, attrs) {
 	return el;
 }
 
+createSVGContainer = function(name) {
+	document.body.appendChild(addSVG("svg", { id: name}))
+}
+
 path = function(params, domID) {
 	document.getElementById(domID).appendChild(addSVG("path", params));
 }
