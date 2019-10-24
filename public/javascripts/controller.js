@@ -46,6 +46,7 @@ var handleVirtualMidiEvent = function(keyCode, bc) {
 }
 
 var updateEventBox = function(data) {
+
 	var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
 	
 	if ($("#" + key).length) {
@@ -57,6 +58,7 @@ var updateEventBox = function(data) {
 		    html: '<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>'
 		}).appendTo('#event-queue');
 	}	
+
 }
 
 //
@@ -77,20 +79,29 @@ $( document ).ready(function() {
 		socket.emit('client', { time: new Date() })
 	})
 
+	//
 	// control change handling
+	//
+
 	socket.on('control', function(data) {
 		updateEventBox(data)
 		bc.postMessage(JSON.stringify({'midi': data}))		
 	});	
 
+	//
 	// command message handling
+	//
+
 	socket.on('command', function (data) {
 		if (data["input"] == "virtualmidi") {
 			setupVirtualMidiUpdateHandler(bc)
 		}
 	})
 
+	//
 	// stop / play button
+	//
+
 	$(".stop-button").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'stop-module'}))
 		$(this).css("background-color", "#f19d38")
@@ -98,7 +109,10 @@ $( document ).ready(function() {
 		$(".status-text").text("stopped")
 	});
 
+	//
 	// stop / play button
+	//
+
 	$(".start-button").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'start-module'}))
 		$(this).css("background-color", "#f19d38")
@@ -106,25 +120,37 @@ $( document ).ready(function() {
 		$(".status-text").text("running")
 	});
 
+	//
 	// list available modules
+	//
+
 	for (var moduleName in modules) {
 		$("#module-list").append('<li><span class="module-select">' + moduleName + '</span><span class="add-module">+</span></li>')
 	}
 
+	//
 	// append module to the active list
+	//
+
 	$(".add-module").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'add-module', 'name': $(this).prev().text() }))		
 		$(".active-module-name").append(" + " + $(this).prev().text())
 	});
 
+	//
 	// module switch handler
+	//
+
 	$(".module-select").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
 		bc.postMessage(JSON.stringify({'control': 'set-module', 'name': $(this).text()}))		
 		$(".active-module-name").text($(this).text())
 	});
 
+	//
 	// flush handler
+	//
+
 	$(".reset-button").click(function() {
 		$(".active-module-name").empty()
 		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
@@ -159,19 +185,35 @@ $( document ).ready(function() {
 		}
 	})
 
-	// render bus queue
+	// init bus driver
 
 	var busDriver = new Worker('../public/javascripts/drivers/bus-driver.js')
+	var updateTimes = new Array(5)
 
-	var busCounter = 0
 	busDriver.addEventListener('message', function(ev) {
+
+		// update bus event queue
+
 		var entry = JSON.parse(ev.data)
 		for (var i=0; i<4; i++) {
 			$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
+			updateTimes[i] = updateTimes[i+1]
 		}
 		if (entry["midi"]) {
 			$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
+			updateTimes[updateTimes.length - 1] = new Date()
 		}
+
+		// update speedometer
+		var sum = 0
+		for (var i = updateTimes.length - 1; i>0; i--) {
+			sum += updateTimes[i] - updateTimes[i-1]
+		}
+		var avg = 1000/(sum/updateTimes.length)
+		if (!isNaN(avg)) {
+			$("#speedometer").text(avg.toFixed(2) + '/sec')
+		}
+
 	});
 
 	busDriver.postMessage('start')
