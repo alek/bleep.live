@@ -105,10 +105,10 @@ import CSSMix1 from './modules/piksel2/cssmix1.js'
 
 var modules = {
 	Deconstruction3,
-	PCB1,
 	Adafruit1,
 	TDR7,
-	CSSMix1
+	CSSMix1,
+	PCB1
 }
 
 export { modules };

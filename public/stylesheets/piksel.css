@@ -548,3 +548,23 @@ li:hover .add-module {
 .hl {
 	color: #fff;
 }
+
+#speed-control {
+	margin-top: 15px;
+}
+
+#speed-control input {
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	padding: 4px;
+	background-color: #000;
+	color: #fff;
+}
+
+.label {
+	font-size: 6px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: gray;
+}

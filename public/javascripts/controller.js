@@ -80,8 +80,6 @@ $( document ).ready(function() {
 		}
 	}
 
-
-
 	// TODO: add socket disconnect logic
 
 	var socket = io.connect('http://localhost:3000')
@@ -121,7 +119,7 @@ $( document ).ready(function() {
 	});
 
 	//
-	// stop / play button
+	// start / play button
 	//
 
 	$(".start-button").click(function() {
@@ -183,23 +181,36 @@ $( document ).ready(function() {
 	  // console.log('started: ' + e.data)
 	});
 
+	//
+	// driver start/stop handling
+	//
+
 	var driverRunning = false
 	$(".driver-control").click(function() {
 		if (!driverRunning) {
- 			midiDriver.postMessage('start');
+ 			midiDriver.postMessage({'control' : 'start'});
  			driverRunning = true
  			$(this).css("background-color", "blue")
 		} else {
-			midiDriver.postMessage('stop');
+			midiDriver.postMessage({'control' : 'stop'});
 			driverRunning = false
 			$(this).css("background-color", "#ea346b")
 		}
 	})
 
+	//
+	// driver frequency update handling
+	//
+
+	$("#driver-frequency").change(function() {
+		midiDriver.postMessage({'control': 'update-frequency', 'frequency': $(this).val()});
+	})
+
 	// init bus driver
 
 	var busDriver = new Worker('../public/javascripts/drivers/bus-driver.js')
-	var updateTimes = new Array(5)
+	var updateTimes = new Array(5).fill(null)
+	var lastUpdate = null
 
 	busDriver.addEventListener('message', function(ev) {
 
@@ -208,21 +219,14 @@ $( document ).ready(function() {
 		var entry = JSON.parse(ev.data)
 		for (var i=0; i<4; i++) {
 			$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
-			updateTimes[i] = updateTimes[i+1]
 		}
 		if (entry["midi"]) {
 			$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
-			updateTimes[updateTimes.length - 1] = new Date()
-		}
 
-		// update speedometer
-		var sum = 0
-		for (var i = updateTimes.length - 1; i>0; i--) {
-			sum += updateTimes[i] - updateTimes[i-1]
-		}
-		var avg = 1000/(sum/updateTimes.length)
-		if (!isNaN(avg)) {
-			$("#speedometer-send").html('send: <span class="hl">'  + avg.toFixed(2) + '</span>/sec ')
+			var speed = 1000/(new Date() - lastUpdate)
+			$("#speedometer-send").html('send: <span class="hl">'  + speed.toFixed(2) + '</span>/sec ')
+			lastUpdate = new Date()
+
 		}
 
 	});

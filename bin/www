@@ -106,6 +106,7 @@ io.on('connection', function(client) {
       if (usbSerial) {
         setInterval(function() { // poll the thing
           for (var i=0; i<lastEvent.length; i++) {
+            
             if (lastEvent[i] > 0 && (lastEvent[i] != lastDispatched[i]) ) {
                client.emit('control', { data: {
                 "channel": 0,
