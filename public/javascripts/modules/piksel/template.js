@@ -1,7 +1,6 @@
 //
-// Inspired by Bunne's chapter on Bioinformatics
-// Metabolism pathway-style finite automata generator
-//
+// Simple grid-based module template
+// 
 
 import Module from '../../lib/module.js'
 

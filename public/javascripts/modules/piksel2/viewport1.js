@@ -1,9 +1,8 @@
 //
-// Inspired by Bunne's chapter on Bioinformatics
-// Metabolism pathway-style finite automata generator
-//
+// Testing 
 
 import Module from '../../lib/module.js'
+import { getBiorxivData } from '../../dataset/biorxiv.js'
 
 class Viewport1 extends Module {
 
@@ -28,6 +27,7 @@ class Viewport1 extends Module {
 
 	render() {	
 		this.renderGrid(10,10)
+		console.log(getBiorxivData())
 	}
 
 	// state update as a result of a midi event
