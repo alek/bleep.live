@@ -17,7 +17,7 @@ class Viewport1 extends Module {
 	}
 
 	renderGrid(columns, rows) {
-		rotateLeft()
+		// rotateLeft()
 		for (var i=0; i<=columns; i++) {
 			for (var j=0; j<=rows; j++) {
 				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 

@@ -217,16 +217,21 @@ $( document ).ready(function() {
 		// update bus event queue
 
 		var entry = JSON.parse(ev.data)
-		for (var i=0; i<4; i++) {
-			$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
-		}
-		if (entry["midi"]) {
-			$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
 
-			var speed = 1000/(new Date() - lastUpdate)
-			$("#speedometer-send").html('send: <span class="hl">'  + speed.toFixed(2) + '</span>/sec ')
-			lastUpdate = new Date()
+		if (entry['midi']) {	// only render outbound midi events
 
+			for (var i=0; i<4; i++) {
+				$("#bus-event-" + i).text($("#bus-event-" + (i+1)).text())
+			}
+			if (entry["midi"]) {
+				$("#bus-event-4").text(JSON.stringify(entry["midi"]["data"]))
+
+				var speed = 1000/(new Date() - lastUpdate)
+				$("#speedometer-send").html('send: <span class="hl">'  + speed.toFixed(2) + '</span>/sec ')
+				lastUpdate = new Date()
+
+			}
+		
 		}
 
 	});
