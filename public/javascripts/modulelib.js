@@ -103,12 +103,14 @@ import Supercon1 from './modules/piksel/supercon1.js'
 
 import CSSMix1 from './modules/piksel2/cssmix1.js'
 
+import Viewport1 from './modules/piksel2/viewport1.js'
+
 var modules = {
 	Deconstruction3,
 	Adafruit1,
 	TDR7,
 	CSSMix1,
-	PCB1
+	Viewport1
 }
 
 export { modules };
