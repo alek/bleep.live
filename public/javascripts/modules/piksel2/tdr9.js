@@ -47,7 +47,7 @@ class TDR9 extends Module {
 					  coord ], 
 					  bg, this.getDomID())
 
-		this.drawText( [ coord[0] + 2*delta, coord[1] + delta], content, height/2, fg, 700, 0, "Helvetica", this.getDomID() )
+		this.drawText( [ coord[0] + 2*delta, coord[1] + height*0.5], content, height*0.6, fg, 700, 0, "Helvetica", this.getDomID() )
 	}
 
 	scanLine = function(maxWidth, yoffset) {
@@ -73,12 +73,12 @@ class TDR9 extends Module {
 			y: ymax/2,
 			"fill": "#fff",
 			"transform": "rotate(0 50 100)",
-			"style": "font-size:" + 120 + ";text-align:left;alignment-baseline:middle;text-anchor:left;opacity:1.0;font-family:Helvetica;sans-serif;font-weight:" + 700 + ";letter-spacing:" + -10 + "px;"
+			"style": "font-size:" + xmax/10 + ";text-align:left;alignment-baseline:middle;text-anchor:left;opacity:1.0;font-family:Helvetica;sans-serif;font-weight:" + 700 + ";letter-spacing:" + -10 + "px;"
 		}, data[Math.floor(Math.random()*data.length)]["title"], this.getDomID()); 
 
-		this.label([xmax*0.2, ymax*0.6], (new Date())%1000, 20, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
-		this.label([xmax*0.4, ymax*0.65], xmax, 20, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
-		this.label([xmax*0.6, ymax*0.7], (new Date())%7000, 20, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
+		this.label([xmax*0.2, ymax*0.6], (new Date())%xmax, ymax/35, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
+		this.label([xmax*0.4, ymax*0.65], xmax, ymax/35, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
+		this.label([xmax*0.6, ymax*0.7], (new Date())%(xmax*0.73), ymax/35, data[Math.floor(Math.random()*data.length)]["title"], "#fff", "#2E2E2E")
 
 		for (var i=0; i<10; i++) {
 			this.scanLine(1)
