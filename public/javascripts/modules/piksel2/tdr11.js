@@ -58,16 +58,35 @@ class TDR11 extends Module {
 		}
 	}
 
-	dna() {
+	dna1() {
 		for (var i=0; i<19; i++) {
-			// var width = i/ymax/4 - (new Date())%(ymax/4)
-			// drawLine([xmax*(0.05+0.05*i),ymax/2-width], [xmax*(0.05+0.05*i),ymax/2+width], "#fff", 5, this.getDomID(), "", false, false)
-
 			var width = 150 - (this.counter%300+i*5)
 			drawLine([xmax*(0.05+0.05*i),ymax/2-width], [xmax*(0.05+0.05*i),ymax/2+width], "#fff", 5, this.getDomID(), "", false, true)
 
 		}
 		this.counter+=20
+	}
+
+	dna2() {
+		var amp = ymax/2
+		for (var i=0; i<100; i++) {
+			var timeOffset = (new Date())%10
+			var width = Math.sin(i + timeOffset)*(amp/2 - (this.counter%amp))
+			drawLine([xmax*(0.01*i),ymax/2-width], [xmax*(0.01*i),ymax/2+width], "#fff", 5, this.getDomID(), "", false, false)
+
+		}
+		this.counter+=20
+	}
+
+	waveform() {
+		var amp = ymax/2
+		for (var i=0 + this.counter; i<xmax - this.counter; i+=(Math.ceil(Math.random()*10))) {
+			var timeOffset = (new Date())%(ymax/10)
+			var width = Math.sin(i)*amp/2 + Math.random()*timeOffset
+			drawLine([this.counter + i,ymax/2-width], [this.counter + i,ymax/2+width], "#fff", 1, this.getDomID(), "", false, false)
+
+		}
+		this.counter-=10
 	}
 
 
@@ -100,7 +119,7 @@ class TDR11 extends Module {
 
 
 		// central animation
-		this.dna()
+		this.waveform()
 
 		// sidebar
 		this.drawText([0.98*xmax, 0.85*ymax], subWords(this.rndTitle(data).toUpperCase(),50), 6, "#fff", 100, 3, "Roboto Mono", this.getDomID(), -90)
