@@ -98,6 +98,7 @@ import TDR6 from './modules/piksel/tdr6.js'
 
 import TDR7 from './modules/piksel2/tdr7.js'
 import TDR8 from './modules/piksel2/tdr8.js'
+import TDR9 from './modules/piksel2/tdr9.js'
 
 import CSS1 from './modules/piksel/css1.js'
 
@@ -113,7 +114,7 @@ var modules = {
 	Deconstruction3,
 	Adafruit1,
 	CSSMix1,
-	TDR8
+	TDR9
 }
 
 export { modules };

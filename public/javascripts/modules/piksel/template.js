@@ -25,7 +25,7 @@ class Chemical5 extends Module {
 	}	
 
 	render() {	
-		this.renderGrid(10,10)
+		this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 	}
 
 	// state update as a result of a midi event
