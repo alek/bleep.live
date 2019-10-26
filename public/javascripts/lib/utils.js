@@ -255,5 +255,5 @@ var arrow = function(start, size, color, angle, domID) {
 		style: "fill:" + color + ";stroke:" + color + ";stroke-width:" + 1
 	}, domID)
 
-	drawText([start[0] + size + delta, start[1] + size], "™", delta/2, "#fff", 100, 0, "Helvetica", this.getDomID())
+	drawText([start[0] + size + delta, start[1] + size], "™", delta/2, "#fff", 100, 0, "Helvetica", domID)
 }

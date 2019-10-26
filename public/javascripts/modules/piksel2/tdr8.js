@@ -75,7 +75,6 @@ class TDR7 extends Module {
 			   ]
 	}
 
-
 	randomPath = function(maxWidth, color) {
 		var path = []
 		var lastCoord = null
