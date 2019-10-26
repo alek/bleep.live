@@ -32,6 +32,7 @@ class TDR7 extends Module {
 		}
 	}	
 
+
 	arrow(start, size, color, angle, domID) {
 		var delta = size*0.2
 
@@ -55,15 +56,48 @@ class TDR7 extends Module {
 		}, domID)
 
 		drawText([start[0] + size + delta, start[1] + size], "™", delta/2, "#fff", 100, 0, "Helvetica", this.getDomID())
+		// drawText([start[0] + size + delta, start[1]], "™", delta, "#fff", 100, 0, "Helvetica", this.getDomID())
 
 	}
+
 
 	div(content, className, idName) {
 		return $('<div class="' + className + '" id="' + idName + '">' + content + "</div>")
 	}
 
 	render() {	
-		this.renderGrid(8,8)
+
+		var data = getBiorxivData()
+
+		$("#graph").css({'position': 'fixed', 'z-index': '-1'})
+		$("body").append('<div id="container"></div>')
+
+		var colWidth = xmax/8 
+		var rowHeight = ymax/8
+
+		$("#container").css({
+			// "background-color": "#131313",
+			"font-family": "Helvetica",
+			"display": "grid",
+			"grid-template-columns": "repeat(8, " + colWidth + "px)",
+			"grid-template-rows": "repeat(8, " + rowHeight + "px)",
+			"grid-column-gap": "20px",
+			"grid-row-gap": "20px",
+			"overflow": "hidden"
+		})
+
+		$("div").css({"overflow": "hidden"})
+
+		for (var i=0; i<64; i++) {
+			if (Math.random() < 0.8) {
+				 $("#container").append(this.div(data[Math.floor(Math.random()*data.length)]['title']).css(
+					{ "font-weight": 700, "font-size": Math.ceil(60*Math.random()) + "px", "font-kerning": "normal", "letter-spacing": "-1px", "font-smooth": "always", "max-width": "100%", "-webkit-font-smoothing": "subpixel-antialiased", "overflow": "hidden" })
+				)
+			} else {
+				$("#container").append("<div/>")
+			}
+		}
+
 	}
 
 	// state update as a result of a midi event

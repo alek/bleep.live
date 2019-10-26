@@ -113,6 +113,23 @@ var splitString = function(text, maxWidth) {
 }
 
 //
+// 
+//
+var subWords = function(text, maxChars) {
+	var parts = text.split(" ")
+	var result = ""
+	var prefix = ""
+	for (var i=0; i<parts.length; i++) {
+		result += prefix + parts[i]
+		if (result.length >= maxChars) {
+			return result
+		}
+		prefix = " "
+	}
+	return result
+}
+
+//
 // slit string into an array, each consisting of not more 
 // than maxWidth characters, keeping the words whole
 //
@@ -207,4 +224,36 @@ var getCircleCoord = function(xCoord, yCoord, angle, length) {
     length = typeof length !== 'undefined' ? length : 10;
     angle = angle * Math.PI / 180; // if you're using degrees instead of radians
     return [length * Math.cos(angle) + xCoord, length * Math.sin(angle) + yCoord]
+}
+
+// create div string
+var div = function(content, className, idName) {
+	return $('<div class="' + className + '" id="' + idName + '">' + content + "</div>")
+}
+
+// render airport-style arrow
+var arrow = function(start, size, color, angle, domID) {
+	
+	var delta = size*0.2
+
+	var pathEntries = [
+		[start[0], start[1] + size - delta/Math.sqrt(2)], 
+		[start[0] + delta/Math.sqrt(2), start[1]+size], 
+		[start[0]+size - delta, start[1] + delta + delta/Math.sqrt(2)], 
+		[start[0]+size - delta, start[1]+size], 
+		[start[0]+size, start[1]+size-delta], 
+		[start[0]+size, start[1]], 
+		[start[0]+delta, start[1]], 
+		[start[0], start[1]+delta], 
+		[start[0]+size-delta*(1+1/Math.sqrt(2)), start[1]+delta], 
+		[start[0], start[1]+size-delta/Math.sqrt(2)]
+		]
+
+	path( {
+		d: "M" + pathEntries.map(x => x.join(" ")).join(" L") + "",
+		"transform": "rotate(" + angle + " " + (start[0] + size/2) + " " + (start[1] + size/2) + ")",
+		style: "fill:" + color + ";stroke:" + color + ";stroke-width:" + 1
+	}, domID)
+
+	drawText([start[0] + size + delta, start[1] + size], "™", delta/2, "#fff", 100, 0, "Helvetica", this.getDomID())
 }
