@@ -101,6 +101,7 @@ import TDR8 from './modules/piksel2/tdr8.js'
 import TDR9 from './modules/piksel2/tdr9.js'
 import TDR10 from './modules/piksel2/tdr10.js'
 import TDR11 from './modules/piksel2/tdr11.js'
+import TDR12 from './modules/piksel2/tdr12.js'
 
 import CSS1 from './modules/piksel/css1.js'
 
@@ -123,7 +124,8 @@ var modules = {
 	TDR10,
 	TDR11,
 	DNA1,
-	DNA2
+	DNA2,
+	TDR12
 }
 
 export { modules };
