@@ -257,3 +257,7 @@ var arrow = function(start, size, color, angle, domID) {
 
 	drawText([start[0] + size + delta, start[1] + size], "™", delta/2, "#fff", 100, 0, "Helvetica", domID)
 }
+
+var deg2rad = function(deg) {
+	return deg*Math.PI/180
+}

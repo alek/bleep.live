@@ -112,13 +112,16 @@ import Viewport1 from './modules/piksel2/viewport1.js'
 
 import Biorxiv1 from './modules/piksel2/biorxiv1.js'
 
+import DNA1 from './modules/piksel2/dna1.js'
+
 var modules = {
 	Deconstruction3,
 	Adafruit1,
 	CSSMix1,
 	TDR9,
 	TDR10,
-	TDR11
+	TDR11,
+	DNA1
 }
 
 export { modules };
