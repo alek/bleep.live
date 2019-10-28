@@ -120,7 +120,13 @@ drawSquare = function(coord, width, fill, domID) {
 		}, domID);	
 }
 
-drawRectangleOutline = function(coord, width, height, stroke, domID) {
+drawRectangleOutline = function(coord, width, height, stroke, domID, strokeWidth, opacity) {
+	if (strokeWidth == null) {
+		strokeWidth = 1
+	}
+	if (opacity == null) {
+		opacity = 1
+	}
 		rect({
 			x: coord[0],
 			y: coord[1],
@@ -128,7 +134,8 @@ drawRectangleOutline = function(coord, width, height, stroke, domID) {
 			height: height,
 			stroke: stroke,
 			fill: "none",
-			style: "stroke-width:1"
+			"stroke-opacity": opacity,
+			style: "stroke-width:" + strokeWidth
 		}, domID);	
 }
 

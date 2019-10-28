@@ -117,6 +117,9 @@ import DNA1 from './modules/piksel2/dna1.js'
 import DNA2 from './modules/piksel2/dna2.js'
 
 import LSystem1 from './modules/piksel2/lsystem1.js'
+import SatNOGS1 from './modules/piksel2/satnogs1.js'
+
+SatNOGS1
 
 var modules = {
 	Deconstruction3,
@@ -128,7 +131,8 @@ var modules = {
 	DNA1,
 	DNA2,
 	TDR12,
-	LSystem1
+	LSystem1,
+	SatNOGS1
 }
 
 export { modules };
