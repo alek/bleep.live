@@ -78,17 +78,21 @@ drawCircle = function(coord, r, fill, domID, id) {
 		}, domID);	
 }
 
-drawCircleOutline = function(coord, r, fill, width, domID, id) {
-		circle({
-			cx: coord[0],
-			cy: coord[1],
-			r: r,
-			stroke: fill,
-			fill: "none",
-			"transform": "rotate(0 0 0)",
-			style: "stroke-width:" + width,
-			id: (id == null) ? randomID(): id
-		}, domID);	
+drawCircleOutline = function(coord, r, fill, width, domID, id, dashed) {
+	if (dashed == null) {
+		dashed = false
+	}
+	circle({
+		cx: coord[0],
+		cy: coord[1],
+		r: r,
+		stroke: fill,
+		fill: "none",
+		"stroke-dasharray": dashed ? "4 2" : "0",		
+		"transform": "rotate(0 0 0)",
+		style: "stroke-width:" + width,
+		id: (id == null) ? randomID(): id
+	}, domID);	
 }
 
 

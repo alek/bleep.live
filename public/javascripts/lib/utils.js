@@ -261,3 +261,8 @@ var arrow = function(start, size, color, angle, domID) {
 var deg2rad = function(deg) {
 	return deg*Math.PI/180
 }
+
+var randomOffset = function(max) {
+	return max - Math.random()*2*max
+}
+

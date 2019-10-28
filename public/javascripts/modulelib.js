@@ -116,6 +116,8 @@ import Biorxiv1 from './modules/piksel2/biorxiv1.js'
 import DNA1 from './modules/piksel2/dna1.js'
 import DNA2 from './modules/piksel2/dna2.js'
 
+import LSystem1 from './modules/piksel2/lsystem1.js'
+
 var modules = {
 	Deconstruction3,
 	Adafruit1,
@@ -125,7 +127,8 @@ var modules = {
 	TDR11,
 	DNA1,
 	DNA2,
-	TDR12
+	TDR12,
+	LSystem1
 }
 
 export { modules };
