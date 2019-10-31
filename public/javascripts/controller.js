@@ -176,7 +176,7 @@ $( document ).ready(function() {
 
 	// init midi driver
 
-	var midiDriver = new Worker('../public/javascripts/drivers/midi-driver.js')
+	var midiDriver = new Worker(getAssetPath('/javascripts/drivers/midi-driver.js'))
 	midiDriver.addEventListener('message', function(e) {
 	  // console.log('started: ' + e.data)
 	});
@@ -208,7 +208,7 @@ $( document ).ready(function() {
 
 	// init bus driver
 
-	var busDriver = new Worker('../public/javascripts/drivers/bus-driver.js')
+	var busDriver = new Worker(getAssetPath("/javascripts/drivers/bus-driver.js"))
 	var updateTimes = new Array(5).fill(null)
 	var lastUpdate = null
 
@@ -244,7 +244,7 @@ $( document ).ready(function() {
 		if (!$(this).data('active')) {
 			$(this).css("background-color", "gray")
 
-			var midiDriver = new Worker('../public/javascripts/drivers/bus-recorder.js')
+			var midiDriver = new Worker(getAssetPath("/javascripts/drivers/bus-recorder.js"))
 			// midiDriver.addEventListener('message', function(e) {
 		 //  		// console.log('started: ' + e.data)
 			// });

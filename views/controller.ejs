@@ -16,6 +16,7 @@
     <script src='/javascripts/lib/utils.js' /></script>
     <script src='/javascripts/lib/time.js' /></script>
     <script src='/javascripts/lib/state.js' /></script>
+    <script src='/javascripts/lib/viewport.js' /></script>
     <script type="module" src='/javascripts/modulelib.js' /></script>
     <script type="module" src='/javascripts/controller.js' /></script>
   </head>
@@ -31,7 +32,10 @@
       </div>
 
       <div class="controller-container">
-        <h6>Bus Activity</h6>
+        <h6>Bus Activity</h6> 
+        <div class="speedometer-container">
+          <div class="speedometer" id="speedometer-send"></div><div class="speedometer" id="speedometer-render"></div>
+        </div>
         <div id="bus-activity">
           <div id="bus-event-0" class="event-container"></div>
           <div id="bus-event-1" class="event-container"></div>
@@ -41,7 +45,7 @@
         </div>
         <div class="bus-recording">
           <span class="record-button" data-active="false"></span>
-          <span class="record-title">Rec</span>
+          <span class="record-title">Rec</span>          
         </div>
       </div>
 
@@ -69,6 +73,10 @@
       <div class="controller-container">
         <h6>Driver config</h6>
         <div class="button driver-control"></div>
+        <div id="speed-control">
+          <div class="label">Frequency</div>
+          <input id="driver-frequency" type="number" name="quantity" min="20" max="1000" value="100">
+        </div>
       </div>
 
     </div>

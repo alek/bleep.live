@@ -26,7 +26,6 @@ class SatNOGS1 extends Module {
 		if (dashed == null) {
 			dashed = false
 		}
-		console.log(dashed + "\t" + opacity)
 		circle({
 			cx: coord[0],
 			cy: coord[1],
@@ -122,6 +121,8 @@ class SatNOGS1 extends Module {
 		if (Math.random() < 0.5) {
 			drawText([xmax/2,ymax/2], "Do you know where your satellite is?".toUpperCase(), "14px", "#fff", 100, 5,"Roboto Mono", this.getDomID())
 		}
+
+		//drawText([xmax/2,ymax/2], xmax + "\t" + ymax, "14px", "#fff", 100, 5,"Roboto Mono", this.getDomID())
 
 		var lh = 5
 		for (var i=0; i<ymax; i+=lh*1.4) {
