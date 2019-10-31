@@ -70,6 +70,13 @@ var getRandomCoordinateVector = function(length, xmax, ymax) {
 	return result
 }
 
+var getRandomString = function(alphabet, length) {
+	var result = ""
+	for (var i=0; i<length; i++) {
+		result += alphabet.charAt(Math.floor(Math.random()*alphabet.length))
+	}
+	return result
+}
 
 
 // simple array sum
@@ -113,7 +120,8 @@ var splitString = function(text, maxWidth) {
 }
 
 //
-// 
+//  get substring of up to maxChars characters
+//  keeping the words in the string intact
 //
 var subWords = function(text, maxChars) {
 	var parts = text.split(" ")

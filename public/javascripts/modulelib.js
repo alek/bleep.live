@@ -69,6 +69,7 @@ import KPunk2 from './modules/piksel/kpunk2.js'
 
 import Bunnie1 from './modules/piksel/bunnie1.js'
 import Bunnie2 from './modules/piksel/bunnie2.js'
+import Bunnie3 from './modules/piksel2/bunnie3.js'
 
 import Chemical1 from './modules/piksel/chemical1.js'
 import Chemical2 from './modules/piksel/chemical2.js'
@@ -112,6 +113,7 @@ import CSSMix1 from './modules/piksel2/cssmix1.js'
 import Viewport1 from './modules/piksel2/viewport1.js'
 
 import Biorxiv1 from './modules/piksel2/biorxiv1.js'
+import Biorxiv2 from './modules/piksel2/biorxiv2.js'
 
 import DNA1 from './modules/piksel2/dna1.js'
 import DNA2 from './modules/piksel2/dna2.js'
@@ -119,7 +121,10 @@ import DNA2 from './modules/piksel2/dna2.js'
 import LSystem1 from './modules/piksel2/lsystem1.js'
 import SatNOGS1 from './modules/piksel2/satnogs1.js'
 
-SatNOGS1
+import Arch1 from './modules/piksel2/arch1.js'
+
+import Virtual1 from './modules/piksel2/virtual1.js'
+
 
 var modules = {
 	Deconstruction3,
@@ -132,7 +137,9 @@ var modules = {
 	DNA2,
 	TDR12,
 	LSystem1,
-	SatNOGS1
+	Biorxiv2,
+	Bunnie3,
+	Virtual1
 }
 
 export { modules };
