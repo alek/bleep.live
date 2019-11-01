@@ -58,32 +58,31 @@ class Virtual1 extends Module {
 		// drawText([xmax/2,ymax/2], this.rndTitle(data), 40, "#fff", 700, 0, "Helvetica", this.getDomID())
 
 		// render titles
-		var offsets = [1, 11]
+		var offsets = (xmax < 1500) ? [1, 11] : [1, 7, 13]
 		for (var i=2; i<this.grid_rows*0.9; i+=6) {
 			for (var j=0; j<offsets.length; j++) {
 				var start = this.grid(offsets[j],i)
-				var end = this.grid(offsets[j]+8,i)
+				var end = this.grid(offsets[j]+Math.floor(18/offsets.length)-1,i)
 
+				var chapterNum = (Math.random() < 0.2) ? Math.floor(Math.random()*10) : Math.floor(i/4)
 				// top title
 				drawLine(start, end, "#fff", 1, this.getDomID())
-				this.drawText([start[0] - this.font_size*1.5, start[1] + this.font_size*1.1], Math.floor(i/4) + "", this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID())			
+				this.drawText([start[0] - this.font_size*1.5, start[1] + this.font_size*1.1], chapterNum + "", this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID())			
 				this.drawText([start[0], start[1] + this.font_size*1.1], subWords(this.rndTitle(data),30), this.font_size, "#fff", 100, 0, "Helvetica", this.getDomID())
 				drawLine([start[0], start[1]+this.font_size*1.5], [end[0], end[1] + this.font_size*1.5], "#fff", 1, this.getDomID())
 				this.drawText([end[0] - this.font_size*1.2, end[1] + this.font_size*1.1], Math.floor(10 + Math.random()*89) + "", this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID(), "right")			
 
 				// sub-entries
-				for (var z=3; z<6; z++) {
+				for (var z=((ymax < 1000) ? 3 : 2); z<6; z++) {
 					start = this.grid(offsets[j]+2, i+z)
-					end = this.grid(offsets[j]+8, i+z)
+					end = this.grid(offsets[j]+Math.floor(18/offsets.length)-1, i+z) 
 					drawLine(start, end, "#fff", 1, this.getDomID())
-					this.drawText([start[0] - this.font_size*2, start[1]], Math.floor(i/4) + "." + z, this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID())			
+					this.drawText([start[0] - this.font_size*2, start[1]-this.font_size*0.25], chapterNum + "." + z, this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID())			
 					this.drawText([start[0], start[1] - this.font_size*0.25], subWords(this.rndTitle(data),30), this.font_size, "#fff", 100, 0, "Helvetica", this.getDomID())
 					this.drawText([end[0] - this.font_size*1.2, end[1] - this.font_size*0.25], Math.floor(10 + Math.random()*89) + "", this.font_size, "#fff", 700, 0, "Helvetica", this.getDomID(), "right")			
 				}
 			}
 		}
-
-
 
 	}
 

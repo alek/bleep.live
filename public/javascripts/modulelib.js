@@ -124,6 +124,7 @@ import SatNOGS1 from './modules/piksel2/satnogs1.js'
 import Arch1 from './modules/piksel2/arch1.js'
 
 import Virtual1 from './modules/piksel2/virtual1.js'
+import Virtual2 from './modules/piksel2/virtual2.js'
 
 
 var modules = {
@@ -139,7 +140,8 @@ var modules = {
 	LSystem1,
 	Biorxiv2,
 	Bunnie3,
-	Virtual1
+	Virtual1,
+	Virtual2
 }
 
 export { modules };
