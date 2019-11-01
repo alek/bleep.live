@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import { getBiorxivData } from '../../dataset/biorxiv.js'
 
-class Virtual3 extends Module {
+class Virtual4 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -14,7 +14,8 @@ class Virtual3 extends Module {
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
-		this.colors = ["#33c6f0", "#e1185a", "#ecb32a", "#2ab77e", "#490d4a"]
+		// this.colors = ["#33c6f0", "#e1185a", "#ecb32a", "#2ab77e", "#490d4a"]
+		this.colors = ["#fff"]
 	}
 
 	renderGrid(columns, rows) {
@@ -44,8 +45,22 @@ class Virtual3 extends Module {
 			  	"grid-column": "span " + Math.floor(Math.random()*3),
   			  	"grid-row": "span " + Math.ceil(Math.random()*3),
   			  	"color": this.colors[Math.floor(Math.random()*this.colors.length)]
-  			  	// "border": Math.floor(Math.random()*2) + "px solid " + this.colors[Math.floor(Math.random()*this.colors.length)],
+  			  	// "border-left": (Math.random() < 0.2) ? (10 + "px solid " + this.colors[Math.floor(Math.random()*this.colors.length)]) : 0
+  			  	// "border-bottom": (Math.random() < 0.2) ? (5 + "px solid " + this.colors[Math.floor(Math.random()*this.colors.length)]) : 0
 			}
+	}
+
+	getRandomPhoto() {
+		
+		// with cache busting
+		// return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6) + "?" + Math.random()
+		
+		// without - one image per page
+		// return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6)
+
+		// time based change
+		return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6) + "?" + Math.floor((new Date())/2000)
+
 	}
 
 
@@ -57,8 +72,8 @@ class Virtual3 extends Module {
 		$("body").css({"color": "#fff", "font-family": "Roboto Mono"})		
 		$("body").append($('<div id="container"></div>').css({
 			"display": "grid", 
-			"grid-template-columns": "1fr 1fr 1fr 1fr 1fr",
-			"grid-template-rows": "120px 120px 120px 120px 120px 120px 120px 120px 120px",
+			"grid-template-columns": "repeat(6, 1fr)",
+			"grid-template-rows": "repeat(9, 120px)",
 			"grid-auto-flow": "dense",
 			"height": "500px"
 		}))
@@ -76,44 +91,24 @@ class Virtual3 extends Module {
 			  "grid-column": "span 3",
   			  "grid-row": "span 1",
 			}
-
-		// ,{
-		// 	  "grid-column": 2,
-  // 			  "grid-row": "1 / 5",
-  // 			  "font-family": "Helvetica",
-  // 			  "font-weight": 700,
-  // 			  "font-size": "21px"
-		// },{
-		// 	  "grid-column": 1,
-  // 			  "grid-row": "1 / 5",
-  // 			  "font-family": "Helvetica",
-  // 			  "font-weight": 700,
-  // 			  "font-size": "21px"
-		// },{
-		// 	  "grid-column": 5,
-  // 			  "grid-row": "5 / 5",
-  // 			  "overflow": "hidden"
-		// }
 		]
 
 		for (var i=0; i<50; i++) {
-			// $("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>').css(styles[Math.floor(Math.random()*styles.length)]));
-			$("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>').css(this.getRandomStyle()));
+			if (Math.random() < 0.5) {
+				$("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>').css(this.getRandomStyle()))
+			} else {
+				$("#container").append($('<div class="item"><img src="' + this.getRandomPhoto() + '"></div>'))
+				
+				// $("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>'))
+			}
 		}	
 
 		$(".item").css({
 			"margin": "5px",
 			"overflow": "hidden",
 			"padding": "5px"
-			// "border": "10px solid #fff"
 		})
 
-		// for (var i=0; i<4; i++) {
-		// 	$(".item-" + i).text(this.rndAbstract(data))			
-		// }
-
-
-		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 	}
 
 	// state update as a result of a midi event
@@ -125,4 +120,4 @@ class Virtual3 extends Module {
 
 }
 
-export default Virtual3;
+export default Virtual4;
