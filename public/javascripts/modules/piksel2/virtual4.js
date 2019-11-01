@@ -59,7 +59,7 @@ class Virtual4 extends Module {
 		// return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6)
 
 		// time based change
-		return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6) + "?" + Math.floor((new Date())/2000)
+		return 'https://picsum.photos/' + Math.floor(xmax/6) + '/' + Math.floor(ymax/6) + "?" + Math.floor((new Date())/5000)
 
 	}
 
@@ -73,7 +73,7 @@ class Virtual4 extends Module {
 		$("body").append($('<div id="container"></div>').css({
 			"display": "grid", 
 			"grid-template-columns": "repeat(6, 1fr)",
-			"grid-template-rows": "repeat(9, 120px)",
+			"grid-template-rows": "repeat(9, " + Math.floor(ymax/9) + "px)",
 			"grid-auto-flow": "dense",
 			"height": "500px"
 		}))
