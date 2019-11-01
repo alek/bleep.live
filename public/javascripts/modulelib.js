@@ -125,6 +125,7 @@ import Arch1 from './modules/piksel2/arch1.js'
 
 import Virtual1 from './modules/piksel2/virtual1.js'
 import Virtual2 from './modules/piksel2/virtual2.js'
+import Virtual3 from './modules/piksel2/virtual3.js'
 
 
 var modules = {
@@ -141,7 +142,8 @@ var modules = {
 	Biorxiv2,
 	Bunnie3,
 	Virtual1,
-	Virtual2
+	Virtual2,
+	Virtual3
 }
 
 export { modules };
