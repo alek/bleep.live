@@ -129,6 +129,7 @@ import Virtual3 from './modules/piksel2/virtual3.js'
 import Virtual4 from './modules/piksel2/virtual4.js'
 import Virtual5 from './modules/piksel2/virtual5.js'
 import Virtual6 from './modules/piksel2/virtual6.js'
+import Virtual7 from './modules/piksel2/virtual7.js'
 
 var modules = {
 	Deconstruction3,
@@ -148,7 +149,8 @@ var modules = {
 	Virtual3,
 	Virtual4,
 	Virtual5,
-	Virtual6
+	Virtual6,
+	Virtual7
 }
 
 export { modules };
