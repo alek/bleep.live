@@ -108,7 +108,10 @@ drawRectangle = function(coord, width, height, fill, domID) {
 		}, domID);	
 }
 
-drawSquare = function(coord, width, fill, domID) {
+drawSquare = function(coord, width, fill, domID, strokeWidth) {
+	if (strokeWidth == null) {
+		strokeWidth = 0
+	}
 		rect({
 			x: coord[0],
 			y: coord[1],
@@ -116,7 +119,7 @@ drawSquare = function(coord, width, fill, domID) {
 			height: width,
 			stroke: "#fff",
 			fill: fill,
-			style: "stroke-width:0;"
+			style: "stroke-width:" + strokeWidth + ";"
 		}, domID);	
 }
 
