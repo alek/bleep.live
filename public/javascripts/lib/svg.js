@@ -37,6 +37,10 @@ polygon = function(params, domID) {
 	document.getElementById(domID).appendChild(addSVG("polygon", params));	
 }
 
+image = function(params, domID) {
+	document.getElementById(domID).appendChild(addSVG("image", params));	
+}
+
 rndx = function() {
 	return Math.floor(Math.random()*xmax);
 }
@@ -117,18 +121,21 @@ drawSquare = function(coord, width, fill, domID, strokeWidth) {
 			y: coord[1],
 			width: width,
 			height: width,
-			stroke: "#fff",
+			stroke: fill,
 			fill: fill,
 			style: "stroke-width:" + strokeWidth + ";"
 		}, domID);	
 }
 
-drawRectangleOutline = function(coord, width, height, stroke, domID, strokeWidth, opacity) {
+drawRectangleOutline = function(coord, width, height, stroke, domID, strokeWidth, opacity, round) {
 	if (strokeWidth == null) {
 		strokeWidth = 1
 	}
 	if (opacity == null) {
 		opacity = 1
+	}
+	if (round == null) {
+		round = 0
 	}
 		rect({
 			x: coord[0],
@@ -136,6 +143,8 @@ drawRectangleOutline = function(coord, width, height, stroke, domID, strokeWidth
 			width: width,
 			height: height,
 			stroke: stroke,
+			rx: round,
+			ry: round,
 			fill: "none",
 			"stroke-opacity": opacity,
 			style: "stroke-width:" + strokeWidth
@@ -187,6 +196,15 @@ drawPath = function(coords, stroke, weight, domID) {
 	path( {
 		d: "M" + coords.map(x => x.join(" ")).join(" L") + "",
 		style: "fill:none;stroke:" + stroke + ";stroke-width:" + weight
+	}, domID)
+}
+
+
+drawImage = function(coords, src, width, height, domID) {
+	image( {
+		src: src,
+		width: width,
+		height: height
 	}, domID)
 }
 

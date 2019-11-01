@@ -130,27 +130,21 @@ import Virtual4 from './modules/piksel2/virtual4.js'
 import Virtual5 from './modules/piksel2/virtual5.js'
 import Virtual6 from './modules/piksel2/virtual6.js'
 import Virtual7 from './modules/piksel2/virtual7.js'
+import Virtual8 from './modules/piksel2/virtual8.js'
+import Virtual9 from './modules/piksel2/virtual9.js'
+import Virtual10 from './modules/piksel2/virtual10.js'
+import Virtual11 from './modules/piksel2/virtual11.js'
+import Virtual12 from './modules/piksel2/virtual12.js'
+
+import Drop1 from './modules/piksel3/drop1.js'
 
 var modules = {
-	Deconstruction3,
-	Adafruit1,
-	CSSMix1,
-	TDR9,
-	TDR10,
-	TDR11,
-	DNA1,
-	DNA2,
-	TDR12,
-	LSystem1,
-	Biorxiv2,
-	Bunnie3,
-	Virtual1,
-	Virtual2,
-	Virtual3,
-	Virtual4,
-	Virtual5,
-	Virtual6,
-	Virtual7
+	Virtual8,
+	Virtual9,
+	Virtual10,
+	Virtual11,
+	Virtual12,
+	Drop1
 }
 
 export { modules };

@@ -64,6 +64,11 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	/*margin-top: 40px;*/
 }
 
+#svg-config {
+	/*display: none;*/
+	max-height: 0px;
+}
+
 h1 {
 	font-weight: 700;
 	font-size: 28px;
