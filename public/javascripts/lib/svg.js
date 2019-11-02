@@ -151,7 +151,7 @@ drawRectangleOutline = function(coord, width, height, stroke, domID, strokeWidth
 		}, domID);	
 }
 
-drawLine = function(start, end, stroke, width, domID, id, dashed, arrow) {
+drawLine = function(start, end, stroke, width, domID, id, dashed, arrow, dashArray) {
 	if (width == null) {
 		width = 1
 	}
@@ -161,6 +161,9 @@ drawLine = function(start, end, stroke, width, domID, id, dashed, arrow) {
 	if (dashed == null) {
 		dashed = false
 	}
+	if (dashArray == null) {
+		dashArray = "4 2"
+	}
 	line({
 		x1: start[0],
 		y1: start[1],
@@ -169,7 +172,7 @@ drawLine = function(start, end, stroke, width, domID, id, dashed, arrow) {
 		stroke: stroke,
 		"transform": "rotate(0 0 0)",
 		"stroke-width": width,
-		"stroke-dasharray": dashed ? "4 2" : "0",
+		"stroke-dasharray": dashed ? dashArray : "0",
 		"marker-end" : arrow ? "url(#arrow)" : "none",
 		id: (id == null) ? randomID(): id
 	}, domID);

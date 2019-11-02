@@ -13,6 +13,7 @@ class Drop1 extends Module {
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
+		this.counter = 0
 	}
 
 	renderGrid(columns, rows) {
@@ -24,8 +25,40 @@ class Drop1 extends Module {
 		}
 	}	
 
+	rndBase() {
+		var bases = ['G', 'A', 'T', 'C']
+		return bases[Math.floor(Math.random()*bases.length)]
+	}
+
+	pair(coord, width, renderBase) {
+		drawLine([coord[0]-width/2, coord[1]], [coord[0]+width/2, coord[1]], "#fff", 1, this.getDomID())
+		
+		drawCircle([coord[0]-width/2, coord[1]], 5, "#fff", this.getDomID())
+		drawCircle([coord[0]+width/2, coord[1]], 5, "#fff", this.getDomID())
+		
+		if (renderBase) {
+			drawText([coord[0]-width/2-20, coord[1]], this.rndBase(), "18px", "#fff", 100, 0, "Helvetica", this.getDomID())
+			drawText([coord[0]+width/2+20, coord[1]], this.rndBase(), "18px", "#fff", 100, 0, "Helvetica", this.getDomID())
+		}
+	}
+
 	render() {	
-		this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
+		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
+
+		var amp = ymax*0.2
+
+		for (var i=0; i<ymax; i+=10) {
+			this.pair([xmax*0.5,i], amp*Math.sin((i + Math.floor(this.counter++/6) )/(amp*0.4)), false)
+		}
+
+		for (var i=0; i<ymax; i+=40) {
+			this.pair([xmax/3,i], amp*Math.sin((i + Math.floor(this.counter++/5) )/amp), false)
+		}
+
+		for (var i=0; i<ymax; i+=20) {
+			this.pair([2*xmax/3,i], amp*Math.sin((i + Math.floor(this.counter++/5) )/amp), false)
+		}
+
 	}
 
 	// state update as a result of a midi event
