@@ -78,6 +78,7 @@ drawCircle = function(coord, r, fill, domID, id) {
 			fill: fill,
 			"transform": "rotate(0 0 0)",
 			style: "stroke-width:0",
+			// filter: "url(#f1)",
 			id: (id == null) ? randomID(): id
 		}, domID);	
 }

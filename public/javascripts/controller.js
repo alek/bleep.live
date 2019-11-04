@@ -174,7 +174,9 @@ $( document ).ready(function() {
 	});
 
 
+	//
 	// init midi driver
+	//
 
 	var midiDriver = new Worker(getAssetPath('/javascripts/drivers/midi-driver.js'))
 	midiDriver.addEventListener('message', function(e) {
@@ -185,18 +187,45 @@ $( document ).ready(function() {
 	// driver start/stop handling
 	//
 
-	var driverRunning = false
+	var midiDriverRunning = false
 	$(".driver-control").click(function() {
-		if (!driverRunning) {
+		if (!midiDriverRunning) {
  			midiDriver.postMessage({'control' : 'start'});
- 			driverRunning = true
+ 			midiDriverRunning = true
  			$(this).css("background-color", "blue")
 		} else {
 			midiDriver.postMessage({'control' : 'stop'});
-			driverRunning = false
+			midiDriverRunning = false
 			$(this).css("background-color", "#ea346b")
 		}
 	})
+
+	//
+	// state machine control
+	//
+
+	var stateMachineDriver = new Worker(getAssetPath('/javascripts/drivers/state-machine.js'))
+	stateMachineDriver.addEventListener('message', function(e) {
+	  // console.log('started: ' + e.data)
+	});
+
+	//
+	// driver start/stop handling
+	//
+
+	var stateMachineDriverRunning = false
+	$(".state-machine-control").click(function() {
+		if (!stateMachineDriverRunning) {
+ 			stateMachineDriver.postMessage({'control' : 'start'});
+ 			stateMachineDriverRunning = true
+ 			$(this).css("background-color", "blue")
+		} else {
+			stateMachineDriver.postMessage({'control' : 'stop'});
+			stateMachineDriverRunning = false
+			$(this).css("background-color", "#e6a04e")
+		}
+	})
+
 
 	//
 	// driver frequency update handling

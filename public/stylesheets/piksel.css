@@ -467,6 +467,17 @@ li {
 	margin-right: 5px;
 }
 
+.state-machine-control {
+	width: 30px;
+	min-height: 30px;
+	background: #e6a04e;
+	border-radius: 100%;
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-top: 30px;	
+}
+
 li {
 	display: flex;
 }
