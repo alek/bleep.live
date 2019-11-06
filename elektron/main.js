@@ -18,7 +18,7 @@ function createWindow () {
 
   var screenWidth = screen["bounds"].width/2
   var screenHeight = screen["bounds"].height/2
-  var monitorScreen = false
+  var monitorScreen = true
 
 
   // console.log(screen)
@@ -79,35 +79,35 @@ function createWindow () {
 
   if (monitorScreen) {
 
-  // Create another controller browser window.
-  clientWindow = new BrowserWindow({
-    width: screenWidth*0.8,
-    height: screenHeight*1.0,
-    x: screenWidth,
-    y: 300,
-    // frame: false,
-    transparent: true,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+    // Create another controller browser window.
+    clientWindow = new BrowserWindow({
+      width: screenWidth*0.8,
+      height: screenHeight*1.0,
+      x: screenWidth,
+      y: 300,
+      // frame: false,
+      transparent: true,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js')
+      }
+    })
 
-  // and load the index.html of the app.
-  clientWindow.loadFile('client.html')
-  clientWindow.showInactive()
+    // and load the index.html of the app.
+    clientWindow.loadFile('client.html')
+    clientWindow.showInactive()
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+    // Open the DevTools.
+    // mainWindow.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  clientWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    clientWindow = null
-  })
+    // Emitted when the window is closed.
+    clientWindow.on('closed', function () {
+      // Dereference the window object, usually you would store windows
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      clientWindow = null
+    })
 
-}
+  }
 
 }
 

@@ -143,6 +143,8 @@ import Drop4 from './modules/piksel3/drop4.js'
 import Drop5 from './modules/piksel3/drop5.js'
 import Drop6 from './modules/piksel3/drop6.js'
 
+import Supercon2 from './modules/supercon/supercon2.js'
+
 var modules = {
 	Virtual8,
 	Virtual9,
@@ -154,7 +156,8 @@ var modules = {
 	Drop3,
 	Drop4,
 	Drop5,
-	Drop6
+	Drop6,
+	Supercon2
 }
 
 export { modules };

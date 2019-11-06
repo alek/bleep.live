@@ -13,6 +13,14 @@ createSVGContainer = function(name) {
 	document.body.appendChild(addSVG("svg", { id: name}))
 }
 
+addMask = function(name) {
+	var defs = document.getElementsByTagName("defs")
+	if (defs.length > 0) {
+		// check if exists first ?
+		defs[0].appendChild(addSVG("mask", {id: name})).appendChild(addSVG("rect", { fill: "red", "x": 0, "y":0, "width": timeSlide(2000, length), "height": 500  }))
+	}
+}
+
 path = function(params, domID) {
 	document.getElementById(domID).appendChild(addSVG("path", params));
 }

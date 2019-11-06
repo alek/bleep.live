@@ -166,7 +166,7 @@ $( document ).ready(function() {
 	});
 
 	$(".refresh-button").click(function() {
-		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))		
+		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))				
 	});
 
 	$(".export-button").click(function() {

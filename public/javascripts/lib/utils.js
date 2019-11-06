@@ -297,3 +297,7 @@ var isElectron =function() {
 var getAssetPath = function(file) {
 	return (isElectron() ? "../public" : "") + file
 }
+
+var timeSlide = function(timeConst, maxVal) {
+	return ((new Date())%timeConst)/timeConst * maxVal
+}

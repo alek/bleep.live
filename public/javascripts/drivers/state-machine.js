@@ -1,13 +1,12 @@
 //
-// send a random midi control message
+// pull dynamically list of modules from the config file
 //
 var driverFunction = function(bc) {
 
-	var modules = ["Virtual8", "Virtual9"]
-
+	importScripts('state-machine-config.js')
 	bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
 	bc.postMessage(JSON.stringify({'control': 'set-module', 'name': modules[Math.floor(Math.random()*modules.length)]}))		
-	bc.postMessage(JSON.stringify({'control': 'start-module'}))
+	bc.postMessage(JSON.stringify({'control': 'start-module'}))	
 }
 
 //
@@ -26,5 +25,5 @@ self.addEventListener('message', function(e) {
 			clearInterval(intervalController)
 			intervalController = setInterval(function() { driverFunction(bc) } , parseInt(e.data['frequency']));
 		} catch (error) { }
-	}
+	} 
 });
