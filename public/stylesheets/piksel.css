@@ -381,18 +381,14 @@ li {
 	left: 44px;
 }
 
-.refresh-button {
-	width: 0px;
-	height: 0px;
-	border-left: 15px solid transparent;
-  	border-right: 15px solid transparent;
-    border-top: 20px solid #8b30a6;
 
-	min-height: 5px;
-	/*background: #8b30a6;*/
-	border-radius: 10%;
+.refresh-button {
+	background: #8b30a6;
+	background-image: url('../images/refresh.svg');	
+	width: 30px;
+	min-height: 30px;
+	border-radius: 100%;
 	display: inline-block;
-	cursor: pointer;
 	margin-right: 5px;
 }
 
@@ -406,6 +402,7 @@ li {
 
 .start-button {
 	background: #f19d38;
+	background-image: url('../images/play.svg');	
 	width: 30px;
 	min-height: 30px;
 	border-radius: 100%;
@@ -414,6 +411,7 @@ li {
 
 .stop-button {
 	background: gray;
+	background-image: url('../images/stop.svg');	
 	width: 30px;
 	min-height: 30px;
 	display: inline-block;
@@ -422,11 +420,22 @@ li {
 
 .export-button {
 	background: #66d7ee;
+	background-image: url('../images/export.svg');	
 	width: 30px;
 	min-height: 30px;
 	display: inline-block;
 	margin-left: 5px;
 	border-radius: 25%;
+}
+
+.gc-button {
+	background: #ff0000;
+	background-image: url('../images/gc.svg');	
+	width: 30px;
+	min-height: 30px;
+	display: inline-block;
+	margin-left: 5px;
+	border-radius: 100%;
 }
 
 .status-text {
@@ -458,9 +467,10 @@ li {
 }
 
 .driver-control {
-	width: 30px;
-	min-height: 30px;
 	background: #ea346b;
+	background-image: url('../images/play.svg');	
+	width: 30px;
+	min-height: 30px;	
 	border-radius: 100%;
 	display: inline-block;
 	cursor: pointer;
@@ -468,9 +478,10 @@ li {
 }
 
 .state-machine-control {
+	background: #e6a04e;
+	background-image: url('../images/play.svg');	
 	width: 30px;
 	min-height: 30px;
-	background: #e6a04e;
 	border-radius: 100%;
 	display: inline-block;
 	cursor: pointer;
@@ -583,4 +594,22 @@ li:hover .add-module {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	color: gray;
+}
+
+.button-title {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 10px;
+	font-weight: 100;
+	margin-top: 7px;
+	margin-bottom: 10px;
+	color: #a5a6a2;	
+}
+
+.system-control .button-title {
+	text-align: center;
+}
+
+.button-container {
+	display: inline-block;
 }

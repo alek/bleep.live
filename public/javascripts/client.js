@@ -55,6 +55,24 @@ var handleMidiUpdate = function(data) {
 	}	
 }
 
+//
+// simple greedy gc
+//
+var garbageCollect = function() {
+	var graphs = $("svg")
+	for (var i=0; i<graphs.length; i++) {
+		if (graphs[i].id != "svg-config") {	// do not gc the config node
+			var children = $(graphs[i]).children()
+			if (children.length > 1) {		// leave some entries
+				for (var i=0; i<children.length; i++) {
+					if (Math.random() < 0.5) {
+						$(children[i]).remove()
+					}
+				}
+			}
+		}
+	}
+}
 
 //
 // Client renderer is broadcast channel-driven
@@ -99,6 +117,8 @@ $( document ).ready(function() {
 				} else if (data['control'] == 'add-module') {
 					moduleQueue.push(new modules[data['name']]())
 					initQueue()
+				} else if (data['control'] == 'garbage-collect') {
+					garbageCollect()
 				}
 
 			}

@@ -66,24 +66,26 @@ class Drop5 extends Module {
 
 			for (var i=0; i<this.angles.length; i++) {
 
-				var cx = parseInt(document.getElementById('circle-' + i).getAttribute('cx'))
-				var cy = parseInt(document.getElementById('circle-' + i).getAttribute('cy'))
-				var r = parseInt(document.getElementById('circle-' + i).getAttribute('r'))
+				if (document.getElementById('circle-' + i)) {
 
-				if (this.outOfBoundsY(cx, cy, r)) {
-					// this.angle = -this.angle
-					this.angles[i] = -this.angles[i]
-				} else if (this.outOfBoundsX(cx, cy, r)) {
-					// this.angle = 180-this.angle
-					this.angles[i] = 180-this.angles[i]
+					var cx = parseInt(document.getElementById('circle-' + i).getAttribute('cx'))
+					var cy = parseInt(document.getElementById('circle-' + i).getAttribute('cy'))
+					var r = parseInt(document.getElementById('circle-' + i).getAttribute('r'))
+
+					if (this.outOfBoundsY(cx, cy, r)) {
+						// this.angle = -this.angle
+						this.angles[i] = -this.angles[i]
+					} else if (this.outOfBoundsX(cx, cy, r)) {
+						// this.angle = 180-this.angle
+						this.angles[i] = 180-this.angles[i]
+					}
+
+					document.getElementById('circle-' + i).setAttribute('cx',cx+r*2*Math.cos(this.deg2rad(this.angles[i])));
+					document.getElementById('circle-' + i).setAttribute('cy',cy+r*2*Math.sin(this.deg2rad(this.angles[i])));
+					if (Math.random() < 0.1) {
+						document.getElementById('circle-' + i).setAttribute('r',r+1);
+					}
 				}
-
-				document.getElementById('circle-' + i).setAttribute('cx',cx+r*2*Math.cos(this.deg2rad(this.angles[i])));
-				document.getElementById('circle-' + i).setAttribute('cy',cy+r*2*Math.sin(this.deg2rad(this.angles[i])));
-				if (Math.random() < 0.1) {
-					document.getElementById('circle-' + i).setAttribute('r',r+1);
-				}
-
 			}
 		}
 		

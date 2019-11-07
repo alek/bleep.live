@@ -173,6 +173,9 @@ $( document ).ready(function() {
 		bc.postMessage(JSON.stringify({'control': 'export-canvas'}))		
 	});
 
+	$(".gc-button").click(function() {
+		bc.postMessage(JSON.stringify({'control': 'garbage-collect'}))		
+	});
 
 	//
 	// init midi driver
