@@ -72,13 +72,15 @@
       </div>
 
       <div class="controller-container">
-        <h6>Driver config</h6>
-        <div><div class="button driver-control"></div><div class="button-title"></div></div>
+        <h6>Midi Driver</h6>
+        <div><div class="button driver-control"></div><div class="button-title" id="driver-status">stopped</div></div>
         <div id="speed-control">
           <div class="label">Frequency</div>
           <input id="driver-frequency" type="number" name="quantity" min="20" max="1000" value="100">
         </div>
-        <div><div class="button state-machine-control"></div><div class="button-title"></div></div>
+        <br>
+        <h6>State Machine</h6>
+        <div><div class="button state-machine-control"></div><div class="button-title" id="statemachine-status">stopped</div></div>
       </div>
 
     </div>

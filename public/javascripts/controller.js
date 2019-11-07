@@ -196,10 +196,12 @@ $( document ).ready(function() {
  			midiDriver.postMessage({'control' : 'start'});
  			midiDriverRunning = true
  			$(this).css("background-color", "blue")
+ 			$("#driver-status").text("running")
 		} else {
 			midiDriver.postMessage({'control' : 'stop'});
 			midiDriverRunning = false
 			$(this).css("background-color", "#ea346b")
+			$("#driver-status").text("stopped")
 		}
 	})
 
@@ -221,11 +223,13 @@ $( document ).ready(function() {
 		if (!stateMachineDriverRunning) {
  			stateMachineDriver.postMessage({'control' : 'start'});
  			stateMachineDriverRunning = true
- 			$(this).css("background-color", "blue")
+ 			$(this).css("background-color", "blue") 
+ 			$("#statemachine-status").text("running")
 		} else {
 			stateMachineDriver.postMessage({'control' : 'stop'});
 			stateMachineDriverRunning = false
 			$(this).css("background-color", "#e6a04e")
+ 			$("#statemachine-status").text("stopped")			
 		}
 	})
 
