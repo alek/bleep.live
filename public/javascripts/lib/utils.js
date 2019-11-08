@@ -227,10 +227,12 @@ var getIncrement = function(motion) {
 }
 
 
-// radian -> xy
+//
+// polar coordinate resolution
+// 
 var getCircleCoord = function(xCoord, yCoord, angle, length) {
-    length = typeof length !== 'undefined' ? length : 10;
-    angle = angle * Math.PI / 180; // if you're using degrees instead of radians
+    length = typeof length !== 'undefined' ? length : 0;
+    angle = angle * Math.PI / 180; 
     return [length * Math.cos(angle) + xCoord, length * Math.sin(angle) + yCoord]
 }
 
@@ -300,4 +302,8 @@ var getAssetPath = function(file) {
 
 var timeSlide = function(timeConst, maxVal) {
 	return ((new Date())%timeConst)/timeConst * maxVal
+}
+
+var getRotateVal = function(angle, coord) {
+	return "rotate(" + angle + " " + coord[0] + " " + coord[1] + ")"
 }

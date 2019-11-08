@@ -138,6 +138,7 @@ class Module {
 		})
 		// empty non-svg elements
 		$("div").remove()
+	
 	}
 
 	// append element

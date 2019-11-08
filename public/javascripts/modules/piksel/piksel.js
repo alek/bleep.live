@@ -2,7 +2,9 @@
 // Collection of supercon-related assets
 //
 
-class Supercon {
+import { getBiorxivData } from '../../dataset/biorxiv.js'
+
+class Piksel {
 
 	//
 	// An airport-style arrow
@@ -154,7 +156,192 @@ class Supercon {
 		//drawCircleOutline([xmax/2,ymax/2], 200*Math.random(), "#fff", 10,  domID)
 	}
 
+	static brackets(center, width, height, len, color, stroke, domID) {
+
+		// clockwise bracket rendering
+
+		drawPath([
+			[center[0] - width/2 + len, center[1] - height/2], 
+			[center[0] - width/2, center[1] - height/2],
+			[center[0] - width/2,  center[1] - height/2 + len]
+			], color, stroke, domID)
+
+		drawPath([
+			[center[0] + width/2 - len, center[1] - height/2], 
+			[center[0] + width/2, center[1] - height/2],
+			[center[0] + width/2,  center[1] - height/2 + len]
+			], color, stroke, domID)
+
+		drawPath([
+			[center[0] + width/2 , center[1] + height/2 - len], 
+			[center[0] + width/2, center[1] + height/2],
+			[center[0] + width/2 - len,  center[1] + height/2]
+			], color, stroke, domID)
+
+		drawPath([
+			[center[0] - width/2 + len, center[1] + height/2], 
+			[center[0] - width/2, center[1] + height/2],
+			[center[0] - width/2,  center[1] + height/2 - len]
+			], color, stroke, domID)
+
+	}
+
+	//
+	// Render a stylized carbon symbol with a specified number of bonds
+	//
+	static carbon1(coord, size, bonds, color, strokeWidth, domID) {
+		var len = size*Math.random()
+	
+		drawCircle(coord, 10, color, domID)
+
+		for (var i=0; i<5; i++) {
+			for (var j=0; j<3; j++) {
+			line({
+				x1: coord[0] + len,
+				y1: coord[1] + len,
+				x2: coord[0] + 3*len,
+				y2: coord[1] + 3*len,
+				stroke: "#fff",
+				"transform": getRotateVal(360*Math.random(), coord),
+				"stroke-width": strokeWidth/5*Math.random(),
+				// "stroke-dasharray": "4 2",
+				"marker-end" : "url(#circle)"
+				}, domID);
+			}
+			line({
+				x1: coord[0],
+				y1: coord[1],
+				x2: coord[0] + len,
+				y2: coord[1] + len,
+				stroke: color,
+				"transform": getRotateVal(360*Math.random(), coord),
+				"stroke-width": strokeWidth,
+				// "stroke-dasharray": "4 2",
+				"marker-end" : "url(#circle)"
+				}, domID);
+
+		}
+	}
+
+	static tunnel1(coord, size, bonds, color, strokeWidth, domID) {
+		circle({
+			cx: coord[0],
+			cy: coord[1],
+			r: size*(1.5 + Math.random()),
+			stroke: color,
+			fill: "none",
+			"stroke-dasharray": Math.random()*xmax*0.5 + " " + Math.random()*xmax*0.05,		
+			"transform": "rotate(0 0 0)",
+			style: "stroke-width:" + strokeWidth
+		}, domID);	
+	}
+
+	static randomTitle() {
+		var data = getBiorxivData()
+		return data[Math.floor(Math.random()*data.length)]["title"]
+	}
+
+	// time-changing angle grid
+	static triangular1(start, size, stroke, lineWidth, domID) {
+
+		var coords = [start]
+		var delta = 50
+
+		for (var i=0; i<size/(delta/4); i++) {
+			var last = coords.slice(-1)[0]
+			coords.push(getCircleCoord(last[0], last[1], 45*Math.ceil(timeSlide(4000, 2))*(Math.floor(Math.random()*8)), delta))
+		}
+
+		path( {
+			d: "M" + coords.map(x => x.join(" ")).join(" L") + "",
+			"stroke-linejoin": "round",
+			"marker-end" : "url(#via)",
+			"rotate": getRotateVal(0, start),
+			style: "fill:none;stroke:" + stroke + ";stroke-width:" + lineWidth
+		}, domID)
+
+	} 
+
+	// grid at a specified angle
+	static triangular2(start, size, stroke, lineWidth, angle, delta, domID) {
+
+		var coords = [start]
+
+		for (var i=0; i<size/(delta/4); i++) {
+			var last = coords.slice(-1)[0]
+			coords.push(getViewport(getCircleCoord(last[0], last[1], angle*(Math.floor(Math.random()*8)), delta ) ))
+		}
+
+		path( {
+			d: "M" + coords.map(x => x.join(" ")).join(" L") + "",
+			"stroke-linejoin": "round",
+			"marker-end" : "url(#via)",
+			"rotate": getRotateVal(0, start),
+			style: "fill:none;stroke:" + stroke + ";stroke-width:" + lineWidth
+		}, domID)
+
+	} 
+
+	// static addCircularMask(id, timeConstant, maxWidth, maxHeight) {
+	// 	if (maxWidth == null) { maxWidth = xmax } 
+	// 	if (maxHeight == null) { maxHeight = ymax }
+	// 	document.getElementsByTagName("defs")[0].appendChild(addSVG("mask", {id: "Mask-" + id})).appendChild(addSVG("rect", { id: "Mask-rect-" + id, fill: "red", "x": 0, "y":0, "width": timeSlide(timeConstant, maxWidth), "height": maxHeight  }))		
+	// 	$("#Mask-rect-" + id).attr("width",timeSlide(2000, xmax))				
+	// }
+
+	static addCircularClip(clipName, cx, cy, r) {		
+		$("#" + clipName).remove()
+		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("circle", { id: clipName + "-circle", "cx": cx, "cy":cy, "r": r }))		
+	}
+
+	// tdr-style glitch
+	static glitch1(r, domID) {		
+		noise.seed(Math.random());
+		this.addCircularClip("glitchClip", xmax/2, ymax/2, r)
+		var delta = 20
+		for (var i=0; i<ymax/delta; i++) {
+			var dice = Math.random()
+			if (dice < 0.7) {
+				line({
+					x1: 0,
+					y1: i*delta,
+					// x2: xmax*2*Math.random(),
+					x2: 1.2*xmax*noise.simplex2(i,i),
+					y2: i*delta,
+					stroke: "#fff",
+					"clip-path": "url(#glitchClip)",
+					"transform": "rotate(0 0 0)",
+					"stroke-width": delta*2*noise.simplex2(i,i)
+				}, domID);
+			} else if (dice < 0.95) {
+				var offset = xmax*noise.simplex2(i,i)
+				for (var j = offset; j<xmax; j+=delta) {
+					rect({
+						x: j,
+						y: i*delta,
+						width: 20*Math.random(),
+						height: delta,
+						stroke: "#fff",
+						fill: "#fff",
+						style: "stroke-width:1;",
+						"clip-path": "url(#glitchClip)"
+					}, domID);	
+				}
+			} else {
+				var offset = xmax*noise.simplex2(i,i)
+				rect({
+					x: offset,
+					y: i*delta,
+					width: delta,
+					height: delta,
+					stroke: "#fff",
+					fill: "#fff",
+					"clip-path": "url(#glitchClip)"
+				}, domID);	
+			}
+		}			
+	}
 
 }
 
-export default Supercon;
+export default Piksel;

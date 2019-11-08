@@ -145,19 +145,28 @@ import Drop6 from './modules/piksel3/drop6.js'
 
 import Supercon2 from './modules/supercon/supercon2.js'
 
+import Syn1 from './modules/piksel3/syn1.js'
+import Syn2 from './modules/piksel3/syn2.js'
+import Syn3 from './modules/piksel3/syn3.js'
+import Syn4 from './modules/piksel3/syn4.js'
+import Syn5 from './modules/piksel3/syn5.js'
+
+import Glitch1 from './modules/piksel3/glitch1.js'
+
 var modules = {
-	Virtual8,
-	Virtual9,
-	Virtual10,
-	Virtual11,
-	Virtual12,
 	Drop1,
 	Drop2,
 	Drop3,
 	Drop4,
 	Drop5,
 	Drop6,
-	Supercon2
+	Supercon2,
+	Syn1,
+	Syn2,
+	Syn3,
+	Syn4,
+	Syn5,
+	Glitch1
 }
 
 export { modules };

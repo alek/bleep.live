@@ -18,7 +18,7 @@ function createWindow () {
 
   var screenWidth = screen["bounds"].width/2
   var screenHeight = screen["bounds"].height/2
-  var monitorScreen = false
+  var monitorScreen = true
 
 
   // console.log(screen)
