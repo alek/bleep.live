@@ -23,7 +23,7 @@ node bin/www --virtualmidi
 Once the server is up and running, you can access it from your browser of choice at:
 
 ```
-http://localhost:3000/
+http://localhost:5133/
 ```
 
 Alternatively, you can run Bleep environment using the built-in Elektron app:

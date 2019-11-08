@@ -82,7 +82,7 @@ $( document ).ready(function() {
 
 	// TODO: add socket disconnect logic
 
-	var socket = io.connect('http://localhost:3000')
+	var socket = io.connect('http://localhost:5133')
 	
 	socket.on('server', function (data) {
 		socket.emit('client', { time: new Date() })
