@@ -43,16 +43,15 @@ table {
 }
 
 body {
-	font-family: 'Neue Haas Grotesk', sans-serif;
-	background: #010e1e;
-/*background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);*/
+	font-family: 'Roboto Mono', sans-serif;
+	background: #1f2326;
+	font-weight: 300;
 	overflow: hidden;
 	color: #fff;
 }
 
 h1 {
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 36px;
 	margin-bottom: 5px;
 }
@@ -71,6 +70,11 @@ hr {
 
 #container {
 	margin: 20%;
+}
+
+.logo {
+	width: 80px;
+	margin-bottom: 20px;
 }
 
 a {
