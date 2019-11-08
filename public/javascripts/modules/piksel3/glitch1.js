@@ -26,8 +26,8 @@ class Glitch1 extends Module {
 	}	
 
 	render() {	
-		// Piksel.brackets([xmax/2,ymax/2], 500,500, xmax*0.01, "#fff", 5, this.getDomID())
 		noise.seed(Math.random());
+		// Piksel.tunnel1([xmax/2,ymax/2], ymax*timeSlide(10000,1), 0, "#fff", 50, this.getDomID())
 		Piksel.glitch1(ymax*timeSlide(10000,1), this.getDomID())
 	}
 

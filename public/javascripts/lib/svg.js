@@ -214,7 +214,9 @@ drawPath = function(coords, stroke, weight, domID) {
 
 drawImage = function(coords, src, width, height, domID) {
 	image( {
-		src: src,
+		href: src,
+		x: coords[0],
+		y: coords[1],
 		width: width,
 		height: height
 	}, domID)

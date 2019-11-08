@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import Piksel from '../piksel/piksel.js'
 
-class Syn5 extends Module {
+class Glitch2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -26,19 +26,9 @@ class Syn5 extends Module {
 	}	
 
 	render() {	
-		for (var i=-xmax; i<2*xmax; i+=xmax*0.1) {
-			for (var j=-ymax; j<2*ymax; j+=xmax*0.05) {
-				if (Math.random() < 0.9) {
-					image( {
-						href: "../public/images/bleep_logo.svg",
-						x: i,
-						y: j,
-						"transform": "rotate(" + 30 + ", " + xmax/2 + "," + ymax/2 + ")",
-						width: xmax*0.09
-					}, this.getDomID())
-				}
-			}
-		}
+		Piksel.glitch2(ymax*0.4, "#fff", 45, this.getDomID(), "a")
+		Piksel.glitch2(ymax*timeRamp(20000,0.9), "#000", 90, this.getDomID(), "b")
+		drawCircle([xmax/2,ymax/2], timeRamp(17000,0.9)*xmax*0.3, "#000", this.getDomID())
 	}
 
 	// state update as a result of a midi event
@@ -50,4 +40,4 @@ class Syn5 extends Module {
 
 }
 
-export default Syn5;
+export default Glitch2;

@@ -304,6 +304,15 @@ var timeSlide = function(timeConst, maxVal) {
 	return ((new Date())%timeConst)/timeConst * maxVal
 }
 
+var timeRamp = function(timeConst, maxVal) {
+	var val = timeSlide(timeConst, maxVal)
+	if (val > maxVal/2) {
+		return maxVal - val
+	} else {
+		return val
+	}
+}
+
 var getRotateVal = function(angle, coord) {
 	return "rotate(" + angle + " " + coord[0] + " " + coord[1] + ")"
 }

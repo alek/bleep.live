@@ -282,17 +282,11 @@ class Piksel {
 
 	} 
 
-	// static addCircularMask(id, timeConstant, maxWidth, maxHeight) {
-	// 	if (maxWidth == null) { maxWidth = xmax } 
-	// 	if (maxHeight == null) { maxHeight = ymax }
-	// 	document.getElementsByTagName("defs")[0].appendChild(addSVG("mask", {id: "Mask-" + id})).appendChild(addSVG("rect", { id: "Mask-rect-" + id, fill: "red", "x": 0, "y":0, "width": timeSlide(timeConstant, maxWidth), "height": maxHeight  }))		
-	// 	$("#Mask-rect-" + id).attr("width",timeSlide(2000, xmax))				
-	// }
-
 	static addCircularClip(clipName, cx, cy, r) {		
 		$("#" + clipName).remove()
 		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("circle", { id: clipName + "-circle", "cx": cx, "cy":cy, "r": r }))		
 	}
+
 
 	// tdr-style glitch
 	static glitch1(r, domID) {		
@@ -340,6 +334,22 @@ class Piksel {
 				}, domID);	
 			}
 		}			
+	}
+
+	// opart-style
+	static glitch2(r, color, angle, domID, id) {
+		this.addCircularClip("glitchClip" + id, xmax/2, ymax/2, r)
+		var delta = ymax*0.1
+		for (var i=timeSlide(110,delta); i<ymax; i+=delta) {
+			line({ x1: 0, y1: i,
+				   x2: xmax, y2: i,
+				   fill: "none",
+				   stroke: color,
+				   "stroke-width": Math.random() < 0.05 ? xmax : delta/2,
+				   "transform": "rotate(" + angle + " " + xmax/2 + " " + ymax/2 + ")",
+				   "clip-path": "url(#glitchClip" + id + ")"
+				}, domID);
+		}
 	}
 
 }
