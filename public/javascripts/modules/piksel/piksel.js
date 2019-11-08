@@ -385,6 +385,19 @@ class Piksel {
 
 	} 
 
+	static typeWindow(coord, size, color, id, domID) {
+		this.addRectangleClip("symbolClip" + id, coord[0]-size/2, coord[1]-size/2, size,size)
+			text( { 
+				x: coord[0],
+				y: coord[1],
+				"fill": color,
+				"transform": "rotate(0 " + coord[0] + " " + coord[1] + ")",
+				"clip-path": "url(#symbolClip" + id + ")",
+				"style": "font-size:" + ymax*0.8 + ";text-align:middle;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:Helvetica;sans-serif;font-weight:700;letter-spacing:-10px;"
+			}, this.randomTitle(), domID); 
+
+	}
+
 }
 
 export default Piksel;

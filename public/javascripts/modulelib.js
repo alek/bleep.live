@@ -156,6 +156,7 @@ import Glitch2 from './modules/piksel3/glitch2.js'
 
 import Bitfilter1 from './modules/piksel3/bitfilter1.js'
 import Bitfilter2 from './modules/piksel3/bitfilter2.js'
+import Bitfilter3 from './modules/piksel3/bitfilter3.js'
 
 var modules = {
 	Drop1,
@@ -173,7 +174,8 @@ var modules = {
 	Glitch1,
 	Glitch2,
 	Bitfilter1,
-	Bitfilter2
+	Bitfilter2,
+	Bitfilter3
 }
 
 export { modules };
