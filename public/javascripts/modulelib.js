@@ -154,6 +154,9 @@ import Syn5 from './modules/piksel3/syn5.js'
 import Glitch1 from './modules/piksel3/glitch1.js'
 import Glitch2 from './modules/piksel3/glitch2.js'
 
+import Bitfilter1 from './modules/piksel3/bitfilter1.js'
+import Bitfilter2 from './modules/piksel3/bitfilter2.js'
+
 var modules = {
 	Drop1,
 	Drop2,
@@ -168,7 +171,9 @@ var modules = {
 	Syn4,
 	Syn5,
 	Glitch1,
-	Glitch2
+	Glitch2,
+	Bitfilter1,
+	Bitfilter2
 }
 
 export { modules };

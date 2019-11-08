@@ -241,6 +241,20 @@ class Piksel {
 		return data[Math.floor(Math.random()*data.length)]["title"]
 	}
 
+	// left-aligned title
+	static renderTitle(coord, content, size, fill,weight, spacing, fontFamily, domID, anchor) {
+		if (anchor == null) {
+			anchor = "left"
+		}
+		text( { 
+			x: coord[0],
+			y: coord[1],
+			"fill": fill,
+			"transform": "rotate(0 50 100)",
+			"style": "font-size:" + size + ";text-align:" + anchor + ";alignment-baseline:middle;text-anchor:" + anchor + ";opacity:1.0;font-family:" + fontFamily + ";sans-serif;font-weight:" + weight + ";letter-spacing:" + spacing + "px;"
+		}, content, domID); 
+	}
+
 	// time-changing angle grid
 	static triangular1(start, size, stroke, lineWidth, domID) {
 
@@ -285,6 +299,11 @@ class Piksel {
 	static addCircularClip(clipName, cx, cy, r) {		
 		$("#" + clipName).remove()
 		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("circle", { id: clipName + "-circle", "cx": cx, "cy":cy, "r": r }))		
+	}
+
+	static addRectangleClip(clipName, x, y, width, height) {		
+		$("#" + clipName).remove()
+		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("rect", { id: clipName + "-rect", "x": x, "y":y, "width": width, "height": height }))		
 	}
 
 
@@ -351,6 +370,20 @@ class Piksel {
 				}, domID);
 		}
 	}
+
+	static tdr1(coord, width, angle, id, domID) {
+		var cutWidth = width*0.8
+		this.addRectangleClip("symbolClip" + id, coord[0]-cutWidth/2, coord[1]-cutWidth/2, cutWidth,cutWidth)
+		image( {
+			href: "../public/images/piksel/X-45.svg",
+			x: coord[0] - width/2,
+			y: coord[1] - width/2,
+			"transform": "rotate(" + angle + " " + xmax/2 + " " + ymax/2 + ")",
+			"clip-path": "url(#symbolClip" + id + ")",
+			width: width
+		}, domID)
+
+	} 
 
 }
 
