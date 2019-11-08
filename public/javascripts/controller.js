@@ -47,10 +47,14 @@ var handleVirtualMidiEvent = function(keyCode, bc) {
 
 var updateEventBox = function(data) {
 
+	// console.log(data)
+	var midi = MidiController.getInstance();
+	var valueMap = midi.getGloveMap();
+
 	var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
 	
 	if ($("#" + key).length) {
-		$("#" + key).html('<div>channel ' + data['data']['controller'] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>')
+		$("#" + key).html('<div>' + valueMap[data['data']['controller']] + '</div>' + '<h1>' +  data['data']['value'] + '</h1>')
 	} else {
 		$('<div/>', {
 		    id: key,

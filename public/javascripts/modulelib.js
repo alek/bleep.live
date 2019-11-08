@@ -158,16 +158,9 @@ import Bitfilter1 from './modules/piksel3/bitfilter1.js'
 import Bitfilter2 from './modules/piksel3/bitfilter2.js'
 import Bitfilter3 from './modules/piksel3/bitfilter3.js'
 
+import Glove2 from './modules/glove/glove2.js'
+
 var modules = {
-	Drop1,
-	Drop2,
-	Drop3,
-	Drop4,
-	Drop5,
-	Drop6,
-	Supercon2,
-	Syn1,
-	Syn2,
 	Syn3,
 	Syn4,
 	Syn5,
@@ -175,7 +168,8 @@ var modules = {
 	Glitch2,
 	Bitfilter1,
 	Bitfilter2,
-	Bitfilter3
+	Bitfilter3,
+	Glove2
 }
 
 export { modules };

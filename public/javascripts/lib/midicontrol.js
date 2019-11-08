@@ -26,6 +26,31 @@ var MidiController = (function() {
 				"cc_16": 72
 			}
 
+	var gloveMappingReverse = { // glove 2.0 reverse mapping
+		  10: "cc_1",
+		  74: "cc_2",
+		  71: "cc_3",
+		  76: "cc_4",
+		  77: "cc_5",
+		  101: "cc_6",
+		  102: "cc_7",
+		  103: "cc_8",
+		  104: "cc_9",
+		  105: "cc_10",
+		  106: "cc_11",
+		  93: "cc_12",
+		  73: "cc_13",
+		  75: "cc_14",
+		  114: "cc_15",
+		  18: "cc_16",
+		  107: "cc_17",
+		  108: "cc_18",
+		  109: "cc_19",
+		  110: "cc_20",
+		  111: "cc_21",
+		  112: "cc_22"
+		}
+
 	// virtual midi via keyboard
 	var keyboardMap = {
 			81: ["cc_1", "up"],
@@ -72,6 +97,7 @@ var MidiController = (function() {
 				return result
 			},
 			getKeyboardMap: function() { return keyboardMap },
+			getGloveMap: function() { return gloveMappingReverse },
 			getMidiChannel: function(knob) { return midiMapping[knob] }
 		};
 		// do we need defaults?
