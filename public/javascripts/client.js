@@ -61,11 +61,21 @@ var handleMidiUpdate = function(data) {
 var garbageCollect = function() {
 	var graphs = $("svg")
 	for (var i=0; i<graphs.length; i++) {
+
 		if (graphs[i].id != "svg-config") {	// do not gc the config node
 			var children = $(graphs[i]).children()
 			if (children.length > 10) {		// do not cleanup if < 10 objects in the dom
 				for (var i=0; i<children.length; i++) {
 					if (Math.random() < 0.5) {
+						$(children[i]).remove()
+					}
+				}
+			}
+		} else {	// only clipping paths in the config node
+			var children = $(graphs[i]).children().children()
+			if (children.length > 10) {
+				for (var i=0; i<children.length; i++) {
+					if (Math.random() < 0.5 && children[i].tagName == "clipPath") {
 						$(children[i]).remove()
 					}
 				}
