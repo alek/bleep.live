@@ -45,7 +45,7 @@ var handleMidiUpdate = function(data) {
 				moduleQueue[i].update(data["data"])
 				var elapsedTime = (new Date()-startTime)
 				// send elapsed time back to channel
-				bc.postMessage(JSON.stringify({'control': 'client-render', 'time': elapsedTime}))		
+				bc.postMessage(JSON.stringify({'control': 'client-render', 'time': elapsedTime, 'num-objects': document.getElementsByTagName('*').length}))		
 			}		
 		}
 	} else if (data["data"]["_type"] == "clock") {	// clock triggers state update

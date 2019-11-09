@@ -79,7 +79,7 @@ $( document ).ready(function() {
 		var data = JSON.parse(ev.data)
 		if (data['control'] == 'client-render') {
 			//console.log(data['time'])
-			$("#speedometer-render").html(' //  render: <span class="hl">' + (1000/data['time']).toFixed() + "</span>/sec")
+			$("#speedometer-render").html(' //  render: <span class="hl">' + (1000/data['time']).toFixed() + "</span>/sec // " + data['num-objects'] + " objects")
 
 			if (1000/data['time'] < 60) {	// ad-hoc GC trigger | todo: do it based on average render time for a given module
 				bc.postMessage(JSON.stringify({'control': 'garbage-collect'}))		
