@@ -3,14 +3,18 @@
 // Configuration of active modules used by the state machine worker
 //
 
-var activeModule = "Glitch1"	// start / currently active module 
+var activeModule = "Bitfilter1"	// start / currently active module 
 
 //
 // sparse transition matrix encoding
 //
+// var transition = {
+// 	"Glitch1": [ {"Glitch1": { "p": 0.1, "config": {}}}, {"Bitfilter1": { "p": 0.9, "config": {}}} ],
+// 	"Bitfilter3": [ {"Bitfilter1": { "p": 0.1, "config": {}}}, {"Bitfilter2": { "p": 0.9, "config": {}}} ],
+// 	"Bitfilter2": [ {"Glitch1": { "p": 0.5, "config": {}}}, {"Bitfilter3": { "p": 0.9, "config": {}}} ]
+// }
+
 var transition = {
-	"Glitch1": [ {"Glitch1": 0.5}]
-	// "Glitch1": [ {"Bitfilter2": 0.9}, {"Bitfilter3": 0.5}  ],
-	// "Bitfilter3": [ {"Bitfilter2": 0.01}, {"Glitch1": 0.2}  ],	
-	// "Bitfilter2": [ {"Bitfilter1": 0.01}, {"Glitch1": 0.2}  ]		
+	"Bitfilter1": [ {"Bitfilter1": { "p": 0.5, "config": {}}}, {"Glitch1": { "p": 0.5, "config": {}}} ],
+	"Glitch1": [ {"Glitch1": { "p": 0.5, "config": {}}}, {"Bitfilter1": { "p": 0.5, "config": {}}} ]
 }

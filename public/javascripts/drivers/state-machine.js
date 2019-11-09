@@ -5,12 +5,12 @@ var nextModule = function() {
 	var candidates = transition[activeModule]
 	var dice = Math.random()
 	var idx = Math.floor(Math.random()*transition[activeModule].length)
-	var nextModule = Object.keys(transition[activeModule][idx])[0]
-	if (transition[activeModule][idx][nextModule] < dice) {
-		activeModule = nextModule
-		return nextModule
+	var switchMod = Object.keys(transition[activeModule][idx])[0]
+	if (transition[activeModule][idx][switchMod]["p"] < dice) {
+		activeModule = switchMod
+		return {"name": switchMod, "switch": true}
 	} else {
-		return activeModule
+		return {"name": activeModule, "switch": false }
 	}
 }
 
@@ -19,9 +19,12 @@ var nextModule = function() {
 //
 var driverFunction = function(bc) {
 	importScripts('state-machine-config.js')
-	bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
-	bc.postMessage(JSON.stringify({'control': 'set-module', 'name': nextModule()}))		
-	bc.postMessage(JSON.stringify({'control': 'start-module'}))	
+	var switchMod = nextModule()
+	if (switchMod["switch"]) {
+		bc.postMessage(JSON.stringify({'control': 'clear-canvas'}))		
+		bc.postMessage(JSON.stringify({'control': 'set-module', 'name': switchMod["name"], 'config': switchMod["config"]}))		
+		bc.postMessage(JSON.stringify({'control': 'start-module'}))	
+	}
 }
 
 //
