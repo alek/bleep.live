@@ -128,6 +128,9 @@ $( document ).ready(function() {
 					saveAs(blob, "bleep.svg");
 				} else if (data['control'] == 'set-module') {
 					moduleQueue = [ createModule(data['name']) ]
+					if (data["config"] != null && Object.keys(data["config"]).length > 0) {
+						moduleQueue[0].setConfig(data["config"])
+					} 
 					initQueue()
 				} else if (data['control'] == 'add-module') {
 					moduleQueue.push(new modules[data['name']]())

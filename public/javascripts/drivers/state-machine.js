@@ -7,8 +7,9 @@ var nextModule = function() {
 	var idx = Math.floor(Math.random()*transition[activeModule].length)
 	var switchMod = Object.keys(transition[activeModule][idx])[0]
 	if (transition[activeModule][idx][switchMod]["p"] < dice) {
+		var config = transition[activeModule][idx][switchMod]["config"]
 		activeModule = switchMod
-		return {"name": switchMod, "switch": true}
+		return {"name": switchMod, "switch": true, "config": config}
 	} else {
 		return {"name": activeModule, "switch": false }
 	}

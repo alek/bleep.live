@@ -15,6 +15,6 @@ var activeModule = "Bitfilter1"	// start / currently active module
 // }
 
 var transition = {
-	"Bitfilter1": [ {"Bitfilter1": { "p": 0.5, "config": {}}}, {"Glitch1": { "p": 0.5, "config": {}}} ],
+	"Bitfilter1": [ {"Bitfilter1": { "p": 0.5, "config": {"a": 1}}}, {"Glitch1": { "p": 0.5, "config": {}}} ],
 	"Glitch1": [ {"Glitch1": { "p": 0.5, "config": {}}}, {"Bitfilter1": { "p": 0.5, "config": {}}} ]
 }
