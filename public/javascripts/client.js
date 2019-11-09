@@ -63,7 +63,7 @@ var garbageCollect = function() {
 	for (var i=0; i<graphs.length; i++) {
 		if (graphs[i].id != "svg-config") {	// do not gc the config node
 			var children = $(graphs[i]).children()
-			if (children.length > 1) {		// leave some entries
+			if (children.length > 10) {		// do not cleanup if < 10 objects in the dom
 				for (var i=0; i<children.length; i++) {
 					if (Math.random() < 0.5) {
 						$(children[i]).remove()
