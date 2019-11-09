@@ -49,6 +49,10 @@ image = function(params, domID) {
 	document.getElementById(domID).appendChild(addSVG("image", params));	
 }
 
+ellipse = function(params, domID) {
+	document.getElementById(domID).appendChild(addSVG("ellipse", params));	
+}
+
 rndx = function() {
 	return Math.floor(Math.random()*xmax);
 }
@@ -89,6 +93,27 @@ drawCircle = function(coord, r, fill, domID, id) {
 			// filter: "url(#f1)",
 			id: (id == null) ? randomID(): id
 		}, domID);	
+}
+
+drawEllipse = function(coord, rx, ry, fill, domID, angle, opacity, id) {
+	if (angle == null) {
+		angle = 0
+	}
+	if (opacity == null) {
+		opacity = 1.0
+	}
+	ellipse({
+		cx: coord[0],
+		cy: coord[1],
+		rx: rx,
+		ry: ry,
+		stroke: fill,
+		fill: fill,
+		opacity: opacity,
+		"transform": "rotate(" + angle + " " + coord[0] + " " + coord[1] + ")",
+		style: "stroke-width:0",
+		id: (id == null) ? randomID(): id
+	}, domID);	
 }
 
 drawCircleOutline = function(coord, r, fill, width, domID, id, dashed) {
