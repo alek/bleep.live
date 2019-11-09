@@ -47,9 +47,8 @@ var handleVirtualMidiEvent = function(keyCode, bc) {
 
 var updateEventBox = function(data) {
 
-	// console.log(data)
 	var midi = MidiController.getInstance();
-	var valueMap = midi.getGloveMap();
+	var valueMap = midi.getReverseMapping();
 
 	var key = 'event-' + data['data']['channel'] + '-' + data['data']['controller']
 	

@@ -23,6 +23,15 @@ class Module {
 		$("#active-params").html(this.getHtmlParamLine())	
 	}
 
+	getParamNameFromCC(knob) { 
+		for (var key in this.midiMappings) {
+			if (knob == this.midiMappings[key][0]) {
+				return key
+			}
+		}
+		return null
+	}
+
 	getHtmlParamLine() {
 		var result = '<div class="params-line">'
 		for (var param in this.params) {
