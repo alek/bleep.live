@@ -58,7 +58,12 @@ var handleMidiUpdate = function(data) {
 //
 // simple greedy gc
 //
-var garbageCollect = function() {
+// maskCleanup: [true/false] - gc the mask section
+//
+var garbageCollect = function(maskCleanup) {
+	if (maskCleanup == null) {
+		maskCleanup = false
+	}
 	var graphs = $("svg")
 	for (var i=0; i<graphs.length; i++) {
 
@@ -71,7 +76,7 @@ var garbageCollect = function() {
 					}
 				}
 			}
-		} else {	// only clipping paths in the config node
+		} else if (maskCleanup) {	// only clipping paths in the config node
 			var children = $(graphs[i]).children().children()
 			if (children.length > 10) {
 				for (var i=0; i<children.length; i++) {
