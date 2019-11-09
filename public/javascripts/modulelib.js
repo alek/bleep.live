@@ -165,21 +165,19 @@ import Glove5 from './modules/glove/glove5.js'
 import Glove6 from './modules/glove/glove6.js'
 import Glove7 from './modules/glove/glove7.js'
 
-var modules = {
-	Syn3,
-	Syn4,
-	Syn5,
-	Glitch1,
-	Glitch2,
-	Bitfilter1,
-	Bitfilter2,
-	Bitfilter3,
-	Glove2,
-	Glove3,
-	Glove4,
-	Glove5,
-	Glove6,
-	Glove7
+//
+// Instantiate module from a string
+// 
+var createModule = function(name) {
+	return eval("new " + name + "()");	// todo: add safety || don't use eval
 }
 
-export { modules };
+//
+// List of active modules in the controler window
+//
+var modules = {
+	Bitfilter2,
+	Bitfilter3
+}
+
+export { modules, createModule };

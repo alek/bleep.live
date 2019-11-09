@@ -1,4 +1,4 @@
-import { modules } from './modulelib.js'
+import { modules, createModule } from './modulelib.js'
 import { saveAs } from './external/FileSaver.js';
 
 
@@ -112,7 +112,8 @@ $( document ).ready(function() {
 										 + $("#graph").html() + '</svg>'], {type: "text/plain;charset=utf-8"});
 					saveAs(blob, "bleep.svg");
 				} else if (data['control'] == 'set-module') {
-					moduleQueue = [ new modules[data['name']]() ]
+					moduleQueue = [ createModule(data['name']) ]
+					// moduleQueue = [ new modules[data['name']]() ]
 					initQueue()
 				} else if (data['control'] == 'add-module') {
 					moduleQueue.push(new modules[data['name']]())

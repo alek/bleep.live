@@ -26,7 +26,7 @@ class Bitfilter3 extends Module {
 	}	
 
 	render() {	
-		//$("body").css({"background-color": "#d1d3d3"})
+		$("body").css({"background-color": "#000000"})
 		for (var i=0; i<1; i+=0.1) {
 			Piksel.typeWindow([xmax*i, ymax*0.5], ymax*0.3, Math.random() < 0.3 ? "#000" : "#fff", Math.floor(i*10), this.getDomID())
 		}
