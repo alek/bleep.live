@@ -42,7 +42,7 @@ var midiMap = {
   15: 114,    // right hand 4. finger (ring)      -> cc_9
   16: 18,     // right hand 5. finger (little)    -> cc_10
   17: 113,    // right hand accelerometer X axis  -> cc_17
-  18: 114,    // right hand accelerometer Y axis  -> cc_18
+  18: 120,    // right hand accelerometer Y axis  -> cc_18
   19: 115,    // right hand accelerometer Z axis  -> cc_19
   20: 116,    // right hand gyroscope X axis      -> cc_20
   21: 117,    // right hand gyroscope Y axis      -> cc_21
@@ -111,7 +111,7 @@ io.on('connection', function(client) {
           for (var i=0; i<lastEvent.length; i++) {
 
             if (lastEvent[i] > 0 && (lastEvent[i] != lastDispatched[i]) && (Math.abs(lastEvent[i] - lastDispatched[i]) > 3) ) { // ignore small fluctuations
-                // console.log(i + "\t" + lastEvent[i])
+                console.log(i + "\t" + lastEvent[i])
                client.emit('control', { data: {
                 "channel": 0,
                 "controller": midiMap[i+1],
