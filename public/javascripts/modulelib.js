@@ -162,6 +162,7 @@ import Glove2 from './modules/glove/glove2.js'
 import Glove3 from './modules/glove/glove3.js'
 import Glove4 from './modules/glove/glove4.js'
 import Glove5 from './modules/glove/glove5.js'
+import Glove6 from './modules/glove/glove6.js'
 
 var modules = {
 	Syn3,
@@ -175,7 +176,8 @@ var modules = {
 	Glove2,
 	Glove3,
 	Glove4,
-	Glove5
+	Glove5,
+	Glove6
 }
 
 export { modules };
