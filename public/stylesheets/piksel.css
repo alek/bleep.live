@@ -46,7 +46,6 @@ body {
 	font-family: 'Neue Haas Grotesk', sans-serif;
 	background: #000;
 	color: #fff;
-	overflow: hidden;
 	border: 0px;
 /*	background: #fff;*/
 /*background: rgb(238,174,202);
@@ -68,6 +67,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
 #svg-config {
 	/*display: none;*/
+	height: 0px;
 	max-height: 0px;
 }
 
@@ -543,6 +543,7 @@ li:hover .add-module {
 #nav-panel {
 	display: grid;
 	grid-template-columns: 50% auto;
+	overflow: scroll;
 }
 
 #bus-activity {
