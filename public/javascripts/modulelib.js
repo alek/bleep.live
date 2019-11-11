@@ -164,6 +164,7 @@ import Glove4 from './modules/glove/glove4.js'
 import Glove5 from './modules/glove/glove5.js'
 import Glove6 from './modules/glove/glove6.js'
 import Glove7 from './modules/glove/glove7.js'
+import Glove8 from './modules/glove/glove8.js'
 
 //
 // Instantiate module from a string
@@ -249,7 +250,8 @@ var modules = {
 	Glitch2,
 	Bitfilter1,
 	Bitfilter2,
-	Bitfilter3
+	Bitfilter3,
+	Glove8
 }
 
 export { modules, createModule };

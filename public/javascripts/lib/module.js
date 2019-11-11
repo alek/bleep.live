@@ -123,6 +123,9 @@ class Module {
 		var nodeID = this.getDomID()
 		var scale = this.getScale()
 
+		if($('#' + nodeID).length!==0) {	// if a node of the same name already exists - remove it
+			$('#' + nodeID).remove()	
+		}
 		$('body').append($('<svg id="' + nodeID + '" width="' + xmax + '" height="' + ymax + '" viewBox="0 0 ' + xmax/scale + ' ' + ymax/scale + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>'))	
 	}
 
