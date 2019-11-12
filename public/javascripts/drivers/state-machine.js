@@ -9,6 +9,7 @@ var nextModule = function() {
 	if (transition[activeModule][idx][switchMod]["p"] < dice) {
 		var config = transition[activeModule][idx][switchMod]["config"]
 		activeModule = switchMod
+		self.postMessage(switchMod)
 		return {"name": switchMod, "switch": true, "config": config}
 	} else {
 		return {"name": activeModule, "switch": false }

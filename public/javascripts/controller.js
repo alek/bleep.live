@@ -218,7 +218,7 @@ $( document ).ready(function() {
 
 	var stateMachineDriver = new Worker(getAssetPath('/javascripts/drivers/state-machine.js'))
 	stateMachineDriver.addEventListener('message', function(e) {
-	  // console.log('started: ' + e.data)
+		$("#statemachine-status").text(e.data)
 	});
 
 	//
