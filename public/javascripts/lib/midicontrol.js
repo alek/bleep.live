@@ -53,7 +53,17 @@ var MidiController = (function() {
 			79: ["cc_9", "up"],
 			76: ["cc_9", "down"],
 			80: ["cc_10", "up"],
-			59: ["cc_10", "down"]
+			59: ["cc_10", "down"],
+			49: ["switch_0", "up"],
+			50: ["switch_1", "up"],
+			51: ["switch_2", "up"],
+			52: ["switch_3", "up"],
+			53: ["switch_4", "up"],
+			54: ["switch_5", "up"],
+			55: ["switch_6", "up"],
+			56: ["switch_7", "up"],
+			57: ["switch_8", "up"],
+			58: ["switch_9", "up"]
 	}
 
 	function createInstance() {

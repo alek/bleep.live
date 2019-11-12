@@ -511,7 +511,7 @@ li {
 	display: inline-block;
 	cursor: pointer;
 	margin-right: 5px;
-	margin-top: 30px;	
+	/*margin-top: 5px;	*/
 }
 
 .state-machine-control {
@@ -522,6 +522,11 @@ li {
 .sequencer-control {
 	background: #803aa0;
 	background-image: url('../images/play.svg');	
+}
+
+.switcher-control {
+	background: #808080;
+	background-image: url('../images/switcher.svg');	
 }
 
 li {
@@ -652,13 +657,16 @@ li:hover .add-module {
 
 .rack-container {
 	display: flex;
+	flex-wrap: wrap;
 	margin-top: 20px;
 }
 
 .rack {
 	margin-right: 40px;
+	width: 30%;
 }
 
 .rack h6 {
 	height: 20px;
+	margin-top: 20px;
 }

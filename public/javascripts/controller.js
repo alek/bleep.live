@@ -265,6 +265,31 @@ $( document ).ready(function() {
 	})
 
 	//
+	// keyboard switcher control
+	//
+
+	var switcherDriver = new Worker(getAssetPath('/javascripts/drivers/switcher.js'))
+	switcherDriver.addEventListener('message', function(e) {
+		$("#switcher-status").text(e.data)
+	});
+
+	var switcherDriverrRunning = false
+	$(".switcher-control").click(function() {
+		if (!switcherDriverrRunning) {
+ 			switcherDriver.postMessage({'control' : 'start'});
+ 			switcherDriverrRunning = true
+ 			$(this).css("background-color", "blue") 
+ 			$("#switcher-status").text("running")
+		} else {
+			switcherDriver.postMessage({'control' : 'stop'});
+			switcherDriverrRunning = false
+			$(this).css("background-color", "#808080")
+ 			$("#switcher-status").text("off")			
+		}
+	})
+
+
+	//
 	// driver frequency update handling
 	//
 
