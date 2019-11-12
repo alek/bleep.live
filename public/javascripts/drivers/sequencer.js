@@ -7,12 +7,10 @@ var driverFunction = function(bc) {
 
 	var elapsed = (new Date()).getTime() - self.initTime
 
-	var marker = 0
 	var offset = 0
 	var last = sequence[0]
 	for (var i=0; i<sequence.length; i++) {
-		marker+=sequence[i].t
-		if (elapsed > marker) {
+		if (elapsed > sequence[i].t) {
 			last = sequence[i]
 			offset = i
 		}
@@ -31,7 +29,7 @@ var driverFunction = function(bc) {
 		self.lastOffset = offset
 	}
 
-	self.postMessage(offset + " / " + elapsed.toLocaleString())
+	self.postMessage(offset + " / "  + elapsed.toLocaleString())
 
 }
 
@@ -40,7 +38,7 @@ var driverFunction = function(bc) {
 //
 self.addEventListener('message', function(e) {
 	var bc = new BroadcastChannel('piksel_control')
-	var interval = 1000	
+	var interval = 100	
 	if (e.data['control'] === 'start') {				// start the driver with the default frequency
 		self.initTime = (new Date()).getTime()
 		intervalController = setInterval(function() { driverFunction(bc) } , interval);
