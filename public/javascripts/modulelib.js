@@ -250,8 +250,7 @@ var modules = {
 	Glitch2,
 	Bitfilter1,
 	Bitfilter2,
-	Bitfilter3,
-	Glove8
+	Bitfilter3
 }
 
 export { modules, createModule };

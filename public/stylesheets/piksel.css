@@ -504,9 +504,7 @@ li {
 	margin-right: 5px;
 }
 
-.state-machine-control {
-	background: #e6a04e;
-	background-image: url('../images/play.svg');	
+.player-button {
 	width: 30px;
 	min-height: 30px;
 	border-radius: 100%;
@@ -514,6 +512,16 @@ li {
 	cursor: pointer;
 	margin-right: 5px;
 	margin-top: 30px;	
+}
+
+.state-machine-control {
+	background: #e6a04e;
+	background-image: url('../images/play.svg');	
+}
+
+.sequencer-control {
+	background: #803aa0;
+	background-image: url('../images/play.svg');	
 }
 
 li {
@@ -640,4 +648,17 @@ li:hover .add-module {
 
 .button-container {
 	display: inline-block;
+}
+
+.rack-container {
+	display: flex;
+	margin-top: 20px;
+}
+
+.rack {
+	margin-right: 40px;
+}
+
+.rack h6 {
+	height: 20px;
 }

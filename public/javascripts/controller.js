@@ -240,6 +240,28 @@ $( document ).ready(function() {
 		}
 	})
 
+	//
+	// linear sequencer control
+	//
+
+	var sequencerDriver = new Worker(getAssetPath('/javascripts/drivers/sequencer.js'))
+	sequencerDriver.addEventListener('message', function(e) {
+	});
+
+	var sequencerDriverRunning = false
+	$(".sequencer-control").click(function() {
+		if (!sequencerDriverRunning) {
+ 			sequencerDriver.postMessage({'control' : 'start'});
+ 			sequencerDriverRunning = true
+ 			$(this).css("background-color", "blue") 
+ 			$("#sequencer-status").text("running")
+		} else {
+			sequencerDriver.postMessage({'control' : 'stop'});
+			sequencerDriverRunning = false
+			$(this).css("background-color", "#e6a04e")
+ 			$("#sequencer-status").text("stopped")			
+		}
+	})
 
 	//
 	// driver frequency update handling
