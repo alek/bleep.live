@@ -150,6 +150,8 @@ class Module {
 		})
 		// empty non-svg elements
 		$("div").remove()
+		// reset background to black
+		$("body").css({"background-color": "#000"})
 	
 	}
 

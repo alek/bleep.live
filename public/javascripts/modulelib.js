@@ -1,6 +1,4 @@
-import Sample from './modules/sample.js'
 import DNA from './modules/dna.js'
-import Picelj from './modules/picelj.js'
 import VectorSpace from './modules/vectorspace.js'
 import Sunset from './modules/sunset.js'
 import Grid1 from './modules/grid1.js'
@@ -177,6 +175,54 @@ var createModule = function(name) {
 // List of active modules in the controler window
 //
 var modules = {
+	DNA,
+	VectorSpace,
+	Sunset,
+	Bounce,
+	Abstract1,
+	Abstract2,
+	Abstract3,
+	Abstract4,
+	Field1,
+	International1,
+	International2,
+	International3,
+	Minimal1,
+	Minimal2,
+	Minimal3,
+	Piqued1,
+	Piqued2,
+	Lines1,
+	Lines2,
+	Semiotik1,
+	Semiotik2,
+	Semiotik3,
+	Semiotik4,
+	Semiotik5,
+	Semiotik6,
+	Semiotik7,
+	MMLogo,
+	Adafruit1,
+	Book1,
+	Line1,
+	Line2,
+	Line3,
+	Line4,
+	Line5,
+	Line6,
+	Line7,
+	Line8,
+	Line9,
+	Line10,
+	Line11,
+	Line12,
+	Line13,
+	NetArt1,
+	NetArt2,
+	NetArt3,
+	Deconstruction1,
+	Deconstruction2,
+	Deconstruction3,
 	PCB1,
 	Benchmark,
 	KPunk1,
@@ -250,7 +296,13 @@ var modules = {
 	Glitch2,
 	Bitfilter1,
 	Bitfilter2,
-	Bitfilter3
+	Bitfilter3,
+	Glove1,
+	Glove2,
+	Glove3,
+	Glove4,
+	Glove5,
+	Glove6
 }
 
 export { modules, createModule };

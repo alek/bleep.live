@@ -26,6 +26,7 @@ class Syn5 extends Module {
 	}	
 
 	render() {	
+		var config = this.getConfig()
 		for (var i=-xmax; i<2*xmax; i+=xmax*0.1) {
 			for (var j=-ymax; j<2*ymax; j+=xmax*0.05) {
 				if (Math.random() < 0.9) {
@@ -33,8 +34,8 @@ class Syn5 extends Module {
 						href: "../public/images/bleep_logo.svg",
 						x: i,
 						y: j,
-						"transform": "rotate(" + 30 + ", " + xmax/2 + "," + ymax/2 + ")",
-						width: xmax*0.09
+						"transform": "rotate(" + (this.config["angle"] ? this.config["angle"] : 30) + ", " + xmax/2 + "," + ymax/2 + ")",
+						width: xmax*(this.config["width"] ? this.config["width"] : 0.09)
 					}, this.getDomID())
 				}
 			}

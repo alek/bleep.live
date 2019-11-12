@@ -31,6 +31,8 @@ var driverFunction = function(bc) {
 		self.lastOffset = offset
 	}
 
+	self.postMessage(offset + " / " + elapsed.toLocaleString())
+
 }
 
 //

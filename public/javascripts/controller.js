@@ -246,6 +246,7 @@ $( document ).ready(function() {
 
 	var sequencerDriver = new Worker(getAssetPath('/javascripts/drivers/sequencer.js'))
 	sequencerDriver.addEventListener('message', function(e) {
+		$("#sequencer-status").text(e.data)
 	});
 
 	var sequencerDriverRunning = false
