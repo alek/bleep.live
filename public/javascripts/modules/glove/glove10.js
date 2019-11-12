@@ -4,11 +4,11 @@
 
 import Module from '../../lib/module.js'
 
-class Glove9 extends Module {
+class Glove10 extends Module {
 
 	constructor() {
 		super({	// init params mapping
-			"r1": ["cc_6", 50],			// right hand 1. finger (thumb)     
+			"r1": ["cc_6", 10],			// right hand 1. finger (thumb)     
 			"r2": ["cc_7", 50],			// right hand 2. finger (index)     
 			"r3": ["cc_8", 50],			// right hand 3. finger (middle)    
 			"r4": ["cc_9", 50],			// right hand 4. finger (ring)      
@@ -23,20 +23,18 @@ class Glove9 extends Module {
 	}
 
 	render() {	
-
-		for (var i=0; i<10+this.params["r1"]/2; i++) {
-		circle({
-			cx: xmax/2,
-			cy: ymax/2,
-			r: this.params["r2"]*i/2 + timeRamp(10000, this.params["r2"]/2),
-			stroke: "#fff",
-			fill: "none",
-			"transform": "rotate(" + this.params["w1"]*6 + " " + xmax/2 + " " + ymax/2 + ")",
-			"stroke-dasharray": this.params["r3"] + " " + this.params["r4"],
-			style: "stroke-width:" + timeRamp(1000,this.params["r5"]*5),
-		}, this.getDomID());	
+		for (var i=0; i<xmax+50; i+=(10 + timeRamp(1500,this.params["r2"]))) {
+			line({
+				x1: -50 + timeRamp(1000,this.params["w1"]) + i,
+				y1: 0,
+				x2: -50 + timeRamp(1000,this.params["w1"]) + i,
+				y2: ymax,
+				stroke: "rgba(255,255,255," + 1.0 + ")",
+				"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
+				"stroke-width": timeRamp(500,this.params["r2"]),
+				"stroke-dasharray": this.params["r4"] + " " + (this.params["r5"]/2 - 20)
+			}, this.getDomID());
 		}
-
 	}
 
 	// state update as a result of a midi event
@@ -48,4 +46,4 @@ class Glove9 extends Module {
 
 }
 
-export default Glove9;
+export default Glove10;
