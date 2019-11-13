@@ -29,7 +29,7 @@ class International1 extends Module {
 
 	// initial render
 	render() {	
-		this.setBackgroundColor(getParametricColor(this.params,2))
+		this.setBackgroundColor(this.getConfigVal("background",getParametricColor(this.params,2)))
 
 		for (var i=0; i<this.params["grid_rows"]; i++) {
 			var coord = getGridCoordinates([Math.floor(Math.random()*this.params["grid_columns"]*0.62),i], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 

@@ -11,7 +11,8 @@ class Adafruit1 extends Module {
 			"grid_columns": ["cc_8", 24],
 			"grid_rows": ["cc_9", 14],
 			"p": ["cc_12", 20],			
-			"count": ["cc_11", 200]
+			"count": ["cc_11", 200],
+			"radius": ["cc_14", 2],
 		})
 	}
 

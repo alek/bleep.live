@@ -298,12 +298,20 @@ class Piksel {
 
 	static addCircularClip(clipName, cx, cy, r) {		
 		$("#" + clipName).remove()
-		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("circle", { id: clipName + "-circle", "cx": cx, "cy":cy, "r": r }))		
+		if (document.getElementsByTagName("defs")) {
+			document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("circle", { id: clipName + "-circle", "cx": cx, "cy":cy, "r": r }))		
+		} else {
+			console.log("ERROR: defs missing")
+		}
 	}
 
 	static addRectangleClip(clipName, x, y, width, height) {		
 		$("#" + clipName).remove()
-		document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("rect", { id: clipName + "-rect", "x": x, "y":y, "width": width, "height": height }))		
+		if (document.getElementsByTagName("defs")) {
+			document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("rect", { id: clipName + "-rect", "x": x, "y":y, "width": width, "height": height }))		
+		} else {
+			console.log("ERROR: defs missing")
+		}
 	}
 
 

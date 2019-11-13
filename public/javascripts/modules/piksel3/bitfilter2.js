@@ -26,7 +26,7 @@ class Bitfilter2 extends Module {
 	}	
 
 	render() {	
-		$("body").css({"background-color": "#d1d3d3"})
+		$("body").css({"background-color": this.getConfigVal("background", "#d1d3d3")})
 		for (var i=0; i<1; i+=(0.1+timeRamp(5000,0.8))) {
 			Piksel.tdr1([xmax*i, ymax*0.5], xmax/4, 45*Math.floor(timeRamp(1700,8)), "i-" + i , this.getDomID())
 		}

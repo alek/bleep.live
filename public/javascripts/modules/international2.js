@@ -77,7 +77,9 @@ class International2 extends Module {
 
 	render() {	
 
-		this.setBackgroundColor(getParametricColor(this.params,2))
+		this.setBackgroundColor(this.getConfigVal("background",getParametricColor(this.params,2)))
+		// this.setBackgroundColor(getParametricColor(this.params,2))
+		
 		// this.renderGrid()
 		this.renderTitle([3,4])
 		this.renderBody([3,9])

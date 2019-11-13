@@ -54,6 +54,10 @@ class Module {
 		return this.config
 	}
 
+	getConfigVal(paramName, defaultValue) {
+		return this.config[paramName] ? this.config[paramName] : defaultValue
+	}
+
 	setActive(status) {
 		this.isActive = status
 	}
