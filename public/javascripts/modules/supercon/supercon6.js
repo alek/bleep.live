@@ -35,10 +35,18 @@ class Supercon6 extends Module {
 	// state update as a result of a midi event
 	update(event) {
 		super.update(event)
-		// this.clear()
-		// this.render()
-		
 
+		$("#graph").children().each(function(){
+			// console.log(this)
+			$(this).children().each(function() {
+				if (Math.random() < 0.1) {
+					$(this).hide("slow")
+				} 
+				if (Math.random() < 0.1) {
+					$(this).show("slow")
+				} 
+			})
+		})
 
 	}
 
