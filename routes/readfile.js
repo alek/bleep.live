@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var fs = require('fs');
 
-/* GET home page. */
+// -- tbd --
 router.get('/', function(req, res, next) {
-	setInterval(function() {
-		res.write("" + Math.random());
-	},1)
+    	res.write(req.query)
+    	res.end()
 });
 
 module.exports = router;

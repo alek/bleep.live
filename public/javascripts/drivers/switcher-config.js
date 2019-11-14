@@ -48,7 +48,8 @@
 // 			{key: 1, module: "Drop3", config: {}}, 
 // 			{key: 2, module: "Virtual8", config: {}}, 
 // 			{key: 3, module: "Virtual5", config: {}},
-// 			{key: 4, module: "Virtual4", config: {}},
+// 			{key: 4, module: "Virtual5", config: {}},
+// 			// {key: 4, module: "Virtual4", config: {}},
 // 			{key: 5, module: "Virtual2", config: {}},
 // 			{key: 6, module: "Virtual1", config: {}},
 // 			{key: 7, module: "Supercon1", config: {}},
@@ -81,16 +82,28 @@
 // 			{key: 9, module: "PCB1", config: {}}
 // ]
 
+// var switcherLineup = [
+// 			{key: 1, module: "Deconstruction3", config: {}}, 
+// 			{key: 2, module: "Adafruit1", config: {}}, 
+// 			{key: 3, module: "Semiotik1", config: {}},
+// 			{key: 4, module: "Semiotik2", config: {}},
+// 			{key: 5, module: "DNA", config: {}},
+// 			{key: 6, module: "International1", config: {"background": "#000"}},
+// 			{key: 7, module: "International2", config: {"background": "#000"}},
+// 			{key: 8, module: "International3", config: {}},
+// 			{key: 9, module: "Abstract3", config: {}}
+// ]
+
+
 var switcherLineup = [
-			{key: 1, module: "Deconstruction3", config: {}}, 
-			{key: 2, module: "Adafruit1", config: {}}, 
-			{key: 3, module: "Semiotik1", config: {}},
-			{key: 4, module: "Semiotik2", config: {}},
-			{key: 5, module: "DNA", config: {}},
+			{key: 1, module: "Deconstruction3", config: { "amp8": 2, "amp9": 2 }}, 
+			{key: 2, module: "Deconstruction3", config: { "amp8": 20, "amp9": 1}}, 
+			{key: 3, module: "Deconstruction3", config: { "amp8": 17, "amp9": 5}}, 
+			{key: 4, module: "Deconstruction3", config: { "amp8": 17, "amp9": 30}}, 
+			{key: 5, module: "Deconstruction3", config: { "amp8": 17, "amp9": 100}}, 
 			{key: 6, module: "International1", config: {"background": "#000"}},
-			{key: 7, module: "International2", config: {"background": "#000"}},
-			{key: 8, module: "International3", config: {}},
-			{key: 9, module: "Abstract3", config: {}}
+			{key: 7, module: "International2", config: {"background": "#000", "size": 30}}
 ]
+
 
 
