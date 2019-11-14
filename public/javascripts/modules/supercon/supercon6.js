@@ -47,7 +47,6 @@ class Supercon6 extends Module {
 				} 
 			})
 		})
-
 	}
 
 }
