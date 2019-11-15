@@ -30,11 +30,11 @@ class Glove3 extends Module {
 
 	render() {	
 		// $("body").css({"background-color": "rgba(" + this.params["w1"]*4 + "," + this.params["w2"]*4 + "," + this.params["w3"]*4 + ",1)"})
-		drawCircleOutline([xmax/2,ymax/2], this.params["r1"]*10, "#fff", this.params["w1"], this.getDomID())
+		drawCircleOutline([xmax/2,ymax/2], this.params["r1"]*5, "#fff", this.params["w1"], this.getDomID())
 		drawCircleOutline([xmax/2,ymax/2], this.params["r2"]*10, "#fff", this.params["w2"], this.getDomID())
-		drawCircleOutline([xmax/2,ymax/2], this.params["r3"]*10, "#fff", this.params["w3"], this.getDomID())
-		drawCircleOutline([xmax/2,ymax/2], this.params["r4"]*10, "#fff", 10, this.getDomID())
-		drawCircleOutline([xmax/2,ymax/2], this.params["r5"]*10, "#fff", 10, this.getDomID())
+		drawCircleOutline([xmax/2,ymax/2], this.params["r3"]*15, "#fff", this.params["w3"], this.getDomID())
+		drawCircleOutline([xmax/2,ymax/2], this.params["r4"]*20, "#fff", 10, this.getDomID())
+		drawCircleOutline([xmax/2,ymax/2], this.params["r5"]*25, "#fff", 10, this.getDomID())
 	}
 
 	// state update as a result of a midi event

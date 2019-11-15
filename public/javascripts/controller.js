@@ -92,6 +92,7 @@ $( document ).ready(function() {
 	var socket = io.connect('http://localhost:5133')
 	
 	socket.on('server', function (data) {
+		console.log("websocket connected")
 		socket.emit('client', { time: new Date() })
 	})
 
@@ -100,6 +101,7 @@ $( document ).ready(function() {
 	//
 
 	socket.on('control', function(data) {
+		console.log(data)
 		updateEventBox(data)
 		bc.postMessage(JSON.stringify({'midi': data}))		
 	});	

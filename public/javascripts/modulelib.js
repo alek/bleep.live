@@ -165,12 +165,14 @@ import Glove7 from './modules/glove/glove7.js'
 import Glove8 from './modules/glove/glove8.js'
 import Glove9 from './modules/glove/glove9.js'
 import Glove10 from './modules/glove/glove10.js'
+import Glove11 from './modules/glove/glove11.js'
 
 import Supercon3 from './modules/supercon/supercon3.js'
 import Supercon4 from './modules/supercon/supercon4.js'
 import Supercon5 from './modules/supercon/supercon5.js'
 import Supercon6 from './modules/supercon/supercon6.js'
 import Supercon7 from './modules/supercon/supercon7.js'
+import Speaker from './modules/supercon/speaker.js'
 
 //
 // Instantiate module from a string
@@ -215,14 +217,11 @@ var modules = {
 	KPunk1,
 	KPunk2,
 	Bunnie1,
-	Bunnie2,
-	Bunnie3,
 	Chemical1,
 	Chemical2,
 	Chemical3,
 	Chemical4,
 	Chemical5,
-	CodeWeb1,
 	Dotmatrix1,
 	Dotmatrix2,
 	Dotmatrix3,
@@ -279,7 +278,17 @@ var modules = {
 	Supercon4,
 	Supercon5,
 	Supercon6,
-	Supercon7
+	Supercon7,
+	Glove2,
+	Glove3,
+	Glove5,
+	Glove6,
+	Glove7,
+	Glove8,
+	Glove9,
+	Glove10,
+	Glove11,
+	Speaker
 }
 
 export { modules, createModule };

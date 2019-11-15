@@ -4,7 +4,7 @@
 
 import Module from '../../lib/module.js'
 
-class GloveTemplate extends Module {
+class Glove11 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -34,17 +34,37 @@ class GloveTemplate extends Module {
 	}
 
 
-	renderGrid(columns, rows) {
-		for (var i=0; i<=columns; i++) {
-			for (var j=0; j<=rows; j++) {
-				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 
-				drawCircle(coord, 2, "#fff", this.getDomID())
-			}
-		}
-	}	
 
 	render() {	
-		drawCircleOutline([xmax/2,ymax/2], this.params["r1"]*10, "#fff", this.params["w1"], this.getDomID())
+
+
+		for (var i=0; i<2; i++) {
+			var xoffset = Math.random()*xmax
+			line({
+				x1: xoffset,
+				y1: 0,
+				x2: xoffset,
+				y2: ymax,
+				stroke: "rgba(255,255,255,0.4)",
+				"transform": "rotate(0 0 0)",
+				"stroke-width": this.params["l4"]*this.params["l5"],
+				"stroke-dasharray": "1 2"
+			}, this.getDomID());
+		}
+
+		for (var i=0; i<10+this.params["r1"]/2; i++) {
+			circle({
+				cx: xmax/2,
+				cy: ymax/2,
+				r: this.params["r2"]*i/2 + timeRamp(10000, this.params["r2"]/2),
+				stroke: "#fff",
+				fill: "none",
+				"transform": "rotate(" + this.params["w1"]*6 + " " + xmax/2 + " " + ymax/2 + ")",
+				"stroke-dasharray": this.params["r3"] + " " + this.params["r4"],
+				style: "stroke-width:" + timeRamp(1000,this.params["r5"]*5),
+			}, this.getDomID());	
+		}
+
 	}
 
 	// state update as a result of a midi event
@@ -56,4 +76,4 @@ class GloveTemplate extends Module {
 
 }
 
-export default GloveTemplate;
+export default Glove11;

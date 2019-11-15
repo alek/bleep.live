@@ -1,83 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{font-family:'NHaasGroteskDSPro-65Md';}
 	.st2{font-size:48px;}
-	.st3{letter-spacing:-1;}
-	.st4{fill:#E5E5E5;}
-	.st5{fill:#CBCBCB;}
-	.st6{fill:#B2B2B2;}
-	.st7{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
-	.st8{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-miterlimit:10;}
-	.st9{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
-	.st10{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-miterlimit:10;}
-	.st11{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
-	.st12{fill:none;stroke:#FFFFFF;stroke-width:12;stroke-miterlimit:10;}
-	.st13{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-miterlimit:10;}
-	.st14{fill:none;stroke:#FFFFFF;stroke-width:25;stroke-miterlimit:10;}
-	.st15{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-miterlimit:10;}
-	.st16{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
-	.st17{fill:none;}
-	.st18{font-family:'PTMono-Regular';}
-	.st19{font-size:12px;}
+	.st3{fill:#E5E5E5;}
+	.st4{fill:#CBCBCB;}
+	.st5{fill:#B2B2B2;}
+	.st6{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+	.st7{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#FFFFFF;stroke-width:12;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-miterlimit:10;}
+	.st13{fill:none;stroke:#FFFFFF;stroke-width:25;stroke-miterlimit:10;}
+	.st14{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st16{fill:none;}
+	.st17{font-family:'PTMono-Regular';}
+	.st18{font-size:12px;}
 </style>
-<text transform="matrix(0 -1 1 0 1860.522 1020.5127)" class="st0 st1 st2 st3">5Con™</text>
-<text transform="matrix(0 -1 1 0 578.2896 961.2783)" class="st0 st1 st2 st3">Badge Hacking</text>
+<text transform="matrix(0 -1 1 0 1860.522 1020.5127)" class="st0 st1 st2">5Con™</text>
+<text transform="matrix(0 -1 1 0 578.2896 961.2783)" class="st0 st1 st2">Badge Hacking</text>
 <polygon class="st0" points="300,420 361,359 544,359 483,420 "/>
-<rect x="720" y="419" class="st0" width="61" height="61"/>
-<polygon class="st4" points="479,479 540,540 723,540 662,479 "/>
-<rect x="361" y="538" class="st0" width="61" height="61"/>
-<polyline class="st5" points="304,599 243,660 121,660 60,599 243,599 "/>
+<g>
+	<rect x="720" y="419" class="st0" width="61" height="61"/>
+</g>
+<polygon class="st3" points="479,479 540,540 723,540 662,479 "/>
+<g>
+	<rect x="361" y="538" class="st0" width="61" height="61"/>
+</g>
+<polyline class="st4" points="304,599 243,660 121,660 60,599 243,599 "/>
 <path class="st0" d="M291,361"/>
-<polygon class="st6" points="1198,421 1258,361 1438,361 1378,421 "/>
+<polygon class="st5" points="1198,421 1258,361 1438,361 1378,421 "/>
 <polygon class="st0" points="1080,421 1080,511 1080,601 1140,601 1140,511 1140,421 "/>
-<polygon class="st5" points="780,601 840,661 1020,661 960,601 "/>
-<polygon class="st4" points="1440,421 1440,661 1500,601 1500,361 "/>
-<polygon class="st6" points="1860,601 1860,361 1800,421 1800,661 "/>
-<polygon class="st4" points="1740,361 1620,361 1560.5,420.5 1680,420.5 "/>
-<text transform="matrix(1 0 0 1 960.4795 224.0034)" class="st0 st1 st2 st3">Hacker Village</text>
-<line class="st7" x1="961" y1="961" x2="961" y2="1021"/>
-<line class="st8" x1="981" y1="961" x2="981" y2="1021"/>
-<line class="st9" x1="1001" y1="961" x2="1001" y2="1021"/>
-<line class="st10" x1="1021" y1="961" x2="1021" y2="1021"/>
-<line class="st11" x1="1041" y1="961" x2="1041" y2="1021"/>
-<line class="st12" x1="1061" y1="961" x2="1061" y2="1021"/>
-<line class="st13" x1="1081" y1="961" x2="1081" y2="1021"/>
-<line class="st14" x1="1101" y1="961" x2="1101" y2="1021"/>
-<line class="st9" x1="1121" y1="961" x2="1121" y2="1021"/>
-<line class="st8" x1="1141" y1="961" x2="1141" y2="1021"/>
-<line class="st15" x1="1161" y1="961" x2="1161" y2="1021"/>
-<line class="st15" x1="1181" y1="961" x2="1181" y2="1021"/>
-<line class="st7" x1="1201" y1="961" x2="1201" y2="1021"/>
-<circle class="st16" cx="120" cy="120" r="60"/>
-<line class="st16" x1="61" y1="900.5" x2="121" y2="900.5"/>
-<line class="st16" x1="61" y1="1019.5" x2="121" y2="1019.5"/>
-<line class="st16" x1="61" y1="989.5" x2="121" y2="989.5"/>
-<line class="st16" x1="61" y1="959.5" x2="121" y2="959.5"/>
-<rect x="240.1" y="60.5" class="st17" width="60.9" height="239.5"/>
-<text transform="matrix(1 0 0 1 240.1226 68.8799)"><tspan x="0" y="0" class="st0 st18 st19">, an </tspan><tspan x="0" y="14.4" class="st0 st18 st19">elliptic </tspan><tspan x="0" y="28.8" class="st0 st18 st19">curve is </tspan><tspan x="0" y="43.2" class="st0 st18 st19">a </tspan><tspan x="0" y="57.6" class="st0 st18 st19">smooth, </tspan><tspan x="0" y="72" class="st0 st18 st19">projec</tspan><tspan x="43.2" y="72" class="st0 st18 st19">-</tspan><tspan x="0" y="86.4" class="st0 st18 st19">tive, </tspan><tspan x="0" y="100.8" class="st0 st18 st19">algebra</tspan><tspan x="50.4" y="100.8" class="st0 st18 st19">-</tspan><tspan x="0" y="115.2" class="st0 st18 st19">ic curve </tspan><tspan x="0" y="129.6" class="st0 st18 st19">of genus </tspan><tspan x="0" y="144" class="st0 st18 st19">one, on </tspan><tspan x="0" y="158.4" class="st0 st18 st19">which </tspan><tspan x="0" y="172.8" class="st0 st18 st19">there is </tspan><tspan x="0" y="187.2" class="st0 st18 st19">a speci</tspan><tspan x="50.4" y="187.2" class="st0 st18 st19">-</tspan><tspan x="0" y="201.6" class="st0 st18 st19">fied </tspan><tspan x="0" y="216" class="st0 st18 st19">point </tspan></text>
+<polygon class="st4" points="780,601 840,661 1020,661 960,601 "/>
+<polygon class="st3" points="1440,421 1440,661 1500,601 1500,361 "/>
+<polygon class="st5" points="1860,601 1860,361 1800,421 1800,661 "/>
+<polygon class="st3" points="1740,361 1620,361 1560.5,420.5 1680,420.5 "/>
+<text transform="matrix(1 0 0 1 960.4795 224.0034)" class="st0 st1 st2">Hacker Village</text>
+<line class="st6" x1="961" y1="961" x2="961" y2="1021"/>
+<line class="st7" x1="981" y1="961" x2="981" y2="1021"/>
+<line class="st8" x1="1001" y1="961" x2="1001" y2="1021"/>
+<line class="st9" x1="1021" y1="961" x2="1021" y2="1021"/>
+<line class="st10" x1="1041" y1="961" x2="1041" y2="1021"/>
+<line class="st11" x1="1061" y1="961" x2="1061" y2="1021"/>
+<line class="st12" x1="1081" y1="961" x2="1081" y2="1021"/>
+<line class="st13" x1="1101" y1="961" x2="1101" y2="1021"/>
+<line class="st8" x1="1121" y1="961" x2="1121" y2="1021"/>
+<line class="st7" x1="1141" y1="961" x2="1141" y2="1021"/>
+<line class="st14" x1="1161" y1="961" x2="1161" y2="1021"/>
+<line class="st14" x1="1181" y1="961" x2="1181" y2="1021"/>
+<line class="st6" x1="1201" y1="961" x2="1201" y2="1021"/>
+<circle class="st15" cx="120" cy="120" r="60"/>
+<line class="st15" x1="61" y1="900.5" x2="121" y2="900.5"/>
+<line class="st15" x1="61" y1="1019.5" x2="121" y2="1019.5"/>
+<line class="st15" x1="61" y1="989.5" x2="121" y2="989.5"/>
+<line class="st15" x1="61" y1="959.5" x2="121" y2="959.5"/>
+<rect x="240.1" y="60.5" class="st16" width="60.9" height="239.5"/>
+<text transform="matrix(1 0 0 1 240.1226 68.8799)" class="st0 st17 st18">, an </text>
+<text transform="matrix(1 0 0 1 240.1226 83.2799)" class="st0 st17 st18">elliptic </text>
+<text transform="matrix(1 0 0 1 240.1226 97.6799)" class="st0 st17 st18">curve is </text>
+<text transform="matrix(1 0 0 1 240.1226 112.0799)" class="st0 st17 st18">a </text>
+<text transform="matrix(1 0 0 1 240.1226 126.4799)" class="st0 st17 st18">smooth, </text>
+<text transform="matrix(1 0 0 1 240.1226 140.8799)" class="st0 st17 st18">projec</text>
+<text transform="matrix(1 0 0 1 283.3226 140.8799)" class="st0 st17 st18">-</text>
+<text transform="matrix(1 0 0 1 240.1226 155.2799)" class="st0 st17 st18">tive, </text>
+<text transform="matrix(1 0 0 1 240.1226 169.6799)" class="st0 st17 st18">algebra</text>
+<text transform="matrix(1 0 0 1 290.5226 169.6799)" class="st0 st17 st18">-</text>
+<text transform="matrix(1 0 0 1 240.1226 184.0799)" class="st0 st17 st18">ic curve </text>
+<text transform="matrix(1 0 0 1 240.1226 198.4799)" class="st0 st17 st18">of genus </text>
+<text transform="matrix(1 0 0 1 240.1226 212.8799)" class="st0 st17 st18">one, on </text>
+<text transform="matrix(1 0 0 1 240.1226 227.2799)" class="st0 st17 st18">which </text>
+<text transform="matrix(1 0 0 1 240.1226 241.6799)" class="st0 st17 st18">there is </text>
+<text transform="matrix(1 0 0 1 240.1226 256.0799)" class="st0 st17 st18">a speci</text>
+<text transform="matrix(1 0 0 1 290.5226 256.0799)" class="st0 st17 st18">-</text>
+<text transform="matrix(1 0 0 1 240.1226 270.4799)" class="st0 st17 st18">fied </text>
+<text transform="matrix(1 0 0 1 240.1226 284.8799)" class="st0 st17 st18">point </text>
 <circle class="st0" cx="120" cy="301" r="54"/>
-<rect x="1260.5" y="720.5" class="st17" width="240" height="180"/>
-<text transform="matrix(1 0 0 1 1260.5 728.9004)"><tspan x="0" y="0" class="st0 st18 st19">The Hackaday Superconference is </tspan><tspan x="0" y="14.4" class="st0 st18 st19">the greatest gathering of hard</tspan><tspan x="216" y="14.4" class="st0 st18 st19">-</tspan><tspan x="0" y="28.8" class="st0 st18 st19">ware hackers, builders, engineers </tspan><tspan x="0" y="43.2" class="st0 st18 st19">and enthusiasts in the world. </tspan><tspan x="0" y="57.6" class="st0 st18 st19">Hundreds of engineers and </tspan><tspan x="0" y="72" class="st0 st18 st19">engineering enthusiasts gather </tspan><tspan x="0" y="86.4" class="st0 st18 st19">for organized talks and workshops </tspan><tspan x="0" y="100.8" class="st0 st18 st19">along with the extemporaneous </tspan><tspan x="0" y="115.2" class="st0 st18 st19">challenges, conversations, and </tspan><tspan x="0" y="129.6" class="st0 st18 st19">discovery that make Supercon the </tspan><tspan x="0" y="144" class="st0 st18 st19">ultimate hardware conference.</tspan></text>
-<polyline class="st16" points="540,601 720,601 840,721 1021,721 "/>
-<rect x="1746.8" y="163.5" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1583.3082 1912.5895)" class="st0" width="2.3" height="2.3"/>
-<rect x="1783.8" y="163.5" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1620.2903 1949.5717)" class="st0" width="2.3" height="2.3"/>
-<rect x="1820.8" y="163.5" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1657.2723 1986.5537)" class="st0" width="2.3" height="2.3"/>
-<rect x="1857.7" y="163.5" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1694.2545 2023.5358)" class="st0" width="2.3" height="2.3"/>
-<rect x="1746.5" y="130.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1615.7455 1879.5358)" class="st0" width="2.3" height="2.3"/>
-<rect x="1783.5" y="130.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1652.7277 1916.5179)" class="st0" width="2.3" height="2.3"/>
-<rect x="1820.4" y="130.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1689.7097 1953.5)" class="st0" width="2.3" height="2.3"/>
-<rect x="1857.4" y="130.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1726.6918 1990.4821)" class="st0" width="2.3" height="2.3"/>
-<rect x="1746.5" y="97.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1648.7455 1846.5358)" class="st0" width="2.3" height="2.3"/>
-<rect x="1746.8" y="60.4" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1686.344 1809.5537)" class="st0" width="2.3" height="2.3"/>
-<rect x="1783.5" y="97.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1685.7277 1883.5179)" class="st0" width="2.3" height="2.3"/>
-<rect x="1783.8" y="60.4" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1723.326 1846.5358)" class="st0" width="2.3" height="2.3"/>
-<rect x="1820.4" y="97.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1722.7097 1920.5)" class="st0" width="2.3" height="2.3"/>
-<rect x="1820.8" y="60.4" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1760.3082 1883.5179)" class="st0" width="2.3" height="2.3"/>
-<rect x="1857.4" y="97.7" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1759.6918 1957.4821)" class="st0" width="2.3" height="2.3"/>
-<rect x="1857.7" y="60.4" transform="matrix(6.123234e-17 -1 1 6.123234e-17 1797.2903 1920.5)" class="st0" width="2.3" height="2.3"/>
-<polyline class="st16" points="360.5,334.5 540.5,334.5 665,210 901.5,210 "/>
+<rect x="1260.5" y="720.5" class="st16" width="240" height="180"/>
+<text transform="matrix(1 0 0 1 1260.5 728.9004)" class="st0 st17 st18">The Hackaday Superconference is </text>
+<text transform="matrix(1 0 0 1 1260.5 743.3004)" class="st0 st17 st18">the greatest gathering of hard</text>
+<text transform="matrix(1 0 0 1 1476.5 743.3004)" class="st0 st17 st18">-</text>
+<text transform="matrix(1 0 0 1 1260.5 757.7004)" class="st0 st17 st18">ware hackers, builders, engineers </text>
+<text transform="matrix(1 0 0 1 1260.5 772.1004)" class="st0 st17 st18">and enthusiasts in the world. </text>
+<text transform="matrix(1 0 0 1 1260.5 786.5004)" class="st0 st17 st18">Hundreds of engineers and </text>
+<text transform="matrix(1 0 0 1 1260.5 800.9004)" class="st0 st17 st18">engineering enthusiasts gather </text>
+<text transform="matrix(1 0 0 1 1260.5 815.3004)" class="st0 st17 st18">for organized talks and workshops </text>
+<text transform="matrix(1 0 0 1 1260.5 829.7004)" class="st0 st17 st18">along with the extemporaneous </text>
+<text transform="matrix(1 0 0 1 1260.5 844.1004)" class="st0 st17 st18">challenges, conversations, and </text>
+<text transform="matrix(1 0 0 1 1260.5 858.5004)" class="st0 st17 st18">discovery that make Supercon the </text>
+<text transform="matrix(1 0 0 1 1260.5 872.9004)" class="st0 st17 st18">ultimate hardware conference.</text>
+<polyline class="st15" points="540,601 720,601 840,721 1021,721 "/>
+<rect x="1746.8" y="163.5" class="st0" width="2.3" height="2.3"/>
+<rect x="1783.8" y="163.5" class="st0" width="2.3" height="2.3"/>
+<rect x="1820.8" y="163.5" class="st0" width="2.3" height="2.3"/>
+<rect x="1857.8" y="163.5" class="st0" width="2.3" height="2.3"/>
+<rect x="1746.4" y="130.7" class="st0" width="2.3" height="2.3"/>
+<rect x="1783.4" y="130.7" class="st0" width="2.3" height="2.3"/>
+<rect x="1820.4" y="130.8" class="st0" width="2.3" height="2.3"/>
+<rect x="1857.4" y="130.8" class="st0" width="2.3" height="2.3"/>
+<rect x="1746.4" y="97.7" class="st0" width="2.3" height="2.3"/>
+<rect x="1746.7" y="60.5" class="st0" width="2.3" height="2.3"/>
+<rect x="1783.4" y="97.7" class="st0" width="2.3" height="2.3"/>
+<rect x="1783.7" y="60.4" class="st0" width="2.3" height="2.3"/>
+<rect x="1820.4" y="97.8" class="st0" width="2.3" height="2.3"/>
+<rect x="1820.7" y="60.4" class="st0" width="2.3" height="2.3"/>
+<rect x="1857.4" y="97.8" class="st0" width="2.3" height="2.3"/>
+<rect x="1857.7" y="60.5" class="st0" width="2.3" height="2.3"/>
+<polyline class="st15" points="360.5,334.5 540.5,334.5 665,210 901.5,210 "/>
 </svg>

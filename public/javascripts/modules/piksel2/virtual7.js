@@ -3,7 +3,8 @@
 // 
 
 import Module from '../../lib/module.js'
-import { getBiorxivData } from '../../dataset/biorxiv.js'
+// import { getBiorxivData } from '../../dataset/biorxiv.js'
+import { getBiorxivData } from '../../dataset/hackadayio.js'
 
 class Virtual7 extends Module {
 

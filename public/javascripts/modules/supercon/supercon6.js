@@ -39,10 +39,10 @@ class Supercon6 extends Module {
 			// console.log(this)
 			$(this).children().each(function() {
 				if (Math.random() < 0.1) {
-					$(this).hide("slow")
+					$(this).hide(2000)
 				} 
 				if (Math.random() < 0.1) {
-					$(this).show("slow")
+					$(this).show(2000)
 				} 
 			})
 		})

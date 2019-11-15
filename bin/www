@@ -11,7 +11,10 @@ var http = require('http');
 const SerialPort = require('serialport')
 const Readline = require('@serialport/parser-readline')
 
-const sPort = new SerialPort("/dev/tty.usbserial-DN04K3I8", { baudRate: 38400 })
+//const sPort = new SerialPort("/dev/tty.usbserial-DN04K3I8", { baudRate: 38400 })
+//const sPort = new SerialPort("/dev/tty.usbserial-DN04K3I8", { baudRate: 38400 })
+const sPort = new SerialPort("/dev/tty.usbserial-D3073GJO", { baudRate: 38400 })
+
 // const sPort = new SerialPort("/dev/tty.usbserial-DN04K3IC", { baudRate: 38400 })
 const parser = new Readline()
 sPort.pipe(parser)
@@ -50,6 +53,7 @@ var midiMap = {
 }
 
 parser.on('data', function(data) {
+  // console.log(data)
   var parts = data.trim().split(/\s+/)
   for (var i in parts) {
     parts[i] = parseInt(parts[i])
@@ -111,7 +115,6 @@ io.on('connection', function(client) {
           for (var i=0; i<lastEvent.length; i++) {
 
             if (lastEvent[i] > 0 && (lastEvent[i] != lastDispatched[i]) && (Math.abs(lastEvent[i] - lastDispatched[i]) > 3) ) { // ignore small fluctuations
-               // console.log(i + "\t" + lastEvent[i])
                client.emit('control', { data: {
                 "channel": 0,
                 "controller": midiMap[i+1],
