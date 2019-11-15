@@ -95,14 +95,24 @@
 // ]
 
 
+// var switcherLineup = [
+// 			{key: 1, module: "Deconstruction3", config: { "amp8": 2, "amp9": 2 }}, 
+// 			{key: 2, module: "Deconstruction3", config: { "amp8": 20, "amp9": 1}}, 
+// 			{key: 3, module: "Deconstruction3", config: { "amp8": 17, "amp9": 5}}, 
+// 			{key: 4, module: "Deconstruction3", config: { "amp8": 17, "amp9": 30}}, 
+// 			{key: 5, module: "Deconstruction3", config: { "amp8": 17, "amp9": 100}}, 
+// 			{key: 6, module: "International1", config: {"background": "#000"}},
+// 			{key: 7, module: "International2", config: {"background": "#000", "size": 30}}
+// ]
+
+
+
 var switcherLineup = [
-			{key: 1, module: "Deconstruction3", config: { "amp8": 2, "amp9": 2 }}, 
-			{key: 2, module: "Deconstruction3", config: { "amp8": 20, "amp9": 1}}, 
-			{key: 3, module: "Deconstruction3", config: { "amp8": 17, "amp9": 5}}, 
-			{key: 4, module: "Deconstruction3", config: { "amp8": 17, "amp9": 30}}, 
-			{key: 5, module: "Deconstruction3", config: { "amp8": 17, "amp9": 100}}, 
-			{key: 6, module: "International1", config: {"background": "#000"}},
-			{key: 7, module: "International2", config: {"background": "#000", "size": 30}}
+			{key: 1, module: "Supercon3", config: { "amp8": 2, "amp9": 2 }}, 
+			{key: 2, module: "Supercon4", config: { "amp8": 20, "amp9": 1}}, 
+			{key: 3, module: "Supercon5", config: { "amp8": 17, "amp9": 5}}, 
+			{key: 4, module: "Supercon6", config: { "amp8": 17, "amp9": 30}}, 
+			{key: 5, module: "Supercon7", config: { "amp8": 17, "amp9": 100}}
 ]
 
 
