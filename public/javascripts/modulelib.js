@@ -186,14 +186,12 @@ var createModule = function(name) {
 //
 var modules = {
 	DNA,
-	VectorSpace,
 	Sunset,
 	Bounce,
 	Abstract1,
 	Abstract2,
 	Abstract3,
 	Abstract4,
-	Field1,
 	International1,
 	International2,
 	International3,

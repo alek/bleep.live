@@ -603,6 +603,8 @@ li:hover .add-module {
 .speedometer-container {
 	margin-top: -20px;
 	margin-bottom: 10px;
+	height: 14px;
+	overflow: hidden;
 }
 
 .speedometer {
