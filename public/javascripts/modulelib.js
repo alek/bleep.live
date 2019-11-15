@@ -170,6 +170,7 @@ import Supercon3 from './modules/supercon/supercon3.js'
 import Supercon4 from './modules/supercon/supercon4.js'
 import Supercon5 from './modules/supercon/supercon5.js'
 import Supercon6 from './modules/supercon/supercon6.js'
+import Supercon7 from './modules/supercon/supercon7.js'
 
 //
 // Instantiate module from a string
@@ -277,7 +278,8 @@ var modules = {
 	Supercon3,
 	Supercon4,
 	Supercon5,
-	Supercon6
+	Supercon6,
+	Supercon7
 }
 
 export { modules, createModule };

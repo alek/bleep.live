@@ -1,10 +1,10 @@
-//
+
 // Supercon logo animation
 // 
 
 import Module from '../../lib/module.js'
 
-class Supercon6 extends Module {
+class Supercon7 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -25,7 +25,7 @@ class Supercon6 extends Module {
 	}	
 
 	render() {	
-		$.get( "http://localhost:5133/images/supercon/logo.svg", function( data ) {
+		$.get( "http://localhost:5133/images/supercon/supercon_poster_1.svg", function( data ) {
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
 		});
@@ -50,4 +50,4 @@ class Supercon6 extends Module {
 
 }
 
-export default Supercon6;
+export default Supercon7;
