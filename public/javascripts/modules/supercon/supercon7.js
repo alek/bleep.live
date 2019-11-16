@@ -25,7 +25,7 @@ class Supercon7 extends Module {
 	}	
 
 	render() {	
-		$.get( "http://localhost:5133/images/supercon/supercon_poster_1.svg", function( data ) {
+		$.get( "http://localhost:5133/images/supercon/supercon_poster_" + Math.ceil(Math.random()*6) + ".svg", function( data ) {
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
 		});
