@@ -275,7 +275,6 @@ var modules = {
 	Supercon3,
 	Supercon4,
 	Supercon5,
-	Supercon6,
 	Supercon7,
 	Glove2,
 	Glove3,
@@ -286,7 +285,8 @@ var modules = {
 	Glove9,
 	Glove10,
 	Glove11,
-	Speaker
+	Speaker,
+	Supercon6
 }
 
 export { modules, createModule };

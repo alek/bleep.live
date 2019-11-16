@@ -64,7 +64,7 @@ class Virtual5 extends Module {
 
 	render() {	
 
-		var w = xmax/4
+		var w = this.getConfigVal("w",xmax/4)
 
 		this.renderLetter(this.randomLetterGrid(), 0, ymax/2-w/2, w, "#fff")		
 		this.renderLetter(this.randomLetterGrid(), w, ymax/2-w/2, w, "#fff")		

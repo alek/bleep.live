@@ -75,7 +75,7 @@ class Chemical5 extends Module {
 		// this.molecule([xmax/2, ymax/2], 25 + Math.random()*100, 12, Math.random()*360)
 		
 		// this.molecule([xmax/2, ymax/2], 50, 8, 0)
-		this.molecule([xmax/2, ymax/2], 25 + Math.random()*25, 12, Math.random()*180)
+		this.molecule([xmax/2, ymax/2], 25 + Math.random()*this.getConfigVal("depth",25), 12, Math.random()*180)
 
 		// this.molecule([xmax*0.25, ymax/2], 25 + Math.random()*25, 12, Math.random()*180)
 		// this.molecule([xmax*0.75, ymax/2], 25 + Math.random()*25, 12, Math.random()*180)

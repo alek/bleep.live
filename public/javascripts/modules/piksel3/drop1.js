@@ -45,7 +45,7 @@ class Drop1 extends Module {
 	render() {	
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
-		var amp = ymax*0.2
+		var amp = ymax*this.getConfigVal("amp",0.2)
 
 		for (var i=0; i<ymax; i+=10) {
 			this.pair([xmax*0.5,i], amp*Math.sin((i + Math.floor(this.counter++/6) )/(amp*0.4)), false)

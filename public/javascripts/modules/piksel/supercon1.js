@@ -107,7 +107,7 @@ class Chemical5 extends Module {
 
 		// this.renderGrid(10,10)
 		
-		var coords = this.getGridCoordinates(10,10)
+		var coords = this.getGridCoordinates(this.getConfigVal("grid-x",10),this.getConfigVal("grid-y",10))
 		var width = (xmax/10)*0.9
 
 		for (var i=0; i<coords.length; i++) {

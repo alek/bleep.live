@@ -54,7 +54,7 @@ class Virtual2 extends Module {
 		var styles = [{
 				"font-family": "Helvetica", 
 				"font-weight": 700,
-				"font-size": "80px"
+				"font-size": "" +  this.getConfigVal("font-size", 80) + "px"
 			},
 			{
 			  "grid-column": "span 2",
@@ -85,7 +85,8 @@ class Virtual2 extends Module {
 		]
 
 		for (var i=0; i<50; i++) {
-			$("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>').css(styles[Math.floor(Math.random()*styles.length)]));
+			var style = styles[Math.floor(Math.random()*styles.length*this.getConfigVal("penalty",1))]
+			$("#container").append($('<div class="item">' + this.rndAbstract(data) + '</div>').css(style));
 		}	
 
 		$(".item").css({

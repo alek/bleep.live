@@ -57,6 +57,18 @@
 // 			{key: 9, module: "Bunnie2", config: {}}
 // ]
 
+var switcherLineup = [
+			{key: 1, module: "Drop3", config: {}}, 
+			{key: 2, module: "Virtual8", config: {}}, 
+			{key: 4, module: "Virtual5", config: {"w": 800}},
+			{key: 5, module: "Virtual2", config: {"font-size": 180}},
+			{key: 5, module: "Virtual2", config: {"font-size": 300, "penalty": 0.3}},
+			{key: 6, module: "Drop1", config: {"amp": 1.0}},
+			{key: 7, module: "Supercon1", config: {"grid-x": 12, "grid-y": 14}},
+			{key: 8, module: "Chemical5", config: {"depth": 125}},
+			{key: 9, module: "Bunnie2", config: {}}
+]
+
 
 // var switcherLineup = [
 // 			{key: 1, module: "DNA1", config: {}}, 
@@ -107,13 +119,13 @@
 
 
 
-var switcherLineup = [
-			{key: 1, module: "Supercon3", config: { "amp8": 2, "amp9": 2 }}, 
-			{key: 2, module: "Supercon4", config: { "amp8": 20, "amp9": 1}}, 
-			{key: 3, module: "Supercon5", config: { "amp8": 17, "amp9": 5}}, 
-			{key: 4, module: "Supercon6", config: { "amp8": 17, "amp9": 30}}, 
-			{key: 5, module: "Supercon7", config: { "amp8": 17, "amp9": 100}}
-]
+// var switcherLineup = [
+// 			{key: 1, module: "Supercon3", config: { "amp8": 2, "amp9": 2 }}, 
+// 			{key: 2, module: "Supercon4", config: { "amp8": 20, "amp9": 1}}, 
+// 			{key: 3, module: "Supercon5", config: { "amp8": 17, "amp9": 5}}, 
+// 			{key: 4, module: "Supercon6", config: { "amp8": 17, "amp9": 30}}, 
+// 			{key: 5, module: "Supercon7", config: { "amp8": 17, "amp9": 100}}
+// ]
 
 
 
