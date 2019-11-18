@@ -9,12 +9,12 @@ class Bounce extends Module {
 	constructor() {
 		super({	// init params mapping
 			"r": ["cc_1", 1],
-			"r1": ["cc_2", 85],
-			"g1": ["cc_3", 29],
-			"b1": ["cc_4", 65],
-			"r2": ["cc_10", 4],
-			"g2": ["cc_11", 24],
-			"b2": ["cc_12", 91],
+			"r1": ["cc_2", 0],
+			"g1": ["cc_3", 0],
+			"b1": ["cc_4", 0],
+			"r2": ["cc_10", 255],
+			"g2": ["cc_11", 255],
+			"b2": ["cc_12", 255],
 			"opacity1": ["cc_14", 100],
 			"opacity2": ["cc_15", 100],
 			"duration": ["cc_9", 100],

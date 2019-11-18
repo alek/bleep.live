@@ -20,8 +20,8 @@ class Adafruit1 extends Module {
 		var start = null
 		var target = null
 		var count = 0
-		for (var i=0; i<this.params["grid_columns"]; i++) {
-			for (var j=0; j<this.params["grid_rows"]; j++) {
+		for (var i=0; i<this.params["grid_columns"]+1; i++) {
+			for (var j=0; j<this.params["grid_rows"]+1; j++) {
 				var coord = getGridCoordinates([i,j], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
 				start = coord
 				// drawCircle(coord, 2, "#fff", this.getDomID())

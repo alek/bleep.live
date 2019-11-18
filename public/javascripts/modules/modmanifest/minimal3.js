@@ -17,9 +17,9 @@ class Minimal3 extends Module {
 			"grid_columns": ["cc_7", 24],
 			"grid_rows": ["cc_8", 14],
 			"pantone": ["cc_9", 0],
-			"r2": ["cc_10", 0/2],
-			"g2": ["cc_11", 0/2],
-			"b2": ["cc_12", 0/2],
+			"r2": ["cc_10", 0],
+			"g2": ["cc_11", 0],
+			"b2": ["cc_12", 0],
 			"animate": ["cc_13", 0],
 			"opacity1": ["cc_14", 100],
 			"opacity2": ["cc_15", 100],
@@ -47,7 +47,7 @@ class Minimal3 extends Module {
 				var center = getGridCoordinatesCenter([i,j], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
 
 				var lineWidth = this.params["weight"]
-				var fill = (this.params["pantone"] == 0) ? getParametricColor(this.params,1) : randomPantoneHex()
+				var fill = (Math.random() < 0.1) ? randomPantoneHex() : "#fff"
 				
 				var dice = Math.random()
 				if (dice < 0.15) {

@@ -75,7 +75,7 @@ class Semiotik7 extends Module {
 			var rootEl = addSVG("polygon", {
 				points: triangle.map(x => x.join(",")).join(" "),
 				// "stroke-dasharray": "100 100",
-				style: "fill:" + ((Math.random() > this.params["p"]/127) ? getParametricColor(this.params,2) : getParametricColor(this.params,1)) + ";stroke:#fff;stroke-width:0"
+				style: "fill:" + ((Math.random() > this.params["p"]/127) ? "#fff" : "000") + ";stroke:#fff;stroke-width:0"
 			})
 
 			document.getElementById(this.getDomID()).appendChild(rootEl)

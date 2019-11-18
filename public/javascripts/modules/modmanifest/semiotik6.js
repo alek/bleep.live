@@ -58,14 +58,15 @@ class Semiotik6 extends Module {
 			var angle = sum(angles.slice(0,i))*Math.PI*2
 			var x = xmax/2 + Math.cos(angle)*radius
 			var y = ymax/2 + Math.sin(angle)*radius
-			drawCircle([x,y], this.params["circle_r"], getParametricColor(this.params,1), this.getDomID())
+			drawCircle([x,y], this.params["circle_r"], this.getConfigVal("fill", "#fff"), this.getDomID())
 			coords.push([x,y])
 		}
 
 		for (var i=0; i<coords.length; i++) {
 			drawLine(coords[Math.floor(Math.random()*coords.length)],
 					coords[Math.floor(Math.random()*coords.length)],
-					getParametricColor(this.params,1), 
+					this.getConfigVal("fill", "#fff"),
+					// getParametricColor(this.params,1), 
 					this.params["weight"],
 					this.getDomID())
 		}

@@ -30,7 +30,7 @@ class Syn1 extends Module {
 	}
 
 	render() {	
-		$("body").css({"background-color": "#c6f700"})
+		// $("body").css({"background-color": "#c6f700"})
 		$("circle").attr("stroke", "#000")
 		$("circle").attr("stroke-width", "1px")
 		$("circle").attr("fill", "#c6f700")

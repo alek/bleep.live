@@ -72,7 +72,7 @@ class Virtual10 extends Module {
 
 		for (var dim = 2; dim < 10; dim++) {	
 			for (var i=0; i<xmax; i+=(xmax/10)) {
-				this.renderLetter(this.randomMatrix(dim), i, (dim-2)*(xmax/10), (xmax/10), this.rndColor())		
+				this.renderLetter(this.randomMatrix(dim), i, (dim-2)*(xmax/10), (xmax/10), Math.random() < 0.5 ? "#fff" : "#000")		
 			}
 		}
 

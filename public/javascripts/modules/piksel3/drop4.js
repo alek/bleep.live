@@ -82,8 +82,8 @@ class Drop4 extends Module {
 	render() {	
 		$("#svg-config").hide()
 		var size = xmax*0.9/14
-		for (var i=xmax*0.05; i<xmax*0.95; i+=size*1.5) {
-			for (var j=ymax*0.1; j<ymax*0.95; j+=size*1.5)
+		for (var i=xmax*0.05; i<xmax*1.25; i+=size*1.5) {
+			for (var j=ymax*0.1; j<ymax*1.25; j+=size*1.5)
 			this.logo(i, j, size/2)
 		}
 		//this.logo(xmax/2, ymax/2, 100)

@@ -31,7 +31,7 @@ class Semiotik4 extends Module {
 			for (var j=0; j<this.params["grid_rows"]; j++) {
 				var coord = getGridCoordinates([i,j], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
 				if (Math.random() < this.params["probability"]/127) {
-					drawCircle(coord, this.params["r"], getParametricColor(this.params,1), this.getDomID())
+					drawCircle(coord, this.params["r"], "#fff", this.getDomID())
 				}
 			}
 		}

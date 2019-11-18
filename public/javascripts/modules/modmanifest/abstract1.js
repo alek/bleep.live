@@ -9,12 +9,12 @@ class Abstract1 extends Module {
 	constructor() {
 		super({	// init params mapping
 			"r": ["cc_1", 50],
-			"r1": ["cc_2", 85],
-			"g1": ["cc_3", 29],
-			"b1": ["cc_4", 65],
+			"r1": ["cc_2", 255],
+			"g1": ["cc_3", 255],
+			"b1": ["cc_4", 0],
 			"r2": ["cc_10", 0],
-			"g2": ["cc_11", 24],
-			"b2": ["cc_12", 24],
+			"g2": ["cc_11", 0],
+			"b2": ["cc_12", 0],
 			"opacity1": ["cc_14", 100],
 			"opacity2": ["cc_15", 100],
 			"duration": ["cc_9", 100],

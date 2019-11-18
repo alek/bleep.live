@@ -84,7 +84,7 @@ class Semiotik3 extends Module {
 			var x = 3 + Math.ceil(Math.random()*this.params["grid_rows"])
 			var y = rowOffset+=3
 			var coord = getGridCoordinates([x+1,y], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
-			drawText(coord, splitText[i], this.params["size"]*4 + "px", getParametricColor(this.params,1), this.params["weight"]*(700/127), (64-this.params["spacing"])*4, this.getFont(this.params["font"]), this.getDomID())	
+			drawText(coord, splitText[i], this.params["size"]*4 + "px", this.getConfigVal("fill","#fff"), this.params["weight"]*(700/127), (64-this.params["spacing"])*4, this.getFont(this.params["font"]), this.getDomID())	
 		}
 	}
 

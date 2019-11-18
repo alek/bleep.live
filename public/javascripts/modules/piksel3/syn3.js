@@ -26,7 +26,7 @@ class Syn3 extends Module {
 	}	
 
 	render() {	
-		$("body").css({"background-color": "#c6f700"})
+		// $("body").css({"background-color": "#c6f700"})
 		$("circle").attr("stroke", "#000")
 		$("circle").attr("stroke-width", "1px")
 		$("circle").attr("fill", "#c6f700")
@@ -34,7 +34,7 @@ class Syn3 extends Module {
 		var size = xmax/4 * (1+Math.random())
 		// Piksel.brackets([xmax/2,ymax/2], size, size, xmax*0.01, "rgba(255,255,255," + Math.random() + ")", 5, this.getDomID())
 		for (var i=0; i<100; i++) {
-			Piksel.triangular1([xmax/2,ymax/2], ymax/4, "#000", 2 + 10*Math.random(), this.getDomID())
+			Piksel.triangular1([xmax/2,ymax/2], ymax/4, "rgba(255,255,255," + Math.random() + ")", 1, this.getDomID())
 		}
 		text( { 
 			x: xmax/2,

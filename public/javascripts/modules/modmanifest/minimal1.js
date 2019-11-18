@@ -9,7 +9,7 @@ class Minimal1 extends Module {
 	constructor() {
 		super({	// init params mapping
 			"r": ["cc_1", 5],
-			"r1": ["cc_2", 85],
+			"r1": ["cc_2", 0],
 			"g1": ["cc_3", 29],
 			"b1": ["cc_4", 65],
 			"size": ["cc_5", 72/4],
@@ -17,9 +17,9 @@ class Minimal1 extends Module {
 			"grid_columns": ["cc_7", 24],
 			"grid_rows": ["cc_8", 14],
 			"letter_spacing": ["cc_9", 0],
-			"r2": ["cc_10", 127/2],
-			"g2": ["cc_11", 54/2],
-			"b2": ["cc_12", 83/2],
+			"r2": ["cc_10", 0],
+			"g2": ["cc_11", 0],
+			"b2": ["cc_12", 0],
 			"animate": ["cc_13", 0],
 			"opacity1": ["cc_14", 100],
 			"opacity2": ["cc_15", 100],

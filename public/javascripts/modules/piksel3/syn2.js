@@ -26,14 +26,14 @@ class Syn2 extends Module {
 	}	
 
 	render() {	
-		$("body").css({"background-color": "#c6f700"})
-		$("circle").attr("stroke", "#000")
+		//$("body").css({"background-color": "#c6f700"})
+		$("circle").attr("stroke", "#fff")
 		$("circle").attr("stroke-width", "1px")
 		$("circle").attr("fill", "#c6f700")
 		$("circle").attr("r", "2")
 		var size = xmax/4 * (1+Math.random())
 		Piksel.brackets([xmax/2,ymax/2], size, size, xmax*0.01, "rgba(255,255,255," + Math.random() + ")", 5, this.getDomID())
-		Piksel.tunnel1([xmax/2, ymax/2], size/2, 4, "#000", 20, this.getDomID());
+		Piksel.tunnel1([xmax/2, ymax/2], size/2, 4, "#fff", 20, this.getDomID());
 		drawText([xmax/2,ymax/2], Piksel.randomTitle().split(" ")[0], xmax/8, Math.random() < 0.8 ? "#000": "#fff", 700, "-40px", "Helvetica", this.getDomID())
 
 	}

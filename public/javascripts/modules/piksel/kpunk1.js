@@ -63,30 +63,31 @@ class KPunk1 extends Module {
 	}
 
 	render() {	
-		var dim = this.matrix.size()
+		for (var i=0; i<10; i++) {
+			var dim = this.matrix.size()
 
-		this.ballCoord[0] = this.ballCoord[0] + 10*Math.cos(-this.ballAngle * Math.PI / 180)
-		this.ballCoord[1] = this.ballCoord[1] + 10*Math.sin(-this.ballAngle * Math.PI / 180)
+			this.ballCoord[0] = this.ballCoord[0] + 10*Math.cos(-this.ballAngle * Math.PI / 180)
+			this.ballCoord[1] = this.ballCoord[1] + 10*Math.sin(-this.ballAngle * Math.PI / 180)
 
-		if (Math.random() < 0.1) {
-			this.ballAngle = Math.floor(Math.random()*360)
+			if (Math.random() < 0.1) {
+				this.ballAngle = Math.floor(Math.random()*360)
+			}
+
+			if (this.edgeXHit(this.ballCoord)) {
+				this.ballAngle = (180-this.ballAngle)
+			} else if (this.edgeYHit(this.ballCoord)) {
+				this.ballAngle = (-this.ballAngle)
+			}
+
+			// drawCircle(this.ballCoord, Math.random()*2, "#fff", this.getDomID())
+
+			if (!this.edgeHit(this.ballCoord)) {
+				this.matrix.set([Math.floor(this.ballCoord[0]/(xmax/dim[0])),Math.floor(this.ballCoord[1]/(ymax/dim[1]))], Math.random()*360)
+			}
+
+			this.renderField(this.matrix, 30)
+			this.matrixCache = math.matrix(this.matrix)
 		}
-
-		if (this.edgeXHit(this.ballCoord)) {
-			this.ballAngle = (180-this.ballAngle)
-		} else if (this.edgeYHit(this.ballCoord)) {
-			this.ballAngle = (-this.ballAngle)
-		}
-
-		// drawCircle(this.ballCoord, Math.random()*2, "#fff", this.getDomID())
-
-		if (!this.edgeHit(this.ballCoord)) {
-			this.matrix.set([Math.floor(this.ballCoord[0]/(xmax/dim[0])),Math.floor(this.ballCoord[1]/(ymax/dim[1]))], Math.random()*360)
-		}
-
-		this.renderField(this.matrix, 30)
-		this.matrixCache = math.matrix(this.matrix)
-
 
 	}
 

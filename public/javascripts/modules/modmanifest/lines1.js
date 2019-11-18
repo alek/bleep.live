@@ -44,7 +44,7 @@ class Lines1 extends Module {
 			var start = Math.floor(Math.random()*this.params["grid_columns"]*0.3)
 			var startCoord = getGridCoordinates([start,i], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
 			var endCoord = getGridCoordinates([this.params["grid_columns"],i], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
-			drawLine(startCoord, endCoord, getParametricColor(this.params,1), Math.random()*this.params["weight"], this.getDomID())
+			drawLine(startCoord, endCoord, "#fff", Math.random()*this.params["weight"], this.getDomID())
 
 		}
 	}
