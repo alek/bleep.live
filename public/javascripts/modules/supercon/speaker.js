@@ -25,7 +25,7 @@ class Speaker extends Module {
 	}	
 
 	render() {	
-		$.get( "http://localhost:5133/images/supercon/speaker_announcement.svg", function( data ) {
+		$.get( "http://localhost:5133/images/supercon/speaker_announcement_5.svg", function( data ) {
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
 		});
@@ -39,10 +39,10 @@ class Speaker extends Module {
 			// console.log(this)
 			$(this).children().each(function() {
 				if (Math.random() < 0.1) {
-					$(this).hide(2000)
+					$(this).hide(2000 + 1000*Math.random())
 				} 
 				if (Math.random() < 0.1) {
-					$(this).show(2000)
+					$(this).show(2000 + 1000*Math.random())
 				} 
 			})
 		})

@@ -26,6 +26,7 @@ class Supercon7 extends Module {
 
 	render() {	
 		$.get( "http://localhost:5133/images/supercon/supercon_poster_" + Math.ceil(Math.random()*6) + ".svg", function( data ) {
+		// $.get( "http://localhost:5133/images/supercon/supercon_poster_2.svg", function( data ) {			
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
 		});
@@ -39,10 +40,10 @@ class Supercon7 extends Module {
 			// console.log(this)
 			$(this).children().each(function() {
 				if (Math.random() < 0.1) {
-					$(this).hide(2000)
+					$(this).hide(2000 + 1000*Math.random())
 				} 
 				if (Math.random() < 0.1) {
-					$(this).show(2000)
+					$(this).show(2000 + 1000*Math.random())
 				} 
 			})
 		})

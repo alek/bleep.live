@@ -3,8 +3,7 @@
 // 
 
 import Module from '../../lib/module.js'
-// import { getBiorxivData } from '../../dataset/biorxiv.js'
-import { getBiorxivData } from '../../dataset/hackadayio.js'
+import { getBiorxivData } from '../../dataset/biorxiv.js'
 
 class DNA2 extends Module {
 
