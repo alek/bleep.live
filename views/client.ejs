@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Bleep Client</title>
     <link rel='stylesheet' href='/stylesheets/piksel.css' />   
+    <link rel='stylesheet' href='/stylesheets/client.css' />   
     <script src="/javascripts/external/jquery-3.1.1.min.js"></script>
     <script src="/javascripts/external/socket.io.js"></script>
     <script src="/javascripts/external/perlin.js"></script>    
@@ -21,11 +22,12 @@
     <script type="module" src='/javascripts/client.js' /></script>
   </head>
 
+
   <body>
-  
+
     <!-- svg defs -->
 
-    <svg id="svg-config" width="0px" height="0px">
+    <svg id="svg-config" width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
           <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
