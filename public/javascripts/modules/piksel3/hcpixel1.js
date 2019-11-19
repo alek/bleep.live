@@ -4,7 +4,7 @@
 
 import Module from '../../lib/module.js'
 
-class PikselGrid2 extends Module {
+class HCPixel1 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -25,7 +25,7 @@ class PikselGrid2 extends Module {
 	}	
 
 	render() {	
-		$.get( "http://localhost:5133/images/piksel/piksel.svg", function( data ) {
+		$.get( "http://localhost:5133/images/piksel/hc-pxl-5.svg", function( data ) {
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
 		});
@@ -34,16 +34,15 @@ class PikselGrid2 extends Module {
 	// state update as a result of a midi event
 	update(event) {
 		super.update(event)
-		var delay = this.getConfigVal("delay", 400)
 
 		$("#graph").children().each(function(){
 			// console.log(this)
 			$(this).children().each(function() {
 				if (Math.random() < 0.1) {
-					$(this).hide(delay + delay/2*Math.random())
+					$(this).hide(2000 + 1000*Math.random())
 				} 
 				if (Math.random() < 0.1) {
-					$(this).show(delay + delay/2*Math.random())
+					$(this).show(2000 + 1000*Math.random())
 				} 
 			})
 		})
@@ -51,4 +50,4 @@ class PikselGrid2 extends Module {
 
 }
 
-export default PikselGrid2;
+export default HCPixel1;

@@ -31,7 +31,7 @@ class PikselGrid3 extends Module {
 			for (var j=-ymax; j<2*ymax; j+=xmax*0.08) {
 				if (Math.random() < 0.6) {
 					image( {
-						href: "../public/images/piksel/pixel-asset-2.svg",
+						href: this.getConfigVal("image", "../public/images/piksel/pixel-asset-2.svg"),
 						x: i,
 						y: j,
 						"transform": "rotate(" + (this.config["angle"] ? this.config["angle"] : 30) + ", " + xmax/2 + "," + ymax/2 + ")",
