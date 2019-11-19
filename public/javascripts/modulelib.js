@@ -174,6 +174,10 @@ import Supercon6 from './modules/supercon/supercon6.js'
 import Supercon7 from './modules/supercon/supercon7.js'
 import Speaker from './modules/supercon/speaker.js'
 
+import PikselGrid from './modules/piksel3/pikselgrid.js'
+import PikselGrid2 from './modules/piksel3/pikselgrid2.js'
+import PikselGrid3 from './modules/piksel3/pikselgrid3.js'
+
 //
 // Instantiate module from a string
 // 
@@ -271,7 +275,6 @@ var modules = {
 	Glitch2,
 	Bitfilter1,
 	Bitfilter2,
-	Bitfilter3,
 	Supercon3,
 	Supercon4,
 	Supercon5,
@@ -286,7 +289,11 @@ var modules = {
 	Glove11,
 	Speaker,
 	Supercon6,
-	Supercon7	
+	Supercon7,
+	PikselGrid,
+	PikselGrid2,
+	PikselGrid3,
+	Bitfilter3	
 }
 
 export { modules, createModule };
