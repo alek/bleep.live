@@ -314,6 +314,30 @@ class Piksel {
 		}
 	}
 
+	static addArrowClip(clipName, start, size) {
+		var delta = size*0.2
+
+		var pathEntries = [
+			[start[0], start[1] + size - delta/Math.sqrt(2)], 
+			[start[0] + delta/Math.sqrt(2), start[1]+size], 
+			[start[0]+size - delta, start[1] + delta + delta/Math.sqrt(2)], 
+			[start[0]+size - delta, start[1]+size], 
+			[start[0]+size, start[1]+size-delta], 
+			[start[0]+size, start[1]], 
+			[start[0]+delta, start[1]], 
+			[start[0], start[1]+delta], 
+			[start[0]+size-delta*(1+1/Math.sqrt(2)), start[1]+delta], 
+			[start[0], start[1]+size-delta/Math.sqrt(2)]
+			]
+
+		$("#" + clipName).remove()
+		if (document.getElementsByTagName("defs")) {
+			document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("path", { id: clipName + "-path", d: "M" + pathEntries.map(x => x.join(" ")).join(" L") + "", transform: "rotate(45 " + xmax/2 + " " + ymax/2 + ")" }))		
+		} else {
+			console.log("ERROR: defs missing")
+		}
+
+	}
 
 	// tdr-style glitch
 	static glitch1(r, domID) {		

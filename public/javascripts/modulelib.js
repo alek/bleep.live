@@ -187,6 +187,7 @@ import PikselInteractive1 from './modules/piksel4/pikselinteractive1.js'
 import PikselInteractive2 from './modules/piksel4/pikselinteractive2.js'
 import PikselInteractive3 from './modules/piksel4/pikselinteractive3.js'
 import PikselInteractive4 from './modules/piksel4/pikselinteractive4.js'
+import PikselInteractive5 from './modules/piksel4/pikselinteractive5.js'
 
 //
 // Instantiate module from a string
@@ -308,7 +309,8 @@ var modules = {
 	PikselInteractive1,
 	PikselInteractive2,
 	PikselInteractive3,
-	PikselInteractive4
+	PikselInteractive4,
+	PikselInteractive5
 }
 
 export { modules, createModule };
