@@ -181,7 +181,12 @@ import PikselGrid4 from './modules/piksel3/pikselgrid4.js'
 import PikselGrid5 from './modules/piksel3/pikselgrid5.js'
 
 import HCPixel1 from './modules/piksel3/hcpixel1.js'
+import CPU1 from './modules/piksel3/cpu1.js'
 
+import PikselInteractive1 from './modules/piksel4/pikselinteractive1.js'
+import PikselInteractive2 from './modules/piksel4/pikselinteractive2.js'
+import PikselInteractive3 from './modules/piksel4/pikselinteractive3.js'
+import PikselInteractive4 from './modules/piksel4/pikselinteractive4.js'
 
 //
 // Instantiate module from a string
@@ -226,12 +231,12 @@ var modules = {
 	Bunnie1,
 	Chemical1,
 	Chemical2,
-	Chemical3,
+	// Chemical3,
 	Chemical4,
 	Chemical5,
 	Dotmatrix1,
 	Dotmatrix2,
-	Dotmatrix3,
+	// Dotmatrix3,
 	Japan1,
 	Japan5,
 	Japan6,
@@ -297,8 +302,13 @@ var modules = {
 	PikselGrid3,
 	Bitfilter3,
 	HCPixel1,
+	CPU1,
 	PikselGrid4,
-	PikselGrid5
+	PikselGrid5,
+	PikselInteractive1,
+	PikselInteractive2,
+	PikselInteractive3,
+	PikselInteractive4
 }
 
 export { modules, createModule };

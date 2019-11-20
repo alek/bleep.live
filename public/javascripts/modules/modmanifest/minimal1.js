@@ -46,7 +46,7 @@ class Minimal1 extends Module {
 
 				var center = getGridCoordinatesCenter([i,j], this.params["grid_columns"], this.params["grid_rows"], xmax, ymax) 
 				if (Math.random() > 0.5) {
-					drawCircle(center, this.params["r"], getParametricColor(this.params,1), this.getDomID())
+					drawCircle(center, this.params["r"]/2, "#fff", this.getDomID())
 				}
 			}
 		}

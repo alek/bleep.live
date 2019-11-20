@@ -57,7 +57,7 @@ class Piqued1 extends Module {
 		this.animatedCircle({
 			cx: xpos,
 			cy: ymax/2,
-			r: 40,
+			r: 10,
 			stroke: fill,
 			fill: "none",
 			style: "stroke-width:" + this.params["weight"] + ";opacity:" + 1.0

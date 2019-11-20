@@ -115,6 +115,7 @@ io.on('connection', function(client) {
           for (var i=0; i<lastEvent.length; i++) {
 
             if (lastEvent[i] > 0 && (lastEvent[i] != lastDispatched[i]) && (Math.abs(lastEvent[i] - lastDispatched[i]) > 3) ) { // ignore small fluctuations
+               console.log(midiMap[i+1] + "\t" + Math.floor(filters[i].filter(parseInt(lastEvent[i]))))
                client.emit('control', { data: {
                 "channel": 0,
                 "controller": midiMap[i+1],

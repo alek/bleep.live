@@ -53,22 +53,36 @@ class Piqued1 extends Module {
 		}
 	}		
 
-	renderCircle(xpos, fill) {
+	renderCircle(xpos, ypos, fill) {
 		this.animatedCircle({
 			cx: xpos,
-			cy: ymax/2,
-			r: 40,
+			cy: ypos,
+			r: ymax*Math.random(),
 			stroke: fill,
 			fill: "none",
-			style: "stroke-width:" + this.params["weight"] + ";opacity:" + 1.0
+			"stroke-dasharray": "1 5",
+			style: "stroke-width:" + ymax*0.75*Math.random() + ";opacity:" + 1.0
 		});	
 	}
 
 
 	render() {	
 		this.setBackgroundColor(getParametricColor(this.params,2))		
-		this.renderCircle(xmax*0.618, "rgba(253,225,202," + 1 + ")")
-		this.renderCircle(xmax*0.382, "rgba(0,174,239," + 1 + ")")
+
+		// this.renderCircle(xmax*0.618, "rgba(255,255,255," + Math.random() + ")")
+		// this.renderCircle(xmax*0.382, "rgba(255,255,255," + Math.random() + ")")
+		// this.renderCircle(xmax*0.5, "rgba(255,255,255," + Math.random() + ")")
+
+		// for (var i=0; i<10; i++) {
+		// 	this.renderCircle(xmax*0.1*i, "rgba(255,255,255," + Math.random() + ")")			
+		// }
+
+		for (var i=0; i<10; i++) {
+			this.renderCircle(xmax*0.1*i, ymax*Math.random(), "rgba(255,255,255," + timeRamp(500*i, 1) + ")")			
+		}
+
+		// this.renderCircle(xmax*0.618, "rgba(253,225,202," + 1 + ")")
+		// this.renderCircle(xmax*0.382, "rgba(0,174,239," + 1 + ")")
 		// this.renderGrid()
 		// this.renderObjects()
 	}
@@ -94,7 +108,7 @@ class Piqued1 extends Module {
 			var circles = document.getElementsByTagName('circle');
 		 	for (var i=0; i<circles.length; i++) {
 		 		var val = circles[i]["r"].baseVal.value
-				circles[i]["r"].baseVal.value = (val + Math.random()*100)%255
+				circles[i]["r"].baseVal.value = timeRamp(i*500+500,ymax*2)
 		 	}
 		}
 	}

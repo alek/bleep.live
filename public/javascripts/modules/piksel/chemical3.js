@@ -49,7 +49,7 @@ class Chemical3 extends Module {
 		// var angles = [120,240,280, 2400,2422]
 		var angles = []
 
-		for (var i=0; i<360; i+=(60+this.params["angle"])) {
+		for (var i=0; i<360; i+=(60+timeRamp(1000,120))) {
 			angles.push(i)			
 		}
 
@@ -86,7 +86,7 @@ class Chemical3 extends Module {
 		// this.molecule(getRandomCoord(xmax, ymax, 300), 100*Math.random(), Math.ceil(Math.random()*5), Math.random()*360)
 		
 		for (var i=0; i<this.circleQueue.length; i++) {
-			drawCircle(this.circleQueue[i], Math.sqrt(this.params["r"]), "#fff", this.getDomID())
+			drawCircle(this.circleQueue[i],timeRamp(500,Math.sqrt(this.params["r"])), "#fff", this.getDomID())
 		}
 
 		// this.molecule([xmax/2, ymax/2], 50, 3, 50)

@@ -22,7 +22,7 @@ self.addEventListener('message', function(e) {
 	var bc = new BroadcastChannel('piksel_control')
 	bc.onmessage = function (ev) { 
 		data = JSON.parse(ev.data)
-		if (self.enabled && data["midi"] && data["midi"].data.knob.startsWith("switch_")) {
+		if (self.enabled && data["midi"] && data["midi"].data.knob && data["midi"].data.knob.startsWith("switch_")) {
 			handleEvent(data, bc)
 		}
 	}

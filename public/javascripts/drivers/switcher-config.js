@@ -81,6 +81,8 @@
 // 			{key: 9, module: "Chemical4", config: {}}
 // ]
 
+// TDR classics
+
 // var switcherLineup = [
 // 			{key: 1, module: "TDR1", config: {}}, 
 // 			{key: 2, module: "TDR2", config: {}}, 
@@ -121,21 +123,7 @@
 // 			{key: 1, module: "Supercon3", config: { "amp8": 2, "amp9": 2 }}, 
 // 			{key: 2, module: "Supercon4", config: { "amp8": 20, "amp9": 1}}, 
 // 			{key: 3, module: "Supercon5", config: { "amp8": 17, "amp9": 5}}, 
-// 			{key: 4, module: "Supercon6", config: { "amp8": 17, "amp9": 30}}, 
-// 			{key: 5, module: "Supercon7", config: { "amp8": 17, "amp9": 100}}
 // ]
-
-
-// var switcherLineup = [
-// 			{key: 1, module: "Supercon6", config: { "amp8": 2, "amp9": 2 }}, 
-// 			{key: 2, module: "Supercon7", config: { "amp8": 20, "amp9": 1}}, 
-// 			{key: 3, module: "Speaker", config: { "amp8": 17, "amp9": 5}}, 
-// 			{key: 4, module: "Supercon3", config: { "amp8": 17, "amp9": 30}}, 
-// 			{key: 5, module: "Supercon4", config: { "amp8": 17, "amp9": 100}},
-// 			{key: 6, module: "Supercon5", config: { "amp8": 17, "amp9": 100}}
-// ]
-
-
 
 // Piksel SVG-single-asset animations / isometric
 
@@ -167,15 +155,14 @@
 // ]
 
 var switcherLineup = [
-			{key: 1, module: "PikselGrid4", config: {"image": "../public/images/piksel/pixel-asset-12.svg", "p": 0.5, "ratio": 2.0}}, 
-			{key: 2, module: "PikselGrid4", config: {"image": "../public/images/piksel/pixel-asset-12.svg", "p": 0.5, "ratio": 3.0}}, 
-			{key: 3, module: "PikselGrid4", config: {"image": "../public/images/piksel/pixel-asset-12.svg", "p": 0.5, "ratio": 4.0}}, 
-			{key: 4, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-12.svg"}}, 
+			{key: 1, module: "CPU1", config: {"width": 0.05}}, 
+			{key: 2, module: "CPU1", config: {"width": 0.1}}, 
+			{key: 3, module: "CPU1", config: {"width": 0.15}}, 
+			{key: 4, module: "CPU1", config: {"width": 0.2}}, 
 			{key: 5, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-12.svg", "ratio": 2.0}}, 
 			{key: 6, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-11.svg"}},
 			{key: 7, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-10.svg"}},
 			{key: 8, module: "PikselGrid5", config: {"image": "../public/images/piksel/hc-pxl-2.svg"}},
 			{key: 9, module: "PikselGrid5", config: {"image": "../public/images/piksel/piksel2.svg", "ratio": 1.1}}
 ]
-
 

@@ -3,8 +3,9 @@
 // 
 
 import Module from '../../lib/module.js'
+import Piksel from '../piksel/piksel.js'
 
-class Glove11 extends Module {
+class PikselInteractive2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -19,11 +20,11 @@ class Glove11 extends Module {
 			 "g1": ["cc_20", 50],		// right hand gyroscope X axis      
 			 "g2": ["cc_21", 50],		// right hand gyroscope Y axis      
 			 "g3": ["cc_22", 50],		// right hand gyroscope Z axis      
-			 "l1": ["cc_1", 10],		// left hand 1. finger (thumb)     
-			 "l2": ["cc_2", 50],		// left hand 2. finger (index)     
+			 "l1": ["cc_1", 10],		// left hand 1. finger (little)     
+			 "l2": ["cc_2", 10],		// left hand 2. finger (index)     
 			 "l3": ["cc_3", 50],		// left hand 3. finger (middle)    
 			 "l4": ["cc_4", 50],		// left hand 4. finger (ring)      
-			 "l5": ["cc_5", 50],		// left hand 5. finger (little)    
+			 "l5": ["cc_5", 10],		// left hand 5. finger (thumb)    
 			 "m1": ["cc_11", 50],		// left hand accelerometer X axis  
 			 "m2": ["cc_12", 50],		// left hand accelerometer Y axis  
 			 "m3": ["cc_13", 50],		// left hand accelerometer Z axis  
@@ -33,35 +34,38 @@ class Glove11 extends Module {
 		})
 	}
 
-	render() {	
+	renderGrid(columns, rows) {
+		for (var i=0; i<=columns; i++) {
+			for (var j=0; j<=rows; j++) {
+				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 
+				drawCircle(coord, 2, "#fff", this.getDomID())
+			}
+		}
+	}	
 
-		for (var i=0; i<2; i++) {
-			var xoffset = Math.random()*xmax
+	render() {	
+		noise.seed(Math.random());
+		var r = timeRamp(5000+this.params["l2"],xmax*(0.1+this.params["r1"]/100))
+		Piksel.addCircularClip("glitchClip", xmax/2, ymax/2, r)
+
+		var height = xmax*this.getConfigVal("ratio", timeRamp(2000,2.0))
+		var width = xmax*this.getConfigVal("ratio", timeRamp(2000,2.0))
+		var p = this.getConfigVal("p", 0.9)
+
+		for (var i=0; i<Math.floor(this.params["r4"]/5); i++) {
+			var start = xmax*Math.random()
 			line({
-				x1: xoffset,
-				y1: 0,
-				x2: xoffset,
-				y2: ymax,
-				stroke: "rgba(255,255,255,0.4)",
-				"transform": "rotate(0 0 0)",
-				"stroke-width": this.params["l4"]*this.params["l5"],
-				"stroke-dasharray": "1 2"
+					x1: start,
+					y1: 0,
+					x2: start,
+					y2: ymax,
+					stroke: "rgba(255,255,255," + Math.random() + ")",
+					"clip-path": "url(#glitchClip)",
+					"transform": "rotate(0 40 90)",
+					"stroke-width": xmax*0.5*Math.random(),
+					"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
 			}, this.getDomID());
 		}
-
-		for (var i=0; i<10+this.params["r1"]/2; i++) {
-			circle({
-				cx: xmax/2,
-				cy: ymax/2,
-				r: this.params["r2"]*i/2 + timeRamp(10000, this.params["r2"]/2),
-				stroke: "#fff",
-				fill: "none",
-				"transform": "rotate(" + this.params["w1"]*6 + " " + xmax/2 + " " + ymax/2 + ")",
-				"stroke-dasharray": this.params["r3"] + " " + this.params["r4"],
-				style: "stroke-width:" + timeRamp(1000,this.params["r5"]*5),
-			}, this.getDomID());	
-		}
-
 	}
 
 	// state update as a result of a midi event
@@ -73,4 +77,4 @@ class Glove11 extends Module {
 
 }
 
-export default Glove11;
+export default PikselInteractive2;
