@@ -6,7 +6,7 @@ import Module from '../../lib/module.js'
 import Piksel from '../piksel/piksel.js'
 import { getBiorxivData } from '../../dataset/biorxiv.js'
 
-class PikselInteractive5 extends Module {
+class PikselInteractive8 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -48,22 +48,10 @@ class PikselInteractive5 extends Module {
 	}
 
 	render() {	
-		for (var it=0; it<1+this.params["r1"]/20; it++) {
-			var data = getBiorxivData()		
-			noise.seed(Math.random());
-
-			var maskWidth = ymax*0.6
-			var r = timeRamp(5000+this.params["l2"],xmax*(1+this.params["r1"]/10))
-			// var r = ymax/2
-			// Piksel.addCircularClip("glitchClip", xmax/2, ymax/2, r)
-			// Piksel.addRectangleClip("glitchClip", 0, ymax/2-maskWidth/2, xmax, maskWidth)
-			Piksel.addArrowClip("glitchClip-" + it, [xmax*Math.random(),ymax*Math.random()], xmax*(0.25*Math.floor(Math.random()*8)))
-			
-			var height = xmax*this.getConfigVal("ratio", timeRamp(2000,2.0))
-			var width = xmax*this.getConfigVal("ratio", timeRamp(2000,2.0))
-			var p = this.getConfigVal("p", 0.9)
-
-			for (var i=0; i<Math.floor(this.params["r4"]/5); i++) {
+		for (var it=0; it<10; it++) {
+			//Piksel.addCircularClip("glitchClip-" + it, xmax/2, ymax/2, ymax*0.5*(10-it)*0.1)
+			Piksel.addArrowClip("glitchClip-" + it, [0+it*20, 0+it*20], xmax, ymax)
+			for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {
 				var start = xmax*Math.random()
 				line({
 						x1: start,
@@ -71,40 +59,16 @@ class PikselInteractive5 extends Module {
 						x2: start,
 						y2: ymax,
 						stroke: "rgba(255,255,255," + Math.random() + ")",
+						// "filter": "url(#f1)",
 						"clip-path": "url(#glitchClip-" + it + ")",
-						"transform": "rotate(0 40 90)",
+						"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
+						"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
+						// "transform": "rotate(" + 45*Math.floor(Math.random()*4) + " " + xmax/2 + " " + ymax/2 + ")",
 						"stroke-width": xmax*0.2*Math.random(),
 						"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
 				}, this.getDomID());
 			}
-
-			if (false) {
-				for (var i=0; i<10; i++) {
-					var start = ymax*Math.random()
-					line({
-							x1: 0,
-							y1: start,
-							x2: xmax,
-							y2: start,
-							stroke: "rgba(255,255,255," + Math.random() + ")",
-							"clip-path": "url(#glitchClip-" + it + ")",
-							"transform": "rotate(0 40 90)",
-							"stroke-width": xmax*0.2*Math.random(),
-							"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
-					}, this.getDomID());			
-				}
-			}
-
-			text( { 
-				x: xmax/2,
-				y: ymax/2,
-				"fill": Math.random() < 0.1 ? "#000" : (Math.random() < 0.1 ? "gray" : "rgba(255,255,255," + 1 + ")"),
-				"clip-path": "url(#glitchClip-" + it + ")",
-				"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
-				"style": "font-size:" + r*3 + "px" + ";line-height:" + r + "px" + "text-align:middle;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:" + "Helvetica" + ";sans-serif;font-weight:" + 700  + ";letter-spacing:" + "-3" + "px;"
-			}, this.rndTitle(data), this.getDomID()); 
-
-		// drawCircleOutline([xmax/2,ymax/2], r*1.2, "rgba(255,255,255," + Math.random() + ")", 100,this.getDomID())
+			drawCircle([xmax/2,ymax/2], ymax*0.5*(10-it)*0.1*0.9, "#000", this.getDomID()) // <- key dial
 		}
 	}
 
@@ -117,4 +81,4 @@ class PikselInteractive5 extends Module {
 
 }
 
-export default PikselInteractive5;
+export default PikselInteractive8;

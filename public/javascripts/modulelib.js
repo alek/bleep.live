@@ -188,6 +188,10 @@ import PikselInteractive2 from './modules/piksel4/pikselinteractive2.js'
 import PikselInteractive3 from './modules/piksel4/pikselinteractive3.js'
 import PikselInteractive4 from './modules/piksel4/pikselinteractive4.js'
 import PikselInteractive5 from './modules/piksel4/pikselinteractive5.js'
+import PikselInteractive6 from './modules/piksel4/pikselinteractive6.js'
+import PikselInteractive7 from './modules/piksel4/pikselinteractive7.js'
+import PikselInteractive8 from './modules/piksel4/pikselinteractive8.js'
+import PikselInteractive9 from './modules/piksel4/pikselinteractive9.js'
 
 //
 // Instantiate module from a string
@@ -310,7 +314,11 @@ var modules = {
 	PikselInteractive2,
 	PikselInteractive3,
 	PikselInteractive4,
-	PikselInteractive5
+	PikselInteractive5,
+	PikselInteractive6,
+	PikselInteractive7,
+	PikselInteractive8,
+	PikselInteractive9
 }
 
 export { modules, createModule };

@@ -339,6 +339,29 @@ class Piksel {
 
 	}
 
+
+	static addSlantClip(clipName, start, width, height) {
+		var delta = width*0.3
+
+		var pathEntries = [
+			[start[0], start[1]+height],
+			[start[0]+delta, start[1]+height],
+			[start[0]+width,start[1]+delta],
+			[start[0]+width,start[1]],
+			[start[0]+width-delta,start[1]],
+			[start[0], start[1]+height-delta],
+			[start[0], start[1]+height]
+			]
+
+		$("#" + clipName).remove()
+		if (document.getElementsByTagName("defs")) {
+			document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("path", { id: clipName + "-path", d: "M" + pathEntries.map(x => x.join(" ")).join(" L") + "", transform: "rotate(0 " + xmax/2 + " " + ymax/2 + ")" }))		
+		} else {
+			console.log("ERROR: defs missing")
+		}
+
+	}
+
 	// tdr-style glitch
 	static glitch1(r, domID) {		
 		noise.seed(Math.random());
