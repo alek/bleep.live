@@ -120,7 +120,9 @@ class KPunk2 extends Module {
 	update(event) {
 		super.update(event)
 		// this.clear()
-		this.render()
+		for (var i=0; i<5; i++) {			
+			this.render()
+		}
 	}
 
 }

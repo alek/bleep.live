@@ -206,7 +206,7 @@ var createModule = function(name) {
 var modules = {
 	DNA,
 	Sunset,
-	Bounce,
+	// Bounce,
 	Abstract1,
 	Abstract2,
 	Abstract3,
