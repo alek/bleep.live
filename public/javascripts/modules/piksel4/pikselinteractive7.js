@@ -10,7 +10,7 @@ class PikselInteractive7 extends Module {
 
 	constructor() {
 		super({	// init params mapping
-			"r1": ["cc_6", 20],			// right hand 1. finger (thumb)     
+			"r1": ["cc_6", 45],			// right hand 1. finger (thumb)     
 			"r2": ["cc_7", 50],			// right hand 2. finger (index)     
 			"r3": ["cc_8", 50],			// right hand 3. finger (middle)    
 			"r4": ["cc_9", 50],			// right hand 4. finger (ring)      
@@ -49,7 +49,7 @@ class PikselInteractive7 extends Module {
 
 	render() {	
 		for (var it=0; it<10; it++) {
-			Piksel.addCircularClip("glitchClip-" + it, xmax/2, ymax/2, ymax*0.5*(10-it)*0.1)
+			Piksel.addCircularClip("glitchClip-" + it, xmax/2, ymax/2, ymax*0.5*(10-it)*0.1*(this.params["r1"]/40))
 			for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {
 				var start = xmax*Math.random()
 				line({
@@ -65,7 +65,7 @@ class PikselInteractive7 extends Module {
 						"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
 				}, this.getDomID());
 			}
-			drawCircle([xmax/2,ymax/2], ymax*0.5*(10-it)*0.1*0.9, "#000", this.getDomID()) // <- key dial
+			drawCircle([xmax/2,ymax/2], ymax*0.5*(10-it)*0.1*(0.2+this.params["r2"]/100), "#000", this.getDomID()) // <- key dial
 		}
 	}
 

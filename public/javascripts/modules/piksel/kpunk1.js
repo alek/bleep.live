@@ -95,7 +95,9 @@ class KPunk1 extends Module {
 	update(event) {
 		super.update(event)
 		// this.clear()
-		this.render()
+		for (var i=0; i<2;i++) {
+			this.render()
+		}
 	}
 
 }

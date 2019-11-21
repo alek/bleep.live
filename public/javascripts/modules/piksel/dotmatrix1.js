@@ -28,7 +28,7 @@ class Dotmatrix1 extends Module {
 	renderType(offset, xgap, ygap, xelem, yelem) {
 		for (var i=0; i<xelem; i++) {
 			for (var j=0; j<yelem; j++) {
-				var random = Math.random()
+				var random = Math.random()*2
 				if (Math.random() < 0.5) {
 						rect({
 							x: offset[0] + xgap*i,
@@ -37,8 +37,8 @@ class Dotmatrix1 extends Module {
 							height: (ygap - 2)*random,
 							stroke: "#fff",
 							fill: "#fff",
-							rx: "5px",
-							ry: "5px",
+							rx: "1px",
+							ry: "1px",
 							style: "stroke-width:1;"
 						}, this.getDomID());	
 
