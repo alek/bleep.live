@@ -51,7 +51,7 @@ class PikselInteractive8 extends Module {
 		for (var it=0; it<10; it++) {
 			//Piksel.addCircularClip("glitchClip-" + it, xmax/2, ymax/2, ymax*0.5*(10-it)*0.1)
 			Piksel.addArrowClip("glitchClip-" + it, [0+it*20, 0+it*20], xmax, ymax)
-			for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {
+			for (var i=0; i<Math.floor(this.params["r4"]/6); i++) {
 				var start = xmax*Math.random()
 				line({
 						x1: start,

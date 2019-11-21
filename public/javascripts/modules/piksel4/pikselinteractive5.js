@@ -48,7 +48,7 @@ class PikselInteractive5 extends Module {
 	}
 
 	render() {	
-		for (var it=0; it<1+this.params["r1"]/20; it++) {
+		for (var it=0; it<1+this.params["r1"]/40; it++) {
 			var data = getBiorxivData()		
 			noise.seed(Math.random());
 
