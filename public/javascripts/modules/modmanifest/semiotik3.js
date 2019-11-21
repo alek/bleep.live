@@ -63,7 +63,8 @@ class Semiotik3 extends Module {
 	// }
 
 	getFont(index) {
-		var fonts = ["Roboto", "Wind", "sidewalk", "Orator Std", "Hackdaddy", "CrunchyBeefAlias", "BD TINYFONT", "BD Outline", "Andale Mono", "Alt Retro Thin", "BD ELK", "Helvetica", "BD Smoker"]
+		//var fonts = ["Roboto", "Wind", "sidewalk", "Orator Std", "Hackdaddy", "CrunchyBeefAlias", "BD TINYFONT", "BD Outline", "Andale Mono", "Alt Retro Thin", "BD ELK", "Helvetica", "BD Smoker"]
+		var fonts = ["Roboto", "Helvetica"]
 		return (index < fonts.length) ? fonts[index] : fonts[index%fonts.length]
 	}
 
