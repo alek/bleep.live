@@ -19,6 +19,8 @@
 // ]
 
 
+// glitch master
+
 // var switcherLineup = [
 // 			{key: 1, module: "Syn5", config: {}}, 
 // 			{key: 2, module: "Bitfilter3", config: {}}, 
@@ -31,6 +33,7 @@
 // 			{key: 9, module: "Drop1", config: {}}
 // ]
 
+// some color
 
 // var switcherLineup = [
 // 			{key: 1, module: "Syn1", config: {}}, 
@@ -154,15 +157,17 @@
 // 			{key: 9, module: "PikselGrid4", config: {"image": "../public/images/piksel/pixel-asset-10.svg", "ratio": 2.0}}
 // ]
 
+
+// Cinematic style
 var switcherLineup = [
-			{key: 1, module: "CPU1", config: {"width": 0.05}}, 
-			{key: 2, module: "CPU1", config: {"width": 0.1}}, 
-			{key: 3, module: "CPU1", config: {"width": 0.15}}, 
-			{key: 4, module: "CPU1", config: {"width": 0.2}}, 
-			{key: 5, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-12.svg", "ratio": 2.0}}, 
-			{key: 6, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-11.svg"}},
-			{key: 7, module: "PikselGrid5", config: {"image": "../public/images/piksel/pixel-asset-10.svg"}},
-			{key: 8, module: "PikselGrid5", config: {"image": "../public/images/piksel/hc-pxl-2.svg"}},
-			{key: 9, module: "PikselGrid5", config: {"image": "../public/images/piksel/piksel2.svg", "ratio": 1.1}}
+			{key: 1, module: "CPU1", config: {"width": 0.01}}, 
+			{key: 2, module: "CPU1", config: {"width": 0.05}}, 
+			{key: 3, module: "CPU1", config: {"width": 0.1}}, 
+			{key: 4, module: "CPU1", config: {"width": 0.15}}, 
+			{key: 5, module: "CPU1", config: {"width": 0.3}}, 
+			{key: 6, module: "PikselInteractive7", config: {}}, 
+			{key: 7, module: "PikselInteractive9", config: {}}, 
+			{key: 8, module: "PikselInteractive4", config: {}}, 
+			{key: 9, module: "Bitfilter3", config: {}}, 
 ]
 

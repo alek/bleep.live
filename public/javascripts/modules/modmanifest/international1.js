@@ -16,7 +16,7 @@ class International1 extends Module {
 			"weight": ["cc_6", 100],
 			"grid_columns": ["cc_7", 24],
 			"grid_rows": ["cc_8", 14],
-			"letter_spacing": ["cc_9", 0],
+			"letter_spacing": ["cc_9", 3],
 			"r2": ["cc_10", 0],
 			"g2": ["cc_11", 0],
 			"b2": ["cc_12", 0],
