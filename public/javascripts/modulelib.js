@@ -195,6 +195,7 @@ import PikselInteractive9 from './modules/piksel4/pikselinteractive9.js'
 
 import TwitterAds1 from './modules/piksel4/twitterads1.js'
 import TwitterAds2 from './modules/piksel4/twitterads2.js'
+import TwitterAds3 from './modules/piksel4/twitterads3.js'
 
 //
 // Instantiate module from a string
@@ -323,7 +324,8 @@ var modules = {
 	PikselInteractive8,
 	PikselInteractive9,
 	TwitterAds1,
-	TwitterAds2
+	TwitterAds2,
+	TwitterAds3
 }
 
 export { modules, createModule };

@@ -188,8 +188,15 @@
 // Twitter Ads
 
 var switcherLineup = [
-			{key: 1, module: "TwitterAds1", config: {"image": "piksel/hc-pxl-1.svg"}}, 
-			{key: 2, module: "TwitterAds1", config: {"image": "piksel/hc-pxl-1.svg", "render-lines": true}} 
+			{key: 1, module: "TwitterAds1", config: {}}, 
+			{key: 2, module: "TwitterAds1", config: {"render-lines": true}},
+			{key: 3, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000"}},
+			{key: 4, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff"}},
+			{key: 5, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff", "fontSize": 500}},
+			{key: 6, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "slanted", "acccentColor": "#fff", "fontSize": 500}},
+			{key: 7, module: "TwitterAds2", config: {}},
+			{key: 8, module: "TwitterAds3", config: {}},
+			{key: 8, module: "TwitterAds3", config: {"widthScale": 0.1, "fontSize": 300}}   
 ]
 
 
