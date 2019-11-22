@@ -193,6 +193,9 @@ import PikselInteractive7 from './modules/piksel4/pikselinteractive7.js'
 import PikselInteractive8 from './modules/piksel4/pikselinteractive8.js'
 import PikselInteractive9 from './modules/piksel4/pikselinteractive9.js'
 
+import TwitterAds1 from './modules/piksel4/twitterads1.js'
+import TwitterAds2 from './modules/piksel4/twitterads2.js'
+
 //
 // Instantiate module from a string
 // 
@@ -213,7 +216,6 @@ var modules = {
 	Abstract4,
 	International1,
 	International2,
-	International3,
 	Minimal1,
 	Minimal2,
 	Minimal3,
@@ -229,7 +231,6 @@ var modules = {
 	Semiotik6,
 	Semiotik7,
 	Adafruit1,
-	Deconstruction3,
 	PCB1,
 	KPunk1,
 	KPunk2,
@@ -301,6 +302,8 @@ var modules = {
 	CPU1,
 	PikselGrid4,
 	PikselGrid5,
+	International3,	
+	Deconstruction3,
 	Glove2,
 	Glove3,
 	Glove5,
@@ -318,7 +321,9 @@ var modules = {
 	PikselInteractive6,
 	PikselInteractive7,
 	PikselInteractive8,
-	PikselInteractive9
+	PikselInteractive9,
+	TwitterAds1,
+	TwitterAds2
 }
 
 export { modules, createModule };

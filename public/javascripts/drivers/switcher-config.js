@@ -159,15 +159,46 @@
 
 
 // Cinematic style
+// var switcherLineup = [
+// 			{key: 1, module: "CPU1", config: {"width": 0.01}}, 
+// 			{key: 2, module: "CPU1", config: {"width": 0.05}}, 
+// 			{key: 3, module: "CPU1", config: {"width": 0.1}}, 
+// 			{key: 4, module: "CPU1", config: {"width": 0.15}}, 
+// 			{key: 5, module: "CPU1", config: {"width": 0.3}}, 
+// 			{key: 6, module: "PikselInteractive7", config: {}}, 
+// 			{key: 7, module: "PikselInteractive9", config: {}}, 
+// 			{key: 8, module: "PikselInteractive4", config: {}}, 
+// 			{key: 9, module: "Bitfilter3", config: {}}, 
+// ]
+
+
+// HackChat classics
+// var switcherLineup = [
+// 			{key: 1, module: "HCPixel1", config: {"image": "piksel/hc-pxl-1.svg"}}, 
+// 			{key: 2, module: "HCPixel1", config: {"image": "piksel/hc-pxl-2.svg"}}, 
+// 			{key: 3, module: "HCPixel1", config: {"image": "piksel/hc-pxl-3.svg"}}, 
+// 			{key: 4, module: "HCPixel1", config: {"image": "piksel/hc-pxl-4.svg"}}, 
+// 			{key: 5, module: "HCPixel1", config: {"image": "piksel/hc-pxl-5.svg"}}, 
+// 			{key: 6, module: "HCPixel1", config: {"image": "piksel/hc-pxl-1.svg", "delay": 100}}, 
+// 			{key: 7, module: "HCPixel1", config: {"image": "piksel/hc-pxl-2.svg", "delay": 100}}, 
+// 			{key: 8, module: "HCPixel1", config: {"image": "piksel/hc-pxl-3.svg", "delay": 100}}, 
+// 			{key: 9, module: "HCPixel1", config: {"image": "piksel/hc-pxl-4.svg", "delay": 100}}
+// ]
+
+// Twitter Ads
+
 var switcherLineup = [
-			{key: 1, module: "CPU1", config: {"width": 0.01}}, 
-			{key: 2, module: "CPU1", config: {"width": 0.05}}, 
-			{key: 3, module: "CPU1", config: {"width": 0.1}}, 
-			{key: 4, module: "CPU1", config: {"width": 0.15}}, 
-			{key: 5, module: "CPU1", config: {"width": 0.3}}, 
-			{key: 6, module: "PikselInteractive7", config: {}}, 
-			{key: 7, module: "PikselInteractive9", config: {}}, 
-			{key: 8, module: "PikselInteractive4", config: {}}, 
-			{key: 9, module: "Bitfilter3", config: {}}, 
+			{key: 1, module: "TwitterAds1", config: {"image": "piksel/hc-pxl-1.svg"}}, 
+			{key: 2, module: "TwitterAds1", config: {"image": "piksel/hc-pxl-1.svg", "render-lines": true}} 
 ]
+
+
+
+// Twitter Firehose
+
+
+
+// Guardian Articles
+
+
 

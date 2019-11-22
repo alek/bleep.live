@@ -46,7 +46,7 @@ class CPU1 extends Module {
 	render() {	
 		noise.seed(Math.random());
 
-		var maskWidth = ymax*0.8
+		var maskWidth = ymax*1.0
 		var r = timeRamp(5000+this.params["l2"],xmax*(1+this.params["r1"]/10))
 		// var r = ymax/2
 		// Piksel.addCircularClip("glitchClip", xmax/2, ymax/2, r)
