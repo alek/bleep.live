@@ -197,6 +197,14 @@ import TwitterAds1 from './modules/piksel4/twitterads1.js'
 import TwitterAds2 from './modules/piksel4/twitterads2.js'
 import TwitterAds3 from './modules/piksel4/twitterads3.js'
 
+import TwitterFirehose1 from './modules/piksel4/twitterfirehose1.js'
+import TwitterFirehose2 from './modules/piksel4/twitterfirehose2.js'
+import TwitterFirehose3 from './modules/piksel4/twitterfirehose3.js'
+import TwitterFirehose4 from './modules/piksel4/twitterfirehose4.js'
+
+import APBackdrop1 from './modules/piksel4/apbackdrop1.js'
+
+
 //
 // Instantiate module from a string
 // 
@@ -325,7 +333,12 @@ var modules = {
 	PikselInteractive9,
 	TwitterAds1,
 	TwitterAds2,
-	TwitterAds3
+	TwitterAds3,
+	TwitterFirehose1,
+	TwitterFirehose2,
+	TwitterFirehose3,
+	TwitterFirehose4,
+	APBackdrop1
 }
 
 export { modules, createModule };
