@@ -6,7 +6,7 @@ import Module from '../../lib/module.js'
 import Piksel from '../piksel/piksel.js'
 import { getTwitterData } from '../../dataset/twitterfirehose.js'
 
-class APBackdrop2 extends Module {
+class APBackdrop5 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -47,28 +47,33 @@ class APBackdrop2 extends Module {
 		return data[Math.floor(Math.random()*data.length)]["title"]
 	}
 
-	renderSegment(nSegments, r, width) {
-			var coords = []
-			for (var i=0; i<=nSegments; i++) {
-				coords.push(getCircleCoord(xmax/2,ymax/2, i*360/nSegments, r))
+	renderSegment(start,width,maxX, color) {
+			var coords = [start]
+			for (var i=0; i<ymax*2; i+=ymax*0.1) {
+				var last = coords[coords.length-1]
+				if (Math.random() < 0.5) {
+					coords.push([last[0],last[1]+ymax*0.1])					
+				} else if (Math.random() < 0.5) {
+					coords.push([last[0]+Math.random()*maxX, last[1]])
+				} else {
+					coords.push([start[0],start[1]+i])
+				}
 			}
-			coords.push(getCircleCoord(xmax/2,ymax/2, 0, r))
 			for (var i=0; i<coords.length; i++) {
 				coords[i] = getViewport(coords[i])
 			}
-
 			path( {
-				d: "M" + coords.map(x => x.join(" ")).join(" L") + " Z",
-				style: "fill:none;stroke:#fff;stroke-width:" + width
+				d: "M" + coords.map(x => x.join(" ")).join(" L") + "",
+				//style: "fill:none;stroke:rgba(255,255,255," + Math.random() + ");stroke-width:" + width
+				// style: "fill:none;stroke:#fff;stroke-width:" + width
+				style: "fill:none;stroke:" + color + ";stroke-width:" + width
 			}, this.getDomID())
 	}
 
 	render() {	
-
-		// moveBackward()
-		rotateLeft()
-		for (var i=0; i<20; i++) {
-			this.renderSegment(i+20, 50*i, ymax*0.03*Math.random()) // todo: modulate angle and width!
+			for (var i=0; i<xmax; i+=(3+10*Math.random())) {		// some levers for the glove here
+			var rnd = Math.random()
+			this.renderSegment([i,0], (rnd < 0.005 ? xmax*0.1 : 1), xmax*0.03, randomPantoneHex())
 		}
 	}
 
@@ -81,4 +86,4 @@ class APBackdrop2 extends Module {
 
 }
 
-export default APBackdrop2;
+export default APBackdrop5;

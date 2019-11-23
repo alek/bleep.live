@@ -203,7 +203,10 @@ import TwitterFirehose3 from './modules/piksel4/twitterfirehose3.js'
 import TwitterFirehose4 from './modules/piksel4/twitterfirehose4.js'
 
 import APBackdrop1 from './modules/piksel4/apbackdrop1.js'
-
+import APBackdrop2 from './modules/piksel4/apbackdrop2.js'
+import APBackdrop3 from './modules/piksel4/apbackdrop3.js'
+import APBackdrop4 from './modules/piksel4/apbackdrop4.js'
+import APBackdrop5 from './modules/piksel4/apbackdrop5.js'
 
 //
 // Instantiate module from a string
@@ -338,7 +341,11 @@ var modules = {
 	TwitterFirehose2,
 	TwitterFirehose3,
 	TwitterFirehose4,
-	APBackdrop1
+	APBackdrop1,
+	APBackdrop2,
+	APBackdrop3,
+	APBackdrop4,
+	APBackdrop5
 }
 
 export { modules, createModule };
