@@ -204,23 +204,46 @@
 // Twitter Firehose
 
 
+// var switcherLineup = [
+// 			{key: 1, module: "TwitterFirehose1", config: {}}, 
+// 			{key: 2, module: "TwitterFirehose2", config: {}}, 
+// 			{key: 3, module: "TwitterFirehose3", config: {}}, 
+// 			{key: 4, module: "TwitterFirehose4", config: {}}, 
+// 			// {key: 2, module: "TwitterAds1", config: {"render-lines": true}},
+// 			{key: 5, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000"}},
+// 			{key: 6, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff"}},
+// 			{key: 7, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff", "fontSize": 500}},
+// 			{key: 8, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "slanted", "acccentColor": "#fff", "fontSize": 500}},
+// 			{key: 9, module: "TwitterAds2", config: {}},
+// ]
+
+// Twitter Firehose + circular
+
+// var switcherLineup = [
+// 			{key: 1, module: "TwitterAds3", config: {"widthScale": 0.5, "fontSize": 500}},
+// 			{key: 2, module: "TwitterAds3", config: {}},
+// 			{key: 3, module: "TwitterAds3", config: {"widthScale": 0.1, "fontSize": 20}},
+// 			{key: 4, module: "APBackdrop1", config: {"strokeMultiplier": 0.1, "circleWeight": 50}},
+// 			{key: 5, module: "APBackdrop1", config: {"strokeMultiplier": 0.5, "strokeColor": "#000"}},
+// 			{key: 6, module: "APBackdrop1", config: {"strokeMultiplier": 1.0}},
+// 			{key: 7, module: "APBackdrop1", config: {}},
+// 			{key: 8, module: "APBackdrop2", config: {}},
+// 			{key: 9, module: "APBackdrop2", config: {"r": 100, "widthMultiplier": 0.2, "segments": 6}},
+// ]
+
+// Pixel logo recycling
+
 var switcherLineup = [
-			{key: 1, module: "TwitterFirehose1", config: {}}, 
-			{key: 2, module: "TwitterFirehose2", config: {}}, 
-			{key: 3, module: "TwitterFirehose3", config: {}}, 
-			{key: 4, module: "TwitterFirehose4", config: {}}, 
-			// {key: 2, module: "TwitterAds1", config: {"render-lines": true}},
-			{key: 3, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000"}},
-			{key: 4, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff"}},
-			{key: 5, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "circular", "acccentColor": "#fff", "fontSize": 500}},
-			{key: 6, module: "TwitterAds1", config: {"render-lines": true, "fill": "#000", "maskShape": "slanted", "acccentColor": "#fff", "fontSize": 500}},
-			{key: 7, module: "TwitterAds2", config: {}},
-			{key: 8, module: "TwitterAds3", config: {}},
-			{key: 8, module: "TwitterAds3", config: {"widthScale": 0.1, "fontSize": 300}}   
+			{key: 1, module: "APBackdrop4", config: {}},
+			{key: 2, module: "APBackdrop3", config: {}},
+			{key: 3, module: "APBackdrop3", config: {"scaleMultiplier2": 0.14}},
+			{key: 4, module: "APBackdrop3", config: {"scaleMultiplier1": 0.25, "scaleMultiplier2": 0.45 }},			
+			{key: 5, module: "APBackdrop4", config: {"p": 0.6}},
+			{key: 6, module: "APBackdrop4", config: {"p": 1.0}},
+			{key: 7, module: "APBackdrop4", config: {"p": 0.6, "scaleMultiplier": 5}},
+			{key: 8, module: "APBackdrop5", config: {"color": "#fff"}},
+			{key: 9, module: "APBackdrop5", config: {}},
 ]
-
-
-// Guardian Articles
 
 
 

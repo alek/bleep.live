@@ -73,7 +73,7 @@ class APBackdrop5 extends Module {
 	render() {	
 			for (var i=0; i<xmax; i+=(3+10*Math.random())) {		// some levers for the glove here
 			var rnd = Math.random()
-			this.renderSegment([i,0], (rnd < 0.005 ? xmax*0.1 : 1), xmax*0.03, randomPantoneHex())
+			this.renderSegment([i,0], (rnd < 0.005 ? xmax*0.1 : 1), xmax*0.03, this.getConfigVal("color", randomPantoneHex()))
 		}
 	}
 

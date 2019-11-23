@@ -68,7 +68,7 @@ class APBackdrop2 extends Module {
 		// moveBackward()
 		rotateLeft()
 		for (var i=0; i<20; i++) {
-			this.renderSegment(i+20, 50*i, ymax*0.03*Math.random()) // todo: modulate angle and width!
+			this.renderSegment(i+this.getConfigVal("segments",20), this.getConfigVal("r",50)*i, ymax*this.getConfigVal("widthMultiplier",0.03)*Math.random()) // todo: modulate angle and width!
 		}
 	}
 

@@ -27,15 +27,16 @@ class APBackdrop3 extends Module {
 
 	render() {	
 		var config = this.getConfig()
-		for (var i=-xmax; i<2*xmax; i+=xmax*0.08) {
-			for (var j=-ymax; j<2*ymax; j+=xmax*0.08) {
+		var scale = this.getConfigVal("scaleMultiplier1", 0.07)
+		for (var i=-xmax; i<2*xmax; i+=xmax*scale*1.1) {
+			for (var j=-ymax; j<2*ymax; j+=xmax*scale*1.1) {
 				if (Math.random() < 0.6) {
 					image( {
 						href: this.getConfigVal("image", "../public/images/piksel/piksel.svg"),
 						x: i,
 						y: j,
 						"transform": "rotate(" + (this.config["angle"] ? this.config["angle"] : 30) + ", " + xmax/2 + "," + ymax/2 + ")",
-						width: xmax*(this.config["width"] ? this.config["width"] : 0.07)
+						width: xmax*(this.config["width"] ? this.config["width"] : this.getConfigVal("scaleMultiplier2", 0.07))
 					}, this.getDomID())
 				}
 			}

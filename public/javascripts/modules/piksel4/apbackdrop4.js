@@ -32,19 +32,18 @@ class APBackdrop4 extends Module {
 	}
 
 	layer() {
+		var p = this.getConfigVal("p", 0.1)
+		var scaleMultiplier = this.getConfigVal("scaleMultiplier", 1)
 		var delay = this.getConfigVal("delay", 100)
 		$("#graph").children().each(function(){
-			// console.log(this)
 			$(this).children().each(function() {
 				if (Math.random() < 0.1) {
 					$(this).attr('x', xmax*Math.random())
-					// $(this).hide(delay + delay/2*Math.random())
 				} 
-				if (Math.random() < 0.1) {
+				if (Math.random() < p) {
 					$(this).attr('x', xmax*Math.random())
 					$(this).attr('cx', xmax*Math.random())
-					$(this).attr('transform', "translate(" + (-xmax + 2*xmax*Math.random()) + " 0) ")
-					// $(this).attr('transform', "scale(" + rnd + " " + rnd + ")")
+					$(this).attr('transform', "translate(" + (-xmax + 2*xmax*Math.random()) + " 0) " + "scale(" + scaleMultiplier + " " + scaleMultiplier + ")")
 				} 
 			})
 		})		

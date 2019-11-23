@@ -52,20 +52,20 @@ class TwitterFirehose2 extends Module {
 
 		var data = getTwitterData()
 
-							for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {
-						var start = xmax*Math.random()
-						line({
-								x1: start,
-								y1: 0,
-								x2: start,
-								y2: ymax,
-								stroke: "rgba(255,255,255," + Math.random() + ")",
-								// "filter": "url(#f1)",
-								"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
-								"stroke-width": xmax*0.2*Math.random(),
-								"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
-						}, this.getDomID());
-					}
+		for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {
+			var start = xmax*Math.random()
+			line({
+					x1: start,
+					y1: 0,
+					x2: start,
+					y2: ymax,
+					stroke: "rgba(255,255,255," + Math.random() + ")",
+					// "filter": "url(#f1)",
+					"transform": "rotate(" + 0 + " " + xmax/2 + " " + ymax/2 + ")",
+					"stroke-width": xmax*0.2*Math.random(),
+					"stroke-dasharray": Math.ceil(this.params["l5"]*Math.random()) + " " + Math.ceil(this.params["l4"]*Math.random())
+			}, this.getDomID());
+		}
 
 
 		var invert = false
@@ -86,38 +86,6 @@ class TwitterFirehose2 extends Module {
 				invert = false
 			}
 		}
-
-		// var data = getTwitterData()
-		// var widthScale = this.getConfigVal("widthScale", 0.1)
-
-		// for (var slice = 0; slice < 10; slice++) {
-
-		// 	var radius = ymax - slice*ymax*widthScale
-
-		// 	for (var it=0; it<5; it++) {
-				
-		// 		Piksel.addCircularClip("glitchClip" + slice + "-" + it, xmax/2, ymax/2, radius)
-		// 		//Piksel.addSlantClip("glitchClip-" + it, [0, 0], xmax, ymax)
-		// 		//Piksel.addSlantClipReverse("glitchClip" + slice + "-" + it, [-xmax*0.75 + slice*ymax*0.5, 0], xmax, ymax, ymax*0.17)
-
-			//	if (this.getConfigVal("render-lines", false)) {
-					// drawCircle([xmax/2,ymax/2], ymax*0.5*(10-it)*widthScale*0.9, "#000", this.getDomID()) // <- key dial
-			//	}
-			//}
-
-		// 	for (var i=0; i<ymax*1.1; i+=ymax*widthScale) {
-		// 		text( { 
-		// 			x: xmax/2,
-		// 			y: i,
-		// 			"fill": Math.random() < 0.2 ? randomPantoneHex() : "#fff",
-		// 			"clip-path": "url(#glitchClip" + slice + "-" + 0 + ")",
-		// 			"transform": "rotate(0 50 100)",
-		// 			"style": "font-size:" + this.getConfigVal("fontSize", ymax/10) + "px;text-align:center;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:" + "Helvetica" + ";sans-serif;font-weight:" + 700 + ";letter-spacing:" + "-2px;"
-		// 		}, data[Math.floor(Math.random()*data.length)]["text"], this.getDomID()); 
-		// 	}
-
-		// 	drawCircle([xmax/2,ymax/2], radius-ymax*widthScale*Math.random(), "#000", this.getDomID()) // <- key dial
-		// }
 
 	}
 

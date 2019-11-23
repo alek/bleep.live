@@ -52,10 +52,10 @@ class APBackdrop1 extends Module {
 		var data = getTwitterData()
 
 		for (var i=0; i<4; i++) {
-			drawCircleOutline([xmax/2,ymax/2], ymax*Math.random()*0.2*i, "rgba(255,255,255," + Math.random()/3 + ")", 10*Math.random(), this.getDomID())
+			drawCircleOutline([xmax/2,ymax/2], ymax*Math.random()*0.2*i, "rgba(255,255,255," + Math.random()/3 + ")", this.getConfigVal("circleWeight",10)*Math.random(), this.getDomID())
 		}
 		
-		for (var i=0; i<10; i++) {
+		for (var i=0; i<5; i++) {
 			circle({
 				cx: xmax/2,
 				cy: ymax/2,
@@ -63,8 +63,8 @@ class APBackdrop1 extends Module {
 				stroke: "#fff",
 				fill: "none",
 				"stroke-dasharray": i + " " + Math.ceil(timeRamp(1000, 5.0)),
-				"transform": "rotate(" + timeRamp(i*700, 360) + " " + xmax/2 + " " + ymax/2 + ")",
-				style: "stroke-width:" + timeRamp(10000, 100)*(9-i)*1.5
+				"transform": "rotate(" + timeRamp(i*70, 360) + " " + xmax/2 + " " + ymax/2 + ")",
+				style: "stroke-width:" + timeRamp(10000, 100)*(9-i)*this.getConfigVal("strokeMultiplier", 1.5)
 			}, this.getDomID());	
 		}
 
