@@ -48,6 +48,7 @@ class PikselInteractive7 extends Module {
 	}
 
 	render() {	
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		for (var it=0; it<10; it++) {
 			Piksel.addCircularClip("glitchClip-" + it, xmax/2, ymax/2, ymax*0.5*(10-it)*0.1*(this.params["r1"]/40))
 			for (var i=0; i<Math.floor(this.params["r4"]/3); i++) {

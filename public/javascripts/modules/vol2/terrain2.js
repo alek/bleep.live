@@ -19,12 +19,14 @@ class Terrain2 extends Module {
 		for (var i=0; i<=columns; i++) {
 			for (var j=0; j<=rows; j++) {
 				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 
-				drawCircle(coord, Math.random()*5, "rgba(255,255,255," + Math.random() + ")", this.getDomID(), i + "-" + j)
+				drawCircle(coord, Math.random()*5, "#fff", this.getDomID(), i + "-" + j)
+				// drawCircle(coord, Math.random()*5, "rgba(24,124,242," + Math.random() + ")", this.getDomID(), i + "-" + j)
 			}
 		}
 	}	
 
 	render() {	
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 		var el = document.getElementById(10 + "-" + 10)
 	}

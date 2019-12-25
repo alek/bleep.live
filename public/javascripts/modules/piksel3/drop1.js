@@ -43,6 +43,7 @@ class Drop1 extends Module {
 	}
 
 	render() {	
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
 		var amp = ymax*this.getConfigVal("amp",0.2)
