@@ -6,6 +6,8 @@ import { saveAs } from './external/FileSaver.js';
 var moduleQueue = [ new modules[Object.keys(modules)[Object.keys(modules).length - 1]]() ]
 
 var stateUpdateEnabled = true
+var recorderEnabled = true
+
 var clockCount = 0
 var bc = new BroadcastChannel('piksel_control')
 
@@ -106,6 +108,17 @@ $( document ).ready(function() {
 			// midi messages
 			if (data['midi'] != null) {
 				handleMidiUpdate(data['midi'])
+				
+				// post-render handlers
+
+				// recorder			
+				if (recorderEnabled) {
+					var renderedContent = '<svg width="' + xmax + '" height="' + ymax + '">' + $("#graph").html() + '</svg>'
+					$.post( "http://localhost:5133/recorder", {"data": renderedContent}, function( data ) {	
+  						// console.log(data)
+					});
+				}
+
 			// control panel commands
 			} else if (data['control'] != null) {
 				if (data['control'] == 'start-module') {

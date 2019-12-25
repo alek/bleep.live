@@ -10,8 +10,8 @@ class APBackdrop2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
-			"r1": ["cc_6", 20],			// right hand 1. finger (thumb)     
-			"r2": ["cc_7", 50],			// right hand 2. finger (index)     
+			"widthMultiplier": ["cc_6", 20],			// right hand 1. finger (thumb)     
+			"segments": ["cc_7", 40],			// right hand 2. finger (index)     
 			"r3": ["cc_8", 50],			// right hand 3. finger (middle)    
 			"r4": ["cc_9", 50],			// right hand 4. finger (ring)      
 			 "r5": ["cc_10", 50],		// right hand 5. finger (little)    
@@ -68,7 +68,7 @@ class APBackdrop2 extends Module {
 		// moveBackward()
 		rotateLeft()
 		for (var i=0; i<20; i++) {
-			this.renderSegment(i+this.getConfigVal("segments",20), this.getConfigVal("r",50)*i, ymax*this.getConfigVal("widthMultiplier",0.03)*Math.random()) // todo: modulate angle and width!
+			this.renderSegment(4+i+Math.min(this.params["segments"]/2,40), this.getConfigVal("r",50)*i, ymax*this.params["widthMultiplier"]/4000*Math.random()) // todo: modulate angle and width!
 		}
 	}
 

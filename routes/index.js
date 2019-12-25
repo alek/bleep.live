@@ -14,4 +14,13 @@ router.get('/controller', function(req, res, next) {
   res.render('controller', { });
 });
 
+router.post('/recorder', function(req, res, next) {
+	try {
+		console.log(req.body['data'])
+		res.render('controller', { });
+	} catch (error) {
+		console.log(error)
+	}
+});
+
 module.exports = router;

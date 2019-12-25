@@ -1,12 +1,10 @@
-//
-// Simple grid-based module template
+
+// Supercon logo animation
 // 
 
 import Module from '../../lib/module.js'
-import Piksel from '../piksel/piksel.js'
-import { getTwitterData } from '../../dataset/twitterfirehose.js'
 
-class APBackdrop1 extends Module {
+class APBackdrop10 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -43,31 +41,23 @@ class APBackdrop1 extends Module {
 			}
 		}
 	}	
-	rndTitle(data) {
-		return data[Math.floor(Math.random()*data.length)]["title"]
-	}
 
 	render() {	
-
-		var data = getTwitterData()
-
-		for (var i=0; i<4; i++) {
-			drawCircleOutline([xmax/2,ymax/2], ymax*Math.random()*0.2*i, "rgba(255,255,255," + Math.random()/3 + ")", this.getConfigVal("circleWeight",10)*Math.random(), this.getDomID())
+		var config = this.getConfig()
+		var scale = this.getConfigVal("scaleMultiplier1", (0.1 + this.params["r1"]/100))
+		for (var i=-xmax; i<2*xmax; i+=xmax*scale*1.1) {
+			for (var j=-ymax; j<2*ymax; j+=xmax*scale*1.1) {
+				if (Math.random() < 0.6) {
+					image( {
+						href: this.getConfigVal("image", "../public/images/piksel/piksel.svg"),
+						x: i,
+						y: j,
+						"transform": "rotate(" + (this.config["angle"] ? this.config["angle"] : 30) + ", " + xmax/2 + "," + ymax/2 + ")",
+						width: xmax*(this.config["width"] ? this.config["width"] : this.getConfigVal("scaleMultiplier2", (0.1 + this.params["r1"]/100)))
+					}, this.getDomID())
+				}
+			}
 		}
-		
-		for (var i=0; i<5; i++) {
-			circle({
-				cx: xmax/2,
-				cy: ymax/2,
-				r: ymax*timeRamp(10000, 1.0)*i,
-				stroke: this.getConfigVal("strokeColor", "#fff"),
-				fill: "none",
-				"stroke-dasharray": i + " " + Math.ceil(timeRamp(1000, 5.0)),
-				"transform": "rotate(" + timeRamp(i*70, 360) + " " + xmax/2 + " " + ymax/2 + ")",
-				style: "stroke-width:" + timeRamp(10000, 100)*(9-i)*this.getConfigVal("strokeMultiplier", 1.5)
-			}, this.getDomID());	
-		}
-
 	}
 
 	// state update as a result of a midi event
@@ -79,4 +69,4 @@ class APBackdrop1 extends Module {
 
 }
 
-export default APBackdrop1;
+export default APBackdrop10;

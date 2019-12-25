@@ -207,6 +207,16 @@ import APBackdrop2 from './modules/piksel4/apbackdrop2.js'
 import APBackdrop3 from './modules/piksel4/apbackdrop3.js'
 import APBackdrop4 from './modules/piksel4/apbackdrop4.js'
 import APBackdrop5 from './modules/piksel4/apbackdrop5.js'
+import APBackdrop6 from './modules/piksel4/apbackdrop6.js'
+import APBackdrop7 from './modules/piksel4/apbackdrop7.js'
+import APBackdrop8 from './modules/piksel4/apbackdrop8.js'
+import APBackdrop9 from './modules/piksel4/apbackdrop9.js'
+import APBackdrop10 from './modules/piksel4/apbackdrop10.js'
+
+import MicrowaveWorld1 from './modules/hackchat/microwave1.js'
+import FunctionSpace1 from './modules/vol2/functionspace1.js'
+import Terrain1 from './modules/vol2/terrain1.js'
+import Terrain2 from './modules/vol2/terrain2.js'
 
 //
 // Instantiate module from a string
@@ -314,6 +324,16 @@ var modules = {
 	CPU1,
 	PikselGrid4,
 	PikselGrid5,
+	TwitterAds1,
+	TwitterAds2,
+	TwitterAds3,
+	TwitterFirehose1,
+	TwitterFirehose2,
+	TwitterFirehose3,
+	TwitterFirehose4,
+	APBackdrop1,
+	APBackdrop3,
+	APBackdrop5,	
 	International3,	
 	Deconstruction3,
 	Glove2,
@@ -334,18 +354,16 @@ var modules = {
 	PikselInteractive7,
 	PikselInteractive8,
 	PikselInteractive9,
-	TwitterAds1,
-	TwitterAds2,
-	TwitterAds3,
-	TwitterFirehose1,
-	TwitterFirehose2,
-	TwitterFirehose3,
-	TwitterFirehose4,
-	APBackdrop1,
-	APBackdrop2,
-	APBackdrop3,
 	APBackdrop4,
-	APBackdrop5
+	APBackdrop2,
+	APBackdrop6,
+	APBackdrop7,
+	APBackdrop8,
+	APBackdrop9,
+	MicrowaveWorld1,
+	FunctionSpace1,
+	Terrain1,
+	Terrain2
 }
 
 export { modules, createModule };

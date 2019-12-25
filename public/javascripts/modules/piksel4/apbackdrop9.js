@@ -1,12 +1,10 @@
-//
-// Simple grid-based module template
+
+// Supercon logo animation
 // 
 
 import Module from '../../lib/module.js'
-import Piksel from '../piksel/piksel.js'
-import { getTwitterData } from '../../dataset/twitterfirehose.js'
 
-class APBackdrop1 extends Module {
+class APBackdrop9 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -43,40 +41,39 @@ class APBackdrop1 extends Module {
 			}
 		}
 	}	
-	rndTitle(data) {
-		return data[Math.floor(Math.random()*data.length)]["title"]
-	}
 
 	render() {	
+		$.get( "http://localhost:5133/images/piksel/hc-pxl-3.svg", function( data ) {
+  			var entry = new XMLSerializer().serializeToString(data)
+  			$("#graph").append(entry)
+		});
+	}
 
-		var data = getTwitterData()
-
-		for (var i=0; i<4; i++) {
-			drawCircleOutline([xmax/2,ymax/2], ymax*Math.random()*0.2*i, "rgba(255,255,255," + Math.random()/3 + ")", this.getConfigVal("circleWeight",10)*Math.random(), this.getDomID())
-		}
-		
-		for (var i=0; i<5; i++) {
-			circle({
-				cx: xmax/2,
-				cy: ymax/2,
-				r: ymax*timeRamp(10000, 1.0)*i,
-				stroke: this.getConfigVal("strokeColor", "#fff"),
-				fill: "none",
-				"stroke-dasharray": i + " " + Math.ceil(timeRamp(1000, 5.0)),
-				"transform": "rotate(" + timeRamp(i*70, 360) + " " + xmax/2 + " " + ymax/2 + ")",
-				style: "stroke-width:" + timeRamp(10000, 100)*(9-i)*this.getConfigVal("strokeMultiplier", 1.5)
-			}, this.getDomID());	
-		}
-
+	layer() {
+		var p = this.getConfigVal("p", 0.1)
+		// var scaleMultiplier = this.getConfigVal("scaleMultiplier", this.params["r1"]/100)
+		var scaleMultiplier = this.getConfigVal("scaleMultiplier", 1)
+		var delay = this.getConfigVal("delay", 100)
+		$("#graph").children().each(function(){
+			$(this).children().each(function() {
+				if (Math.random() < 0.1) {
+					$(this).attr('x', xmax*Math.random())
+				} 
+				if (Math.random() < p) {
+					$(this).attr('x', xmax*Math.random())
+					$(this).attr('cx', xmax*Math.random())
+					$(this).attr('transform', "translate(" + (-xmax + 2*xmax*Math.random()) + " 0) " + "scale(" + scaleMultiplier + " " + scaleMultiplier + ")")
+				} 
+			})
+		})		
 	}
 
 	// state update as a result of a midi event
 	update(event) {
 		super.update(event)
-		this.clear()
-		this.render()
+		this.layer()
 	}
 
 }
 
-export default APBackdrop1;
+export default APBackdrop9;

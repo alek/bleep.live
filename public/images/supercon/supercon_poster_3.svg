@@ -4,97 +4,92 @@
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
-	.st1{font-family:'NHaasGroteskDSPro-65Md';}
-	.st2{font-size:48px;}
-	.st3{fill:#E5E5E5;}
-	.st4{fill:#CBCBCB;}
-	.st5{fill:#B2B2B2;}
-	.st6{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
-	.st7{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-miterlimit:10;}
-	.st8{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
-	.st9{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-miterlimit:10;}
-	.st10{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
-	.st11{fill:none;stroke:#FFFFFF;stroke-width:12;stroke-miterlimit:10;}
-	.st12{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-miterlimit:10;}
-	.st13{fill:none;stroke:#FFFFFF;stroke-width:25;stroke-miterlimit:10;}
-	.st14{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-miterlimit:10;}
-	.st15{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
-	.st16{fill:none;}
-	.st17{font-family:'PTMono-Regular';}
-	.st18{font-size:12px;}
+	.st1{fill:#E5E5E5;}
+	.st2{fill:#CBCBCB;}
+	.st3{fill:#B2B2B2;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st7{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:12;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#FFFFFF;stroke-width:25;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-miterlimit:10;}
+	.st13{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st14{fill:none;}
+	.st15{font-family:'PTMono-Regular';}
+	.st16{font-size:12px;}
 </style>
-<text transform="matrix(0 -1 1 0 1860.522 1020.5127)" class="st0 st1 st2">5Con™</text>
-<text transform="matrix(0 -1 1 0 578.2896 961.2783)" class="st0 st1 st2">Badge Hacking</text>
 <polygon class="st0" points="300,420 361,359 544,359 483,420 "/>
 <g>
 	<rect x="720" y="419" class="st0" width="61" height="61"/>
 </g>
-<polygon class="st3" points="479,479 540,540 723,540 662,479 "/>
+<polygon class="st1" points="479,479 540,540 723,540 662,479 "/>
 <g>
 	<rect x="361" y="538" class="st0" width="61" height="61"/>
 </g>
-<polyline class="st4" points="304,599 243,660 121,660 60,599 243,599 "/>
+<polyline class="st2" points="304,599 243,660 121,660 60,599 243,599 "/>
 <path class="st0" d="M291,361"/>
-<polygon class="st5" points="1198,421 1258,361 1438,361 1378,421 "/>
+<polygon class="st3" points="1198,421 1258,361 1438,361 1378,421 "/>
 <polygon class="st0" points="1080,421 1080,511 1080,601 1140,601 1140,511 1140,421 "/>
-<polygon class="st4" points="780,601 840,661 1020,661 960,601 "/>
-<polygon class="st3" points="1440,421 1440,661 1500,601 1500,361 "/>
-<polygon class="st5" points="1860,601 1860,361 1800,421 1800,661 "/>
-<polygon class="st3" points="1740,361 1620,361 1560.5,420.5 1680,420.5 "/>
-<text transform="matrix(1 0 0 1 960.4795 224.0034)" class="st0 st1 st2">Hacker Village</text>
-<line class="st6" x1="961" y1="961" x2="961" y2="1021"/>
-<line class="st7" x1="981" y1="961" x2="981" y2="1021"/>
-<line class="st8" x1="1001" y1="961" x2="1001" y2="1021"/>
-<line class="st9" x1="1021" y1="961" x2="1021" y2="1021"/>
-<line class="st10" x1="1041" y1="961" x2="1041" y2="1021"/>
-<line class="st11" x1="1061" y1="961" x2="1061" y2="1021"/>
-<line class="st12" x1="1081" y1="961" x2="1081" y2="1021"/>
-<line class="st13" x1="1101" y1="961" x2="1101" y2="1021"/>
-<line class="st8" x1="1121" y1="961" x2="1121" y2="1021"/>
-<line class="st7" x1="1141" y1="961" x2="1141" y2="1021"/>
-<line class="st14" x1="1161" y1="961" x2="1161" y2="1021"/>
-<line class="st14" x1="1181" y1="961" x2="1181" y2="1021"/>
-<line class="st6" x1="1201" y1="961" x2="1201" y2="1021"/>
-<circle class="st15" cx="120" cy="120" r="60"/>
-<line class="st15" x1="61" y1="900.5" x2="121" y2="900.5"/>
-<line class="st15" x1="61" y1="1019.5" x2="121" y2="1019.5"/>
-<line class="st15" x1="61" y1="989.5" x2="121" y2="989.5"/>
-<line class="st15" x1="61" y1="959.5" x2="121" y2="959.5"/>
-<rect x="240.1" y="60.5" class="st16" width="60.9" height="239.5"/>
-<text transform="matrix(1 0 0 1 240.1226 68.8799)" class="st0 st17 st18">, an </text>
-<text transform="matrix(1 0 0 1 240.1226 83.2799)" class="st0 st17 st18">elliptic </text>
-<text transform="matrix(1 0 0 1 240.1226 97.6799)" class="st0 st17 st18">curve is </text>
-<text transform="matrix(1 0 0 1 240.1226 112.0799)" class="st0 st17 st18">a </text>
-<text transform="matrix(1 0 0 1 240.1226 126.4799)" class="st0 st17 st18">smooth, </text>
-<text transform="matrix(1 0 0 1 240.1226 140.8799)" class="st0 st17 st18">projec</text>
-<text transform="matrix(1 0 0 1 283.3226 140.8799)" class="st0 st17 st18">-</text>
-<text transform="matrix(1 0 0 1 240.1226 155.2799)" class="st0 st17 st18">tive, </text>
-<text transform="matrix(1 0 0 1 240.1226 169.6799)" class="st0 st17 st18">algebra</text>
-<text transform="matrix(1 0 0 1 290.5226 169.6799)" class="st0 st17 st18">-</text>
-<text transform="matrix(1 0 0 1 240.1226 184.0799)" class="st0 st17 st18">ic curve </text>
-<text transform="matrix(1 0 0 1 240.1226 198.4799)" class="st0 st17 st18">of genus </text>
-<text transform="matrix(1 0 0 1 240.1226 212.8799)" class="st0 st17 st18">one, on </text>
-<text transform="matrix(1 0 0 1 240.1226 227.2799)" class="st0 st17 st18">which </text>
-<text transform="matrix(1 0 0 1 240.1226 241.6799)" class="st0 st17 st18">there is </text>
-<text transform="matrix(1 0 0 1 240.1226 256.0799)" class="st0 st17 st18">a speci</text>
-<text transform="matrix(1 0 0 1 290.5226 256.0799)" class="st0 st17 st18">-</text>
-<text transform="matrix(1 0 0 1 240.1226 270.4799)" class="st0 st17 st18">fied </text>
-<text transform="matrix(1 0 0 1 240.1226 284.8799)" class="st0 st17 st18">point </text>
+<polygon class="st2" points="780,601 840,661 1020,661 960,601 "/>
+<polygon class="st1" points="1440,421 1440,661 1500,601 1500,361 "/>
+<polygon class="st3" points="1860,601 1860,361 1800,421 1800,661 "/>
+<polygon class="st1" points="1740,361 1620,361 1560.5,420.5 1680,420.5 "/>
+<line class="st4" x1="961" y1="961" x2="961" y2="1021"/>
+<line class="st5" x1="981" y1="961" x2="981" y2="1021"/>
+<line class="st6" x1="1001" y1="961" x2="1001" y2="1021"/>
+<line class="st7" x1="1021" y1="961" x2="1021" y2="1021"/>
+<line class="st8" x1="1041" y1="961" x2="1041" y2="1021"/>
+<line class="st9" x1="1061" y1="961" x2="1061" y2="1021"/>
+<line class="st10" x1="1081" y1="961" x2="1081" y2="1021"/>
+<line class="st11" x1="1101" y1="961" x2="1101" y2="1021"/>
+<line class="st6" x1="1121" y1="961" x2="1121" y2="1021"/>
+<line class="st5" x1="1141" y1="961" x2="1141" y2="1021"/>
+<line class="st12" x1="1161" y1="961" x2="1161" y2="1021"/>
+<line class="st12" x1="1181" y1="961" x2="1181" y2="1021"/>
+<line class="st4" x1="1201" y1="961" x2="1201" y2="1021"/>
+<circle class="st13" cx="120" cy="120" r="60"/>
+<line class="st13" x1="61" y1="900.5" x2="121" y2="900.5"/>
+<line class="st13" x1="61" y1="1019.5" x2="121" y2="1019.5"/>
+<line class="st13" x1="61" y1="989.5" x2="121" y2="989.5"/>
+<line class="st13" x1="61" y1="959.5" x2="121" y2="959.5"/>
+<rect x="240.1" y="60.5" class="st14" width="60.9" height="239.5"/>
+<text transform="matrix(1 0 0 1 240.1226 68.8799)" class="st0 st15 st16">, an </text>
+<text transform="matrix(1 0 0 1 240.1226 83.2799)" class="st0 st15 st16">elliptic </text>
+<text transform="matrix(1 0 0 1 240.1226 97.6799)" class="st0 st15 st16">curve is </text>
+<text transform="matrix(1 0 0 1 240.1226 112.0799)" class="st0 st15 st16">a </text>
+<text transform="matrix(1 0 0 1 240.1226 126.4799)" class="st0 st15 st16">smooth, </text>
+<text transform="matrix(1 0 0 1 240.1226 140.8799)" class="st0 st15 st16">projec</text>
+<text transform="matrix(1 0 0 1 283.3226 140.8799)" class="st0 st15 st16">-</text>
+<text transform="matrix(1 0 0 1 240.1226 155.2799)" class="st0 st15 st16">tive, </text>
+<text transform="matrix(1 0 0 1 240.1226 169.6799)" class="st0 st15 st16">algebra</text>
+<text transform="matrix(1 0 0 1 290.5226 169.6799)" class="st0 st15 st16">-</text>
+<text transform="matrix(1 0 0 1 240.1226 184.0799)" class="st0 st15 st16">ic curve </text>
+<text transform="matrix(1 0 0 1 240.1226 198.4799)" class="st0 st15 st16">of genus </text>
+<text transform="matrix(1 0 0 1 240.1226 212.8799)" class="st0 st15 st16">one, on </text>
+<text transform="matrix(1 0 0 1 240.1226 227.2799)" class="st0 st15 st16">which </text>
+<text transform="matrix(1 0 0 1 240.1226 241.6799)" class="st0 st15 st16">there is </text>
+<text transform="matrix(1 0 0 1 240.1226 256.0799)" class="st0 st15 st16">a speci</text>
+<text transform="matrix(1 0 0 1 290.5226 256.0799)" class="st0 st15 st16">-</text>
+<text transform="matrix(1 0 0 1 240.1226 270.4799)" class="st0 st15 st16">fied </text>
+<text transform="matrix(1 0 0 1 240.1226 284.8799)" class="st0 st15 st16">point </text>
 <circle class="st0" cx="120" cy="301" r="54"/>
-<rect x="1260.5" y="720.5" class="st16" width="240" height="180"/>
-<text transform="matrix(1 0 0 1 1260.5 728.9004)" class="st0 st17 st18">The Hackaday Superconference is </text>
-<text transform="matrix(1 0 0 1 1260.5 743.3004)" class="st0 st17 st18">the greatest gathering of hard</text>
-<text transform="matrix(1 0 0 1 1476.5 743.3004)" class="st0 st17 st18">-</text>
-<text transform="matrix(1 0 0 1 1260.5 757.7004)" class="st0 st17 st18">ware hackers, builders, engineers </text>
-<text transform="matrix(1 0 0 1 1260.5 772.1004)" class="st0 st17 st18">and enthusiasts in the world. </text>
-<text transform="matrix(1 0 0 1 1260.5 786.5004)" class="st0 st17 st18">Hundreds of engineers and </text>
-<text transform="matrix(1 0 0 1 1260.5 800.9004)" class="st0 st17 st18">engineering enthusiasts gather </text>
-<text transform="matrix(1 0 0 1 1260.5 815.3004)" class="st0 st17 st18">for organized talks and workshops </text>
-<text transform="matrix(1 0 0 1 1260.5 829.7004)" class="st0 st17 st18">along with the extemporaneous </text>
-<text transform="matrix(1 0 0 1 1260.5 844.1004)" class="st0 st17 st18">challenges, conversations, and </text>
-<text transform="matrix(1 0 0 1 1260.5 858.5004)" class="st0 st17 st18">discovery that make Supercon the </text>
-<text transform="matrix(1 0 0 1 1260.5 872.9004)" class="st0 st17 st18">ultimate hardware conference.</text>
-<polyline class="st15" points="540,601 720,601 840,721 1021,721 "/>
+<rect x="1260.5" y="720.5" class="st14" width="240" height="180"/>
+<text transform="matrix(1 0 0 1 1260.5 728.9004)" class="st0 st15 st16">The Hackaday Superconference is </text>
+<text transform="matrix(1 0 0 1 1260.5 743.3004)" class="st0 st15 st16">the greatest gathering of hard</text>
+<text transform="matrix(1 0 0 1 1476.5 743.3004)" class="st0 st15 st16">-</text>
+<text transform="matrix(1 0 0 1 1260.5 757.7004)" class="st0 st15 st16">ware hackers, builders, engineers </text>
+<text transform="matrix(1 0 0 1 1260.5 772.1004)" class="st0 st15 st16">and enthusiasts in the world. </text>
+<text transform="matrix(1 0 0 1 1260.5 786.5004)" class="st0 st15 st16">Hundreds of engineers and </text>
+<text transform="matrix(1 0 0 1 1260.5 800.9004)" class="st0 st15 st16">engineering enthusiasts gather </text>
+<text transform="matrix(1 0 0 1 1260.5 815.3004)" class="st0 st15 st16">for organized talks and workshops </text>
+<text transform="matrix(1 0 0 1 1260.5 829.7004)" class="st0 st15 st16">along with the extemporaneous </text>
+<text transform="matrix(1 0 0 1 1260.5 844.1004)" class="st0 st15 st16">challenges, conversations, and </text>
+<text transform="matrix(1 0 0 1 1260.5 858.5004)" class="st0 st15 st16">discovery that make Supercon the </text>
+<text transform="matrix(1 0 0 1 1260.5 872.9004)" class="st0 st15 st16">ultimate hardware conference.</text>
+<polyline class="st13" points="540,601 720,601 840,721 1021,721 "/>
 <rect x="1746.8" y="163.5" class="st0" width="2.3" height="2.3"/>
 <rect x="1783.8" y="163.5" class="st0" width="2.3" height="2.3"/>
 <rect x="1820.8" y="163.5" class="st0" width="2.3" height="2.3"/>
@@ -111,5 +106,5 @@
 <rect x="1820.7" y="60.4" class="st0" width="2.3" height="2.3"/>
 <rect x="1857.4" y="97.8" class="st0" width="2.3" height="2.3"/>
 <rect x="1857.7" y="60.5" class="st0" width="2.3" height="2.3"/>
-<polyline class="st15" points="360.5,334.5 540.5,334.5 665,210 901.5,210 "/>
+<polyline class="st13" points="360.5,334.5 540.5,334.5 665,210 901.5,210 "/>
 </svg>

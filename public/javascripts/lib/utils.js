@@ -316,3 +316,7 @@ var timeRamp = function(timeConst, maxVal) {
 var getRotateVal = function(angle, coord) {
 	return "rotate(" + angle + " " + coord[0] + " " + coord[1] + ")"
 }
+
+var sigmoid = function(x) {
+	return 1 / (1 + Math.pow(Math.E, -x))
+}

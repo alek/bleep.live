@@ -81,9 +81,12 @@ $( document ).ready(function() {
 			//console.log(data['time'])
 			$("#speedometer-render").html(' //  render: <span class="hl">' + (1000/data['time']).toFixed() + '</span>/sec // <span class="hl">' + data['num-objects'].toLocaleString() + "</span> objects")
 
-			if (1000/data['time'] < 10) {	// ad-hoc GC trigger | todo: do it based on average render time for a given module
-				bc.postMessage(JSON.stringify({'control': 'garbage-collect'}))		
-			}
+			// temprary disabled
+			
+			// if (1000/data['time'] < 10) {	// ad-hoc GC trigger | todo: do it based on average render time for a given module
+			// 	bc.postMessage(JSON.stringify({'control': 'garbage-collect'}))		
+			// }
+
 		}
 	}
 
