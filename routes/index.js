@@ -1,4 +1,5 @@
 var express = require('express');
+const fs = require('fs');
 var router = express.Router();
 
 /* GET home page. */
@@ -16,8 +17,10 @@ router.get('/controller', function(req, res, next) {
 
 router.post('/recorder', function(req, res, next) {
 	try {
-		console.log(req.body['data'])
-		res.render('controller', { });
+		fs.writeFile('out/' + new Date().getTime() + ".svg", req.body['data'], (err) => {
+		    if (err) throw err;
+    		res.render('controller', { });
+		});
 	} catch (error) {
 		console.log(error)
 	}
