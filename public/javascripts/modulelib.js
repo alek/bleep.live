@@ -218,6 +218,12 @@ import FunctionSpace1 from './modules/vol2/functionspace1.js'
 import Terrain1 from './modules/vol2/terrain1.js'
 import Terrain2 from './modules/vol2/terrain2.js'
 
+import OffWhite1 from './modules/vol2/offwhite1.js'
+
+import BelgradeMap1 from './modules/belgrade/belgrademap1.js'
+import BelgradeMap2 from './modules/belgrade/belgrademap2.js'
+import BelgradeMap3 from './modules/belgrade/belgrademap3.js'
+
 //
 // Instantiate module from a string
 // 
@@ -363,7 +369,11 @@ var modules = {
 	MicrowaveWorld1,
 	FunctionSpace1,
 	Terrain1,
-	Terrain2
+	Terrain2,
+	OffWhite1,
+	BelgradeMap2,
+	BelgradeMap1,
+	BelgradeMap3
 }
 
 export { modules, createModule };

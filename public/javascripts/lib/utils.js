@@ -11,6 +11,11 @@ var getParametricColor = function(params, id) {
 	return "rgba(" + params["r" + id]*2 + "," + params["g" + id]*2 + "," + params["b" + id]*2 + "," + params["opacity" + id]/128 + ")"
 }
 
+var materialPalette = ["#F44336", "#E91E63", "#374046", "#9C27B0", "#673AB7", 
+					   "#3F51B5", "#2196F3", "#02A9F4", "#00BCD4", "#009688", 
+					   "#4BAF50", "#8BC34A", "#CDDC3A", "#FFEB3C", "#FFC10A",
+					   "#FD9702", "#FF5722", "#795548", "#9E9E9E", "#607D8B"]
+
 // 
 // Create a parametric gradient 
 //
