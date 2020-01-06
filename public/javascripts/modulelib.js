@@ -223,6 +223,9 @@ import OffWhite1 from './modules/vol2/offwhite1.js'
 import BelgradeMap1 from './modules/belgrade/belgrademap1.js'
 import BelgradeMap2 from './modules/belgrade/belgrademap2.js'
 import BelgradeMap3 from './modules/belgrade/belgrademap3.js'
+import BelgradeMap4 from './modules/belgrade/belgrademap4.js'
+import BelgradeMap5 from './modules/belgrade/belgrademap5.js'
+import BelgradeMap6 from './modules/belgrade/belgrademap6.js'
 
 //
 // Instantiate module from a string
@@ -373,7 +376,10 @@ var modules = {
 	OffWhite1,
 	BelgradeMap2,
 	BelgradeMap1,
-	BelgradeMap3
+	BelgradeMap3,
+	BelgradeMap4,
+	BelgradeMap5,
+	BelgradeMap6
 }
 
 export { modules, createModule };

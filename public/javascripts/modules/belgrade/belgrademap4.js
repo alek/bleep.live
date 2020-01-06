@@ -3,10 +3,10 @@
 // 
 
 import Module from '../../lib/module.js'
-import { getCitiesData } from '../../dataset/cities.js'
-// import { getCitiesData } from '../../dataset/cities_full.js'
+// import { getCitiesData } from '../../dataset/cities.js'
+import { getCitiesData } from '../../dataset/cities_full.js'
 
-class BelgradeMap3 extends Module {
+class BelgradeMap4 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -46,7 +46,22 @@ class BelgradeMap3 extends Module {
 
 	renderLabel(offset, text, color) {
 
-		var candidates = [[offset["x"], offset["y"]-20], [offset["x"], offset["y"]+20], [offset["x"] - 20, offset["y"]], [offset["x"] + 20, offset["y"]]]
+		// var candidates = [[offset["x"], offset["y"]-20], [offset["x"], offset["y"]+20], [offset["x"] - 20, offset["y"]], [offset["x"] + 20, offset["y"]]]
+
+		// var candidates = [
+		// 				  [offset["x"], offset["y"]+20], [offset["x"], offset["y"]+10], 
+		// 				  [offset["x"] - 20, offset["y"]], [offset["x"] - 10, offset["y"]], 
+		// 				  [offset["x"] + 20, offset["y"]], [offset["x"] + 10, offset["y"]],
+		// 				  [offset["x"], offset["y"]-20], [offset["x"], offset["y"]-10], 
+		// 				  [offset["x"] + 20, offset["y"] + 20], [offset["x"] + 10, offset["y"] + 10]
+		// 				  ]
+
+		var candidates = [
+						  [offset["x"], offset["y"]-20], 
+						  [offset["x"], offset["y"]+20], 
+						  [offset["x"] - 5 - text.length*3, offset["y"]], [offset["x"] - 10 - text.length*3, offset["y"]], 
+						  [offset["x"] + 5 + text.length*3, offset["y"]], [offset["x"] + 10 + text.length*3, offset["y"]]
+						  ]
 		
 		var minDistances = Array(candidates.length).fill(Infinity)
 
@@ -59,7 +74,7 @@ class BelgradeMap3 extends Module {
 
 		var maxVal = -Infinity
 		var maxIndex = 0
-		for (var i=0; i<minDistances; i++) {
+		for (var i=0; i<minDistances.length; i++) {
 			if (minDistances[i] > maxVal) {
 				maxVal = minDistances[i]
 				maxIndex = i
@@ -91,6 +106,7 @@ class BelgradeMap3 extends Module {
 		// var numCities = data.length
 		var numCities = 100
 
+		// compute nearest neighbors
 		var nearest = Array(numCities).fill(null);
 		var traversed = {}
 
@@ -98,6 +114,7 @@ class BelgradeMap3 extends Module {
 			var offsetA = this.getOffset(data[i])
 			var minDistance = Infinity
 			var minOffset = null
+			var minOffsetCity = null
 			for (var j=0; j<numCities; j++) {
 				if (i != j) {
 					var offsetB = this.getOffset(data[j])
@@ -105,14 +122,37 @@ class BelgradeMap3 extends Module {
 					if (distance < minDistance && !traversed[data[j]["city"]]) {
 						minDistance = distance
 						minOffset = offsetB
+						minOffsetCity = data[j]["city"]
 					}
 				}
 			}
 			traversed[data[i]["city"]] = true
 			nearest[i] = minOffset
+			if (minOffset != null) {
+				// console.log(data[i]["city"] + " <- " + minOffsetCity)
+			}
 		}
 
-		// render
+		// render all cities as dots
+		for (var i=0; i<data.length; i++) {
+			var offset = this.getOffset(data[i])
+			var color = randomPantoneHex()
+			var opacity = data[i]["population"]/1000000
+			circle({
+				cx: offset["x"],
+				//cx: -xmax*0.5+timeSlide(1000, 2*xmax)+offset["x"],
+				cy: offset["y"],
+				// r: 1 + data[i]["population"]/10000000 ,
+				r: 0.9 + 0.2*Math.random(),
+				fill: color,
+				opacity: opacity,
+				"transform": "rotate(0 0 0)",
+				style: "stroke-width:0"
+				// filter: "url(#f1)"
+			}, this.getDomID());	
+		}
+
+		// render travel path
 		for (var i=0; i<numCities; i++) {
 
 			if (Math.random() < 1.0) {
@@ -126,11 +166,12 @@ class BelgradeMap3 extends Module {
 						x2: offset["x"],
 						y2: offset["y"],
 						stroke: color,
-						"stroke-opacity": Math.random()*0.5,
+						// "stroke-opacity": 1,
+						"stroke-opacity": 0.2 + 0.8*Math.random(),
 						// "stroke-dasharray": "2 2",
 						"stroke-width": "1px"
 					}, this.getDomID());	
-				}
+				} 
 
 			if (data[i]["population"]) {
 					var opacity = data[i]["population"]/100000
@@ -138,7 +179,7 @@ class BelgradeMap3 extends Module {
 						cx: offset["x"],
 						//cx: -xmax*0.5+timeSlide(1000, 2*xmax)+offset["x"],
 						cy: offset["y"],
-						r: 0.3 + data[i]["population"]/2000000,
+						r: 0.3 + data[i]["population"]/3000000,
 						fill: color,
 						opacity: opacity,
 						"transform": "rotate(0 0 0)",
@@ -153,6 +194,7 @@ class BelgradeMap3 extends Module {
 			}
 		}
 
+
 	}
 
 	// state update as a result of a midi event
@@ -164,4 +206,4 @@ class BelgradeMap3 extends Module {
 
 }
 
-export default BelgradeMap3;
+export default BelgradeMap4;
