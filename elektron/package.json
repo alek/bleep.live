@@ -4,7 +4,7 @@
   "description": "Bleep / Piksel.org Edition: Electron Wrapper",
   "main": "main.js",
   "scripts": {
-    "piksel": "electron ."
+    "bleep": "electron ."
   },
   "repository": "https://github.com/alek/bleep",
   "keywords": [
