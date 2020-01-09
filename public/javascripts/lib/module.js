@@ -117,6 +117,7 @@ class Module {
 	}
 
 	setupCanvas() {
+		$("#svg-config").remove();
 		$('body').append($('<canvas id="' + this.getDomID() + "-canvas" + '" width="' + xmax + '" height="' + ymax + '"</canvas>'))	
 	}
 

@@ -40,6 +40,9 @@ class Canvas1 extends Module {
 		ctx.fillRect(0, 0, xmax, ymax);
 
 		this.renderGrid(this.params["grid_rows"]*Math.random(),this.params["grid_rows"]*Math.random())
+		drawText([xmax/2,ymax/2], Math.floor(Math.random()*255) + "", ymax*0.3 + "px", "rgba(255,255,255,0.5)", 700, 0, "Helvetica", this.getDomID())
+		drawRectangle([0,0], xmax, ymax*0.15, "#000", this.getDomID())
+		drawRectangle([0,ymax*0.85], xmax, ymax*0.15, "#000", this.getDomID())
 
 	}
 

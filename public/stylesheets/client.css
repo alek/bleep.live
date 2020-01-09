@@ -8,3 +8,7 @@ canvas {
 	left: 0px;
 	z-index: -50;
 }
+
+#svg-config {
+	max-height: 0px;
+}
