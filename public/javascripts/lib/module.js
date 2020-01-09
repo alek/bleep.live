@@ -116,6 +116,18 @@ class Module {
 		return this.params
 	}
 
+	setupCanvas() {
+		$('body').append($('<canvas id="' + this.getDomID() + "-canvas" + '" width="' + xmax + '" height="' + ymax + '"</canvas>'))	
+	}
+
+	getCanvas() {
+		return document.getElementById(this.getDomID() + "-canvas");
+	}
+
+	getCanvasContext() {
+		return this.getCanvas().getContext("2d");
+	}
+
 	//
 	// DOM element init
 	//

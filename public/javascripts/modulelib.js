@@ -227,6 +227,8 @@ import BelgradeMap4 from './modules/belgrade/belgrademap4.js'
 import BelgradeMap5 from './modules/belgrade/belgrademap5.js'
 import BelgradeMap6 from './modules/belgrade/belgrademap6.js'
 
+import Canvas1 from './modules/canvas/canvas1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -379,7 +381,8 @@ var modules = {
 	BelgradeMap3,
 	BelgradeMap4,
 	BelgradeMap5,
-	BelgradeMap6
+	BelgradeMap6,
+	Canvas1
 }
 
 export { modules, createModule };
