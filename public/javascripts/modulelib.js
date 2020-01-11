@@ -227,6 +227,7 @@ import BelgradeMap4 from './modules/belgrade/belgrademap4.js'
 import BelgradeMap5 from './modules/belgrade/belgrademap5.js'
 import BelgradeMap6 from './modules/belgrade/belgrademap6.js'
 import BelgradeMap7 from './modules/belgrade/belgrademap7.js'
+import BelgradeMap8 from './modules/belgrade/belgrademap8.js'
 
 import Canvas1 from './modules/canvas/canvas1.js'
 import Canvas2 from './modules/canvas/canvas2.js'
@@ -386,7 +387,8 @@ var modules = {
 	BelgradeMap6,
 	Canvas1,
 	Canvas2,
-	BelgradeMap7
+	BelgradeMap7,
+	BelgradeMap8
 }
 
 export { modules, createModule };
