@@ -232,6 +232,12 @@ import BelgradeMap8 from './modules/belgrade/belgrademap8.js'
 import Canvas1 from './modules/canvas/canvas1.js'
 import Canvas2 from './modules/canvas/canvas2.js'
 
+import Exoplanets1 from './modules/hackchat/exoplanets1.js'
+import Exoplanets2 from './modules/hackchat/exoplanets2.js'
+import Exoplanets3 from './modules/hackchat/exoplanets3.js'
+import Exoplanets4 from './modules/hackchat/exoplanets4.js'
+import Exoplanets5 from './modules/hackchat/exoplanets5.js'
+
 //
 // Instantiate module from a string
 // 
@@ -388,7 +394,12 @@ var modules = {
 	Canvas1,
 	Canvas2,
 	BelgradeMap7,
-	BelgradeMap8
+	BelgradeMap8,
+	Exoplanets1,
+	Exoplanets2,
+	Exoplanets3,
+	Exoplanets4,
+	Exoplanets5
 }
 
 export { modules, createModule };
