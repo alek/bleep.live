@@ -237,6 +237,13 @@ import Exoplanets2 from './modules/hackchat/exoplanets2.js'
 import Exoplanets3 from './modules/hackchat/exoplanets3.js'
 import Exoplanets4 from './modules/hackchat/exoplanets4.js'
 import Exoplanets5 from './modules/hackchat/exoplanets5.js'
+import Exoplanets6 from './modules/hackchat/exoplanets6.js'
+import Exoplanets7 from './modules/hackchat/exoplanets7.js'
+
+import Haze1 from './modules/mm2020/haze1.js'
+import Haze2 from './modules/mm2020/haze2.js'
+
+import AssetGen1 from './modules/codeweb/assetgen1.js'
 
 //
 // Instantiate module from a string
@@ -399,7 +406,12 @@ var modules = {
 	Exoplanets2,
 	Exoplanets3,
 	Exoplanets4,
-	Exoplanets5
+	Exoplanets5,
+	Exoplanets6,
+	Exoplanets7,
+	Haze1,
+	Haze2,
+	AssetGen1
 }
 
 export { modules, createModule };
