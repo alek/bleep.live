@@ -229,6 +229,14 @@ drawPolygon = function(coords, fill, domID) {
 	}, domID)
 }
 
+drawCoordPolygon = function(coords, color, domID) {
+	var points = []
+	for (var i=0; i<coords.length; i++) {
+		points.push([coords[i].x, coords[i].y])
+	}
+	drawPolygon(points, color, domID)
+}
+
 drawPath = function(coords, stroke, weight, domID) {
 	path( {
 		d: "M" + coords.map(x => x.join(" ")).join(" L") + "",

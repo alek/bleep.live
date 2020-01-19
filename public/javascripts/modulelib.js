@@ -245,6 +245,8 @@ import Haze2 from './modules/mm2020/haze2.js'
 
 import AssetGen1 from './modules/codeweb/assetgen1.js'
 
+import Austere1 from './modules/hackchat/austere1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -411,7 +413,8 @@ var modules = {
 	Exoplanets7,
 	Haze1,
 	Haze2,
-	AssetGen1
+	AssetGen1,
+	Austere1
 }
 
 export { modules, createModule };
