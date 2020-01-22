@@ -1,10 +1,10 @@
 //
-// Austere Engineering HackChat
+// One point perspective experiments
 // 
 
 import Module from '../../lib/module.js'
 
-class Austere1 extends Module {
+class OnePoint1 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -104,7 +104,7 @@ class Austere1 extends Module {
 		// 	this.createObject([i, ymax*0.7], 25, 25, 10+50*Math.random(), 50 + 25*Math.random()).draw()
 		// }
 
-		var dim = 30
+		var dim = 30 + Math.random()*100
 
 		for (var height=ymax*0.9; height>ymax*0.7; height-=dim) {
 			for (var i=xmax; i>xmax*0.5; i-=dim) {
@@ -127,4 +127,4 @@ class Austere1 extends Module {
 
 }
 
-export default Austere1;
+export default OnePoint1;

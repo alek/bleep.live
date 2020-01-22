@@ -6,7 +6,7 @@ import { saveAs } from './external/FileSaver.js';
 var moduleQueue = [ new modules[Object.keys(modules)[Object.keys(modules).length - 1]]() ]
 
 var stateUpdateEnabled = true
-var recorderEnabled = false
+var recorderEnabled = true
 
 var clockCount = 0
 var bc = new BroadcastChannel('piksel_control')

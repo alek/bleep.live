@@ -247,6 +247,10 @@ import AssetGen1 from './modules/codeweb/assetgen1.js'
 
 import Austere1 from './modules/hackchat/austere1.js'
 
+import OnePoint1 from './modules/modmanifest3/onepoint1.js'
+
+import TestCard1 from './modules/system/testcard1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -414,7 +418,9 @@ var modules = {
 	Haze1,
 	Haze2,
 	AssetGen1,
-	Austere1
+	Austere1,
+	OnePoint1,
+	TestCard1
 }
 
 export { modules, createModule };
