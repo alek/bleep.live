@@ -672,3 +672,18 @@ li:hover .add-module {
 	height: 20px;
 	margin-top: 20px;
 }
+
+.audio-player {
+	margin-left: 20px;
+}
+
+audio {
+	margin-top: 20px;
+}
+
+#player-timer {
+	font-size: 12px;
+	margin-top: 5px;
+	color: #7B7B7B;
+	text-transform: uppercase;
+}

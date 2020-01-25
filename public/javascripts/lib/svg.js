@@ -219,7 +219,7 @@ drawText = function(coord, content, size, fill,weight, spacing, fontFamily, domI
 		"fill": fill,
 		"transform": "rotate(0 50 100)",
 		"style": "font-size:" + size + ";text-align:center;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:" + fontFamily + ";sans-serif;font-weight:" + weight + ";letter-spacing:" + spacing + "px;"
-	}, content, domID); 
+	}, content.toString(), domID); 
 }
 
 drawPolygon = function(coords, fill, domID) {

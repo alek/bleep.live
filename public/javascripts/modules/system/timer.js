@@ -4,7 +4,7 @@
 
 import Module from '../../lib/module.js'
 
-class TestCard1 extends Module {
+class Timer extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -13,6 +13,7 @@ class TestCard1 extends Module {
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
+		this.initTime = null
 	}
 
 	renderGrid(columns, rows) {
@@ -25,17 +26,10 @@ class TestCard1 extends Module {
 	}	
 
 	render() {	
-		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
-		drawRectangle([0,0], xmax, ymax, "#011", this.getDomID())
+		if (this.initTime === null) { this.initTime = Date.now() }
 
-		var n = localStorage.getItem('counter');
-
-		if (n === null) { 
-			localStorage.setItem("counter", 0) 
-		} else { 
-			localStorage.setItem("counter", parseInt(n)+1); 
-		}
+		var n = Date.now() - this.initTime
 
 		drawText([xmax/2,ymax/2], n, "72px", "#fff", 700, -4, "Helvetica", this.getDomID())
 		//drawCircleOutline([xmax/2,ymax/2], ymax*0.3, "#fff", ymax*0.05, this.getDomID())
@@ -49,7 +43,7 @@ class TestCard1 extends Module {
 			r: ymax*0.3,
 			stroke: "#fff",
 			fill: "none",
-			"stroke-dasharray": (n%fullCircle) + " " + fullCircle,		
+			"stroke-dasharray": ((n/10)%fullCircle) + " " + fullCircle,		
 			"transform": "rotate(0 0 0)",
 			style: "stroke-width:" + ymax*0.05
 		}, this.getDomID());	
@@ -60,7 +54,7 @@ class TestCard1 extends Module {
 			r: ymax*0.4,
 			stroke: "#fff",
 			fill: "none",
-			"stroke-dasharray": ((n*10)%fullCircle) + " " + fullCircle,		
+			"stroke-dasharray": (n%fullCircle) + " " + fullCircle,		
 			"transform": "rotate(0 0 0)",
 			style: "stroke-width:" + ymax*0.0125
 		}, this.getDomID());	
@@ -71,7 +65,7 @@ class TestCard1 extends Module {
 			r: ymax*0.2,
 			stroke: "#fff",
 			fill: "none",
-			"stroke-dasharray": ((n*10)%fullCircle) + " " + fullCircle,		
+			"stroke-dasharray": (n%fullCircle) + " " + fullCircle,		
 			"transform": "rotate(0 0 0)",
 			style: "stroke-width:" + ymax*0.025
 		}, this.getDomID());	
@@ -87,4 +81,4 @@ class TestCard1 extends Module {
 
 }
 
-export default TestCard1;
+export default Timer;

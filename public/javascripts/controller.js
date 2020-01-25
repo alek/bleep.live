@@ -64,6 +64,20 @@ var updateEventBox = function(data) {
 
 }
 
+var toggleMidiDriver = function(el, midiDriver) {
+	if (!el.midiDriverRunning) {
+		midiDriver.postMessage({'control' : 'start'});
+		el.midiDriverRunning = true
+		$(el).css("background-color", "blue")
+		$("#driver-status").text("running")
+	} else {
+		midiDriver.postMessage({'control' : 'stop'});
+		el.midiDriverRunning = false
+		$(el).css("background-color", "#ea346b")
+		$("#driver-status").text("stopped")
+	}
+}
+
 //
 // Bootstrap
 //
@@ -79,6 +93,7 @@ $( document ).ready(function() {
 		var data = JSON.parse(ev.data)
 		if (data['control'] == 'client-render') {
 			//console.log(data['time'])
+			$("#player-timer").text(document.getElementById("audiotrack").currentTime)
 			$("#speedometer-render").html(' //  render: <span class="hl">' + (1000/data['time']).toFixed() + '</span>/sec // <span class="hl">' + data['num-objects'].toLocaleString() + "</span> objects")
 
 			// temprary disabled
@@ -179,6 +194,7 @@ $( document ).ready(function() {
 
 	$(".refresh-button").click(function() {
 		bc.postMessage(JSON.stringify({'control': 'refresh-canvas'}))				
+		document.getElementById("audiotrack").currentTime = 0;
 	});
 
 	$(".export-button").click(function() {
@@ -202,19 +218,9 @@ $( document ).ready(function() {
 	// driver start/stop handling
 	//
 
-	var midiDriverRunning = false
+	this.midiDriverRunning = false
 	$(".driver-control").click(function() {
-		if (!midiDriverRunning) {
- 			midiDriver.postMessage({'control' : 'start'});
- 			midiDriverRunning = true
- 			$(this).css("background-color", "blue")
- 			$("#driver-status").text("running")
-		} else {
-			midiDriver.postMessage({'control' : 'stop'});
-			midiDriverRunning = false
-			$(this).css("background-color", "#ea346b")
-			$("#driver-status").text("stopped")
-		}
+		toggleMidiDriver(this, midiDriver)
 	})
 
 	//
@@ -258,11 +264,19 @@ $( document ).ready(function() {
 	$(".sequencer-control").click(function() {
 		if (!sequencerDriverRunning) {
  			sequencerDriver.postMessage({'control' : 'start'});
+ 			if (!this.midiDriverRunning) { toggleMidiDriver(this, midiDriver) }
+ 			$("#player-timer").text("queued")
+ 			// setTimeout(function(){
+				document.getElementById("audiotrack").play(); 			
+			// },2000);
  			sequencerDriverRunning = true
  			$(this).css("background-color", "blue") 
  			$("#sequencer-status").text("running")
 		} else {
 			sequencerDriver.postMessage({'control' : 'stop'});
+			document.getElementById("audiotrack").pause();
+			if (this.midiDriverRunning) { toggleMidiDriver(this, midiDriver) }
+			// document.getElementById("audiotrack").currentTime = 0;
 			sequencerDriverRunning = false
 			$(this).css("background-color", "#e6a04e")
  			$("#sequencer-status").text("stopped")			

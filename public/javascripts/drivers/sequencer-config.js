@@ -14,6 +14,7 @@
 
 
 var sequence = [
+				// {t: 0, module: "Timer", config: {"timer": 1000}}, 
 				{t: 0, module: "Syn5", config: {}}, 
 				{t: 6000, module: "Syn5", config: { "width": 0.2, "angle": 60}}, 
 				{t: 7000, module: "Glitch1", config: {}}, 

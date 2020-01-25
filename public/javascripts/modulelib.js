@@ -250,6 +250,9 @@ import Austere1 from './modules/hackchat/austere1.js'
 import OnePoint1 from './modules/modmanifest3/onepoint1.js'
 
 import TestCard1 from './modules/system/testcard1.js'
+import Timer from './modules/system/timer.js'
+
+import DryErase1 from './modules/dryerase/dryerase1.js'
 
 //
 // Instantiate module from a string
@@ -420,7 +423,8 @@ var modules = {
 	AssetGen1,
 	Austere1,
 	OnePoint1,
-	TestCard1
+	Timer,
+	DryErase1
 }
 
 export { modules, createModule };
