@@ -266,9 +266,9 @@ $( document ).ready(function() {
  			sequencerDriver.postMessage({'control' : 'start'});
  			if (!this.midiDriverRunning) { toggleMidiDriver(this, midiDriver) }
  			$("#player-timer").text("queued")
- 			// setTimeout(function(){
+ 			setTimeout(function(){
 				document.getElementById("audiotrack").play(); 			
-			// },2000);
+			},1000);
  			sequencerDriverRunning = true
  			$(this).css("background-color", "blue") 
  			$("#sequencer-status").text("running")

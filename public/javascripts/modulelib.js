@@ -253,6 +253,8 @@ import TestCard1 from './modules/system/testcard1.js'
 import Timer from './modules/system/timer.js'
 
 import DryErase1 from './modules/dryerase/dryerase1.js'
+import DryErase2 from './modules/dryerase/dryerase2.js'
+import DryErase3 from './modules/dryerase/dryerase3.js'
 
 //
 // Instantiate module from a string
@@ -424,7 +426,9 @@ var modules = {
 	Austere1,
 	OnePoint1,
 	Timer,
-	DryErase1
+	DryErase1,
+	DryErase2,
+	DryErase3
 }
 
 export { modules, createModule };
