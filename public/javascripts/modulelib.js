@@ -256,6 +256,8 @@ import DryErase1 from './modules/dryerase/dryerase1.js'
 import DryErase2 from './modules/dryerase/dryerase2.js'
 import DryErase3 from './modules/dryerase/dryerase3.js'
 
+import MMBit1 from './modules/mm2020/mmbit1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -428,7 +430,8 @@ var modules = {
 	Timer,
 	DryErase1,
 	DryErase2,
-	DryErase3
+	DryErase3,
+	MMBit1
 }
 
 export { modules, createModule };

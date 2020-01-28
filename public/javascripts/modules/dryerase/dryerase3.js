@@ -94,6 +94,7 @@ class DryErase2 extends Module {
 
 	render() {	
 		
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
 		//this.renderGrid()
@@ -107,10 +108,13 @@ class DryErase2 extends Module {
 
 		// var textCoord = this.align([xmax*0.5, ymax*0.8])
 
-		var textCoord = [xmax/2-25*8,ymax/2-25*8]
+		var fontSize = ymax*0.02
+		var maxChars = 50
+		var maxLines = 50
+		var textCoord = [xmax/2-maxChars*fontSize/3,ymax/2-maxLines/2*fontSize/4]
 		this.sentence.push(this.randomWord().toUpperCase())
 		// drawText(textCoord, this.sentence.join(" "), "21px", "#fff", 700, 0, "JetBrains Mono", this.getDomID())
-		this.textLayout(this.sentence.join(" "), 50, 50, 14, 300, textCoord)
+		this.textLayout(this.sentence.join(" "), maxChars, maxLines, fontSize, 300, textCoord)
 	}
 
 	// state update as a result of a midi event
