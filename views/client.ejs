@@ -49,14 +49,17 @@
         stop-opacity:0" />
         <stop offset="100%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
       </radialGradient>      
+       <filter id="blurMe">
+         <feGaussianBlur stdDeviation="1"/>
+      </filter>
         <filter id="f1" x="0" y="0">
-          <!-- <feOffset in="SourceGraphic" dx="10" dy="10" /> -->
-        <!-- <feGaussianBlur in="SourceGraphic" stdDeviation="3" /> -->
+          <feOffset in="SourceGraphic" dx="10" dy="10" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
     
-<!--           <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#00f" surfaceScale="2" diffuseConstant="5" kernelUnitLength="5">
+          <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#00f" surfaceScale="2" diffuseConstant="5" kernelUnitLength="5">
              <feDistantLight azimuth="43" elevation="1"/>
           </feDiffuseLighting>
- -->
+
       </filter>
       <linearGradient id="Gradient">
             <stop offset="0" stop-color="black" />

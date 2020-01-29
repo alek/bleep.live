@@ -260,6 +260,8 @@ import MMBit1 from './modules/mm2020/mmbit1.js'
 import MMBit2 from './modules/mm2020/mmbit2.js'
 import MMBit3 from './modules/mm2020/mmbit3.js'
 import MMBit4 from './modules/mm2020/mmbit4.js'
+import MMBit5 from './modules/mm2020/mmbit5.js'
+import MMBit6 from './modules/mm2020/mmbit6.js'
 
 //
 // Instantiate module from a string
@@ -437,7 +439,9 @@ var modules = {
 	MMBit1,
 	MMBit2,
 	MMBit3,
-	MMBit4
+	MMBit4,
+	MMBit5,
+	MMBit6
 }
 
 export { modules, createModule };
