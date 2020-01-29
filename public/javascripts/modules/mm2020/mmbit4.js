@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import { getSearchQueries } from '../../dataset/search_queries.js'
 
-class MMBit2 extends Module {
+class MMBit4 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -179,16 +179,16 @@ class MMBit2 extends Module {
 
 	renderBox = function(center, width, height) {
 		var color = "rgba(255,255,255,0.1)"
-		rect({
-				x: center[0]-width/2,
-				y: center[1]-height/2,
-				width: width,
-				height: height,
-				stroke: color,
-				fill: "none",
-				style: "stroke-width:1;"
-			}, this.getDomID());	
-		var numCells = 8*8*Math.random()
+		// rect({
+		// 		x: center[0]-width/2,
+		// 		y: center[1]-height/2,
+		// 		width: width,
+		// 		height: height,
+		// 		stroke: color,
+		// 		fill: "none",
+		// 		style: "stroke-width:1;"
+		// 	}, this.getDomID());	
+		var numCells = 64*Math.random()
 		for (var x=center[0]-width/2; x<center[0]+width/2; x+= width/numCells) {
 			drawLine([x, center[1]-height/2], [x, center[1]+height/2], color, "1px", this.getDomID())
 		}
@@ -263,26 +263,85 @@ class MMBit2 extends Module {
 		// drawText([xmax/2, ymax*0.85], entry["term"], "14px", "gray", 100, 0, "JetBrains Mono", this.getDomID())
 
 		if (Math.random() < 0.5) {
-			// drawCircleOutline([xmax/2, ymax/2], ymax*0.4, randomPantoneHex(), "10px", this.getDomID())
+			drawCircleOutline([xmax/2, ymax/2], ymax*0.4, randomPantoneHex(), "10px", this.getDomID())
 		}
 	}
 
 	render() {	
-		this.gen()		
+		// this.gen()		
+
+		var color = randomPantoneHex()
+
+		for (var i=0; i<Math.random()*100; i++) {
+			var offset = ymax*Math.random()
+			drawLine([0,offset], [xmax, offset], rgbToRgba(hexToRgb(color), Math.random()), ymax*0.05*Math.random(), this.getDomID(), null, true, null, "5 1")
+		}
+
+		drawRectangle([0,0], xmax, ymax, rgbToRgba(darkenRgb(hexToRgb(randomPantoneHex()),150), 0.8), this.getDomID())
+
+		this.renderBox([xmax/2,ymax/2], xmax/2, xmax/2)
 
 		// var polygon = this.randomPolygon(6, xmax/3,ymax/3, [xmax/2,ymax/2]) 
-		//var polygon = this.randomPolygon(6, xmax/3,ymax/3, [xmax/2,ymax/2]) 
-		//drawPolygon(polygon, "rgba(255,255,255," + 0.2 + ")", this.getDomID())	
+		var rgbColor = hexToRgb(color)
+
+		var polygon = this.randomPolygon(7, xmax*0.3,ymax*0.3, [xmax/2,ymax/2]) 
 
 		// for (var i=0; i<polygon.length; i++) {
-		// 	drawText(polygon[i], i.toString(), "12px", "#fff", 300, 0, "JetBrains Mono", this.getDomID())
+		// 	drawLine(polygon[i], [xmax/2,ymax], "rgba(255,255,255," + 0.2 + ")", "1px", this.getDomID())
+		// 	drawLine(polygon[i], [xmax/2,0], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [0,ymax/2], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [xmax,ymax/2], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [0,ymax], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [xmax,ymax], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [xmax,0], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+			// drawLine(polygon[i], [0,0], "rgba(255,255,255," + Math.random()*0.2 + ")", "1px", this.getDomID())
+		// }
+
+		// drawRectangle([xmax/2 - 30, 50], 30, 30, rgbToRgba(lightenRgb(rgbColor,25),1.0), this.getDomID())
+		// drawRectangle([xmax/2, 50], 30, 30, color, this.getDomID())
+		// drawRectangle([xmax/2 + 30, 50], 30, 30, rgbToRgba(darkenRgb(rgbColor,25),1.0), this.getDomID())
+
+		drawPolygon(polygon, rgbToRgba(lightenRgb(rgbColor,50),1.0), this.getDomID())	
+		// drawPolygon(polygon, rgbToRgba(rgbColor, 0.2), this.getDomID())	
+
+		// for (var i=0; i<polygon.length; i++) {
+			// drawText(polygon[i], i.toString(), "12px", "#fff", 300, 0, "JetBrains Mono", this.getDomID())
+			// drawCircle(polygon[i], 2, "#fff", this.getDomID())
 		// }
 
 		// drawPolygon(polygon.slice(0,3), "rgba(255,255,255," + 0.5 + ")", this.getDomID())	
 		// drawPolygon(polygon.slice(3,6), "rgba(255,255,255," + 0.1 + ")", this.getDomID())	
 
+		drawPolygon(polygon.slice(0,3), rgbToRgba(darkenRgb(rgbColor,50),1.0), this.getDomID())	
+		drawPolygon(polygon.slice(4,7), color, this.getDomID())	
+
+		// drawPolygon(polygon.slice(0,3), rgbToRgba(rgbColor, 0.8), this.getDomID())	
+		// drawPolygon(polygon.slice(3,6), rgbToRgba(rgbColor, 0.2), this.getDomID())	
+
 		// var centroid = this.getCenter(polygon)
 		// console.log(centroid)
+
+		// if (Math.random() < 0.5) {
+		// 	drawCircleOutline([xmax/2, ymax/2], ymax*(0.4 + 0.5*Math.random()), color, ymax*0.05*Math.random() + "px", this.getDomID())
+		// }
+
+		var entry = this.randomQuery()
+		//drawText([xmax/2, ymax*0.15], this.randomQuery()["term"], "14px", "gray", 100, 0, "JetBrains Mono", this.getDomID())
+		// drawText([xmax/2, ymax/2], this.randomQuery()["term"], "14px", "gray", 100, 0, "JetBrains Mono", this.getDomID())
+
+		if (Math.random() < 0.4) {
+			drawText([xmax/2, ymax/2], capitalize(this.randomQuery()["term"]), ymax*0.1 + "px", "#fff", 700, -5, "Helvetica", this.getDomID())
+		}
+
+		// text( { 
+		// 	x: xmax*0.78,
+		// 	y: ymax/2,
+		// 	"fill": color,
+		// 	"transform": "rotate(90 " + xmax*0.78 + " " + ymax/2 + ")",
+		// 	"style": "font-size:" + ymax*0.01 + "px" + ";text-align:center;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:" + "JetBrains Mono" + ";sans-serif;font-weight:" + 100 + ";letter-spacing:" + 0 + "px;"
+		// }, this.randomQuery()["term"].toUpperCase(), this.getDomID()); 
+
+		// this.gen()
 
 	}
 
@@ -295,4 +354,4 @@ class MMBit2 extends Module {
 
 }
 
-export default MMBit2;
+export default MMBit4;

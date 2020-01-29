@@ -325,3 +325,7 @@ var getRotateVal = function(angle, coord) {
 var sigmoid = function(x) {
 	return 1 / (1 + Math.pow(Math.E, -x))
 }
+
+var capitalize = function(text) {
+	return text.charAt(0).toUpperCase() + text.slice(1)
+}

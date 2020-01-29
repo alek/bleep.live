@@ -29,6 +29,26 @@ function hexToRgb(hex) {
     } : null;
 }
 
+function rgbToRgba(rgb, alpha) {
+  return "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + alpha + ")"
+}
+
+function darkenRgb(color, points) {
+  return {
+    r: color.r - points,
+    g : color.g - points,
+    b : color.b - points
+  }
+}
+
+function lightenRgb(color, points) {
+  return {
+    r: color.r + points,
+    g : color.g + points,
+    b : color.b + points
+  }
+}
+
 var pantoneColors = {
   "11-0103": {
     "name": "egret",
