@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import { getSearchQueries } from '../../dataset/search_queries.js'
 
-class MMBit1 extends Module {
+class MMBit2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -165,10 +165,14 @@ class MMBit1 extends Module {
 			points[i] = [points[i][0] + xShift, points[i][1] + yShift]
 		}
 
-		// finally - center around a given point
+
+		// center on the page
+
+		var centroid = this.getCenter(points)
 		for (var i=0; i<n; i++) {
-			points[i] = [points[i][0] + center[0] - width, points[i][1] + center[1] - height]
+			points[i] = [points[i][0] + xmax/2 - centroid[0], points[i][1] + ymax/2 - centroid[1]]
 		}
+
 
 		return points
 	}
@@ -195,36 +199,90 @@ class MMBit1 extends Module {
 
 	// draw graph by connecting random polygon edges
 	drawGraph(polygon, color) {
-		for (var i=0; i<polygon.length*10; i++) {
+		for (var i=0; i<polygon.length*20; i++) {
 			let start = polygon[Math.floor(Math.random()*polygon.length)],
 				end = polygon[Math.floor(Math.random()*polygon.length)]
-			drawLine(start, end, color, Math.random()/2 + "px", this.getDomID())
+			drawLine(start, end, color, Math.random()/4 + "px", this.getDomID())
 		}
 	}
 
+	// https://en.wikipedia.org/wiki/Centroid#Of_a_polygon
+	getCentroid(polygon) {
+		let a = 0	// polygon's signed area
+
+		for (var i=0; i<polygon.length-1; i++) {
+			a += polygon[i][0]*polygon[i+1][1] - polygon[i+1][0]*polygon[i][1]
+		}
+		a = a/2
+
+		console.log(a)
+
+		let c_x = 0,	// centroid coordinates
+			c_y	= 0
+
+		for (var i=0; i<polygon.length-1; i++) {
+			c_x += (polygon[i][0] + polygon[i+1][0])*(polygon[i][0]*polygon[i+1][1] - polygon[i+1][0]*polygon[i][1])
+			c_y += (polygon[i][1] + polygon[i+1][1])*(polygon[i][0]*polygon[i+1][1] - polygon[i+1][0]*polygon[i][1])
+		}
+
+		return [c_x/6*a, c_y/6*a]
+	}
+
+	// hacky version
+	getCenter = function (arr) {
+		var minX, maxX, minY, maxY;
+		for (var i = 0; i < arr.length; i++)
+		{
+		    minX = (arr[i][0] < minX || minX == null) ? arr[i][0] : minX;
+		    maxX = (arr[i][0] > maxX || maxX == null) ? arr[i][0] : maxX;
+		    minY = (arr[i][1] < minY || minY == null) ? arr[i][1] : minY;
+		    maxY = (arr[i][1] > maxY || maxY == null) ? arr[i][1] : maxY;
+		}
+		return [(minX + maxX) / 2, (minY + maxY) / 2];
+	}
+
+
 	gen() {
-		drawRectangle([0,0], xmax, ymax, "rgba(255,255,255," + Math.random()/8 + ")", this.getDomID())
+		//drawRectangle([0,0], xmax, ymax, "rgba(255,255,255," + Math.random()/8 + ")", this.getDomID())
 		//this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 		
 		var entry = this.randomQuery()
 		
 
-		this.renderBox([xmax/2,ymax/2], xmax, ymax)
+		//this.renderBox([xmax/2,ymax/2], xmax, ymax)
 
-		for (var i=0; i<10; i++) {
-			var polygon = this.randomPolygon(6, xmax/3,ymax/3, [xmax/2,ymax/2]) 
+		for (var i=0; i<100; i++) {
+			var polygon = this.randomPolygon(6, ymax/2,ymax/2, [xmax/2,ymax/2]) 
 			var op = Math.random()/2
-			// drawPolygon(polygon, "rgba(255,255,255," + op + ")", this.getDomID())
-			this.drawGraph(polygon, "rgba(255,255,255," + (0.5 - op) + ")")
+			drawPolygon(polygon, "rgba(255," + Math.floor(Math.random()*255) + ",255," + 0.01*Math.random() + ")", this.getDomID())
+			if (Math.random() < 0.01) {
+				this.drawGraph(polygon, "rgba(255,255,255," + (0.5 - op) + ")")
+			}
 		}
 
-		drawText([xmax/2, ymax/2], entry["term"], "48px", "#fff", 300, 0, "JetBrains Mono", this.getDomID())
+		// drawText([xmax/2, ymax/2], entry["term"], "14px", "#fff", 100, 0, "JetBrains Mono", this.getDomID())
+
+		if (Math.random() < 0.5) {
+			// drawCircleOutline([xmax/2, ymax/2], ymax*0.4, randomPantoneHex(), "10px", this.getDomID())
+		}
 	}
 
 	render() {	
 		this.gen()		
 
 		// var polygon = this.randomPolygon(6, xmax/3,ymax/3, [xmax/2,ymax/2]) 
+		//var polygon = this.randomPolygon(6, xmax/3,ymax/3, [xmax/2,ymax/2]) 
+		//drawPolygon(polygon, "rgba(255,255,255," + 0.2 + ")", this.getDomID())	
+
+		// for (var i=0; i<polygon.length; i++) {
+		// 	drawText(polygon[i], i.toString(), "12px", "#fff", 300, 0, "JetBrains Mono", this.getDomID())
+		// }
+
+		// drawPolygon(polygon.slice(0,3), "rgba(255,255,255," + 0.5 + ")", this.getDomID())	
+		// drawPolygon(polygon.slice(3,6), "rgba(255,255,255," + 0.1 + ")", this.getDomID())	
+
+		// var centroid = this.getCenter(polygon)
+		// console.log(centroid)
 
 	}
 
@@ -237,4 +295,4 @@ class MMBit1 extends Module {
 
 }
 
-export default MMBit1;
+export default MMBit2;
