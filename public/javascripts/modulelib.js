@@ -267,6 +267,12 @@ import MMBit8 from './modules/mm2020/mmbit8.js'
 import MMBit9 from './modules/mm2020/mmbit9.js'
 import MMBit10 from './modules/mm2020/mmbit10.js'
 
+import Process1 from './modules/mm2020/process1.js'
+import Process2 from './modules/mm2020/process2.js'
+import Process3 from './modules/mm2020/process3.js'
+import Process4 from './modules/mm2020/process4.js'
+import Process5 from './modules/mm2020/process5.js'
+
 //
 // Instantiate module from a string
 // 
@@ -449,7 +455,12 @@ var modules = {
 	MMBit7,
 	MMBit8,
 	MMBit9,
-	MMBit10
+	MMBit10,
+	Process1,
+	Process2,
+	Process3,
+	Process4,
+	Process5
 }
 
 export { modules, createModule };

@@ -358,74 +358,18 @@ class MMBit10 extends Module {
 		}, domID)
 	}
 
-	test() {	
-
+	
+	one(scale) { 
 		var color = randomPantoneHex()
 		var rgbColor = hexToRgb(color)
-
-		// var polygon = this.randomPolygon(7, ymax*0.5,ymax*0.5, [xmax/2,ymax/2])
-
-		// if (this.polygon == null || Math.random() < 0.3) {
-			this.polygon = this.randomPolygon(7, ymax*0.5,ymax*0.5, [xmax/2,ymax/2])
-		// }
-
-		var polygon = this.polygon
-
+		var polygon = this.randomPolygon(7, ymax*scale,ymax*scale, [xmax/2,ymax/2])
 		var centroid = this.getCenter(polygon)
+		for (var i=0; i<polygon.length; i++) { polygon[i] = getViewport(polygon[i]) }
 
 		for (var i=0; i<polygon.length; i++) {
-			polygon[i] = getViewport(polygon[i])
-		}
-
-		//rotateLeft()
-		// theta -= 0.02
-		// scale += 0.05
-
-		// if (Math.random() < 0.5) {
-		// 	scale = 1
-		// }
-
-		// if (timeRamp(5000, 100) > 50) {
-		// 	// moveForward()
-		// 	scale += 0.01
-		// } else {
-		// 	scale -= 0.01
-		// 	// moveBackward()
-		// }
-
-		// for (var i=0; i<ymax; i+=64) {
-		// 	drawText([xmax/2, i], this.randomQuery()["term"], "48px", color, 100, 0, "JetBrains Mono", this.getDomID())
-		// }
-
-
-		//this.drawPolygon(polygon, color, this.getDomID())
-
-		var targetX = Math.random()*xmax
-		var targetY = Math.random()*ymax
-
-		// for (var i=0; i<polygon.length-1; i++) {
-		// 	// drawLine(polygon[i], centroid, "#fff", 1, this.getDomID())
-		// 	if (Math.random() < 0.5) {
-		// 		this.drawPolygon([polygon[i], polygon[i+1], [targetX,0]], "rgba(255,255,255," + Math.random() + ")", this.getDomID())
-		// 	} else {
-		// 		this.drawPolygon([polygon[i], polygon[i+1], [0, targetY]], "rgba(255,255,255," + Math.random() + ")", this.getDomID())
-		// 	}
-		// 	//this.drawPolygon([polygon[i], polygon[i+1], centroid], rgbToRgba(darkenRgb(rgbColor,i*20),1.0), this.getDomID())
-		// }
-
-		for (var i=0; i<polygon.length; i++) {
-			// drawLine(polygon[i], centroid, "#fff", 1, this.getDomID())
-			// if (Math.random() < 0.5) {
-			// 	this.drawPolygon([polygon[i], polygon[i+1], [targetX,0]], "rgba(255,255,255," + Math.random() + ")", this.getDomID())
-			// } else {
-			// 	this.drawPolygon([polygon[i], polygon[i+1], [0, targetY]], "rgba(255,255,255," + Math.random() + ")", this.getDomID())
-			// }
 			let target = (i+1)%polygon.length
 			let delta1 = Math.sqrt(Math.pow(polygon[i][0] - centroid[0],2) + Math.pow(polygon[i][1] - centroid[1],2)),
 				delta2 = Math.sqrt(Math.pow(polygon[target][0] - centroid[0],2) + Math.pow(polygon[target][1] - centroid[1],2))
-
-			// let theta1 = rad2deg(Math.atan2(polygon[target][0] - polygon[i][0], polygon[target][1] - polygon[i][1])),
-				// theta2 = rad2deg(Math.atan2(polygon[target][0] - polygon[i][0], polygon[target][1] - polygon[i][1]))
 
 			let theta1 = Math.atan2(polygon[i][1] - centroid[1], polygon[i][0] - centroid[0]),
 				theta2 = Math.atan2(polygon[target][1] - centroid[1], polygon[target][0] - centroid[0])
@@ -433,137 +377,20 @@ class MMBit10 extends Module {
 			let dot1 = [ centroid[0] + delta1/2*Math.cos(theta1), centroid[1] + delta1/2*Math.sin(theta1) ],
 				dot2 = [ centroid[0] + delta2/2*Math.cos(theta2), centroid[1] + delta2/2*Math.sin(theta2) ]
 
-			// drawCircle(dot1, 3, "#fff", this.getDomID())
-
-			// this.drawPolygon([polygon[i], dot1, dot2, polygon[target]], rgbToRgba(darkenRgb(rgbColor,i*20),1.0), this.getDomID())
-
-
-
-			// console.log(rad2deg(theta1))
-			// console.log(i + "\t" + theta1 + "\t" + rad2deg(theta1) + "\t" + 50*Math.cos(theta1) + "\t" + 50*Math.sin(theta1))
-			// console.log(40*Math.cos(theta1))
-			// console.log(40*Math.sin(theta1))
-
-			// console.log(delta1 + "\t" + delta2)
-				//delta2 = Math.sqrt(Math.pow(polygon[i][0] - centroid[i][0],2) + Math.pow(polygon[i][1] - centroid[i][0],1))
-
-			// this.drawPolygon([polygon[i], polygon[target], [centroid[0] + delta1/2, centroid[1] + delta1/2],  ], rgbToRgba(darkenRgb(rgbColor,i*20),1.0), this.getDomID())
-			
-			// this.drawPolygon([polygon[i], polygon[target],centroid  ], rgbToRgba(darkenRgb(rgbColor,i*20),0.9), this.getDomID())
 			this.drawPolygon([polygon[i], dot1, dot2, polygon[target]], rgbToRgba(darkenRgb(rgbColor,i*20),0.9), this.getDomID())
-
-			// drawCircle(dot1, 3, "#fff", this.getDomID())
-			// drawCircle(dot2, 3, "#fff", this.getDomID())
-
-			//drawLine(polygon[i], dot1, "#fff", 1, this.getDomID())
-			// drawLine(polygon[target], dot2, "red", 1, this.getDomID())
-
-			// drawText(polygon[i], i+"", "12px", "#fff", 100, 0, "JetBrains Mono", this.getDomID())
-			// drawText(dot1, i+"", "12px", "#fff", 100, 0, "JetBrains Mono", this.getDomID())
-
 		}
-
-
-		// drawCircle([xmax/2,ymax/2], ymax*0.1*Math.random(), "#000", this.getDomID())
-		// drawCircle([xmax/2,ymax/2], ymax*0.1*Math.random(), color, this.getDomID())
-
-
-		for (var i=0; i<ymax; i+=64) {
-			//drawText([xmax/2, i], this.randomQuery()["term"], "24px", "rgba(255,255,255," + Math.random() + ")", 100, 0, "JetBrains Mono", this.getDomID())
-		}
-
-		// drawCircleOutline([xmax/2,ymax/2], ymax*(0.4 + Math.random()), "rgba(255,255,255," + Math.random() + ")", ymax*0.2*Math.random() + "px", this.getDomID())
-
-		// if (this.polygon == null || Math.random() < 0.2) {
-		// var polygon = this.randomPolygon(7, ymax*0.5,ymax*0.5, [xmax/2,ymax/2])
-		// }
-
-		// for (var i=0; i<this.polygon.length; i++) {
-		// 	this.polygon[i] = getViewport(this.polygon[i])
-		// }
-
-		// if (Date.now()%10000 < 5000) {
-		// 	moveForward()
-		// } else {
-		// 	moveBackward()
-		// }
-
-		// Piksel.addRectangleClip("frame", xmax*0.25, ymax*0.25, xmax*0.5, ymax*0.5)
-
-		// Piksel.addPolygonClip("glitchClip-1", this.randomPolygon(7, ymax*0.6,ymax*0.6, [xmax/2,ymax/2]))
-
-		// for (var i=0; i<ymax; i+= 16) {
-		// 	line({
-		// 		x1: 0,
-		// 		y1: i,
-		// 		x2: xmax,
-		// 		y2: i,
-		// 		"clip-path": "url(#glitchClip-1)",
-		// 		stroke: "rgba(255,255,255,1)",
-		// 		"stroke-width": 16*Math.random(),
-		// 	}, this.getDomID());
-		// }
-
-		// Piksel.addPolygonClip("glitchClip-2", this.randomPolygon(7, ymax*0.6,ymax*0.6, [xmax/2,ymax/2]))
-
-		// for (var i=0; i<ymax; i+= 32) {
-		// 	line({
-		// 		x1: 0,
-		// 		y1: i,
-		// 		x2: xmax,
-		// 		y2: i,
-		// 		"clip-path": "url(#glitchClip-2)",
-		// 		stroke: "rgba(255,0,0,1)",
-		// 		"stroke-width": 16*Math.random(),
-		// 	}, this.getDomID());
-		// }
-
-		// if (Math.random() < 0.3) {
-		// 	Piksel.brackets([xmax/2,ymax/2], ymax*0.5, ymax*0.5, xmax*0.04, "#fff", "1px", this.getDomID())
-		// }
-
-		// circle({
-		// 	cx: xmax/2,
-		// 	cy: ymax/2,
-		// 	r: ymax*0.3,
-		// 	stroke: "#fff",
-		// 	fill: "#fff",
-		// 	"clip-path": "url(#glitchClip-1)",
-		// 	"transform": "rotate(0 0 0)",
-		// 	style: "stroke-width:0",
-		// 	// filter: "url(#f1)",
-		// }, this.getDomID());	
-
-		// this.drawPolygon(this.polygon, rgbToRgba(lightenRgb(rgbColor,50),1.0), this.getDomID())	
-		// this.drawPolygon(this.polygon.slice(0,3), color, this.getDomID())	
-		// this.drawPolygon(this.polygon.slice(1,4), rgbToRgba(darkenRgb(rgbColor,50),1.0), this.getDomID())	
-		// this.drawPolygon(this.polygon.slice(2,5), rgbToRgba(darkenRgb(rgbColor,100),1.0), this.getDomID())	
-		// this.drawPolygon(this.polygon.slice(3,5), rgbToRgba(darkenRgb(rgbColor,100),1.0), this.getDomID())	
-		// this.drawPolygon(this.polygon.slice(4,7), color, this.getDomID())	
-
-		// moveBackward()
-
-		//drawRectangle([0,0], xmax, ymax*0.2, "#000", this.getDomID())
-		//drawRectangle([0,0], xmax*0.2, ymax, "#000", this.getDomID())
-		//drawRectangle([0,ymax*0.8], xmax, ymax*0.2, "#000", this.getDomID())
-		//drawRectangle([xmax*0.8,0], xmax*0.2, ymax, "#000", this.getDomID())
-
 	}
 
 	render() {
 
-		this.test()
+		// this.test()
+		this.one(0.3)
+		this.one(0.5)
+		this.one(0.8)
+		this.gen2()
 
-		// var angle = 0
-		// var d = 20
-		// var poly = [
-		// 			[xmax/2,ymax/2], 
-		// 			[xmax/2 + d*Math.cos(deg2rad(angle)),ymax/2 + d*Math.sin(deg2rad(angle))], 
-		// 			[xmax/2 + d*Math.cos(deg2rad(angle+30)),ymax/2 + d*Math.sin(deg2rad(angle+30))]
-		// 			]
-		// drawPolygon(poly, randomPantoneHex(), this.getDomID())
-
-		//this.gen2()
+		drawRectangle([0,0], xmax, ymax*0.2, "#000", this.getDomID())
+		drawRectangle([0,ymax*0.8], xmax, ymax*0.2, "#000", this.getDomID())
 
 	}
 
