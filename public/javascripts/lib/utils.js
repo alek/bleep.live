@@ -277,6 +277,10 @@ var deg2rad = function(deg) {
 	return deg*Math.PI/180
 }
 
+var rad2deg = function(rad) {
+  return rad*180/Math.PI;
+}
+
 var randomOffset = function(max) {
 	return max - Math.random()*2*max
 }

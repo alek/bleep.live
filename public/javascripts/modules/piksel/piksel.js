@@ -314,6 +314,15 @@ class Piksel {
 		}
 	}
 
+	static addPolygonClip(clipName, coords) {
+		$("#" + clipName).remove()
+		if (document.getElementsByTagName("defs")) {
+			document.getElementsByTagName("defs")[0].appendChild(addSVG("clipPath", {id: clipName})).appendChild(addSVG("polygon", { id: clipName + "-polygon", "points": coords.join(" ") }))		
+		} else {
+			console.log("ERROR: defs missing")
+		}
+	}
+
 	static addArrowClip(clipName, start, size) {
 		var delta = size*0.2
 
