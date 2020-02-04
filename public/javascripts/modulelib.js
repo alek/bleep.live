@@ -273,6 +273,20 @@ import Process3 from './modules/mm2020/process3.js'
 import Process4 from './modules/mm2020/process4.js'
 import Process5 from './modules/mm2020/process5.js'
 
+import HamRadio1 from './modules/hackchat/hamradio1.js'
+import HamRadio2 from './modules/hackchat/hamradio2.js'
+
+import FunctionSpace2 from './modules/mm2020/functionspace2.js'
+import FunctionSpace3 from './modules/mm2020/functionspace3.js'
+import FunctionSpace4 from './modules/mm2020/functionspace4.js'
+import FunctionSpace5 from './modules/mm2020/functionspace5.js'
+import FunctionSpace6 from './modules/mm2020/functionspace6.js'
+import FunctionSpace7 from './modules/mm2020/functionspace7.js'
+import FunctionSpace8 from './modules/mm2020/functionspace8.js'
+import FunctionSpace9 from './modules/mm2020/functionspace9.js'
+import FunctionSpace10 from './modules/mm2020/functionspace10.js'
+import FunctionSpace11 from './modules/mm2020/functionspace11.js'
+
 //
 // Instantiate module from a string
 // 
@@ -444,7 +458,6 @@ var modules = {
 	OnePoint1,
 	Timer,
 	DryErase1,
-	DryErase2,
 	DryErase3,
 	MMBit1,
 	MMBit2,
@@ -460,7 +473,20 @@ var modules = {
 	Process2,
 	Process3,
 	Process4,
-	Process5
+	Process5,
+	DryErase2,
+	HamRadio1,
+	HamRadio2,
+	FunctionSpace2,
+	FunctionSpace3,
+	FunctionSpace4,
+	FunctionSpace5,
+	FunctionSpace6,
+	FunctionSpace7,
+	FunctionSpace8,
+	FunctionSpace9,
+	FunctionSpace10,
+	FunctionSpace11
 }
 
 export { modules, createModule };

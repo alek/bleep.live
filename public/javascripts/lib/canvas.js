@@ -1,3 +1,7 @@
+//
+// A SVG.js-equivalent canvas wrapper
+//
+
 function setPixel(imageData, x, y, r, g, b, a) {
     index = (x + y * imageData.width) * 4;
     imageData.data[index+0] = r;

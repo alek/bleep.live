@@ -3,6 +3,7 @@
 // 
 
 import Module from '../../lib/module.js'
+import { getSearchQueries } from '../../dataset/search_queries.js'
 
 class DryErase2 extends Module {
 
@@ -15,6 +16,7 @@ class DryErase2 extends Module {
 		})
 		this.spacing = 40
 		this.gutter = 10
+		this.queries = getSearchQueries()
 		this.words = ["sketch", "made in", "b39", "your experience", "swing", "set 3", "1/8",  "Chromatic", "Triplet", "Forward", "Reverse",
 					  "mars plastic", "micro carbon", "fineliner", "black", "waterproof",  "pignemt", "pigment ink", "auto scan", "electron",
 					  "transaction", "translator", "lock", "delivery", "your sound", "dry erase"]
@@ -46,6 +48,10 @@ class DryErase2 extends Module {
 		}		
 	}
 
+	randomQuery() {
+		return this.queries[Math.floor(Math.random()*this.queries.length)]
+	}
+
 	randomWord() {
 		return this.words[Math.floor(Math.random()*this.words.length)]
 	}
@@ -59,7 +65,7 @@ class DryErase2 extends Module {
 
 	fillGrid() {
 		for (var i=0; i<10; i++) {
-			drawCircle(this.align([xmax*(0.3 + Math.random()*0.4), ymax*(0.3 + Math.random()*0.4)]), this.spacing/2, "#fff", this.getDomID())
+			drawCircle(this.align([xmax*(0.3 + Math.random()*0.4), ymax*(0.2 + Math.random()*0.1)]), this.spacing/2, "#fff", this.getDomID())
 		}
 	}
 
@@ -85,11 +91,12 @@ class DryErase2 extends Module {
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
 		this.renderGrid()
-		if (Math.random() < 0.5) {
+		// if (Math.random() < 0.5) {
 			var textCoord = [xmax/2,ymax/2]
-			var color = Math.random() < 0.25 ? "#fff" : "rgba(255,0,0," + Math.random() + ")"
-			drawText(textCoord, this.randomWord(), "120px", color, 700, 0, "JetBrains Mono", this.getDomID())
-		}
+			// var color = Math.random() < 0.25 ? "#fff" : "rgba(255,0,0," + Math.random() + ")"
+			var color = "#f00"
+			drawText(textCoord, this.randomQuery()["term"], "120px", color, 700, 0, "JetBrains Mono", this.getDomID())
+		// }
 
 		this.fillGrid()
 
