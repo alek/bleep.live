@@ -286,6 +286,10 @@ import FunctionSpace8 from './modules/mm2020/functionspace8.js'
 import FunctionSpace9 from './modules/mm2020/functionspace9.js'
 import FunctionSpace10 from './modules/mm2020/functionspace10.js'
 import FunctionSpace11 from './modules/mm2020/functionspace11.js'
+import FunctionSpace12 from './modules/mm2020/functionspace12.js'
+import FunctionSpace13 from './modules/mm2020/functionspace13.js'
+import FunctionSpace14 from './modules/mm2020/functionspace14.js'
+import FunctionSpace15 from './modules/mm2020/functionspace15.js'
 
 //
 // Instantiate module from a string
@@ -486,7 +490,11 @@ var modules = {
 	FunctionSpace8,
 	FunctionSpace9,
 	FunctionSpace10,
-	FunctionSpace11
+	FunctionSpace11,
+	FunctionSpace12,
+	FunctionSpace13,
+	FunctionSpace14,
+	FunctionSpace15
 }
 
 export { modules, createModule };

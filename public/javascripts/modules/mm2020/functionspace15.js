@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import { getSearchQueries } from '../../dataset/search_queries.js'
 
-class FunctionSpace11 extends Module {
+class FunctionSpace15 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -102,6 +102,10 @@ class FunctionSpace11 extends Module {
 		ctx.fill();		
 	}
 
+	square(ctx, x, y, r, color) {
+		this.rect(ctx, x, y, r, r, color)
+	}
+
 	circle(ctx, x, y, r, color) {
 		ctx.beginPath();
 		ctx.fillStyle = color;
@@ -165,51 +169,31 @@ class FunctionSpace11 extends Module {
 
 		this.setupCanvas();
 		var ctx = this.getCanvasContext();
-		if (Math.random() < 0.005) {
-			ctx.clearRect(0,0,xmax,ymax);
+		var image = ctx.getImageData(0,0,xmax,ymax)
+
+		for (var t=0; t<360; t+=0.1) {
+			let x = xmax/2 + 100*(Math.sin(t)*(Math.exp(Math.cos(t)) - 2*Math.cos(4*t) + Math.pow(Math.sin(t/12), 5))),
+				y = ymax/2 + 100*(Math.cos(t)*(Math.exp(Math.cos(t)) - 2*Math.cos(4*t) + Math.pow(Math.sin(t/12), 5)))
+
+			let coord = getViewport([x,y])
+			// this.circle(ctx, coord[0], coord[1], 1, "#fff")
+			this.circle(ctx, coord[0], coord[1], 1, "rgba(255,255,255," + Math.random() + ")")
+			// setPixel(image, Math.floor(coord[0]), Math.floor(coord[1]), 255, 255, 255, 255)					
 		}
 
-		// var points = this.getSpiralPoints(0, 3, 0.7, 15, 0.3, 0.5)
-
-		// for (var i=0; i<points.length-30; i++) {
-		// 	for (var j=0; j<20; j+=7) {
-		// 		this.line(ctx, points[i], points[i+j], "rgba(255,255,255," + 0.5 + ")")
-		// 	}
-		// }
-
-		// var points = this.getSpiralPoints2(100, 2, 5, 1, 0.3, 0.5)
-
-		// for (var i=0; i<points.length-30; i++) {
-		// 	for (var j=0; j<20; j+=7) {
-		// 		this.line(ctx, points[i], points[i+j], "rgba(255,255,255," + 0.1 + ")")
-		// 	}
-		// }
-
-		for (var i=0; i<200; i++) {
-			var coord = getViewport([xmax/2+100*Math.random(), ymax/2])
-			this.rect(ctx, coord[0], coord[1], 1, 1, "rgba(255,255,255," + Math.random() + ")")
-		}
-
-		if (Math.random() < 0.3) { 	
-			this.circle(ctx, xmax*Math.random(), ymax/2*Math.random(), 20*Math.random(), "#fff")
-			drawText([xmax*Math.random(), ymax*0.5*(1+Math.random())], this.randomQuery()["term"], 14 + "px", "#fff", 700, 0, "JetBrains Mono", this.getDomID())
-		}
-
-		scale += 0.3
-		theta += 0.03
-
+		scale+=0.004
+		theta -= 0.02
+		// ctx.putImageData(image, 0, 0);
 
 	}
 
 	// state update as a result of a midi event
 	update(event) {
 		super.update(event)
-		if (Math.random() < 0.01) {
-			this.clear()
-		}
+		//this.clear()
 		this.render()
 	}
 
 }
 
-export default FunctionSpace11;
+export default FunctionSpace15;

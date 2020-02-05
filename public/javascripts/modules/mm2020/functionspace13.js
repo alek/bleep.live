@@ -5,7 +5,7 @@
 import Module from '../../lib/module.js'
 import { getSearchQueries } from '../../dataset/search_queries.js'
 
-class FunctionSpace11 extends Module {
+class FunctionSpace13 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -102,6 +102,10 @@ class FunctionSpace11 extends Module {
 		ctx.fill();		
 	}
 
+	square(ctx, x, y, r, color) {
+		this.rect(ctx, x, y, r, r, color)
+	}
+
 	circle(ctx, x, y, r, color) {
 		ctx.beginPath();
 		ctx.fillStyle = color;
@@ -165,10 +169,14 @@ class FunctionSpace11 extends Module {
 
 		this.setupCanvas();
 		var ctx = this.getCanvasContext();
-		if (Math.random() < 0.005) {
-			ctx.clearRect(0,0,xmax,ymax);
-		}
+		ctx.clearRect(0,0,xmax,ymax);
+		// var image = ctx.createImageData(xmax, ymax);
+		var image = ctx.getImageData(0,0,xmax,ymax)
+		// if (img == null) {
+		// 	console.log("NULL")
+		// }
 
+		// console.log(img)
 		// var points = this.getSpiralPoints(0, 3, 0.7, 15, 0.3, 0.5)
 
 		// for (var i=0; i<points.length-30; i++) {
@@ -185,18 +193,64 @@ class FunctionSpace11 extends Module {
 		// 	}
 		// }
 
-		for (var i=0; i<200; i++) {
-			var coord = getViewport([xmax/2+100*Math.random(), ymax/2])
-			this.rect(ctx, coord[0], coord[1], 1, 1, "rgba(255,255,255," + Math.random() + ")")
+		// for (var i=0; i<200; i++) {
+		// 	var coord = getViewport([xmax/2+100*Math.random(), ymax/2])
+		// 	this.rect(ctx, coord[0], coord[1], 1, 1, "rgba(255,255,255," + Math.random() + ")")
+		// }
+
+		// if (Math.random() < 0.3) { 	
+		// 	this.circle(ctx, xmax*Math.random(), ymax/2*Math.random(), 20*Math.random(), "#fff")
+			// drawText([xmax*0.5, ymax*0.5], this.randomQuery()["term"], ymax*0.05 + "px", "#fff", 700, 0, "JetBrains Mono", this.getDomID())
+		// }
+
+		// scale += 0.3
+		// theta += 0.03
+
+		// this.circle(ctx, xmax/2,ymax/2, 50, "red")
+
+
+		var inc = 10
+		// var scale = 10+10*Math.random()
+		var scale = 20
+		var f1 = Math.floor(10*Math.random())
+		var f2 = Math.floor(10*Math.random())
+
+		for (var i=0; i<xmax; i+=inc) {
+			for (var j=0; j<ymax; j+=inc) {
+				// console.log(i + "\t" + j + "\t" + inc)
+				// var x = ((i-xmax/2)/xmax)*scale
+				// var y = ((j-ymax/2)/ymax)*scale
+
+				var x = ((i-xmax*0.5)/xmax)*scale
+				var y = ((j-ymax*0.5)/ymax)*scale
+
+				// var left = Math.sin(Math.sin(x+y) + Math.cos(y+x))
+				// var right = Math.cos(Math.sin(x*y) + Math.cos(Math.pow(x,2)))
+
+				var left = x + Math.sin(y)
+				// var right = Math.cos(Math.sin(x*y) + Math.cos(Math.pow(x,2)))
+				var right = Math.pow(x,f1) + Math.pow(Math.sin(y),f2) 
+
+				// var left = scale*(Math.cos(x) + Math.sin(y*x))
+				// var right = Math.sin(x) + Math.cos(y+x)
+
+				var delta = Math.abs(left-right)
+
+				if (Math.abs(left-right) < 0.1) {
+					// this.circle(ctx, i, j, inc/2, "#fff")
+					setPixel(image, i, j, 255, 255, 255, 255)					
+					setPixel(image, i+400, j, 255, 255, 255, 255)					
+					// setPixel(image, i+xmax*0.2, j, 255, 255, 255, 255)					
+					// setPixel(image, i-xmax*0.2, j, 255, 255, 255, 255)					
+					inc = 1
+				} else {
+					inc = 3
+				}
+			}
 		}
 
-		if (Math.random() < 0.3) { 	
-			this.circle(ctx, xmax*Math.random(), ymax/2*Math.random(), 20*Math.random(), "#fff")
-			drawText([xmax*Math.random(), ymax*0.5*(1+Math.random())], this.randomQuery()["term"], 14 + "px", "#fff", 700, 0, "JetBrains Mono", this.getDomID())
-		}
+		ctx.putImageData(image, 0, 0);
 
-		scale += 0.3
-		theta += 0.03
 
 
 	}
@@ -204,12 +258,10 @@ class FunctionSpace11 extends Module {
 	// state update as a result of a midi event
 	update(event) {
 		super.update(event)
-		if (Math.random() < 0.01) {
-			this.clear()
-		}
+		//this.clear()
 		this.render()
 	}
 
 }
 
-export default FunctionSpace11;
+export default FunctionSpace13;
