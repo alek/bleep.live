@@ -291,6 +291,8 @@ import FunctionSpace13 from './modules/mm2020/functionspace13.js'
 import FunctionSpace14 from './modules/mm2020/functionspace14.js'
 import FunctionSpace15 from './modules/mm2020/functionspace15.js'
 
+import Automata1 from './modules/automata/automata1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -494,7 +496,8 @@ var modules = {
 	FunctionSpace12,
 	FunctionSpace13,
 	FunctionSpace14,
-	FunctionSpace15
+	FunctionSpace15,
+	Automata1
 }
 
 export { modules, createModule };
