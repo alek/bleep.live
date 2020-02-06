@@ -292,6 +292,17 @@ import FunctionSpace14 from './modules/mm2020/functionspace14.js'
 import FunctionSpace15 from './modules/mm2020/functionspace15.js'
 
 import Automata1 from './modules/automata/automata1.js'
+import Automata2 from './modules/automata/automata2.js'
+import Automata3 from './modules/automata/automata3.js'
+import Automata4 from './modules/automata/automata4.js'
+import Automata5 from './modules/automata/automata5.js'
+import Automata6 from './modules/automata/automata6.js'
+import Automata7 from './modules/automata/automata7.js'
+import Automata8 from './modules/automata/automata8.js'
+import Automata9 from './modules/automata/automata9.js'
+import Automata10 from './modules/automata/automata10.js'
+
+import StoryLine1 from './modules/modmanifest3/storyline1.js'
 
 //
 // Instantiate module from a string
@@ -497,7 +508,17 @@ var modules = {
 	FunctionSpace13,
 	FunctionSpace14,
 	FunctionSpace15,
-	Automata1
+	Automata1,
+	Automata2,
+	Automata3,
+	Automata4,
+	Automata5,
+	Automata6,
+	Automata7,
+	Automata8,
+	Automata9,
+	Automata10,
+	StoryLine1	
 }
 
 export { modules, createModule };

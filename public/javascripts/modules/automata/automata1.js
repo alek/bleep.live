@@ -17,6 +17,9 @@ class Automata1 extends Module {
 		for (var i=0; i<ymax*xmax; i++) {
 			this.vector[i] = (Math.random() > 0.9)
 		}
+
+		// todo: move this into a library
+		
 		// this.table = [false, false, false, true, true,false, true, false]
 		
 		// this.table = [false, false, false, true, true,false, true, false]	// glitch
@@ -61,6 +64,7 @@ class Automata1 extends Module {
 		this.setupCanvas();
 		var ctx = this.getCanvasContext();
 		var image = ctx.createImageData(xmax,ymax)
+		
 		for (var i=0; i<xmax; i++) {
 			for (var j=0; j<ymax; j++) {
 				if (this.vector[j*xmax + i]) {
@@ -98,7 +102,6 @@ class Automata1 extends Module {
 		var offset = parseInt("" + ~~a1 + ~~a2 + ~~a3, 2)
 		return this.table[offset]
 	}
-
 
 	// state update as a result of a midi event
 	update(event) {
