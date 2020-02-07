@@ -221,10 +221,20 @@ drawText = function(coord, content, size, fill,weight, spacing, fontFamily, domI
 	}, content.toString(), domID); 
 }
 
-drawPolygon = function(coords, fill, domID) {
+drawPolygon = function(coords, fill, domID, strokeWidth) {
+	if (strokeWidth == null) {
+		strokeWidth = 0
+	}
 	polygon( {
 		points: coords.join(" "),
-		style: "fill:" + fill +";stroke:#fff;stroke-width:0"
+		style: "fill:" + fill +";stroke:#fff;stroke-width:" + strokeWidth
+	}, domID)
+}
+
+drawPolygonOutline = function(coords, stroke, domID) {
+	polygon( {
+		points: coords.join(" "),
+		style: "fill:none;stroke:" + stroke + ";stroke-width:1"
 	}, domID)
 }
 

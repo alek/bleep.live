@@ -303,6 +303,15 @@ import Automata9 from './modules/automata/automata9.js'
 import Automata10 from './modules/automata/automata10.js'
 
 import StoryLine1 from './modules/modmanifest3/storyline1.js'
+import StoryLine2 from './modules/modmanifest3/storyline2.js'
+import StoryLine3 from './modules/modmanifest3/storyline3.js'
+import StoryLine4 from './modules/modmanifest3/storyline4.js'
+import StoryLine5 from './modules/modmanifest3/storyline5.js'
+import StoryLine6 from './modules/modmanifest3/storyline6.js'
+
+import Constructive1 from './modules/modmanifest3/constructive1.js'
+import Constructive2 from './modules/modmanifest3/constructive2.js'
+
 
 //
 // Instantiate module from a string
@@ -518,7 +527,14 @@ var modules = {
 	Automata8,
 	Automata9,
 	Automata10,
-	StoryLine1	
+	StoryLine1,
+	StoryLine2,
+	StoryLine3,
+	StoryLine4,
+	StoryLine5,
+	StoryLine6,
+	Constructive1,
+	Constructive2
 }
 
 export { modules, createModule };

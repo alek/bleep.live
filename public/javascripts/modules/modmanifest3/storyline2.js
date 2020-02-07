@@ -4,7 +4,7 @@
 
 import Module from '../../lib/module.js'
 
-class StoryLine1 extends Module {
+class StoryLine2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -14,6 +14,7 @@ class StoryLine1 extends Module {
 			"angle": ["cc_1", 60]
 		})
 		this.palette = ["#244F80", "#DCA116", "#C84316", "rgba(220,161,23,0.5)", "rgba(36,79,128,0.5)", "rgba(200,67,22,0.5)"]
+		this.primary = this.randomColor()
 	}
 
 	renderGrid(columns, rows) {
@@ -35,7 +36,7 @@ class StoryLine1 extends Module {
 		var off = Math.floor(Math.random()*delta)
 		var mult = 2
 
-		for (var i=0; i<12; i++) {
+		for (var i=0; i<13; i++) {
 
 			if (i > 0 && i%8 == 0) {
 				mult+=2
@@ -78,28 +79,31 @@ class StoryLine1 extends Module {
 		var coords = this.getCoords([xmax/2,ymax/2], delta)
 		coords = coords.map(x => getViewport(x))
 
-		// moveForward()
-		// rotateLeft()
 		scale += 0.025
-		//theta += 0.0125
+		theta += 0.0125
 
 		// drawLine(getViewport([0,0]), getViewport([xmax,ymax]), this.randomColor(), 2, this.getDomID())
 
-		for (var i=ymax*0.62; i<ymax; i+=4) {
-			drawLine(getViewport([0,i]), getViewport([xmax,i]), "rgba(253,250,231,0.5)", 1, this.getDomID())
-		}
+		// for (var i=ymax*0.62; i<ymax; i+=4) {
+		// 	drawLine(getViewport([0,i]), getViewport([xmax,i]), "rgba(253,250,231,0.5)", 1, this.getDomID())
+		// }
 
 		for (var i=0; i<coords.length-2; i++) {
-			// drawCircle(coords[i], 5, this.palette[0], this.getDomID())
+			
 			// if (i>0) { drawLine(coords[i-1], coords[i], this.palette[0], "2px", this.getDomID()) }
 			var dice = Math.random()
 			if (dice < 0.35) {
-				drawCircleOutline(coords[i], delta*(1+Math.floor(Math.random()*4)), this.randomColor(), "2px", this.getDomID())
+				drawCircleOutline(coords[i], delta*(1+Math.floor(Math.random()*(scale*4))), this.randomColor(), "2px", this.getDomID())
 			} else if (dice < 0.4) {
 				drawPolygon([coords[i], coords[i+1], coords[i+2]], this.randomColor(), this.getDomID())
 			} else if (dice < 0.7) {
-				drawCircle(coords[i], delta*(1+Math.floor(Math.random()*2)), this.randomColor(), this.getDomID() )
+				drawCircle(coords[i], delta*(1+Math.floor(Math.random()*scale)), this.randomColor(), this.getDomID() )
+			} else if (dice < 0.8) {
+				drawLine(coords[i], coords[i+1], this.primary, 2, this.getDomID())
+				drawLine(coords[i+1], coords[i+2], this.primary, 2, this.getDomID())
 			}
+
+			drawCircle(coords[i], 5, this.primary, this.getDomID())
 
 		}
 
@@ -114,4 +118,4 @@ class StoryLine1 extends Module {
 
 }
 
-export default StoryLine1;
+export default StoryLine2;
