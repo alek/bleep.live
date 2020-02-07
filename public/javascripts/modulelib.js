@@ -313,6 +313,7 @@ import Constructive1 from './modules/modmanifest3/constructive1.js'
 import Constructive2 from './modules/modmanifest3/constructive2.js'
 import Constructive3 from './modules/modmanifest3/constructive3.js'
 import Constructive4 from './modules/modmanifest3/constructive4.js'
+import Constructive5 from './modules/modmanifest3/constructive5.js'
 
 
 //
@@ -538,7 +539,8 @@ var modules = {
 	Constructive1,
 	Constructive2,
 	Constructive3,
-	Constructive4
+	Constructive4,
+	Constructive5
 }
 
 export { modules, createModule };
