@@ -311,6 +311,8 @@ import StoryLine6 from './modules/modmanifest3/storyline6.js'
 
 import Constructive1 from './modules/modmanifest3/constructive1.js'
 import Constructive2 from './modules/modmanifest3/constructive2.js'
+import Constructive3 from './modules/modmanifest3/constructive3.js'
+import Constructive4 from './modules/modmanifest3/constructive4.js'
 
 
 //
@@ -534,7 +536,9 @@ var modules = {
 	StoryLine5,
 	StoryLine6,
 	Constructive1,
-	Constructive2
+	Constructive2,
+	Constructive3,
+	Constructive4
 }
 
 export { modules, createModule };

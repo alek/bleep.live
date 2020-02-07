@@ -227,7 +227,7 @@ drawPolygon = function(coords, fill, domID, strokeWidth) {
 	}
 	polygon( {
 		points: coords.join(" "),
-		style: "fill:" + fill +";stroke:#fff;stroke-width:" + strokeWidth
+		style: "fill:" + fill +";stroke:" + fill + ";stroke-width:" + strokeWidth
 	}, domID)
 }
 
