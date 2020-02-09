@@ -315,6 +315,7 @@ import Constructive3 from './modules/modmanifest3/constructive3.js'
 import Constructive4 from './modules/modmanifest3/constructive4.js'
 import Constructive5 from './modules/modmanifest3/constructive5.js'
 
+import Telescope1 from './modules/hackchat/telescope1.js'
 
 //
 // Instantiate module from a string
@@ -540,7 +541,8 @@ var modules = {
 	Constructive2,
 	Constructive3,
 	Constructive4,
-	Constructive5
+	Constructive5,
+	Telescope1
 }
 
 export { modules, createModule };
