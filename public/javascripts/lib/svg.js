@@ -147,7 +147,7 @@ drawRectangle = function(coord, width, height, fill, domID) {
 
 drawSquare = function(coord, width, fill, domID, strokeWidth) {
 	if (strokeWidth == null) {
-		strokeWidth = 0
+		strokeWidth = 1
 	}
 		rect({
 			x: coord[0],

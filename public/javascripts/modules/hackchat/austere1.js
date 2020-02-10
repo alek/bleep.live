@@ -83,6 +83,7 @@ class Austere1 extends Module {
 
 	render() {	
 
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		//this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
 		// var a = this.createObject([xmax*0.2, ymax*0.7], 50, 50, 50*Math.random(), 50)
@@ -105,13 +106,17 @@ class Austere1 extends Module {
 		// }
 
 		var dim = 30
+		scale += 0.05
+		if (scale > 2.5) {
+			scale = 0.1
+		}
 
 		for (var height=ymax*0.9; height>ymax*0.7; height-=dim) {
 			for (var i=xmax; i>xmax*0.5; i-=dim) {
-				this.createObject([i, height], dim, dim, 4*dim*Math.random(), 4*dim + ymax*0.1*Math.random()).draw()
+				this.createObject(getViewport([i, height]), dim, dim, 4*dim*Math.random(), 4*dim + ymax*0.1*Math.random()).draw()
 			}
 			for (var i=0; i<xmax*0.5; i+=dim) {
-				this.createObject([i, height], dim, dim, 4*dim*Math.random(), 4*dim + ymax*0.1*Math.random()).draw()
+				this.createObject(getViewport([i, height]), dim, dim, 4*dim*Math.random(), 4*dim + ymax*0.1*Math.random()).draw()
 			}
 		}
 

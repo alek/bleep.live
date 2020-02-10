@@ -26,13 +26,16 @@ class HamRadio1 extends Module {
 
 	render() {	
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
-		var path = []
-		for (var x=0; x<xmax; x+=xmax*0.1) {
-			let y = ymax/2 + (0.25-Math.random()/2)*ymax
-			drawCircle([x, y], 5, "#fff", this.getDomID())
-			path.push([x,y])
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
+		for (var i=0; i<10; i++) {
+			var path = []
+			for (var x=0; x<=xmax; x+=xmax*0.1) {
+				let y = ymax/2 + (0.25-Math.random()/2)*ymax
+				drawCircle([x, y], 5, "#fff", this.getDomID())
+				path.push([x,y])
+			}
+			drawPath(path, "#fff", 2, this.getDomID())
 		}
-		drawPath(path, "#fff", 2, this.getDomID())
 	}
 
 	// state update as a result of a midi event

@@ -27,9 +27,13 @@ class OffWhite1 extends Module {
 	train1() {
 		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 
-		drawRectangle([0,ymax*Math.random()], xmax, ymax*0.25*Math.random(), materialPalette[Math.floor(Math.random()*materialPalette.length)], this.getDomID())
+		if(this.getConfigVal("scanLine", true)) {
+			drawRectangle([0,ymax*Math.random()], xmax, ymax*0.25*Math.random(), materialPalette[Math.floor(Math.random()*materialPalette.length)], this.getDomID())
+		}
 
-		for (var x=0; x<xmax; x+=50) {
+		var inc = this.getConfigVal("inc", 50)
+
+		for (var x=0; x<xmax; x+=inc) {
 			line({
 				x1: x,
 				y1: 0,

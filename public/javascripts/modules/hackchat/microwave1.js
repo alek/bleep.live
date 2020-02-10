@@ -41,16 +41,22 @@ class MicrowaveWorld1 extends Module {
 
 	render() {	
 		
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
+
 		this.staticNoise()
 
 		var offset = 0
-		for (var base = 0; base < ymax; base+= ymax*0.05) {
+		var inc = this.getConfigVal("inc", 0.1)
+
+		for (var base = 0; base < ymax; base+= ymax*0.1) {
 
 			var coords = [[0,base]]
 			var amp = 2
 			var period = 50
+			var delta = this.getConfigVal("delta", 3)
+			var strokeWidth = this.getConfigVal("delta", 1)
 
-			for (var i=-xmax; i<2*xmax; i+= 1) {
+			for (var i=-xmax; i<2*xmax; i+= delta) {
 				// coords.push([i, base+Math.sin((2*Math.PI/xmax*amp)*i)*(period)])
 				// coords.push([i, base+Math.atan((2*Math.PI/xmax*amp)*i)*(period)])
 				// coords.push([i, base+Math.sin(i)])
@@ -61,7 +67,7 @@ class MicrowaveWorld1 extends Module {
 
 			path( {
 				d: "M" + coords.map(x => x.join(" ")).join(" L") + "",
-				style: "fill:none;stroke:" + "#fff" + ";stroke-width:" + "1px;stroke-opacity:" + Math.random()*0.6
+				style: "fill:none;stroke:" + "#fff" + ";stroke-width:" + "1px;stroke-opacity:" + Math.random()*0.8
 				//style: "fill:none;stroke:" + "rgba(255,255,255," + 1 + ")" + ";stroke-width:" + "1px"
 				// style: "fill:none;stroke:" + "rgba(255,255,255," + Math.random()*0.6 + ")" + ";stroke-width:" + "1px"
 				// style: "fill:none;stroke:" + "rgba(255,255,255," + Math.random()/3 + ")" + ";stroke-width:" + Math.floor(Math.random()*10) + "px"

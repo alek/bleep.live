@@ -51,11 +51,12 @@ class Exoplanets1 extends Module {
 	renderGrid(columns, rows) {
 		// var last = 100*Math.random()
 		// var height = 100*Math.random()
+		var peak = this.getConfigVal("peak", 128)
 
 		var displacementMap = new Float32Array((columns+1)*(rows+1))
 		for (var i=0; i<=columns; i++) {
 			for (var j=0; j<=rows; j++) {
-				displacementMap[i*rows+j] = Math.random()*128
+				displacementMap[i*rows+j] = Math.random()*peak
 			}
 		}
 
@@ -95,6 +96,7 @@ class Exoplanets1 extends Module {
 	}	
 
 	render() {	
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
 		this.renderGrid(this.params["grid_rows"],this.params["grid_columns"])
 	}
 

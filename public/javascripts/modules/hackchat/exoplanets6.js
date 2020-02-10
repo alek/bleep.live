@@ -13,7 +13,8 @@ class Exoplanets6 extends Module {
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
-		this.detail = 6
+		// this.detail = 6
+		this.detail = 5
 		this.size = Math.pow(2, this.detail) + 1;
 		this.max = this.size - 1 
 		this.map = new Float32Array(this.size * this.size)
@@ -126,8 +127,8 @@ class Exoplanets6 extends Module {
 	}
 
 	draw() {
-		for (var i=0; i<this.max; i++) {
-			for (var j=0; j<this.max; j++) {
+		for (var i=0; i<this.max; i+=1) {
+			for (var j=0; j<this.max; j+=1) {
 				var coord = this.perspective([i, j], this.get(i, j))				
 				if (coord[0] > 0 && coord[0] < xmax && coord[1] > 0 && coord[1] < ymax) {
 					drawCircle(coord, 2, "#fff", this.getDomID())
@@ -143,6 +144,8 @@ class Exoplanets6 extends Module {
 	}
 
 	render() {	
+
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
 
 		this.set(0,0,this.max/2);
 		this.set(this.max,0,this.max/2);

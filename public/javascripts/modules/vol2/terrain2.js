@@ -8,8 +8,8 @@ class Terrain2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
-			"grid_columns": ["cc_8", 32],
-			"grid_rows": ["cc_9", 32],
+			"grid_columns": ["cc_8", 16],
+			"grid_rows": ["cc_9", 16],
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
@@ -19,7 +19,7 @@ class Terrain2 extends Module {
 		for (var i=0; i<=columns; i++) {
 			for (var j=0; j<=rows; j++) {
 				var coord = getGridCoordinates([i,j], columns, rows, xmax, ymax) 
-				drawCircle(coord, Math.random()*5, "#fff", this.getDomID(), i + "-" + j)
+				drawCircle(coord, Math.random()*(ymax/24), "#fff", this.getDomID(), i + "-" + j)
 				// drawCircle(coord, Math.random()*5, "rgba(24,124,242," + Math.random() + ")", this.getDomID(), i + "-" + j)
 			}
 		}
@@ -54,7 +54,9 @@ class Terrain2 extends Module {
 	// 	}
 	// }
 
-		for (var i=0; i<this.params["grid_rows"]-3; i++) {
+		//var rows = this.getConfigVal("rows", this.params["grid_rows"]-3)
+
+		for (var i=0; i<this.params["grid_columns"]-3; i++) {
 			for (var j=0; j<this.params["grid_rows"]-3; j++) {
 				var c1Val = document.getElementById(i + "-" + j).r.baseVal.value
 				var c2Val = document.getElementById((i + 4) + "-" + j).r.baseVal.value
@@ -73,9 +75,23 @@ class Terrain2 extends Module {
 					document.getElementById(i + "-" + j).r.baseVal.value = 5
 				}
 
+				// if (Math.random() < 0.5) {
+				// 	document.getElementById(i + "-" + j).setAttribute("fill", Math.random() < 0.5 ? "#fff" : "#000")
+				// 	document.getElementById((i+2) + "-" + j).setAttribute("fill", Math.random() < 0.5 ? "#fff" : "#000")
+				// 	document.getElementById(i + "-" + (j+2)).setAttribute("fill", Math.random() < 0.5 ? "#fff" : "#000")
+				// 	document.getElementById((i+2) + "-" + (j+2)).setAttribute("fill", Math.random() < 0.5 ? "#fff" : "#000")
+				// }
+
 				// var el = document.getElementById(i + "-" + j)
 				// var size = el.r.baseVal.value
 				// el.r.baseVal.value = Math.ceil(avg)
+			}
+		}
+
+		for (var i=this.params["grid_columns"]-3; i<=this.params["grid_columns"]; i++) {
+			for (var j=this.params["grid_columns"]-3; j<=this.params["grid_columns"]; j++) {
+				document.getElementById(i + "-" + j).setAttribute("fill", Math.random() < 0.5 ? "#fff" : "#000")
+				document.getElementById(i + "-" + j).r.baseVal.value = (ymax/24)*Math.random()
 			}
 		}
 

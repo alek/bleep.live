@@ -87,7 +87,7 @@ class DryErase2 extends Module {
 	}
 
 	render() {	
-		
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 
 		this.renderGrid()

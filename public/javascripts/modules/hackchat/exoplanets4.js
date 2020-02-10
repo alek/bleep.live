@@ -70,6 +70,8 @@ class Exoplanets4 extends Module {
 
 	render() {	
 
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
+		
 		this.set(0,0,this.max/2);
 		this.set(this.max,0,this.max/2);
 		this.set(this.max,this.max,this.max/2);

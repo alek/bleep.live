@@ -98,7 +98,7 @@ class Constructive3 extends Module {
 								this.randomColor(), this.getDomID(), 0)
 						}
 					}  else if (dice < 0.35) {
-						drawSquare([border[0][0] + x*delta, border[0][1] + y*delta], delta, this.randomColor(), this.getDomID())
+						drawSquare([border[0][0] + x*delta, border[0][1] + y*delta], delta, this.randomColor(), this.getDomID(), 0)
 					} else if (dice < 0.45) {
 						drawCircle([border[0][0] + x*delta + delta/2, border[0][1] + y*delta + delta/2], delta/2, this.randomColor(), this.getDomID())
 					}

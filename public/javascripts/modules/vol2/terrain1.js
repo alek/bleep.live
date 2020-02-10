@@ -25,11 +25,12 @@ class Terrain1 extends Module {
 	}	
 
 	render() {	
+		drawRectangle([0,0], xmax,ymax, "#000", this.getDomID())
 		this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 		var el = document.getElementById(10 + "-" + 10)
 	}
 
-	// state update as a result of a midi event
+	// state update as a result of a midi event3
 	update(event) {
 		// super.update(event)
 		// this.clear()
