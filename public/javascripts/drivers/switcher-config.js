@@ -248,17 +248,17 @@
 
 // HackChat next generation (b&w)
 
-var switcherLineup = [
-			{key: 1, module: "MicrowaveWorld1", config: {}},
-			{key: 2, module: "MicrowaveWorld1", config: {"delta": 100, "inc": 2, "strokeWidth": 10}},
-			{key: 3, module: "Terrain1", config: {}},
-			{key: 4, module: "Terrain2", config: {}},
-			{key: 5, module: "OffWhite1", config: {}},
-			{key: 6, module: "OffWhite1", config: {"inc": 15, "scanLine": false}},
-			{key: 7, module: "Canvas2", config: {}},
-			{key: 8, module: "Exoplanets1", config: {}},
-			{key: 9, module: "Exoplanets1", config: {"peak": 512}}
-]
+// var switcherLineup = [
+// 			{key: 1, module: "MicrowaveWorld1", config: {}},
+// 			{key: 2, module: "MicrowaveWorld1", config: {"delta": 100, "inc": 2, "strokeWidth": 10}},
+// 			{key: 3, module: "Terrain1", config: {}},
+// 			{key: 4, module: "Terrain2", config: {}},
+// 			{key: 5, module: "OffWhite1", config: {}},
+// 			{key: 6, module: "OffWhite1", config: {"inc": 15, "scanLine": false}},
+// 			{key: 7, module: "Canvas2", config: {}},
+// 			{key: 8, module: "Exoplanets1", config: {}},
+// 			{key: 9, module: "Exoplanets1", config: {"peak": 512}}
+// ]
 
 // Fractal terrains etc.
 
@@ -276,4 +276,12 @@ var switcherLineup = [
 // 			{key: 1, module: "Canvas1", config: {}},
 // ]
 
+
+// gradient spaces
+
+var switcherLineup = [
+			{key: 1, module: "Telescope1", config: {"scaleFactor": 0.05}},
+			{key: 2, module: "Telescope1", config: {"scaleFactor": 0.1}},
+			{key: 3, module: "Telescope1", config: {"scaleFactor": 0.2}}
+]
 

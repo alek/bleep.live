@@ -7,7 +7,8 @@ var driverFunction = function(bc) {
 			"_type": "cc",
 			"controller": (Math.random() < 0.5) ? 74 : ((Math.random() < 0.5) ? 71 : 10),
 			"value": Math.floor(Math.random()*65), 
-			"knob": "cc_1"
+			"knob": "cc_1",
+			"meta": "clock"
 		}
 	}
 	bc.postMessage(JSON.stringify({'midi': eventEntry }))		

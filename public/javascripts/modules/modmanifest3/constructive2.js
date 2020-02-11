@@ -13,7 +13,8 @@ class Constructive2 extends Module {
 			"r": ["cc_2", 50],
 			"angle": ["cc_1", 60]
 		})
-		this.foo = 0.1
+		this.foo = 0.0001
+		this.inc = 0.00005
 	}
 
 	getBorderColor() {
@@ -68,9 +69,12 @@ class Constructive2 extends Module {
 			for (var y=0; y< 16; y++) {
 				var xoff = 7-x
 				var yoff = 7-y
-				this.foo += 0.0005
-				if (this.foo > 5) {
-					this.foo = 0.1
+				this.foo += this.inc
+				if (this.foo > 4) {
+					// this.foo = 0.1
+					this.inc = -0.00005
+				} else if (this.foo < 0.0001) {
+					this.inc = 0.00005
 				}
 				if (Math.pow(xoff,2) + Math.pow(yoff,2) <= Math.ceil(mainDiagonal/delta)*this.foo) {
 					if (Math.random() < 0.25) {

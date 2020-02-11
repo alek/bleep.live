@@ -14,7 +14,8 @@ class Constructive3 extends Module {
 			"angle": ["cc_1", 60]
 		})
 		this.palette = ["#244F80", "#DCA116", "#C84316", "rgba(220,161,23,0.5)", "rgba(36,79,128,0.5)", "rgba(200,67,22,0.5)"]
-		this.foo = 0.1
+		this.foo = 0.0001
+		this.inc = 0.00005
 	}
 
 	randomColor() {
@@ -74,9 +75,12 @@ class Constructive3 extends Module {
 			for (var y=0; y< 16; y++) {
 				var xoff = 7-x
 				var yoff = 7-y
-				this.foo += 0.0005
-				if (this.foo > 3.5) {
-					this.foo = 0.1
+				this.foo += this.inc
+				if (this.foo > 4.5) {
+					// this.foo = 0.1
+					this.inc = -0.00005
+				} else if (this.foo < 0.0001) {
+					this.inc = 0.00005
 				}
 				if (Math.pow(xoff,2) + Math.pow(yoff,2) <= Math.ceil(mainDiagonal/delta)*this.foo) {
 					var dice = Math.random()

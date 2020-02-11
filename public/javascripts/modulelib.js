@@ -317,6 +317,13 @@ import Constructive5 from './modules/modmanifest3/constructive5.js'
 
 import Telescope1 from './modules/hackchat/telescope1.js'
 
+import Inevitable1 from './modules/glove/inevitable1.js'
+import Inevitable2 from './modules/glove/inevitable2.js'
+import Inevitable3 from './modules/glove/inevitable3.js'
+import Inevitable4 from './modules/glove/inevitable4.js'
+import Inevitable5 from './modules/glove/inevitable5.js'
+import Inevitable6 from './modules/glove/inevitable6.js'
+
 //
 // Instantiate module from a string
 // 
@@ -386,7 +393,7 @@ var modules = {
 	DNA2,
 	LSystem1,
 	SatNOGS1,
-	Arch1,
+	// Arch1,
 	Virtual1,
 	Virtual2,
 	Virtual3,
@@ -541,7 +548,13 @@ var modules = {
 	Constructive3,
 	Constructive4,
 	Constructive5,
-	Telescope1
+	Telescope1,
+	Inevitable1,
+	Inevitable2,
+	Inevitable3,
+	Inevitable4,
+	Inevitable5,
+	Inevitable6
 }
 
 export { modules, createModule };

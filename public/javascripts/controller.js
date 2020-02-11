@@ -78,6 +78,10 @@ var toggleMidiDriver = function(el, midiDriver) {
 	}
 }
 
+var initWebsocket = function() {
+
+}
+
 //
 // Bootstrap
 //
@@ -107,7 +111,15 @@ $( document ).ready(function() {
 
 	// TODO: add socket disconnect logic
 
-	var socket = io.connect('http://localhost:5133')
+	// var socket = io.connect('http://localhost:5133')
+	var socket = io.connect('http://localhost:5133', {
+    	reconnection: true,
+    	reconnectionDelay: 10,
+    	reconnectionDelayMax : 5000,
+    	randomizationFactor: 0.5,
+    	reconnectionAttempts: Infinity,
+    	autoConnect: true
+	} )
 	
 	socket.on('server', function (data) {
 		console.log("websocket connected")
@@ -119,7 +131,7 @@ $( document ).ready(function() {
 	//
 
 	socket.on('control', function(data) {
-		console.log(data)
+		//console.log(data)
 		updateEventBox(data)
 		bc.postMessage(JSON.stringify({'midi': data}))		
 	});	
@@ -133,6 +145,15 @@ $( document ).ready(function() {
 			setupVirtualMidiUpdateHandler(bc)
 		}
 	})
+
+	socket.on('close', function (data) {
+		console.log(data)
+	})
+
+	socket.on('error', function (data) {
+		console.log(data)
+	})
+
 
 	//
 	// stop / play button

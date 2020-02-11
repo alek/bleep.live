@@ -125,20 +125,20 @@ class Constructive4 extends Module {
 		// }
 
 		for (var y=ymax*0.1; y<ymax*0.9; y+=30) {
-			this.drawText([xmax*0.1+this.offset, y], this.randomQuery()["term"], 14 + "px", "#fff", 700, 0, "Helvetica", this.getDomID())
-			this.drawText([xmax*0.3-this.offset, y], this.randomQuery()["term"], 14 + "px", "#fff", 100, 0, "Helvetica", this.getDomID())
-			this.drawText([xmax*0.5+this.offset, y], this.randomQuery()["term"], 14 + "px", "#fff", 700, 0, "Helvetica", this.getDomID())
-			this.drawText([xmax*0.7-this.offset, y], this.randomQuery()["term"], 14 + "px", "#fff", 100, 0, "Helvetica", this.getDomID())
+			this.drawText([xmax*0.1+this.offset, y], this.randomQuery()["term"], 18 + "px", "#fff", 700, 0, "Helvetica", this.getDomID())
+			this.drawText([xmax*0.3-this.offset, y], this.randomQuery()["term"], 18 + "px", "#fff", 100, 0, "Helvetica", this.getDomID())
+			this.drawText([xmax*0.5+this.offset, y], this.randomQuery()["term"], 18 + "px", "#fff", 700, 0, "Helvetica", this.getDomID())
+			this.drawText([xmax*0.7-this.offset, y], this.randomQuery()["term"], 18 + "px", "#fff", 100, 0, "Helvetica", this.getDomID())
 
 		}
 
 		this.offset += this.inc
 		if (this.offset > 500) {
-			this.inc = -10
+			this.inc = -1
 		} 
 
 		if (this.offset < 0) {
-			this.inc = 10
+			this.inc = 1
 		}
 
 	}
