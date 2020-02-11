@@ -21,6 +21,6 @@
     "request": "*",
     "serialport": "*",
     "serve-favicon": "^2.5.0",
-    "socket.io": "*"
+    "socket.io": "2.3.0"
   }
 }
