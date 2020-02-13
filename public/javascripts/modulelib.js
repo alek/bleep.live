@@ -323,6 +323,14 @@ import Inevitable3 from './modules/glove/inevitable3.js'
 import Inevitable4 from './modules/glove/inevitable4.js'
 import Inevitable5 from './modules/glove/inevitable5.js'
 import Inevitable6 from './modules/glove/inevitable6.js'
+import Inevitable7 from './modules/glove/inevitable7.js'
+
+import MMLogo0 from './modules/mm2020/mmlogo0.js'
+import MMLogo1 from './modules/mm2020/mmlogo1.js'
+import MMLogo2 from './modules/mm2020/mmlogo2.js'
+import MMLogo3 from './modules/mm2020/mmlogo3.js'
+import MMLogo4 from './modules/mm2020/mmlogo4.js'
+import MMLogo5 from './modules/mm2020/mmlogo5.js'
 
 //
 // Instantiate module from a string
@@ -554,7 +562,14 @@ var modules = {
 	Inevitable3,
 	Inevitable4,
 	Inevitable5,
-	Inevitable6
+	Inevitable6,
+	Inevitable7,
+	MMLogo0,
+	MMLogo1,
+	MMLogo2,
+	MMLogo3,
+	MMLogo4,
+	MMLogo5
 }
 
 export { modules, createModule };
