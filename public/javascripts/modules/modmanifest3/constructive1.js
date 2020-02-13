@@ -21,6 +21,8 @@ class Constructive1 extends Module {
 
 	render() {	
 
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
+
 		var sqSize = ymax*0.075
 
 		var dim = ymax*0.8

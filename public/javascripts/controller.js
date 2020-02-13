@@ -288,14 +288,14 @@ $( document ).ready(function() {
  			if (!this.midiDriverRunning) { toggleMidiDriver(this, midiDriver) }
  			$("#player-timer").text("queued")
  			setTimeout(function(){
-				document.getElementById("audiotrack").play(); 			
+				// document.getElementById("audiotrack").play(); 			
 			},1000);
  			sequencerDriverRunning = true
  			$(this).css("background-color", "blue") 
  			$("#sequencer-status").text("running")
 		} else {
 			sequencerDriver.postMessage({'control' : 'stop'});
-			document.getElementById("audiotrack").pause();
+			// document.getElementById("audiotrack").pause();
 			if (this.midiDriverRunning) { toggleMidiDriver(this, midiDriver) }
 			// document.getElementById("audiotrack").currentTime = 0;
 			sequencerDriverRunning = false

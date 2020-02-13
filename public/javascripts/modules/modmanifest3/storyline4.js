@@ -41,7 +41,7 @@ class StoryLine4 extends Module {
 	render() {	
 
 		// this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
-		//drawRectangle([0,0], xmax, ymax, "#E9E6D3", this.getDomID())
+		drawRectangle([0,0], xmax, ymax, "#E9E6D3", this.getDomID())
 
 		var radius = ymax*0.15
 		var center = [xmax/2,ymax/2]

@@ -260,16 +260,134 @@
 // 			{key: 9, module: "Exoplanets1", config: {"peak": 512}}
 // ]
 
-// Fractal terrains etc.
-
+// Fractal terrains & 3d perspective etc.
 
 // var switcherLineup = [
 // 			{key: 1, module: "Exoplanets1", config: {}},
 // 			{key: 2, module: "Exoplanets2", config: {}},
 // 			{key: 3, module: "Exoplanets3", config: {}},
+// 			{key: 4, module: "Exoplanets4", config: {}},
+// 			{key: 5, module: "Exoplanets5", config: {}},
+// 			{key: 6, module: "Exoplanets6", config: {}},									
+// 			{key: 7, module: "Exoplanets7", config: {}},									
+// 			{key: 8, module: "Haze2", config: {}},									
+// 			{key: 9, module: "Austere1", config: {}}
 // ]
 
 
+// Minimal Technical 
+
+// var switcherLineup = [
+// 			{key: 1, module: "DryErase1", config: {}},
+// 			{key: 2, module: "DryErase3", config: {}},
+// 			{key: 3, module: "MMBit1", config: {}},
+// 			{key: 4, module: "MMBit2", config: {}},
+// 			{key: 5, module: "MMBit3", config: {}},
+// 			{key: 6, module: "MMBit4", config: {}},									
+// 			{key: 7, module: "MMBit5", config: {}},									
+// 			{key: 8, module: "MMBit6", config: {}},									
+// 			{key: 9, module: "MMBit7", config: {}}
+// ]
+
+// Search Engine
+
+// var switcherLineup = [
+// 			{key: 1, module: "MMBit8", config: {}},
+// 			{key: 2, module: "MMBit9", config: {}},
+// 			{key: 3, module: "MMBit10", config: {}},
+// 			{key: 4, module: "Process1", config: {}},
+// 			{key: 5, module: "Process2", config: {}},
+// 			{key: 6, module: "Process3", config: {}},									
+// 			{key: 7, module: "Process4", config: {}},									
+// 			{key: 8, module: "Process5", config: {}},									
+// 			{key: 9, module: "DryErase2", config: {}}
+// ]
+
+
+// Radio Spectrum
+
+// var switcherLineup = [
+// 			{key: 1, module: "HamRadio1", config: {}},
+// 			{key: 2, module: "HamRadio2", config: {}},
+// 			{key: 3, module: "MMBit10", config: {}},
+// 			{key: 4, module: "FunctionSpace2", config: {}},
+// 			{key: 5, module: "FunctionSpace3", config: {}},
+// 			{key: 6, module: "FunctionSpace4", config: {}},									
+// 			{key: 7, module: "FunctionSpace5", config: {}},									
+// 			{key: 8, module: "Process3", config: {}},									
+// 			{key: 9, module: "FunctionSpace7", config: {}}
+// ]
+
+// Slow motion
+
+// var switcherLineup = [
+// 			{key: 1, module: "FunctionSpace6", config: {}},
+// 			{key: 2, module: "FunctionSpace8", config: {}},
+// 			{key: 3, module: "FunctionSpace9", config: {}},
+// 			{key: 4, module: "FunctionSpace10", config: {}},
+// 			{key: 5, module: "FunctionSpace11", config: {}},
+// 			{key: 6, module: "FunctionSpace14", config: {}},									
+// 			{key: 7, module: "FunctionSpace15", config: {}},									
+// 			{key: 8, module: "MMLogo5", config: {}},									
+// 			{key: 9, module: "FunctionSpace7", config: {}}
+// ]
+
+// Bleep style - cellular automata
+
+// var switcherLineup = [
+// 			{key: 1, module: "FunctionSpace12", config: {}},
+// 			{key: 2, module: "FunctionSpace13", config: {}},
+// 			{key: 3, module: "Automata1", config: {}},
+// 			{key: 4, module: "Automata2", config: {}},
+// 			{key: 5, module: "Automata3", config: {}},
+// 			{key: 6, module: "Automata4", config: {}},									
+// 			{key: 7, module: "Automata6", config: {}},									
+// 			{key: 8, module: "Automata7", config: {}},									
+// 			{key: 9, module: "Automata9", config: {}}
+// ]
+
+// Bleep style - next gen
+
+// var switcherLineup = [
+// 			{key: 1, module: "Automata10", config: {}},
+// 			{key: 2, module: "Constructive1", config: {}},
+// 			{key: 3, module: "Constructive2", config: {}},
+// 			{key: 4, module: "Constructive3", config: {}},
+// 			{key: 5, module: "Constructive4", config: {}},
+// 			{key: 6, module: "Constructive5", config: {}},									
+// 			{key: 7, module: "Automata6", config: {}},									
+// 			{key: 8, module: "Automata7", config: {}},									
+// 			{key: 9, module: "Automata8", config: {}}
+// ]
+
+// Story line stuff
+
+// var switcherLineup = [
+// 			{key: 1, module: "StoryLine1", config: {}},
+// 			{key: 2, module: "StoryLine2", config: {}},
+// 			{key: 3, module: "StoryLine3", config: {}},
+// 			{key: 4, module: "StoryLine4", config: {}},
+// 			{key: 5, module: "StoryLine5", config: {}},
+// 			{key: 6, module: "StoryLine6", config: {}},									
+// 			{key: 7, module: "HamRadio2", config: {}},									
+// 			{key: 8, module: "FunctionSpace6", config: {}},									
+// 			{key: 9, module: "Haze1", config: {}}
+// ]
+
+
+// Modular Manifestation 3
+
+var switcherLineup = [
+			{key: 1, module: "MMLogo5", config: {}},
+			{key: 2, module: "MMLogo0", config: {}},
+			{key: 3, module: "MMLogo1", config: {}},
+			{key: 4, module: "MMLogo2", config: {}},
+			{key: 5, module: "MMLogo3", config: {}},
+			{key: 6, module: "MMLogo4", config: {}},									
+			{key: 7, module: "FunctionSpace4", config: {}},									
+			{key: 8, module: "Process2", config: {}},									
+			{key: 9, module: "Exoplanets4", config: {}}
+]
 // gradient style
 
 // var switcherLineup = [
@@ -279,9 +397,9 @@
 
 // gradient spaces
 
-var switcherLineup = [
-			{key: 1, module: "Telescope1", config: {"scaleFactor": 0.05}},
-			{key: 2, module: "Telescope1", config: {"scaleFactor": 0.1}},
-			{key: 3, module: "Telescope1", config: {"scaleFactor": 0.2}}
-]
+// var switcherLineup = [
+// 			{key: 1, module: "Telescope1", config: {"scaleFactor": 0.05}},
+// 			{key: 2, module: "Telescope1", config: {"scaleFactor": 0.1}},
+// 			{key: 3, module: "Telescope1", config: {"scaleFactor": 0.2}}
+// ]
 

@@ -25,6 +25,7 @@ class MMLogo0 extends Module {
 	}	
 
 	render() {	
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		$.get( "http://localhost:5133/images/modular/mm03-01.svg", function( data ) {
   			var entry = new XMLSerializer().serializeToString(data)
   			$("#graph").append(entry)
