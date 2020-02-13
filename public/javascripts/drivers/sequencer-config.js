@@ -25,8 +25,18 @@
 // 				]
 
 
+// var sequence = [
+// 				{t: 0, module: "DryErase3", config: {}}, 
+// 				{t: 1000*Math.random(), module: "Exoplanets7", config: {}}, 
+// 				{t: 1000, module: "_repeat"} 
+// 				]
+
+
 var sequence = [
-				{t: 0, module: "DryErase3", config: {}}, 
-				{t: 1000*Math.random(), module: "Exoplanets7", config: {}}, 
-				{t: 1000, module: "_repeat"} 
+				{t: 0, module: "MMLogo1", config: {}}, 
+				{t: 1500, module: "MMLogo2", config: {}}, 
+				{t: 3000, module: "MMLogo3", config: {}}, 
+				{t: 4500, module: "MMLogo4", config: {}}, 
+				{t: 6000, module: "Exoplanets6", config: {}}, 
+				{t: 7500, module: "_repeat"} 
 				]
