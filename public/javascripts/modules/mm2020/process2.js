@@ -41,6 +41,7 @@ class Process2 extends Module {
 	render() {	
 		//this.renderGrid(this.params["grid_rows"],this.params["grid_rows"])
 		
+		drawRectangle([0,0], xmax, ymax, "#000", this.getDomID())
 		var size = ymax*0.1
 
 		// for (var i=0; i<xmax; i+=size) {

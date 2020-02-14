@@ -388,6 +388,7 @@ var switcherLineup = [
 			{key: 8, module: "Process2", config: {}},									
 			{key: 9, module: "Exoplanets4", config: {}}
 ]
+
 // gradient style
 
 // var switcherLineup = [
