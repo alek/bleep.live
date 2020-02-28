@@ -332,6 +332,15 @@ import MMLogo3 from './modules/mm2020/mmlogo3.js'
 import MMLogo4 from './modules/mm2020/mmlogo4.js'
 import MMLogo5 from './modules/mm2020/mmlogo5.js'
 
+import Neural1 from './modules/hackchat/neural1.js'
+
+import WebGLDemo1 from './modules/canvas/webgldemo1.js'
+
+import LogoGen1 from './modules/codeweb/logogen1.js'
+import LogoGen2 from './modules/codeweb/logogen2.js'
+
+import TreeVis1 from './modules/codeweb/treevis1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -569,7 +578,12 @@ var modules = {
 	MMLogo2,
 	MMLogo3,
 	MMLogo4,
-	MMLogo5
+	MMLogo5,
+	Neural1,
+	WebGLDemo1,
+	LogoGen1,
+	LogoGen2,
+	TreeVis1
 }
 
 export { modules, createModule };

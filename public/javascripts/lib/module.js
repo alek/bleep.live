@@ -129,6 +129,10 @@ class Module {
 		return this.getCanvas().getContext("2d");
 	}
 
+	getWebGLContext() {
+		return this.getCanvas().getContext("webgl");
+	}
+
 	//
 	// DOM element init
 	//

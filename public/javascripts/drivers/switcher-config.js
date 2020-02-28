@@ -171,7 +171,6 @@
 // 			{key: 9, module: "Bitfilter3", config: {}}, 
 // ]
 
-
 // HackChat classics
 // var switcherLineup = [
 // 			{key: 1, module: "HCPixel1", config: {"image": "piksel/hc-pxl-1.svg"}}, 
@@ -348,17 +347,17 @@
 
 // Bleep style - next gen
 
-// var switcherLineup = [
-// 			{key: 1, module: "Automata10", config: {}},
-// 			{key: 2, module: "Constructive1", config: {}},
-// 			{key: 3, module: "Constructive2", config: {}},
-// 			{key: 4, module: "Constructive3", config: {}},
-// 			{key: 5, module: "Constructive4", config: {}},
-// 			{key: 6, module: "Constructive5", config: {}},									
-// 			{key: 7, module: "Automata6", config: {}},									
-// 			{key: 8, module: "Automata7", config: {}},									
-// 			{key: 9, module: "Automata8", config: {}}
-// ]
+var switcherLineup = [
+			{key: 1, module: "Automata10", config: {}},
+			{key: 2, module: "Constructive1", config: {}},
+			{key: 3, module: "Constructive2", config: {}},
+			{key: 4, module: "Constructive3", config: {}},
+			{key: 5, module: "Constructive4", config: {}},
+			{key: 6, module: "Constructive5", config: {}},									
+			{key: 7, module: "Automata6", config: {}},									
+			{key: 8, module: "Automata7", config: {}},									
+			{key: 9, module: "Automata8", config: {}}
+]
 
 // Story line stuff
 
@@ -377,17 +376,17 @@
 
 // Modular Manifestation 3
 
-var switcherLineup = [
-			{key: 1, module: "MMLogo5", config: {}},
-			{key: 2, module: "MMLogo0", config: {}},
-			{key: 3, module: "MMLogo1", config: {}},
-			{key: 4, module: "MMLogo2", config: {}},
-			{key: 5, module: "MMLogo3", config: {}},
-			{key: 6, module: "MMLogo4", config: {}},									
-			{key: 7, module: "FunctionSpace4", config: {}},									
-			{key: 8, module: "Process2", config: {}},									
-			{key: 9, module: "Exoplanets4", config: {}}
-]
+// var switcherLineup = [
+// 			{key: 1, module: "MMLogo5", config: {}},
+// 			{key: 2, module: "MMLogo0", config: {}},
+// 			{key: 3, module: "MMLogo1", config: {}},
+// 			{key: 4, module: "MMLogo2", config: {}},
+// 			{key: 5, module: "MMLogo3", config: {}},
+// 			{key: 6, module: "MMLogo4", config: {}},									
+// 			{key: 7, module: "FunctionSpace4", config: {}},									
+// 			{key: 8, module: "Process2", config: {}},									
+// 			{key: 9, module: "Exoplanets4", config: {}}
+// ]
 
 // gradient style
 

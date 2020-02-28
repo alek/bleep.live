@@ -95,6 +95,7 @@ function createWindow () {
     // and load the index.html of the app.
     clientWindow.loadFile('client.html')
     clientWindow.showInactive()
+    // clientWindow.maximize()
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
