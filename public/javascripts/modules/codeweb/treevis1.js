@@ -35,15 +35,28 @@ class TreeVis1 extends Module {
 		var domID = this.getDomID()
 		var mod = this
 
-		$.get("http://localhost:5133/api/tree", function( data ) {
+		// $.get("http://localhost:5133/api/tree?prefix=hack", function( data ) {
+
+		var filter = "?prefix=hack"
+		// var filter = ""
+
+		$.get("http://localhost:5133/api/tree" + filter, function( data ) {			
 			var tree = data.body
 			console.log(tree.length)
 
-			drawCircle([xmax/2,ymax/2], 10, "#fff", domID)
-			mod.label([xmax/2,ymax/2 - 20], tree[0].value, domID)
+			var root = tree
+			var rootName = "/"
 
-			for (var i=0; i<tree[0].children.length; i++) {
-				var l1 = tree[0].children[i]
+			if (filter.length > 0) {
+				root = tree[0].children
+				rootName = tree[0].value
+			}
+
+			drawCircle([xmax/2,ymax/2], 10, "#fff", domID)
+			mod.label([xmax/2,ymax/2 - 20], rootName, domID)
+
+			for (var i=0; i<root.length; i++) {
+				var l1 = root[i]
 
 				var coord = getCircleCoord(xmax/2,ymax/2, i*17, 100+i*10)
 
