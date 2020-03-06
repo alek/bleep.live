@@ -4,7 +4,7 @@
 
 import Module from '../../lib/module.js'
 
-class TreeVis1 extends Module {
+class TreeVis2 extends Module {
 
 	constructor() {
 		super({	// init params mapping
@@ -50,36 +50,65 @@ class TreeVis1 extends Module {
 				root = tree[0].children
 				rootName = tree[0].value
 			}
+			var labelQueue = []
+
+			var radius1 = 200
+			var radius2 = 330
+			var deltaAngle = 15
+
+			// drawCircleOutline([xmax/2,ymax/2], radius1, "#fff", "0.5px", domID)
+			// drawCircleOutline([xmax/2,ymax/2], radius2, "#fff", "0.5px", domID)
 
 			for (var i=0; i<root.length; i++) {
 				var l1 = root[i]
 
-				var coord = getCircleCoord(xmax/2,ymax/2, i*17, 100+i*10)
+				var coord = getCircleCoord(xmax/2,ymax/2, i*deltaAngle, radius1)
 				drawLine([xmax/2,ymax/2], coord, "#574799", "1px", domID)
+				// drawCircleOutline(coord, 100, "#8B8E9F", "0.5px", domID)
 
 				if (l1.is_file) {
-					console.log(l1.value + "\t" + l1.is_file)
+					// console.log(l1.value + "\t" + l1.is_file)
 				} else {
-					console.log(l1.value)
+					// console.log(l1.value)
+					var increment = deltaAngle/l1.children.length
 					for (var j=0; j<l1.children.length; j++) {
 
 						var l2 = l1.children[j]
+						if (l2.is_file) {
+							continue
+						}
 
-						var c2 = getCircleCoord(coord[0],coord[1], j*27, 50+i*5) 
+						// var c2 = getCircleCoord(coord[0],coord[1], j*27, 100) 
+						var c2 = getCircleCoord(xmax/2,ymax/2, i*deltaAngle - Math.ceil(deltaAngle/2) + j*increment, radius2)
+						
 						drawLine(coord, c2, "#574799", "1px", domID)
 						drawCircle(c2, 2, "#F25C8B", domID)
 						// mod.label([c2[0],c2[1] - 10], l2.value, domID)
+						if (l1.children.length < 20) {
+							labelQueue.push({coord: [c2[0],c2[1] - 10], val: l2.value})
+						}
 
 						console.log("\t" + l2.value + "\t" + l2.is_file)
 					}
 				}
 
-				mod.label([coord[0],coord[1] - 18], l1.value, domID)				
-				drawCircle(coord, 10, "#7DA4FF", domID)
+				// if (!l1.is_file) {
+					labelQueue.push({coord: [coord[0],coord[1] - 18], val: l1.value, is_file: l1.is_file})
+					drawCircle(coord, 2+5*Math.random(), "#7DA4FF", domID)
+				// }
+
 			}
 
 			drawCircle([xmax/2,ymax/2], 10, "#fff", domID)
 			mod.label([xmax/2,ymax/2 - 20], rootName, domID)
+
+			for (var i=0; i<labelQueue.length; i++) {
+				if (labelQueue[i].is_file) {
+					drawText([labelQueue[i].coord[0],labelQueue[i].coord[1]+9] , labelQueue[i].val, "6px", "#fff", 100, 0, "Roboto Mono", domID)
+				} else { 
+					mod.label(labelQueue[i].coord, labelQueue[i].val, domID)				
+				}
+			}
 
 		});
 
@@ -94,4 +123,4 @@ class TreeVis1 extends Module {
 
 }
 
-export default TreeVis1;
+export default TreeVis2;

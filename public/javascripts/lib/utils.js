@@ -333,3 +333,122 @@ var sigmoid = function(x) {
 var capitalize = function(text) {
 	return text.charAt(0).toUpperCase() + text.slice(1)
 }
+
+// 
+// Eucledian distance between two coordinates
+//
+var distance = function(coord1, coord2) {
+	return Math.sqrt(Math.pow(coord2[0] - coord1[0], 2) + Math.pow(coord2[1] - coord1[1], 2))
+}
+
+// 
+// Check if circles overlap
+//
+var circlesOverlap = function(coord1, r1, coord2, r2) {
+	return distance(coord1, coord2) < (r1 + r2)
+}
+
+// get random coordinate within a given circle
+var randomCircleCoord = function(center, radius) {
+	var a = Math.random() * 2 * Math.PI
+	var r = radius * Math.sqrt(Math.random())
+	return [center[0] + r * Math.cos(a), center[1] + r * Math.sin(a)]
+}
+
+// circle packing layout tools
+
+class Circle {
+	constructor(coord, r) {
+		this.coord = coord
+		this.r = r
+		this.color = "#fff"
+	}
+	overlaps(circle) {
+		return circlesOverlap(this.coord, this.r, circle.coord, circle.r)
+	}
+	outline(domID) {
+		drawCircleOutline(this.coord, this.r, this.color, "1px", domID)
+	}
+	draw(domID) {
+		drawCircle(this.coord, this.r, this.color, domID)
+	}
+	area() {
+		return Math.pow(this.r,2)*Math.PI
+	}
+	circumference() {
+		return 2*this.r*Math.PI
+	}
+}
+
+class CircleLayout {
+	
+	constructor(center, radius) {
+		this.center = center
+		this.radius = radius
+		this.elements = []
+		this.totalArea = Math.pow(this.radius,2)*Math.PI
+		this.areaOccupied = 0
+	}
+	
+	areaAvailable() {
+		return this.totalArea - this.areaOccupied
+	}
+	
+	add(radius, margin) {
+		if (margin == null) {
+			margin = 0
+		}
+		if (Math.pow(radius,2)*Math.PI < this.areaAvailable()*0.8) {
+			for (var i=0; i<40; i++) { 	// max 20 attempts
+				// var coord = getRandomCoord(this.xmax, this.ymax, this.ymax*0.1)
+				var coord = randomCircleCoord(this.center, this.radius - radius*2 - margin)
+				
+				var available = true
+				var circle = new Circle(coord, radius)
+
+				for (var j=0; j<this.elements.length; j++) {
+					if (this.elements[j].overlaps(circle)) {
+						available = false
+					}
+				}
+				if (available) {
+					this.elements.push(circle)
+					this.areaOccupied += circle.area()
+					return circle
+				}
+			}
+		} 
+		return null
+	}
+}
+
+
+// render circle segments via polygon interpolation
+class CircleSegment {
+	constructor(center, startAngle, endAngle, radius, height, color) {
+		this.center = center
+		this.radius = radius
+		this.startAngle = startAngle
+		this.endAngle = endAngle
+		this.height = height
+		this.color = (color == null) ? "#fff" : color
+	}
+
+	draw(domID) {
+		if (Math.abs(this.startAngle - this.endAngle) < 2) {	// straight up single polygon
+			var c1 = getCircleCoord(this.center[0], this.center[1], this.startAngle, this.radius)
+			var c2 = getCircleCoord(this.center[0], this.center[1], this.startAngle, this.radius + this.height)
+			var c3 = getCircleCoord(this.center[0], this.center[1], this.endAngle, this.radius + this.height)
+			var c4 = getCircleCoord(this.center[0], this.center[1], this.endAngle, this.radius )
+			drawPolygon([c1, c2, c3, c4], this.color, domID)
+		} else {	// multiple polygons
+			for (var i=0; i<(this.endAngle - this.startAngle); i++) {
+				var c1 = getCircleCoord(this.center[0], this.center[1], this.startAngle+i, this.radius)
+				var c2 = getCircleCoord(this.center[0], this.center[1], this.startAngle+i, this.radius + this.height)
+				var c3 = getCircleCoord(this.center[0], this.center[1], this.startAngle+i+1, this.radius + this.height)
+				var c4 = getCircleCoord(this.center[0], this.center[1], this.startAngle+i+1, this.radius )
+				drawPolygon([c1, c2, c3, c4], this.color, domID)
+			}
+		}
+	}
+}

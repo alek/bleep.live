@@ -253,7 +253,6 @@ drawPath = function(coords, stroke, weight, domID) {
 	}, domID)
 }
 
-
 drawImage = function(coords, src, width, height, domID) {
 	image( {
 		href: src,

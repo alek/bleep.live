@@ -340,6 +340,17 @@ import LogoGen1 from './modules/codeweb/logogen1.js'
 import LogoGen2 from './modules/codeweb/logogen2.js'
 
 import TreeVis1 from './modules/codeweb/treevis1.js'
+import TreeVis2 from './modules/codeweb/treevis2.js'
+import TreeVis3 from './modules/codeweb/treevis3.js'
+import TreeVis4 from './modules/codeweb/treevis4.js'
+import TreeVis5 from './modules/codeweb/treevis5.js'
+import TreeVis6 from './modules/codeweb/treevis6.js'
+import TreeVis7 from './modules/codeweb/treevis7.js'
+import TreeVis8 from './modules/codeweb/treevis8.js'
+import TreeVis9 from './modules/codeweb/treevis9.js'
+
+import GHO1 from './modules/gho/gho1.js'
+import GHO2 from './modules/gho/gho2.js'
 
 //
 // Instantiate module from a string
@@ -583,7 +594,17 @@ var modules = {
 	WebGLDemo1,
 	LogoGen1,
 	LogoGen2,
-	TreeVis1
+	TreeVis1,
+	TreeVis2,
+	TreeVis3,
+	GHO1,
+	GHO2,
+	TreeVis4,
+	TreeVis5,
+	TreeVis6,
+	TreeVis7,
+	TreeVis8,
+	TreeVis9
 }
 
 export { modules, createModule };
