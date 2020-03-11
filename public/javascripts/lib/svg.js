@@ -211,13 +211,16 @@ drawLine = function(start, end, stroke, width, domID, id, dashed, arrow, dashArr
 	}, domID);
 }
 
-drawText = function(coord, content, size, fill,weight, spacing, fontFamily, domID) {
+drawText = function(coord, content, size, fill,weight, spacing, fontFamily, domID, align) {
+	if (align == null) {
+		align = "middle"
+	}
 	text( { 
 		x: coord[0],
 		y: coord[1],
 		"fill": fill,
 		"transform": "rotate(0 50 100)",
-		"style": "font-size:" + size + ";text-align:center;alignment-baseline:middle;text-anchor:middle;opacity:1.0;font-family:" + fontFamily + ";sans-serif;font-weight:" + weight + ";letter-spacing:" + spacing + "px;"
+		"style": "font-size:" + size + ";text-align:center;alignment-baseline:" + align + ";text-anchor:" + align + ";opacity:1.0;font-family:" + fontFamily + ";sans-serif;font-weight:" + weight + ";letter-spacing:" + spacing + "px;"
 	}, content.toString(), domID); 
 }
 

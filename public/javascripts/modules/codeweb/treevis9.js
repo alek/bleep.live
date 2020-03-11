@@ -195,6 +195,8 @@ class TreeVis9 extends Module {
 
 		var filter = "?prefix=vendor"
 		// var filter = ""
+		var treeGraph = new TreeMap([0,0], xmax, ymax, randomPantoneHex())
+		// tree.draw(domID)
 
 		$.get("http://localhost:5133/api/tree" + filter, function( data ) {			
 			var tree = data.body
@@ -210,12 +212,24 @@ class TreeVis9 extends Module {
 			for (var i=0; i<root.length; i++) {
 				var l1 = root[i]
 				if (l1.is_file) {
-					console.log(l1.value + "\t" + l1.is_file)
+					//console.log(l1.value + "\t" + l1.is_file)
 				} else {
-					console.log(l1.value)
-					for (var j=0; j<l1.children.length; j++) {
+					var sub = treeGraph.add(100 + Math.min(l1.children.length*25, 300), 100, l1.value, 10)
+					if (sub != null) {
+						sub.color = "#28282A"
+						sub.draw(domID, true)
+					}
+					//console.log(l1.value)
+					for (var j=0; j<Math.min(l1.children.length,100); j++) {
 						var l2 = l1.children[j]
-						console.log("\t" + l2.value + "\t" + l2.is_file)
+						//console.log("\t" + l2.value + "\t" + l2.is_file)
+						var ssub = sub.add(20, 10, null, 2)
+						if (ssub != null) {
+							ssub.draw(domID, true)
+						} else {
+							console.log("can't render: " + j + "\t" + l1.children.length)
+						}
+
 					}
 				}
 			}

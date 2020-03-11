@@ -452,3 +452,39 @@ class CircleSegment {
 		}
 	}
 }
+
+class TreeMap {
+	constructor(coord, width, height, color, label) {
+		this.coord = coord
+		this.width = width
+		this.height = height
+		this.color = (color != null) ? color : "#fff"
+		this.next = coord
+		this.label = label
+		this.palette = new Array(4).fill(0).map(x => randomPantoneHex());
+	}
+
+	add(width, height, label, delta) {
+		var res = new TreeMap(this.next, width, height, this.palette[Math.floor(Math.random()*this.palette.length)], label)
+		if ((this.next[0] - this.coord[0]) + width < this.width - delta - 30) {
+			this.next = [this.next[0] + width + delta, this.next[1]]
+		} else if ((this.next[1] - this.coord[1]) + height < this.height - delta) {
+			this.next = [this.coord[0], this.next[1] + height + delta]
+		} else {
+			console.log(this.coord[0] + "\t" + this.coord[1] + "\t" + width + "\t" + height)
+			return null
+		} 
+		return res
+	}
+
+	draw(domID, drawBg) {
+		if (drawBg) {
+			drawRectangle(this.coord, this.width, this.height, this.color, domID)
+		} else {
+			drawRectangleOutline(this.coord, this.width, this.height, this.color, domID)
+		}
+		if (this.label) {
+			drawText([this.coord[0] + 5, this.coord[1]+this.height - 10], this.label, "10px", this.palette[0], 100, 0, "Roboto Mono", domID, "left")
+		}
+	}
+}

@@ -352,6 +352,8 @@ import TreeVis9 from './modules/codeweb/treevis9.js'
 import GHO1 from './modules/gho/gho1.js'
 import GHO2 from './modules/gho/gho2.js'
 
+import FileVis1 from './modules/codeweb/filevis1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -604,7 +606,8 @@ var modules = {
 	TreeVis6,
 	TreeVis7,
 	TreeVis8,
-	TreeVis9
+	TreeVis9,
+	FileVis1
 }
 
 export { modules, createModule };
