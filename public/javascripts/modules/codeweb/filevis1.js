@@ -88,14 +88,15 @@ class FileVis1 extends Module {
 	}
 
 	renderDetails(content, header, topOffset, leftOffset, colorMap, domID) {
+		drawRectangle([xmax/2,0], xmax/2, ymax, "#232325", domID)
 		for (var j=0; j<content.length; j+=2) {
 			var v1 = (content[j] && content[j].length > 0) ? content[j] : "-"
-			drawText([xmax*0.5+50,topOffset+j*20+5], header[j], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
-			drawText([xmax*0.5+50,topOffset+j*20+20], v1 , 14, colorMap[content[j]], 300, 0, "Roboto Mono", domID, "start", "label-1")
+			this.drawText([xmax*0.5+50,topOffset+j*20+5], header[j], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
+			this.drawText([xmax*0.5+50,topOffset+j*20+20], v1 , 14, colorMap[content[j]], 300, 0, "Roboto Mono", domID, "start", "label-1")
 
 			var v2 = (content[j] && content[j].length > 0) ? content[j+1] : "-"
-			drawText([xmax*0.5+200,topOffset+j*20+5], header[j+1], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
-			drawText([xmax*0.5+200,topOffset+j*20+20], v2, 14, colorMap[content[j+1]], 300, 0, "Roboto Mono", domID, "start", "label-1")
+			this.drawText([xmax*0.5+200,topOffset+j*20+5], header[j+1], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
+			this.drawText([xmax*0.5+200,topOffset+j*20+20], v2, 14, colorMap[content[j+1]], 300, 0, "Roboto Mono", domID, "start", "label-1")
 		}
 	}
 
@@ -114,8 +115,8 @@ class FileVis1 extends Module {
 			var header = res['header']
 			var content = res['content']
 
-			this.header = header
-			this.content = content
+			mod.header = header
+			mod.content = content
 
 			var len = header.length
 
@@ -139,8 +140,12 @@ class FileVis1 extends Module {
 					mod.drawRectangle([leftOffset + 30 + j*8,topOffset+i*8], 6, 6, mod.colorMap[value], domID, id)
 
 					document.getElementById(id).addEventListener('mouseover', function(e) {
-					    // e.currentTarget.setAttribute('fill', '#ff00cc');
-					    // console.log(e)
+					    var parts = this.id.split("-")
+					    if (parts.length == 3 && parts[0] == "rect") {
+					    	var i = parts[1]
+					    	var j = parts[2]
+					    	mod.renderDetails(mod.content[i], mod.header, topOffset, leftOffset, mod.colorMap, domID)
+					    }
 					});					
 
 				}
