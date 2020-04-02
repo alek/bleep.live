@@ -356,6 +356,24 @@ import FileVis1 from './modules/codeweb/filevis1.js'
 
 import TreeVis10 from './modules/codeweb/treevis10.js'
 
+import FileVis2 from './modules/codeweb/filevis2.js'
+
+import Radio1 from './modules/hackchat/radio1.js'
+
+import CNY1 from './modules/reports/cny1.js'
+import CNY2 from './modules/reports/cny2.js'
+import CNY3 from './modules/reports/cny3.js'
+
+import ShardTiles1 from './modules/reports/shardtiles1.js'
+import SideChannel1 from './modules/hackchat/sidechannel1.js'
+
+import Covid1 from './modules/covid/covid1.js'
+import Covid2 from './modules/covid/covid2.js'
+import Covid3 from './modules/covid/covid3.js'
+import Covid4 from './modules/covid/covid4.js'
+
+import MemoryCube1 from './modules/memorycube/memorycube1.js'
+
 //
 // Instantiate module from a string
 // 
@@ -610,7 +628,19 @@ var modules = {
 	TreeVis8,
 	TreeVis9,
 	FileVis1,
-	TreeVis10
+	TreeVis10,
+	FileVis2,
+	Radio1,
+	CNY1,
+	CNY2,
+	CNY3,
+	ShardTiles1,
+	SideChannel1,
+	Covid1,
+	Covid2,
+	Covid4,
+	Covid3,
+	MemoryCube1
 }
 
 export { modules, createModule };

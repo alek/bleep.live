@@ -90,11 +90,11 @@ class FileVis1 extends Module {
 	renderDetails(content, header, topOffset, leftOffset, colorMap, domID) {
 		drawRectangle([xmax/2,0], xmax/2, ymax, "#232325", domID)
 		for (var j=0; j<content.length; j+=2) {
-			var v1 = (content[j] && content[j].length > 0) ? content[j] : "-"
+			var v1 = (content[j] && content[j].length > 0) ? content[j].substring(0,16) : "-"
 			this.drawText([xmax*0.5+50,topOffset+j*20+5], header[j], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
 			this.drawText([xmax*0.5+50,topOffset+j*20+20], v1 , 14, colorMap[content[j]], 300, 0, "Roboto Mono", domID, "start", "label-1")
 
-			var v2 = (content[j] && content[j].length > 0) ? content[j+1] : "-"
+			var v2 = (content[j] && content[j].length > 0) ? content[j+1].substring(0,16) : "-"
 			this.drawText([xmax*0.5+200,topOffset+j*20+5], header[j+1], 8, "#fff", 100, 0, "Roboto Mono", domID, "start", "label-1")
 			this.drawText([xmax*0.5+200,topOffset+j*20+20], v2, 14, colorMap[content[j+1]], 300, 0, "Roboto Mono", domID, "start", "label-1")
 		}

@@ -16,6 +16,7 @@
     "ejs": ">=2.5.5",
     "express": "^4.17.1",
     "gitlog": "^3.1.2",
+    "googleapis": "^39.2.0",
     "kalmanjs": "*",
     "line-by-line": "*",
     "morgan": ">=1.9.1",
