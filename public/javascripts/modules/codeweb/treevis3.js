@@ -37,11 +37,13 @@ class TreeVis3 extends Module {
 
 		// $.get("http://localhost:5133/api/tree?prefix=hack", function( data ) {
 
-		var filter = "?prefix=vendor"
+		// var filter = "?prefix=vendor"
+		var filter = "?prefix=crypto"
 		// var filter = ""
 
 		$.get("http://localhost:5133/api/tree" + filter, function( data ) {			
 			var tree = data.body
+			console.log(tree)
 
 			var root = tree
 			var rootName = "/"
@@ -167,8 +169,9 @@ class TreeVis3 extends Module {
 
 		// $.get("http://localhost:5133/api/tree?prefix=hack", function( data ) {
 
-		var filter = "?prefix=vendor"
-		// var filter = ""
+		// var filter = "?prefix=vendor"
+		// var filter = "?prefix=crypto"
+		var filter = ""
 
 		$.get("http://localhost:5133/api/tree" + filter, function( data ) {			
 			var tree = data.body

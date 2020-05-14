@@ -46,6 +46,11 @@ var setupParametricGradient = function(gradientID, domID, params) {
 }
 
 
+// get a random color from the material palette
+var randomMaterialColor = function() {
+	return materialPalette[Math.floor(Math.random()*materialPalette.length)]
+}
+
 // get [x,y] coordinates for a given [row, column] grid element
 var getGridCoordinates = function(gridCoord, nrows, ncolumns, xmax, ymax) {
 	var rowWidth = xmax/nrows
@@ -487,4 +492,47 @@ class TreeMap {
 			drawText([this.coord[0] + 5, this.coord[1]+this.height - 10], this.label, "10px", this.palette[0], 100, 0, "Roboto Mono", domID, "left")
 		}
 	}
+}
+
+// some essential prototype extensions
+
+// XOR two strings
+String.prototype.xor = function(text) {
+	
+	let len = Math.max(this.length, text.length)
+
+	let source = this.pad(len)
+	text = text.pad(len)
+	let result = ""
+
+	for (let i=0; i<len; i++) {
+		result += String.fromCharCode(source.charCodeAt(i) ^ text.charCodeAt(i))
+	}
+	return result
+}
+
+// pad the string to a given length
+String.prototype.pad = function(length) {
+	if (this.length == length) {
+		return this.toString()
+	} else if (this.length > length) {
+		return this.substring(0,length)
+	} else {
+		return this.padEnd(length)
+	}
+}
+
+// get a binary array representation 
+String.prototype.toBinaryArray = function(length) {
+	return Array.from(this).map((each)=>each.charCodeAt(0).toString(2)).join("").split("").map((each)=>parseInt(each))
+}
+
+String.prototype.hash1 = function() {
+	let result = ""
+	let sum = 1
+	for (let i=0; i<this.length; i++) {
+		sum = sum*this.charCodeAt(i) % 239
+		result += String.fromCharCode(sum)
+	}
+	return result
 }

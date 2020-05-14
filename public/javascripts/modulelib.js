@@ -374,6 +374,31 @@ import Covid4 from './modules/covid/covid4.js'
 
 import MemoryCube1 from './modules/memorycube/memorycube1.js'
 
+import CovidPapers1 from './modules/covid/covidpapers1.js'
+import CovidPapers2 from './modules/covid/covidpapers2.js'
+
+import FileVis3 from './modules/codeweb/filevis3.js'
+import FileVis4 from './modules/codeweb/filevis4.js'
+
+import PCBBringUp1 from './modules/hackchat/pcbbringup1.js'
+import PCBBringUp2 from './modules/hackchat/pcbbringup2.js'
+
+import DepGraph1 from './modules/codeweb/depgraph1.js'
+import DepGraph2 from './modules/codeweb/depgraph2.js'
+
+import TreeVis11 from './modules/codeweb/treevis11.js'
+
+import BiorxivPapers1 from './modules/covid/biorxivpapers1.js'
+
+import Memorybox1 from './modules/codeweb/memorybox1.js'
+import Memorybox2 from './modules/codeweb/memorybox2.js'
+
+import XORFilter1 from './modules/codeweb/xorfilter1.js'
+import XORFilter2 from './modules/codeweb/xorfilter2.js'
+import XORFilter3 from './modules/codeweb/xorfilter3.js'
+
+import Memorybox3 from './modules/codeweb/memorybox3.js'
+
 //
 // Instantiate module from a string
 // 
@@ -640,7 +665,23 @@ var modules = {
 	Covid2,
 	Covid4,
 	Covid3,
-	MemoryCube1
+	MemoryCube1,
+	CovidPapers1,
+	CovidPapers2,
+	FileVis3,
+	FileVis4,
+	PCBBringUp1,
+	PCBBringUp2,
+	DepGraph1,
+	DepGraph2,
+	TreeVis11,
+	BiorxivPapers1,
+	Memorybox1,
+	Memorybox2,
+	XORFilter1,
+	XORFilter2,
+	XORFilter3,
+	Memorybox3
 }
 
 export { modules, createModule };

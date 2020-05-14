@@ -26,7 +26,7 @@ path = function(params, domID) {
 }
 
 text = function(params, text, domID) {
-	document.getElementById(domID).appendChild(addSVG('text', params)).appendChild(document.createTextNode(text.substring(0,120)))
+	document.getElementById(domID).appendChild(addSVG('text', params)).appendChild(document.createTextNode(text.substring(0,1024)))
 }
 
 circle = function(params, domID) {
