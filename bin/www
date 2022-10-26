@@ -13,11 +13,11 @@ const Readline = require('@serialport/parser-readline')
 
 //const sPort = new SerialPort("/dev/tty.usbserial-DN04K3I8", { baudRate: 38400 })
 //const sPort = new SerialPort("/dev/tty.usbserial-DN04K3I8", { baudRate: 38400 })
-const sPort = new SerialPort("/dev/tty.usbserial-D3073GJO", { baudRate: 38400 })
+// const sPort = new SerialPort("/dev/tty.usbserial-D3073GJO", { baudRate: 38400 })
 
 // const sPort = new SerialPort("/dev/tty.usbserial-DN04K3IC", { baudRate: 38400 })
-const parser = new Readline()
-sPort.pipe(parser)
+// const parser = new Readline()
+// sPort.pipe(parser)
 
 var easymidi = require('easymidi');
 var virtualmidi = false
@@ -52,14 +52,14 @@ var midiMap = {
   22: 118,    // right hand gyroscope Z axis      -> cc_22
 }
 
-parser.on('data', function(data) {
-  // console.log(data)
-  var parts = data.trim().split(/\s+/)
-  for (var i in parts) {
-    parts[i] = parseInt(parts[i])
-  }
-  lastEvent = parts
-})
+// parser.on('data', function(data) {
+//   // console.log(data)
+//   var parts = data.trim().split(/\s+/)
+//   for (var i in parts) {
+//     parts[i] = parseInt(parts[i])
+//   }
+//   lastEvent = parts
+// })
 
 // const parser = new Readline()
 
